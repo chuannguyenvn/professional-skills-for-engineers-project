@@ -1,10 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private Canvas mainCanvas; 
+    [SerializeField] private Canvas mainCanvas;
+    [SerializeField] private bool isOnScrollPage = false;
+    
+    private void Update()
+    {
+        if( Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+    }
+    
+    #region Unused
     //
     // public Vector3 WorldToUISpace(Canvas parentCanvas, Vector3 worldPos)
     // {
@@ -30,6 +42,9 @@ public class UIManager : Singleton<UIManager>
     //     //Convert the local point to world point
     //     return mainCanvas.transform.TransformPoint(movePos);
     // }
-
     
+
+    #endregion
+
+
 }

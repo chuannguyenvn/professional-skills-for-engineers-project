@@ -21,12 +21,15 @@ public class ScrollPage : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _contentRTransform.DOMoveY(yPositionMovingUp, duration).SetEase(easeType);
     }
     
     public void DisableAnimation()
     {
-        _contentRTransform.DOMoveY(-yPositionMovingUp, duration).SetEase(easeType).SetRelative().OnComplete(Disable);
+        _contentRTransform.DOMoveY(-yPositionMovingUp, duration).SetEase(easeType).SetRelative().OnComplete(
+            () => { gameObject.SetActive(false);}
+            );
         
     }
 

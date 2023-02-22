@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 1673181906}
   m_Layer: 5
   m_Name: Calendar Scroll Page
-  m_TagString: Untagged
+  m_TagString: ScrollPage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

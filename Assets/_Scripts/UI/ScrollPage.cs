@@ -10,6 +10,7 @@ public class ScrollPage : MonoBehaviour
 
     [Header("Awake Animation")] 
     [SerializeField] private float yPositionMovingUp = 0;
+    [SerializeField] private float yPositionMovingDown = -15;
     [SerializeField] private float duration=0.5f;
     [SerializeField] private Ease easeType;
 
@@ -27,7 +28,7 @@ public class ScrollPage : MonoBehaviour
     
     public void DisableAnimation()
     {
-        _contentRTransform.DOMoveY(-yPositionMovingUp, duration).SetEase(easeType).SetRelative().OnComplete(
+        _contentRTransform.DOMoveY(yPositionMovingDown, duration).SetEase(easeType).OnComplete(
             () => { gameObject.SetActive(false);}
             );
         

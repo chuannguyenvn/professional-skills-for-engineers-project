@@ -7,13 +7,23 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private Canvas mainCanvas;
     [SerializeField] private bool isOnScrollPage = false;
-    
+
+    [SerializeField] private LayerMask uiLayerMask;
     private void Update()
     {
         if( Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            MouseClicked();
+            
         }
+    }
+    
+    
+    void MouseClicked(){
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 1f, uiLayerMask );
+        Debug.Log(hit.transform.gameObject);
     }
     
     #region Unused

@@ -5,15 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TimeTable", menuName = "ScriptableObjects/TimeTable", order = 1)]
 public class TimeTableSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int semester;
+    public int year;
+    public List<SubjectInfo> subjectInfos;
 
-    // Update is called once per frame
-    void Update()
+    public void Init(int _semester, int _year, List< SubjectInfo > _subjectInfos)
     {
-        
+        semester = _semester;
+        year = _year;
+        subjectInfos = _subjectInfos;
     }
 }

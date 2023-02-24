@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using Clipboard
 
 public class CalendarRegex : MonoBehaviour
 {
@@ -25,7 +26,20 @@ public class CalendarRegex : MonoBehaviour
        
     }
 
+    public void OnFastPaste()
+    {
+        string clipBoard = GUIUtility.systemCopyBuffer;
+        inputField.text = clipBoard;
+        InputCheck();
+    }
+
     public void InputCheck()
+    {
+        string pattern = "pdt@hcmut.edu.vn";
+        
+    }
+
+    private void MakeTimetable()
     {
         string text = inputField.text;
         string pattern =  @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^.](?!Tổng số tín chỉ đăng ký))*)";
@@ -48,79 +62,21 @@ public class CalendarRegex : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Test()
-    {
-
-        string text = inputField.text;
-	   
-        // Orgininal but bug ?
-	  //string pattern = @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)\n[^\n]*\n[^\n]*\n(?<entries>(?:[^]*(?!Tổng số tín chỉ đăng ký))*)";
-        
-        string pattern = @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)\n[^\n]*\n[^\n]*\n(?<entries>(?:.*(?!Tổng số tín chỉ đăng ký))*)";
-        
-        // Instantiate the regular expression object.
-        Regex r = new Regex(pattern, RegexOptions.IgnoreCase);
-        
-        // Match the regular expression pattern against a text string.
-        var matches = r.Matches(text);
-        
-          
-        foreach (Match match in matches){
-            Debug.Log("Match");
-          
-        }
-      
-        //TEST CASE 2 CAN DETECT 5 CASE  
-        string pat2 = @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)";
-
-        Regex r2 =  new Regex(pat2, RegexOptions.IgnoreCase);
-        var matches2 = r2.Matches(text);
-        foreach (Match match in matches2){
-            Debug.Log("Match2");
-          
-        }
-
-        //TEST CASE 3 CANNOT DETECT DUE TO \n AT THE END???
-        string pat3 = @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)\n";
-
-        Regex r3 =  new Regex(pat3, RegexOptions.IgnoreCase);
-        var matches3 = r3.Matches(text);
-        foreach (Match match in matches3){
-            Debug.Log("Match3");
-          
-        }
-
-        // TEST CASE TXT4 CAN DETECT THE \n
-        string txt4 = @"
-
-
-";
-        for(int i = 0 ; i< txt4.Length; i++){
-            if(txt4[i]=='\n')  Debug.Log("newline");
-        }
-      
         /*
-        while (m.Success)
-        {
-           Debug.Log("Match"+ (++matchCount));
-           for (int i = 1; i <= 2; i++)
-           {
-              Group g = m.Groups[i];
-              Debug.Log("Group"+i+"='" + g + "'");
-              CaptureCollection cc = g.Captures;
-              for (int j = 0; j < cc.Count; j++)
-              {
-                 Capture c = cc[j];
-                 System.Debug.Log("Capture"+j+"='" + c + "', Position="+c.Index);
-              }
-           }
-           m = m.NextMatch();
-        }
+        // MyClass is inheritant from ScriptableObject base class
+        MyClass example = ScriptableObject.CreateInstance<MyClass>();
+        // path has to start at "Assets"
+        string path = "Assets/Your path.../filename.asset";
+        AssetDatabase.CreateAsset(example, path);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = example;
         */
 
-    }
+        TimeTableSO timeTable = ScriptableObject.CreateInstance<TimeTableSO>();
+
+    } 
     
 }
 

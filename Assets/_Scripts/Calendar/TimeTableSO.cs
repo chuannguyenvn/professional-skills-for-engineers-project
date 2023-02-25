@@ -9,10 +9,13 @@ public class TimeTableSO : ScriptableObject
     public int year;
     public List<SubjectInfo> subjectInfos;
 
+    
     public void Init(int _semester, int _year, List< SubjectInfo > _subjectInfos)
     {
         semester = _semester;
         year = _year;
         subjectInfos = _subjectInfos;
     }
+    
+    
 }

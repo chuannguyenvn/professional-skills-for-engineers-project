@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using Clipboard
+
 
 public class CalendarRegex : MonoBehaviour
 {
@@ -62,20 +62,8 @@ public class CalendarRegex : MonoBehaviour
                 }
             }
         }
-        /*
-        // MyClass is inheritant from ScriptableObject base class
-        MyClass example = ScriptableObject.CreateInstance<MyClass>();
-        // path has to start at "Assets"
-        string path = "Assets/Your path.../filename.asset";
-        AssetDatabase.CreateAsset(example, path);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-        EditorUtility.FocusProjectWindow();
-        Selection.activeObject = example;
-        */
 
-        TimeTableSO timeTable = ScriptableObject.CreateInstance<TimeTableSO>();
-
+        //TimeTable timeTable = new TimeTable();
     } 
     
 }

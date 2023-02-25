@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class CalendarRegex : MonoBehaviour
+public class CalendarCreationPage : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI comment;
@@ -62,9 +62,12 @@ public class CalendarRegex : MonoBehaviour
                 }
             }
         }
-
+        
         //TimeTable timeTable = new TimeTable();
     } 
+    
+    
+    
     
 }
 

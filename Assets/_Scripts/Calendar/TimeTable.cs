@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class TimeTable 
@@ -20,7 +21,13 @@ public class TimeTable
 
     private void DecodeInfo()
     {
-        
+        Regex splitLinePattern = new Regex( @"(\n|\r|\r|\n)" );
+
+        string[] subjectStrings = splitLinePattern.Split(_info);
+        foreach (var subject in subjectStrings)
+        {
+            Debug.Log(subject);
+        }
     }
 
 

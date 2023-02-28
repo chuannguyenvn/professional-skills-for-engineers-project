@@ -10,7 +10,8 @@ public class CalendarCreationPage : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI comment;
-
+    [SerializeField] private TMP_Dropdown semesterDropdown;
+    
     class TimeTable
     {
         
@@ -30,16 +31,16 @@ public class CalendarCreationPage : MonoBehaviour
     {
         string clipBoard = GUIUtility.systemCopyBuffer;
         inputField.text = clipBoard;
-        InputCheck();
+        OnInputCheck();
     }
 
-    public void InputCheck()
+    public void OnClearAll()
     {
-        string pattern = "pdt@hcmut.edu.vn";
-        
+        inputField.text = String.Empty;
+        OnInputCheck();
     }
-
-    private void MakeTimetable()
+    
+    public void OnInputCheck()
     {
         string text = inputField.text;
         string pattern =  @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^.](?!Tổng số tín chỉ đăng ký))*)";
@@ -50,9 +51,18 @@ public class CalendarCreationPage : MonoBehaviour
         // Match the regular expression pattern against a text string.
         var matches = r.Matches(text);
 
+        List<TMP_Dropdown.OptionData> semesterDropdownOptions = new List<TMP_Dropdown.OptionData>();
+        
         foreach (Match match in matches)
         {
-            Debug.Log("Match "+ match.Value);
+            Debug.Log("Each Match is semester"+ match.Value);
+            
+            TMP_Dropdown.OptionData semesterData = new TMP_Dropdown.OptionData();
+            string yearFrom = match.Groups["yearFrom"].Value.Substring( match.Groups["yearFrom"].Value.Length-2);
+            string semester = match.Groups["semester"].Value;
+            semesterData.text = "Học Kỳ " + yearFrom + semester;
+            semesterDropdownOptions.Add(semesterData);
+            /*
             foreach (Group group in match.Groups)
             {
                 Debug.Log("Group "+group.Value);
@@ -61,9 +71,10 @@ public class CalendarCreationPage : MonoBehaviour
                     Debug.Log("Capture "+ capture);
                 }
             }
+            */
+
+            semesterDropdown.options = semesterDropdownOptions;
         }
-        
-        //TimeTable timeTable = new TimeTable();
     } 
     
     

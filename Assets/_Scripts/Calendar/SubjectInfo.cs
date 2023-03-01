@@ -15,4 +15,8 @@ public class SubjectInfo
     [Range(1,20)] public int lessonStart, lessonEnd;
     public string room;
     public List<int> weeks;
+    
+    
+    
+    
 }

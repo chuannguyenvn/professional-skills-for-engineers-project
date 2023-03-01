@@ -28,7 +28,7 @@ public class TimeTable
         Debug.Log("Num of subject "+ subjectStrings.Length);
         foreach (var subject in subjectStrings)
         {
-            Debug.Log(subject);
+            
         }
     }
 

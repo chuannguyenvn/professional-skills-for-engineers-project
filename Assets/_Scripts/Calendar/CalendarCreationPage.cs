@@ -66,6 +66,7 @@ namespace _Scripts.Calendar
             int selectedSemester = semesterDropdown.value;
             GroupCollection groups = _semesterMatchCollection[selectedSemester].Groups;
             TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value), Int32.Parse(groups["semester"].Value), groups["entries"].Value );
+            TimeTableManager.Instance.AddTimeTable(timeTable);
         }
 
         private void SetDropdownInfo()

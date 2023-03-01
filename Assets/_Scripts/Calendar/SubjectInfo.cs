@@ -14,7 +14,7 @@ public class SubjectInfo
     public int credits;
     public string classGroup;
     public DayOfWeek dayOfWeek;
-    public TimeSpan lessonStartHour, lessonEndHour; 
+    public TimeSpan lessonStartHour, lessonEndHour;
     public string room;
     public List<DateTime> classDateTimes = new();
     public int startYear;
@@ -24,34 +24,54 @@ public class SubjectInfo
         //Debug.Log(nonSplitLineSubjectInfo);
 
         this.startYear = startYear;
-        
+
         string[] infoStrings = nonSplitLineSubjectInfo.Split("\t");
         //"MÃ MH	TÊN MÔN HỌC  	TÍN CHỈ  	TC HỌC PHÍ	  NHÓM-TỔ	 THỨ	TIẾT	GIỜ HỌC 	PHÒNG	CƠ SỞ	TUẦN HỌC"
-        
+
         subjectCode = infoStrings[0];
         name = infoStrings[1];
-        credits = int.Parse(infoStrings[2]);
-        classGroup =  infoStrings[4];
-        dayOfWeek = (DayOfWeek)(int.Parse(infoStrings[5]) %7 - 1 );
-        StringToTimeSpan(infoStrings[7]);
+
+        try
+        {
+            credits = int.Parse(infoStrings[2]);
+        }
+        catch (Exception e)
+        {
+            credits = 0;
+        }
+
+        classGroup = infoStrings[4];
+        dayOfWeek = (DayOfWeek)(int.Parse(infoStrings[5]) % 7 - 1);
+        TimeDecodeIntoTimeSpan(infoStrings[7]);
         room = infoStrings[8];
         WeekStringDecode(infoStrings[10]);
     }
 
-    private void StringToTimeSpan(string time)
+    private void TimeDecodeIntoTimeSpan(string time)
     {
+        Regex pattern = new Regex(@"(\d+):(\d+) - (\d+):(\d+)");
+        Match match = pattern.Match(time);
+
+        int startHour = Int32.Parse(match.Groups[1].Value);
+        int startMinute = Int32.Parse(match.Groups[2].Value);
         
+        int endHour = Int32.Parse(match.Groups[3].Value);
+        int endMinute = Int32.Parse(match.Groups[4].Value);
+        
+        lessonStartHour = new TimeSpan(startHour, startMinute, 0);
+        lessonEndHour = new TimeSpan(endHour, endMinute,0);
     }
 
     private void WeekStringDecode(string weeksLine)
     {
         string[] weeks = weeksLine.Split("|");
-        
+
         foreach (var week in weeks)
         {
-            if (week != "--")
+            if (week != "--" && week.Length == 2)
             {
                 DateTime dateTime = CreateClassDateTimes(int.Parse(week));
+                classDateTimes.Add(dateTime);
             }
         }
     }
@@ -60,14 +80,16 @@ public class SubjectInfo
     private DateTime CreateClassDateTimes(int week)
     {
         DateTime dateTime = FirstDateOfWeekIso8601(startYear, week);
+        dateTime = dateTime.AddDays(dayOfWeek - DayOfWeek.Sunday);
+        dateTime = dateTime.Add(lessonStartHour);
 
-        
-        
+        //Debug.Log(name + " date " + dateTime.ToString() + " dayOfWeek " + dayOfWeek + " start at " +
+                  lessonStartHour.ToString() + " end at " + lessonEndHour.ToString());
+
         return dateTime;
     }
-    
 
-    
+
     private DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
     {
         DateTime jan1 = new DateTime(year, 1, 1);

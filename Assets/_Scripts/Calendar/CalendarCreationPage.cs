@@ -42,11 +42,10 @@ namespace _Scripts.Calendar
         public void OnInputCheck()
         {
             string text = inputField.text;
-            string pattern =
-                @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^\a](?!Tổng số tín chỉ đăng ký))*)";
 
             // Instantiate the regular expression object.
-            Regex r = new Regex(pattern);
+            Regex r = new Regex(
+                @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^\a](?!Tổng số tín chỉ đăng ký))*)");
 
             // Match the regular expression pattern against a text string.
             _semesterMatchCollection = r.Matches(text);
@@ -66,7 +65,7 @@ namespace _Scripts.Calendar
             int selectedSemester = semesterDropdown.value;
             GroupCollection groups = _semesterMatchCollection[selectedSemester].Groups;
             TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value),
-                Int32.Parse(groups["semester"].Value), groups["entries"].Value);
+                Int32.Parse(groups["yearFrom"].Value), groups["entries"].Value);
             TimeTableManager.Instance.AddTimeTable(timeTable);
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using Match = System.Text.RegularExpressions.Match;
 
 
 public class CalendarCreationPage : MonoBehaviour
@@ -11,11 +12,9 @@ public class CalendarCreationPage : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI comment;
     [SerializeField] private TMP_Dropdown semesterDropdown;
+
+    private MatchCollection _semesterMatchCollection;
     
-    class TimeTable
-    {
-        
-    }
     void Start()
     {
         //Adds a listener to the main input field and invokes a method when the value changes.
@@ -49,11 +48,30 @@ public class CalendarCreationPage : MonoBehaviour
         Regex r = new Regex(pattern);
         
         // Match the regular expression pattern against a text string.
-        var matches = r.Matches(text);
+        _semesterMatchCollection= r.Matches(text);
 
+        if (_semesterMatchCollection.Count > 0)
+        {
+            
+        }
+        else
+        {
+            SetCommentWarning();
+        }
+    }
+
+    public void OnSubmission()
+    {
+         int selectedSemester = semesterDropdown.value;
+         GroupCollection groups = _semesterMatchCollection[selectedSemester].Groups;
+         TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value), Int32.Parse(groups["semester"].Value), groups["entries"].Value );
+    }
+
+    private void SetDropdownInfo()
+    {
         List<TMP_Dropdown.OptionData> semesterDropdownOptions = new List<TMP_Dropdown.OptionData>();
         
-        foreach (Match match in matches)
+        foreach (Match match in _semesterMatchCollection)
         {
             Debug.Log("Each Match is semester"+ match.Value);
             
@@ -62,20 +80,20 @@ public class CalendarCreationPage : MonoBehaviour
             string semester = match.Groups["semester"].Value;
             semesterData.text = "Học Kỳ " + yearFrom + semester;
             semesterDropdownOptions.Add(semesterData);
-            /*
-            foreach (Group group in match.Groups)
-            {
-                Debug.Log("Group "+group.Value);
-                foreach (Capture capture in group.Captures)
-                {
-                    Debug.Log("Capture "+ capture);
-                }
-            }
-            */
 
             semesterDropdown.options = semesterDropdownOptions;
         }
-    } 
+    }
+
+    private void SetCommentWarning()
+    {
+        comment.gameObject.SetActive(true);
+    }
+
+    private void SetActiveCommentFalse()
+    {
+        comment.gameObject.SetActive(false);
+    }
     
     
     

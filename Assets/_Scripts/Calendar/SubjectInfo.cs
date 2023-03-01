@@ -54,12 +54,12 @@ public class SubjectInfo
 
         int startHour = Int32.Parse(match.Groups[1].Value);
         int startMinute = Int32.Parse(match.Groups[2].Value);
-        
+
         int endHour = Int32.Parse(match.Groups[3].Value);
         int endMinute = Int32.Parse(match.Groups[4].Value);
-        
+
         lessonStartHour = new TimeSpan(startHour, startMinute, 0);
-        lessonEndHour = new TimeSpan(endHour, endMinute,0);
+        lessonEndHour = new TimeSpan(endHour, endMinute, 0);
     }
 
     private void WeekStringDecode(string weeksLine)
@@ -83,8 +83,7 @@ public class SubjectInfo
         dateTime = dateTime.AddDays(dayOfWeek - DayOfWeek.Sunday);
         dateTime = dateTime.Add(lessonStartHour);
 
-        //Debug.Log(name + " date " + dateTime.ToString() + " dayOfWeek " + dayOfWeek + " start at " +
-                  lessonStartHour.ToString() + " end at " + lessonEndHour.ToString());
+        //Debug.Log(name + " date " + dateTime.ToString() + " dayOfWeek " + dayOfWeek + " start at " +lessonStartHour.ToString() + " end at " + lessonEndHour.ToString());
 
         return dateTime;
     }

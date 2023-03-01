@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace _Scripts.Calendar
 {
-    public class TimeTableManager : PersistentSingleton<TimeTableManager>
+    public class DataManager : PersistentSingleton<DataManager>
     {
         private List<TimeTable> _timeTables = new();
 
@@ -10,5 +10,7 @@ namespace _Scripts.Calendar
         {
             _timeTables.Add(addingTimeTable);
         }
+        
+        
     }
 }

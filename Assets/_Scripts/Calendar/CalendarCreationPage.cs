@@ -15,7 +15,7 @@ namespace _Scripts.Calendar
         [SerializeField] private TMP_Dropdown semesterDropdown;
 
         private MatchCollection _semesterMatchCollection;
-    
+
         void Start()
         {
             //Adds a listener to the main input field and invokes a method when the value changes.
@@ -24,7 +24,6 @@ namespace _Scripts.Calendar
             //InputCheck();
             //    Test();
             //});
-       
         }
 
         public void OnFastPaste()
@@ -39,15 +38,16 @@ namespace _Scripts.Calendar
             inputField.text = String.Empty;
             OnInputCheck();
         }
-    
+
         public void OnInputCheck()
         {
             string text = inputField.text;
-            string pattern =  @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^.](?!Tổng số tín chỉ đăng ký))*)";
-        
+            string pattern =
+                @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^\a](?!Tổng số tín chỉ đăng ký))*)";
+
             // Instantiate the regular expression object.
             Regex r = new Regex(pattern);
-        
+
             // Match the regular expression pattern against a text string.
             _semesterMatchCollection = r.Matches(text);
 
@@ -65,20 +65,21 @@ namespace _Scripts.Calendar
         {
             int selectedSemester = semesterDropdown.value;
             GroupCollection groups = _semesterMatchCollection[selectedSemester].Groups;
-            TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value), Int32.Parse(groups["semester"].Value), groups["entries"].Value );
+            TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value),
+                Int32.Parse(groups["semester"].Value), groups["entries"].Value);
             TimeTableManager.Instance.AddTimeTable(timeTable);
         }
 
         private void SetDropdownInfo()
         {
             List<TMP_Dropdown.OptionData> semesterDropdownOptions = new List<TMP_Dropdown.OptionData>();
-        
+
             foreach (Match match in _semesterMatchCollection)
             {
-                Debug.Log("Each Match is semester"+ match.Value);
-            
+                Debug.Log("Each Match is semester" + match.Value);
+
                 TMP_Dropdown.OptionData semesterData = new TMP_Dropdown.OptionData();
-                string yearFrom = match.Groups["yearFrom"].Value.Substring( match.Groups["yearFrom"].Value.Length-2);
+                string yearFrom = match.Groups["yearFrom"].Value.Substring(match.Groups["yearFrom"].Value.Length - 2);
                 string semester = match.Groups["semester"].Value;
                 semesterData.text = "Học Kỳ " + yearFrom + semester;
                 semesterDropdownOptions.Add(semesterData);
@@ -96,10 +97,5 @@ namespace _Scripts.Calendar
         {
             comment.gameObject.SetActive(false);
         }
-    
-    
-    
-    
     }
 }
-

@@ -6,30 +6,32 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-
 public class SubjectInfo
 {
     public string subjectCode;
     public string name;
     public int credits;
-    public string classGroup; 
-    [Range(2,8)] public int date; // monday is 2 , tuesday is 3 ,..., sunday is 8
-    [Range(1,20)] public int lessonStartHourIndex, lessonEndHourIndex; // 1 is 6-7 am, 2 is 7-8 am, ... 12 is 5-6pm,...  
+    public string classGroup;
+    [Range(2, 8)] public int date; // monday is 2 , tuesday is 3 ,..., sunday is 8
+
+    [Range(1, 20)]
+    public int lessonStartHourIndex, lessonEndHourIndex; // 1 is 6-7 am, 2 is 7-8 am, ... 12 is 5-6pm,...  
+
     public string room;
     public List<DateTime> classDateTimes;
 
 
-    public SubjectInfo(string nonSplitLineSubjectInfo )
+    public SubjectInfo(string nonSplitLineSubjectInfo)
     {
         Debug.Log(nonSplitLineSubjectInfo);
         string[] infoStrings = nonSplitLineSubjectInfo.Split("\t");
-        
+
         foreach (var info in infoStrings)
         {
             Debug.Log(info);
         }
-
     }
+
     public static DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
     {
         DateTime jan1 = new DateTime(year, 1, 1);
@@ -55,7 +57,5 @@ public class SubjectInfo
 
         // Subtract 3 days from Thursday to get Monday, which is the first weekday in ISO8601
         return result.AddDays(-3);
-    }       
-    
-    
+    }
 }

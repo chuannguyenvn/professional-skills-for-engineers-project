@@ -12,11 +12,9 @@ public class SubjectInfo
     public string name;
     public int credits;
     public string classGroup;
-    [Range(2, 8)] public int date; // monday is 2 , tuesday is 3 ,..., sunday is 8
-
+    public DayOfWeek date; 
     [Range(1, 20)]
-    public int lessonStartHourIndex, lessonEndHourIndex; // 1 is 6-7 am, 2 is 7-8 am, ... 12 is 5-6pm,...  
-
+    public TimeSpan lessonStartHour, lessonEndHour; 
     public string room;
     public List<DateTime> classDateTimes;
 
@@ -25,13 +23,24 @@ public class SubjectInfo
     {
         Debug.Log(nonSplitLineSubjectInfo);
         string[] infoStrings = nonSplitLineSubjectInfo.Split("\t");
-
-        foreach (var info in infoStrings)
-        {
-            Debug.Log(info);
-        }
+        //"MÃ MH	TÊN MÔN HỌC  	TÍN CHỈ  	TC HỌC PHÍ	  NHÓM-TỔ	 THỨ	TIẾT	GIỜ HỌC 	PHÒNG	CƠ SỞ	TUẦN HỌC"
+        subjectCode = infoStrings[0];
+        name = infoStrings[1];
+        credits = int.Parse(infoStrings[2]);
+        classGroup =  infoStrings[4];
+        date = (DayOfWeek)(int.Parse(infoStrings[5]) %7 - 1 );
+        (lessonStartHour, lessonEndHour)= StringToTimeSpan(infoStrings[7]);
+        room = infoStrings[8];
+        
     }
 
+    private (TimeSpan, TimeSpan) StringToTimeSpan(string time)
+    {
+        return (TimeSpan.Zero, TimeSpan.Zero);
+    }
+    
+    private void 
+    
     public static DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
     {
         DateTime jan1 = new DateTime(year, 1, 1);

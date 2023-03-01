@@ -21,9 +21,11 @@ public class TimeTable
 
     private void DecodeInfo()
     {
-        Regex splitLinePattern = new Regex( @"(\n|\r|\r|\n)" );
+        Regex splitLinePattern = new Regex( @"\n" );
 
         string[] subjectStrings = splitLinePattern.Split(_info);
+
+        Debug.Log("Num of subject "+ subjectStrings.Length);
         foreach (var subject in subjectStrings)
         {
             Debug.Log(subject);

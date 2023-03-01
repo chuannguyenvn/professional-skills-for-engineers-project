@@ -48,15 +48,15 @@ public class CalendarCreationPage : MonoBehaviour
         Regex r = new Regex(pattern);
         
         // Match the regular expression pattern against a text string.
-        _semesterMatchCollection= r.Matches(text);
+        _semesterMatchCollection = r.Matches(text);
 
         if (_semesterMatchCollection.Count > 0)
         {
-            
+            SetDropdownInfo();
         }
         else
         {
-            SetCommentWarning();
+            Debug.Log("WHY NOT DETECT");
         }
     }
 

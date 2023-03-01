@@ -1,37 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class TimeTable 
+namespace _Scripts.Calendar
 {
-    private int _semester;
-    private int _year;
-    private string _info;
-    public List<SubjectInfo> subjectInfos;
-
-    public TimeTable(int semester, int year, string info)
+    public class TimeTable 
     {
-        _semester = semester;
-        _year = year;
-        _info = info;
-        
-        DecodeInfo();
-    }
+        private int _semester;
+        private int _year;
+        private string _info;
+        public List<SubjectInfo> subjectInfos;
 
-    private void DecodeInfo()
-    {
-        Regex splitLinePattern = new Regex( @"\n" );
-
-        string[] subjectStrings = splitLinePattern.Split(_info);
-
-        Debug.Log("Num of subject "+ subjectStrings.Length);
-        foreach (var subject in subjectStrings)
+        public TimeTable(int semester, int year, string info)
         {
-            
+            _semester = semester;
+            _year = year;
+            _info = info;
+            TimeTableManager.Instance.AddTimeTable(this);
+            DecodeInfo();
         }
+
+        private void DecodeInfo()
+        {
+            Regex splitLinePattern = new Regex( @"\n" );
+
+            string[] subjectStrings = splitLinePattern.Split(_info);
+
+            Debug.Log("Num of subject "+ subjectStrings.Length);
+            foreach (var subject in subjectStrings)
+            {
+            
+            }
+        }
+
+
+
     }
-
-
-
 }

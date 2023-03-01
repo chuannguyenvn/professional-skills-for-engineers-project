@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,36 +13,62 @@ public class SubjectInfo
     public string name;
     public int credits;
     public string classGroup;
-    public DayOfWeek date; 
-    [Range(1, 20)]
+    public DayOfWeek dayOfWeek;
     public TimeSpan lessonStartHour, lessonEndHour; 
     public string room;
-    public List<DateTime> classDateTimes;
+    public List<DateTime> classDateTimes = new();
+    public int startYear;
 
-
-    public SubjectInfo(string nonSplitLineSubjectInfo)
+    public SubjectInfo(int startYear, string nonSplitLineSubjectInfo)
     {
-        Debug.Log(nonSplitLineSubjectInfo);
+        //Debug.Log(nonSplitLineSubjectInfo);
+
+        this.startYear = startYear;
+        
         string[] infoStrings = nonSplitLineSubjectInfo.Split("\t");
         //"MÃ MH	TÊN MÔN HỌC  	TÍN CHỈ  	TC HỌC PHÍ	  NHÓM-TỔ	 THỨ	TIẾT	GIỜ HỌC 	PHÒNG	CƠ SỞ	TUẦN HỌC"
+        
         subjectCode = infoStrings[0];
         name = infoStrings[1];
         credits = int.Parse(infoStrings[2]);
         classGroup =  infoStrings[4];
-        date = (DayOfWeek)(int.Parse(infoStrings[5]) %7 - 1 );
-        (lessonStartHour, lessonEndHour)= StringToTimeSpan(infoStrings[7]);
+        dayOfWeek = (DayOfWeek)(int.Parse(infoStrings[5]) %7 - 1 );
+        StringToTimeSpan(infoStrings[7]);
         room = infoStrings[8];
+        WeekStringDecode(infoStrings[10]);
+    }
+
+    private void StringToTimeSpan(string time)
+    {
         
     }
 
-    private (TimeSpan, TimeSpan) StringToTimeSpan(string time)
+    private void WeekStringDecode(string weeksLine)
     {
-        return (TimeSpan.Zero, TimeSpan.Zero);
+        string[] weeks = weeksLine.Split("|");
+        
+        foreach (var week in weeks)
+        {
+            if (week != "--")
+            {
+                DateTime dateTime = CreateClassDateTimes(int.Parse(week));
+            }
+        }
+    }
+
+
+    private DateTime CreateClassDateTimes(int week)
+    {
+        DateTime dateTime = FirstDateOfWeekIso8601(startYear, week);
+
+        
+        
+        return dateTime;
     }
     
-    private void 
+
     
-    public static DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
+    private DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
     {
         DateTime jan1 = new DateTime(year, 1, 1);
         int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Calendar;
+using _Scripts.Manager;
 using UnityEngine;
 
 public class CalendarListViewPage : MonoBehaviour
@@ -36,7 +37,7 @@ public class CalendarListViewPage : MonoBehaviour
         {
             // Create TimeBlock
             GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockGo, content.transform);
-            instantiateTimeBlock.GetComponent<TimeBlock>().Init(subject);
+            instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(subject);
             
         }
     }

@@ -35,7 +35,7 @@ public class SubjectInfo
         {
             credits = int.Parse(infoStrings[2]);
         }
-        catch (Exception e)
+        catch 
         {
             credits = 0;
         }

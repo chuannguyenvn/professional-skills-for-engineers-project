@@ -1,0 +1,120 @@
+
+T
+T
+T
+H
+T
+T
+Đ
+H
+
+
+BÀNH TÂN THUẬN
+Khoa Khoa học và Kỹ thuật Máy tính
+
+
+ Thời khóa biểuTuần: 9, Thứ Tư, Ngày 01/03/2023.
+THỜI KHÓA BIỂU HỌC KỲ
+Họ tên: BÀNH TÂN THUẬN (2153011)
+ 
+
+Ghi chú: Các môn học có trong Thời khóa biểu là kết quả đăng ký môn học chính thức.Sinh viên chỉ được thực hiện Đồ án, Thực tập, Luận văn tốt nghiệp, ... và được ghi điểm vào cuối học kỳ khi các môn này có trong Thời khóa biểu (có phân nhóm).Với các môn không có Thứ, Tiết, Phòng: sinh viên liên hệ Bộ môn/Khoa để được hướng dẫn.
+
+Tất cả học kỳ
+Học kỳ 2 Năm học 2022 - 2023
+Ngày cập nhật:2023-02-28 10:16:29.0
+MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC
+SP1007	Pháp luật Việt Nam đại cương	2	2	CC02	2	2-3	7:00 - 8:50	B4-305	BK-CS1	--|--|--|--|--|06|07|08|09|--|11|12|13|14|15|
+SP1007	Pháp luật Việt Nam đại cương	2	2	CC02	2	2-3	7:00 - 8:50	----	BK	--|02|--|--|05|
+CO2017	Hệ điều hành	3	3	CC01	2	11-12	16:00 - 17:50	----	BK	--|02|--|--|05|
+CO2017	Hệ điều hành	3	3	CC01	2	11-12	16:00 - 17:50	B1-212	BK-CS1	--|--|--|--|--|06|07|08|09|--|11|12|13|14|15|16|17|18|
+MT2013	Xác suất và thống kê	4	4	CC09	3	2-4	7:00 - 9:50	----	BK	--|02|--|--|05|
+MT2013	Xác suất và thống kê	4	4	CC09	3	2-4	7:00 - 9:50	C6-502	BK-CS1	01|--|--|--|--|06|07|08|09|--|11|12|13|14|15|16|17|18|
+SP1033	Kinh tế chính trị Mác - Lênin	2	2	CC09	3	5-6	10:00 - 11:50	----	BK	--|02|--|--|05|
+SP1033	Kinh tế chính trị Mác - Lênin	2	2	CC09	3	5-6	10:00 - 11:50	B4-306	BK-CS1	01|--|--|--|--|06|07|08|09|--|11|12|13|14|15|
+CO2001	Kỹ năng chuyên nghiệp cho kỹ sư	3	3	CC06	4	5-6	10:00 - 11:50	----	BK	--|02|--|--|05|
+CO2001	Kỹ năng chuyên nghiệp cho kỹ sư	3	3	CC06	4	5-6	10:00 - 11:50	B1-302	BK-CS1	01|--|--|--|--|06|07|08|09|--|11|12|13|14|15|16|17|18|
+CO2018	HE DIEU HANH (TN)	--	--	CC02	5	8-12	13:00 - 17:50	A5-106.2	BK-CS1	--|--|--|--|--|--|--|08|--|--|11|--|13|--|15|
+CO2039	Lập trình nâng cao	3	3	CC04	6	4-5	9:00 - 10:50	----	BK	--|02|--|--|05|
+CO2039	Lập trình nâng cao	3	3	CC04	6	4-5	9:00 - 10:50	B10-206	BK-CS1	01|--|--|--|--|06|07|08|09|--|11|12|13|14|15|16|17|18|
+Tổng số tín chỉ đăng ký: 17
+Học kỳ 1 Năm học 2022 - 2023
+Ngày cập nhật:2023-02-01 14:36:50.0
+MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC
+CH1003	Hóa đại cương	3	3	CC07	2	2-3	7:00 - 8:50	B4-306	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+CH1003	Hóa đại cương	3	3	CC07	2	2-3	7:00 - 8:50	B4-306	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+CO2007	Kiến trúc máy tính	4	4	CC03	2	7-9	12:00 - 14:50	B4-402	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+CO2007	Kiến trúc máy tính	4	4	CC03	2	7-9	12:00 - 14:50	B4-402	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+SP1032	TRIET HOC MAC - LENIN(BT	--	--	CC05	2	11-12	16:00 - 17:50	B4-501	BK-CS1	--|--|37|--|39|--|41|--|43|--|45|--|47|
+CO2008	KIEN TRUC MAY TINH (TH)	--	--	CC05	3	7-11	12:00 - 16:50	C6-104	BK-CS1	--|--|--|--|--|--|--|--|--|44|--|46|--|48|--|50|
+SP1031	Triết học Mác - Lênin	3	3	CC05	4	11-12	16:00 - 17:50	B4-601	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+SP1031	Triết học Mác - Lênin	3	3	CC05	4	11-12	16:00 - 17:50	B4-601	BK-CS1	35|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+CO2003	Cấu trúc dữ liệu và giải thuật	4	4	CC03	5	4-5	9:00 - 10:50	B10-207	BK-CS1	--|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+CH1004	HOA DAI CUONG (TN)	--	--	CC26	5	7-11	12:00 - 16:50	B2-406	BK-CS1	--|--|--|38|39|40|41|
+CO2004	CTRUC DULIEU &G/THUAT(TH	--	--	CC03	6	2-6	7:00 - 11:50	A4-511	BK-CS1	--|--|--|38|--|40|--|--|--|44|--|46|--|48|--|50|
+CO2011	Mô hình hóa toán học	3	3	CC01	6	8-9	13:00 - 14:50	B6-303	BK-CS1	--|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+PE1041	Cầu lông (học phần 2)	--	1.5	CC05	7	4-6	9:00 - 11:50	B12-SAN1	BK-CS1	--|36|37|38|39|40|41|--|43|44|45|46|47|48|49|50|
+Tổng số tín chỉ đăng ký: 17
+Học kỳ 3 Năm học 2021 - 2022
+Ngày cập nhật:2022-08-11 11:16:16.0
+MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC
+CNTTCB	Chứng nhận Công nghệ thông tin cơ bản	--	--	A07	--	4-5	9:00 - 10:50	A4-511	BK-CS1	--|
+Tổng số tín chỉ đăng ký: 0
+Học kỳ 2 Năm học 2021 - 2022
+Ngày cập nhật:2022-04-18 14:20:07.0
+MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC
+MI1003	Giáo dục quốc phòng	--	1	CC01	--	0-0	0:00 - 0:00	------	BK	--|--|--|--|--|--|--|--|--|10|11|12|13|
+CO1007	Cấu trúc rời rạc cho khoa học máy tính	4	4	CC02	2	2-4	7:00 - 9:50	HANGOUT_TUONGTAC	BK-CS1	--|02|03|04|--|--|07|08|09|--|--|--|--|14|--|16|17|
+PE1019	Bơi (học phần 1)	--	1.5	CC14	2	7-9	12:00 - 14:50	B12-SAN1	BK-CS1	--|--|--|--|--|--|--|--|--|--|--|--|--|14|--|16|17|--|--|--|--|22|23|24|
+PE1019	Bơi (học phần 1)	--	1.5	CC14	2	7-9	12:00 - 14:50	HANGOUT_TUONGTAC	BK-CS1	--|02|03|04|--|--|07|08|09|
+PE1019	Bơi (học phần 1)	--	1.5	CC14	2	7-9	12:00 - 14:50	B12-SAN1	BK-CS1	--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|25|26|
+CO1024	HE THONG SO (TN)	--	--	VC08	2	8-12	13:00 - 17:50	C5-202	BK-CS1	--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|27|28|29|
+MT1006	GIAI TICH 2 (BT)	--	--	CC10	3	4-5	9:00 - 10:50	HANGOUT_TUONGTAC	BK-CS1	--|02|--|04|--|--|--|08|--|--|--|--|--|14|--|16|
+MT1005	Giải tích 2	4	4	CC10	3	7-9	12:00 - 14:50	HANGOUT_TUONGTAC	BK-CS1	01|02|03|04|--|--|07|08|09|--|--|--|--|14|15|16|17|
+MT1008	DAI SO TUYEN TINH (BT)	--	--	CC13	3	11-12	16:00 - 17:50	HANGOUT_TUONGTAC	BK-CS1	01|--|03|--|--|--|07|--|09|--|--|--|--|--|15|--|17|
+PH1007	Thí nghiệm vật lý	1	1	CC06	3	13-14	18:00 - 19:39	HANGOUT_TUONGTAC	BK-CS1	01|--|--|04|--|--|--|--|09|--|--|--|--|--|--|16|
+MT1007	Đại số tuyến tính	3	3	CC13	4	2-3	7:00 - 8:50	HANGOUT_TUONGTAC	BK-CS1	01|02|03|04|--|--|07|08|09|--|--|--|--|14|15|16|17|18|
+CO1024	HE THONG SO (TN)	--	--	VC08	5	2-6	7:00 - 11:50	C5-202	BK-CS1	--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|27|28|29|
+CO1028	KY THUAT LAP TRINH (TN)	--	--	CC05	5	8-12	13:00 - 17:50	A4-511	BK-CS1	--|--|--|--|--|06|--|08|--|--|--|--|--|14|--|16|
+PH1007	Thí nghiệm vật lý	1	1	CC06	6	4-5	9:00 - 10:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|07|08|09|--|--|--|--|14|15|16|17|18|
+CO1027	Kỹ thuật lập trình	3	3	CC05	6	8-9	13:00 - 14:50	HANGOUT_TUONGTAC	BK-CS1	01|02|03|--|--|06|07|08|09|--|--|--|--|14|15|16|17|18|
+Tổng số tín chỉ đăng ký: 15
+Học kỳ 1 Năm học 2021 - 2022
+Ngày cập nhật:2021-12-22 10:41:38.0
+MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC
+CO1005	Nhập môn điện toán	3	3	CC01	2	2-3	7:00 - 8:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|50|51|
+CO1006	NHAP MON DIEN TOAN (TH)	--	--	CC02	3	8-12	13:00 - 17:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|--|--|--|--|--|45|--|47|--|49|--|51|
+PH1004	VAT LY 1 (BT)	--	--	CC08	4	8-9	13:00 - 14:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|--|41|--|43|--|45|--|47|--|49|--|51|
+PH1003	Vật lý 1	4	4	CC08	4	10-12	15:00 - 17:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|50|51|
+MT1003	Giải tích 1	4	4	CC07	5	2-4	7:00 - 9:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|50|51|
+MT1004	GIAI TICH 1 (BT)	--	--	CC07	5	5-6	10:00 - 11:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|--|41|--|43|--|45|--|47|--|49|--|51|
+CO1023	Hệ thống số	3	3	CC03	6	4-5	9:00 - 10:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|50|51|
+SP1041	Kỹ năng mềm	--	3	CC14	6	8-10	13:00 - 15:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|50|
+SP1017	Kỹ năng xã hội C (Thanh nhạc)	--	2	CC02	7	3-4	8:00 - 9:50	HANGOUT_TUONGTAC	BK-CS1	--|--|--|--|--|--|--|40|41|42|43|44|45|46|47|48|49|
+CO1024	HE THONG SO (TN)	--	--	CC06	8	2-6	7:00 - 11:50	C5-202	BK-CS1	--|
+Tổng số tín chỉ đăng ký: 14
+
+PHÒNG ĐÀO TẠO
+Cao đẳng, đại học chính quy
+Email: pdt@hcmut.edu.vn
+Website: www.aao.hcmut.edu.vn
+Cơ sở 1: Lý Thường Kiệt
+Địa chỉ: 268 Lý Thường Kiệt P.14 Q.10 HCM - P.101 nhà A1
+Điện thoai: 02.838 647 256 - 5221
+Cơ sở 2: Dĩ An
+Địa chỉ: Trường ĐH Bách Khoa, khu đô thị ĐHQG HCM, Thủ Đức, HCM - P.107 nhà H1
+Điện thoai:
+PHÒNG ĐÀO TẠO (VLVH)
+Vừa làm vừa học, đào tạo từ xa, chính quy bằng 2
+Địa chỉ: 268 Lý Thường Kiệt P.14 Q.10 HCM - P.201 nhà A4
+Điện thoai:
+Email: pdt@hcmut.edu.vn
+Website:www.aao.hcmut.edu.vn
+VĂN PHÒNG ĐÀO TẠO QUỐC TẾ
+Địa chỉ: 268 Lý Thường Kiệt P.14 Q.10 HCM - P.306 nhà A4
+Điện thoai: 02. 838 654 183
+Email:
+Website:http://oisp.hcmut.edu.vn/
+Copyright©2016. Phòng Đào tạo - Trường Đại học Bách Khoa TPHCM.
+
+Mọi thắc mắc vui lòng liên hệ email: pdt@hcmut.edu.vn

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Calendar;
@@ -16,19 +17,14 @@ public class CalendarListViewPage : MonoBehaviour
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
     [SerializeField] private TimeTable _displayingTimeTable;
     [SerializeField] private List<GameObject> _timeBlocks;
+
+
+    private void OnEnable()
+    {
+        OnDisplay(DataManager.Instance.GetTimeTable());
+    }
     
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnDisplay(TimeTable timeTable)
     {
         _displayingTimeTable = timeTable;

@@ -27,6 +27,8 @@ public class CalendarListViewPage : MonoBehaviour
     
     public void OnDisplay(TimeTable timeTable)
     {
+        if(timeTable == null) return;
+        
         _displayingTimeTable = timeTable;
         ClearAll();
 
@@ -38,7 +40,7 @@ public class CalendarListViewPage : MonoBehaviour
 
     private GameObject CreateTimeBlock()
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockGo);
+        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockGo, content.transform);
 
         return instantiateTimeBlock;
     }

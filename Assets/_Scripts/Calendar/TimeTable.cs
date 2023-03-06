@@ -29,7 +29,6 @@ namespace _Scripts.Calendar
             // There is 2 line "\n" and "MÃ MH	TÊN MÔN HỌC	TÍN CHỈ	TC HỌC PHÍ	NHÓM-TỔ	THỨ	TIẾT	GIỜ HỌC	PHÒNG	CƠ SỞ	TUẦN HỌC" that don't need for subject
             for (int i = 2; i < subjectLineStrings.Length; i++)
             {
-                
                 SubjectInfo subjectInfo = new(startYear,subjectLineStrings[i]);
                 subjectInfos.Add(subjectInfo);
             }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 657601815917833603}
   - component: {fileID: 8230407867106891005}
   - component: {fileID: 3530026584764714192}
+  - component: {fileID: 664585980805463392}
   m_Layer: 5
   m_Name: TimeBlock
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &664585980805463392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877624839575187372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77635835a5d6ed04e8e3949538a28e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstHeader: {fileID: 4800765862090266616}
+  secondHeader: {fileID: 5219112350081095014}
 --- !u!1 &1644800234876968019
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +350,7 @@ GameObject:
   - component: {fileID: 3602349873177611784}
   - component: {fileID: 4800765862090266616}
   m_Layer: 5
-  m_Name: Subject Name
+  m_Name: Header1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +563,7 @@ GameObject:
   - component: {fileID: 3926345201622605852}
   - component: {fileID: 5219112350081095014}
   m_Layer: 5
-  m_Name: Place & Time
+  m_Name: Header2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

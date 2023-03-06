@@ -34,17 +34,14 @@ public class CalendarListViewPage : MonoBehaviour
 
         foreach (var subject in timeTable.subjectInfos)
         {
-            CreateTimeBlock();
+            // Create TimeBlock
+            GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockGo, content.transform);
+            instantiateTimeBlock.GetComponent<TimeBlock>().Init(subject);
+            
         }
     }
 
-    private GameObject CreateTimeBlock()
-    {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockGo, content.transform);
-
-        return instantiateTimeBlock;
-    }
-
+    
     private void ClearAll()
     {
         _timeBlocks = new List<GameObject>();

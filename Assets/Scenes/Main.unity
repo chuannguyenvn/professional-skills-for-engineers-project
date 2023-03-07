@@ -441,7 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3996ebe5c81dae64789c52e24e1d200c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBlockGo: {fileID: 877624839575187372, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
+  timeBlockSubjectGo: {fileID: 877624839575187372, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
+  timeBlockDayGapGo: {fileID: 1071051506691009492, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
 --- !u!1 &299498075
 GameObject:
   m_ObjectHideFlags: 0

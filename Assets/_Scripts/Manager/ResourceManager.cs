@@ -4,7 +4,8 @@ namespace _Scripts.Manager
 {
     public class ResourceManager : PersistentSingleton<ResourceManager>
     {
-        [Header("Prefabs")]
+        [Header("TimeBlock Prefabs")]
         public GameObject timeBlockSubjectGo;
+        public GameObject timeBlockDayGapGo;
     }
 }

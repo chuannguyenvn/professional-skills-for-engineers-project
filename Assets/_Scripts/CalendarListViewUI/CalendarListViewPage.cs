@@ -19,16 +19,16 @@ public class CalendarListViewPage : MonoBehaviour
     [SerializeField] private TimeTable _displayingTimeTable;
 
     [Header("Data structure")] 
-    [SerializeField] private List<GameObject> _timeBlocks;
+    [SerializeField] private List<GameObject> _timeBlocks = new();
     
-    private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary;
+    private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
     private void OnEnable()
     {
         GetSubjectInfo(DataManager.Instance.GetTimeTable());
         ClearAllTimeBlock();
         
-        Display3MedianWeeks(DateTime.Now);
+        DisplayManyMedianWeeks(DateTime.Now, 10, 10);
     }
 
     private void GetSubjectInfo(TimeTable timeTable)
@@ -45,10 +45,10 @@ public class CalendarListViewPage : MonoBehaviour
         }
     }
 
-    private void Display3MedianWeeks(DateTime dateTime)
+    private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1, int numberOfFollowingWeek = 1 )
     {
         // Calculate the start and end dates of the current week
-        DateTime startOfWeek = dateTime.Date.AddDays(-(int)dateTime.DayOfWeek);
+        DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek);
         DateTime endOfWeek = startOfWeek.AddDays(6);
 
         // Calculate the start and end dates of the previous week
@@ -59,11 +59,29 @@ public class CalendarListViewPage : MonoBehaviour
         DateTime startOfFollowingWeek = startOfWeek.AddDays(7);
         DateTime endOfFollowingWeek = endOfWeek.AddDays(7);
         
-        Display1Week(startOfPreviousWeek, endOfPreviousWeek);
-        CreateTimeBlockDayGap(startOfWeek);
-        Display1Week(startOfWeek, endOfWeek);
         CreateTimeBlockDayGap(startOfFollowingWeek);
         Display1Week(startOfFollowingWeek, endOfFollowingWeek);
+
+        for (int i = 0 ; i< numberOfPreviousWeeks; i++)
+        {
+            Display1Week(startOfPreviousWeek, endOfPreviousWeek);
+            CreateTimeBlockDayGap(endOfPreviousWeek);
+
+            startOfPreviousWeek = startOfPreviousWeek.AddDays(-7);
+            endOfPreviousWeek = endOfPreviousWeek.AddDays(-7);
+        }
+        
+        Display1Week(startOfWeek, endOfWeek);
+        CreateTimeBlockDayGap(startOfWeek);
+        
+        for (int i = 0 ; i< numberOfFollowingWeek; i++)
+        {
+            Display1Week(startOfFollowingWeek, endOfFollowingWeek);
+            CreateTimeBlockDayGap(endOfFollowingWeek);
+
+            startOfFollowingWeek = startOfFollowingWeek.AddDays(-7);
+            endOfFollowingWeek = endOfFollowingWeek.AddDays(-7);
+        }
 
     }
 
@@ -89,7 +107,7 @@ public class CalendarListViewPage : MonoBehaviour
 
     private void CreateTimeBlockDayGap(DateTime dateTime)
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubjectGo, content.transform);
+        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGapGo, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime);
     }
     #endregion

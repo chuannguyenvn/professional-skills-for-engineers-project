@@ -8,9 +8,8 @@ public class ScrollPage : MonoBehaviour
 {
     private RectTransform _contentRTransform;
 
-    [Header("Awake Animation")] [SerializeField]
-    private float yPositionMovingUp = 0;
-
+    [Header("Awake Animation")] 
+    [SerializeField] private float yPositionMovingUp = 0;
     [SerializeField] private float yPositionMovingDown = -15;
     [SerializeField] private float duration = 0.5f;
     [SerializeField] private Ease easeType;

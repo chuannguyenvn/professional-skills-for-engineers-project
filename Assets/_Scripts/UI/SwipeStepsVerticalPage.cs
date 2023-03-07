@@ -11,18 +11,17 @@ public class SwipeStepsVerticalPage : MonoBehaviour, IDragHandler, IEndDragHandl
     [SerializeField] private float acceptThreshHold = 0.25f;
     [SerializeField] private float movingDuration = 0.5f;
 
-    [SerializeField]private Vector3 _panelLocation;
+    private Vector3 _panelLocation;
     [SerializeField] private List<Transform> stepTransforms ;
-    [SerializeField]private int _currentStepIndex;
+    [SerializeField] private int _currentStepIndex;
+    [SerializeField] private int _initStepIndex = 0;
 
     private void Start()
     {
         stepTransforms = stepTransforms.OrderBy(o => o.position.y).ToList();
-        _panelLocation = transform.position;
-        foreach (var step in stepTransforms)
-        {
-            Debug.Log( step.position);
-        }
+        transform.position = stepTransforms[_initStepIndex].position; 
+        StartCoroutine(SmoothMove(transform.position, stepTransforms[_currentStepIndex].position, movingDuration));
+        _panelLocation = stepTransforms[_currentStepIndex].position;
     }
 
     public void OnDrag(PointerEventData eventData)

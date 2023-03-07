@@ -12,7 +12,7 @@ namespace _Scripts.UI
         [SerializeField] private float acceptThreshHold = 0.25f;
         [SerializeField] private float movingDuration = 0.5f;
 
-        private Vector3 _panelLocation;
+        private Vector3 _beforeDraggingPosition;
         [SerializeField] private List<Transform> stepTransforms ;
         [SerializeField] private int _currentStepIndex;
         [SerializeField] private int _initStepIndex = 0;
@@ -22,14 +22,14 @@ namespace _Scripts.UI
             stepTransforms = stepTransforms.OrderBy(o => o.position.x).ToList();
             transform.position = stepTransforms[_initStepIndex].position; 
             StartCoroutine(SmoothMove(transform.position, stepTransforms[_currentStepIndex].position, movingDuration));
-            _panelLocation = stepTransforms[_currentStepIndex].position;
+            _beforeDraggingPosition = stepTransforms[_currentStepIndex].position;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             //Debug.Log("Drag "+ eventData.position + " - "+ eventData.pressPosition);
             float difference = eventData.pressPosition.x - eventData.position.x;
-            transform.position = _panelLocation - new Vector3(difference, 0,0);
+            transform.position = _beforeDraggingPosition - new Vector3(difference, 0,0);
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -37,7 +37,7 @@ namespace _Scripts.UI
             //Debug.Log("EndDrag "+ eventData.position + " - "+ eventData.pressPosition);
             float percentage = (eventData.pressPosition.x - eventData.position.x) / Screen.width;
             if(Mathf.Abs(percentage) >= acceptThreshHold){
-                Vector3 newLocation = _panelLocation;
+                Vector3 newLocation = _beforeDraggingPosition;
                 if(percentage < 0 && _currentStepIndex < stepTransforms.Count-1){
                     _currentStepIndex++;
                     newLocation = stepTransforms[_currentStepIndex].position ;
@@ -46,13 +46,13 @@ namespace _Scripts.UI
                     newLocation = stepTransforms[_currentStepIndex].position ;
                 }
             
-                Debug.Log("Goto step "+ _currentStepIndex +" Position "+ _panelLocation );
+                Debug.Log("Goto step "+ _currentStepIndex +" Position "+ _beforeDraggingPosition );
                 StartCoroutine(SmoothMove(transform.position, newLocation, movingDuration));
-                _panelLocation = newLocation;
+                _beforeDraggingPosition = newLocation;
             }
             else{
-                Debug.Log("Back to beginning Position"+ _panelLocation );
-                StartCoroutine(SmoothMove(transform.position, _panelLocation, movingDuration));
+                Debug.Log("Back to beginning Position"+ _beforeDraggingPosition );
+                StartCoroutine(SmoothMove(transform.position, _beforeDraggingPosition, movingDuration));
             }
         }
         IEnumerator SmoothMove(Vector3 startPos, Vector3 endPos, float seconds){

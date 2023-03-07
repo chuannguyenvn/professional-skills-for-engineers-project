@@ -11,39 +11,46 @@ public class SwipeStepsVerticalPage : MonoBehaviour, IDragHandler, IEndDragHandl
     [SerializeField] private float acceptThreshHold = 0.25f;
     [SerializeField] private float movingDuration = 0.5f;
 
-    private Vector3 _panelLocation;
+    [SerializeField]private Vector3 _panelLocation;
     [SerializeField] private List<Transform> stepTransforms ;
-    private int _currentStepIndex;
+    [SerializeField]private int _currentStepIndex;
 
     private void Start()
     {
         stepTransforms = stepTransforms.OrderBy(o => o.position.y).ToList();
+        _panelLocation = transform.position;
+        foreach (var step in stepTransforms)
+        {
+            Debug.Log( step.position);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("Drag "+ eventData.position + " - "+ eventData.pressPosition);
-        float difference = eventData.pressPosition.x - eventData.position.x;
+        float difference = eventData.pressPosition.y - eventData.position.y;
         transform.position = _panelLocation - new Vector3(0, difference, 0);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("EndDrag "+ eventData.position + " - "+ eventData.pressPosition);
-        
-        float percentage = (eventData.pressPosition.x - eventData.position.x) / Screen.width;
+        float percentage = (eventData.pressPosition.y - eventData.position.y) / Screen.width;
         if(Mathf.Abs(percentage) >= acceptThreshHold){
             Vector3 newLocation = _panelLocation;
-            if(percentage > 0 && _currentStepIndex < stepTransforms.Count){
+            if(percentage < 0 && _currentStepIndex < stepTransforms.Count-1){
                 _currentStepIndex++;
-                newLocation += stepTransforms[_currentStepIndex].position ;
-            }else if(percentage < 0 && _currentStepIndex > 1){
+                newLocation = stepTransforms[_currentStepIndex].position ;
+            }else if(percentage > 0 && _currentStepIndex >= 1){
                 _currentStepIndex--;
-                newLocation += stepTransforms[_currentStepIndex].position ;
+                newLocation = stepTransforms[_currentStepIndex].position ;
             }
+            
+            Debug.Log("Goto step "+ _currentStepIndex +" Position "+ _panelLocation );
             StartCoroutine(SmoothMove(transform.position, newLocation, movingDuration));
             _panelLocation = newLocation;
         }else{
+            Debug.Log("Back to beginning Position"+ _panelLocation );
             StartCoroutine(SmoothMove(transform.position, _panelLocation, movingDuration));
         }
     }

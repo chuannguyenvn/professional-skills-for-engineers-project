@@ -49,7 +49,8 @@ namespace _Scripts.UI
                 Debug.Log("Goto step "+ _currentStepIndex +" Position "+ _panelLocation );
                 StartCoroutine(SmoothMove(transform.position, newLocation, movingDuration));
                 _panelLocation = newLocation;
-            }else{
+            }
+            else{
                 Debug.Log("Back to beginning Position"+ _panelLocation );
                 StartCoroutine(SmoothMove(transform.position, _panelLocation, movingDuration));
             }

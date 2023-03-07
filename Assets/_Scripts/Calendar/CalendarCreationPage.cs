@@ -72,11 +72,9 @@ namespace _Scripts.Calendar
         private void SetDropdownInfo()
         {
             List<TMP_Dropdown.OptionData> semesterDropdownOptions = new List<TMP_Dropdown.OptionData>();
-
+            Debug.Log("Found "+ _semesterMatchCollection.Count+ " Semesters");
             foreach (Match match in _semesterMatchCollection)
             {
-                Debug.Log("Each Match is semester" + match.Value);
-
                 TMP_Dropdown.OptionData semesterData = new TMP_Dropdown.OptionData();
                 string yearFrom = match.Groups["yearFrom"].Value.Substring(match.Groups["yearFrom"].Value.Length - 2);
                 string semester = match.Groups["semester"].Value;

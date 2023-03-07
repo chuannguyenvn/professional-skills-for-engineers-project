@@ -48,27 +48,25 @@ public class CalendarListViewPage : MonoBehaviour
     private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1, int numberOfFollowingWeek = 1 )
     {
         // Calculate the start and end dates of the current week
-        DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek);
+        DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek +1); //Start week is monday
         DateTime endOfWeek = startOfWeek.AddDays(6);
 
         // Calculate the start and end dates of the previous week
-        DateTime startOfPreviousWeek = startOfWeek.AddDays(-7);
-        DateTime endOfPreviousWeek = endOfWeek.AddDays(-7);
+        DateTime startOfPreviousWeek = startOfWeek.AddDays(-7* numberOfPreviousWeeks);
+        DateTime endOfPreviousWeek = endOfWeek.AddDays(-7 * numberOfPreviousWeeks);
 
         // Calculate the start and end dates of the following week
         DateTime startOfFollowingWeek = startOfWeek.AddDays(7);
         DateTime endOfFollowingWeek = endOfWeek.AddDays(7);
         
-        CreateTimeBlockDayGap(startOfFollowingWeek);
-        Display1Week(startOfFollowingWeek, endOfFollowingWeek);
-
+        
         for (int i = 0 ; i< numberOfPreviousWeeks; i++)
         {
             Display1Week(startOfPreviousWeek, endOfPreviousWeek);
             CreateTimeBlockDayGap(endOfPreviousWeek);
 
-            startOfPreviousWeek = startOfPreviousWeek.AddDays(-7);
-            endOfPreviousWeek = endOfPreviousWeek.AddDays(-7);
+            startOfPreviousWeek = startOfPreviousWeek.AddDays(+7);
+            endOfPreviousWeek = endOfPreviousWeek.AddDays(+7);
         }
         
         Display1Week(startOfWeek, endOfWeek);
@@ -79,8 +77,8 @@ public class CalendarListViewPage : MonoBehaviour
             Display1Week(startOfFollowingWeek, endOfFollowingWeek);
             CreateTimeBlockDayGap(endOfFollowingWeek);
 
-            startOfFollowingWeek = startOfFollowingWeek.AddDays(-7);
-            endOfFollowingWeek = endOfFollowingWeek.AddDays(-7);
+            startOfFollowingWeek = startOfFollowingWeek.AddDays(7);
+            endOfFollowingWeek = endOfFollowingWeek.AddDays(7);
         }
 
     }

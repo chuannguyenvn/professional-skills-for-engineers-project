@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
+public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     [Header("Properties")]
     [SerializeField] private float movingDuration = 0.5f;
@@ -51,7 +51,7 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         //Debug.Log("Drag "+ eventData.anchoredPosition + " - "+ eventData.pressPosition);
 
-        float xDifference = ( eventData.position.x - eventData.pressPosition.x);
+        float xDifference = eventData.position.x - eventData.pressPosition.x;
         float yDifference = eventData.position.y - eventData.pressPosition.y;
         if (_isFirstTimeDragging)
         {
@@ -61,17 +61,38 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
             _beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
             _beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
         }
+        
+        if (_isDraggingHorizontalNorVertical)
+        {
+            draggingHorizontalGameObject.anchoredPosition = _beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
+        }
         else
         {
-            if (_isDraggingHorizontalNorVertical)
-            {
-                draggingHorizontalGameObject.anchoredPosition = _beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
-            }
-            else
-            {
-                draggingVerticalGameObject.anchoredPosition = _beforeDraggingVerticalPosition + new Vector2(0,yDifference );
-            }
+            draggingVerticalGameObject.anchoredPosition = _beforeDraggingVerticalPosition + new Vector2(0,yDifference );
         }
+        
+    }
+
+    public void OnDragHorizontalChildPage(PointerEventData eventData)
+    {
+        float xDifference = eventData.position.x - eventData.pressPosition.x;
+        
+        if (_isFirstTimeDragging)
+        {
+            _isFirstTimeDragging = false;
+            _isDraggingHorizontalNorVertical = true;
+            _beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
+            _beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
+        }
+        
+        draggingHorizontalGameObject.anchoredPosition = _beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
+        
+    }
+
+    public void OnEndDragHorizontalChildPage(PointerEventData eventData)
+    {
+        _isFirstTimeDragging = true;
+        OnHorizontalEndDrag(eventData);   
     }
 
     public void OnEndDrag(PointerEventData eventData)

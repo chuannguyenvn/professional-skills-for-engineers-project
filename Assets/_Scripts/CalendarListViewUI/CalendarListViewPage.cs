@@ -10,7 +10,7 @@ using UnityEngine;
 /// This is a class managing the Calendar List View Page
 ///  By displaying a certain amount of Time Block and adding, removing, changing them
 /// </summary>
-public class CalendarListViewPage : MonoBehaviour
+public class CalendarListViewPage : HorizontalSwipePageBase
 {
     [SerializeField] private GameObject content;
 

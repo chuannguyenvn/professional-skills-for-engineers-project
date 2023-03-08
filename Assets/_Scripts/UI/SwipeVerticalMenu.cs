@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace _Scripts.UI
 {
-    public class SwipeStepsHorizontalPage : MonoBehaviour, IDragHandler, IEndDragHandler
+    public class SwipeVerticalMenu : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [Header("Properties")]
         [SerializeField] private float acceptThreshHold = 0.25f;
@@ -19,7 +19,7 @@ namespace _Scripts.UI
 
         private void Start()
         {
-            stepTransforms = stepTransforms.OrderBy(o => o.position.x).ToList();
+            stepTransforms = stepTransforms.OrderBy(o => o.position.y).ToList();
             transform.position = stepTransforms[_initStepIndex].position; 
             StartCoroutine(SmoothMove(transform.position, stepTransforms[_currentStepIndex].position, movingDuration));
             _beforeDraggingPosition = stepTransforms[_currentStepIndex].position;
@@ -28,14 +28,14 @@ namespace _Scripts.UI
         public void OnDrag(PointerEventData eventData)
         {
             //Debug.Log("Drag "+ eventData.position + " - "+ eventData.pressPosition);
-            float difference = eventData.pressPosition.x - eventData.position.x;
-            transform.position = _beforeDraggingPosition - new Vector3(difference, 0,0);
+            float difference = eventData.pressPosition.y - eventData.position.y;
+            transform.position = _beforeDraggingPosition - new Vector3(0, difference, 0);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             //Debug.Log("EndDrag "+ eventData.position + " - "+ eventData.pressPosition);
-            float percentage = (eventData.pressPosition.x - eventData.position.x) / Screen.width;
+            float percentage = (eventData.pressPosition.y - eventData.position.y) / Screen.height;
             if(Mathf.Abs(percentage) >= acceptThreshHold){
                 Vector3 newLocation = _beforeDraggingPosition;
                 if(percentage < 0 && _currentStepIndex < stepTransforms.Count-1){

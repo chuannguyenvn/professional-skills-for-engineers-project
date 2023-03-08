@@ -8,7 +8,7 @@ using Match = System.Text.RegularExpressions.Match;
 
 namespace _Scripts.Calendar
 {
-    public class CalendarCreationPage : MonoBehaviour
+    public class CalendarCreationPage : HorizontalSwipePageBase
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TextMeshProUGUI comment;

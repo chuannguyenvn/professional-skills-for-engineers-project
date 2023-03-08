@@ -31,7 +31,7 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     private void Start()
     {
         stepHorizontalTransforms = stepHorizontalTransforms.OrderBy(o => o.position.x).ToList();
-        stepHorizontalTransforms = stepVerticalTransforms.OrderBy(o => o.position.y).ToList();
+        stepVerticalTransforms = stepVerticalTransforms.OrderBy(o => o.position.y).ToList();
         
         draggingHorizontalGameObject.transform.position = stepHorizontalTransforms[_initHorizontalStepIndex].position;
         draggingVerticalGameObject.transform.position = stepVerticalTransforms[_initVerticalStepIndex].position;

@@ -103,7 +103,7 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
                 _currentHorizontalStepIndex++;
             }
         
-            //newLocation = stepHorizontalTransforms[_currentHorizontalStepIndex].anchoredPosition + _beforeDraggingVerticalPosition;
+            
             StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, newLocation, movingDuration));
             _beforeDraggingHorizontalPosition = newLocation;
             Debug.Log("Goto step "+ _currentHorizontalStepIndex +" Position "+ _beforeDraggingHorizontalPosition );
@@ -126,15 +126,15 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
         if(Mathf.Abs(percentage) >= acceptVerticalThreshHold){
             Vector2 newLocation = _beforeDraggingVerticalPosition;
             if(percentage > 0 && _currentVerticalStepIndex < stepVerticalTransforms.Count-1){
+                newLocation += stepVerticalTransforms[_currentVerticalStepIndex+1].anchoredPosition - stepVerticalTransforms[_currentVerticalStepIndex].anchoredPosition ;
                 _currentVerticalStepIndex++;
             }
             else if(percentage < 0 && _currentVerticalStepIndex >= 1){
+                newLocation += stepVerticalTransforms[_currentVerticalStepIndex-1].anchoredPosition - stepVerticalTransforms[_currentVerticalStepIndex].anchoredPosition ;
                 _currentVerticalStepIndex--;
             }
-        
-            newLocation = stepVerticalTransforms[_currentVerticalStepIndex].anchoredPosition ;
+            
             StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, newLocation, movingDuration));
-            //_beforeDraggingHorizontalPosition += newLocation - _beforeDraggingVerticalPosition;
             _beforeDraggingVerticalPosition = newLocation;
             Debug.Log("Goto step "+ _currentVerticalStepIndex +" Position "+ _beforeDraggingVerticalPosition );
         }

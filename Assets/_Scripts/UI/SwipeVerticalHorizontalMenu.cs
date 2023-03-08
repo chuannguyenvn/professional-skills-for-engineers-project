@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    [Header("Properties")]
+    [Header("Animation Properties")]
     [SerializeField] private float movingDuration = 0.5f;
+    [SerializeField] private Ease ease = Ease.InCubic;
     private bool _isDraggingHorizontalNorVertical;
     private bool _isFirstTimeDragging = true;
+    private bool _isMoving = false;
+    
     
     [Header("Horizontal Properties")] 
     [SerializeField] private RectTransform draggingHorizontalGameObject; 
@@ -40,8 +44,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         Vector3 horizontalDestination =  stepHorizontalTransforms[_currentHorizontalStepIndex].anchoredPosition;
         
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
-        StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
-
+        //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
+        SmoothMoveTo(draggingVerticalGameObject, verticalDestination, movingDuration);
         
     }
     
@@ -128,12 +132,16 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
             }
         
             
-            StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, newLocation, movingDuration));
+            //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, newLocation, movingDuration));
+            SmoothMoveTo(draggingHorizontalGameObject, newLocation, movingDuration);
+
             _beforeDraggingHorizontalPosition = newLocation;
             Debug.Log("Goto step "+ _currentHorizontalStepIndex +" Position "+ _beforeDraggingHorizontalPosition );
         }
         else{
-            StartCoroutine(SmoothMove(draggingHorizontalGameObject,draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
+            //StartCoroutine(SmoothMove(draggingHorizontalGameObject,draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
+            SmoothMoveTo(draggingHorizontalGameObject, _beforeDraggingHorizontalPosition, movingDuration);
+
             Debug.Log("Back to beginning Position"+ _beforeDraggingHorizontalPosition );
         }
         
@@ -158,23 +166,41 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
                 _currentVerticalStepIndex--;
             }
             
-            StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, newLocation, movingDuration));
+            //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, newLocation, movingDuration));
+            SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration);
+
             _beforeDraggingVerticalPosition = newLocation;
             Debug.Log("Goto step "+ _currentVerticalStepIndex +" Position "+ _beforeDraggingVerticalPosition );
         }
         else{
-            StartCoroutine(SmoothMove(draggingVerticalGameObject,draggingVerticalGameObject.anchoredPosition, _beforeDraggingVerticalPosition, movingDuration));
+            //StartCoroutine(SmoothMove(draggingVerticalGameObject,draggingVerticalGameObject.anchoredPosition, _beforeDraggingVerticalPosition, movingDuration));
+            SmoothMoveTo(draggingHorizontalGameObject, _beforeDraggingVerticalPosition, movingDuration);
             Debug.Log("Back to beginning Position"+ _beforeDraggingVerticalPosition );
         }
     }
     
+    /*
     IEnumerator SmoothMove(RectTransform movingObject, Vector3 startPos, Vector3 endPos, float seconds){
+        if (_isMoving) {
+            yield return new WaitForSeconds(seconds); // exit coroutine if already moving
+        }
+
+        _isMoving = true;
+        
         float t = 0f;
         while(t <= 1.0){
             t += Time.deltaTime / seconds;
             movingObject.anchoredPosition = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0f, 1f, t));
             yield return null;
         }
+
+        _isMoving = false;
+    }
+    */
+
+    void SmoothMoveTo(RectTransform movingObject, Vector3 endPos, float seconds)
+    {
+        movingObject.DOAnchorPos(endPos, seconds).SetEase(ease);
     }
 
 }

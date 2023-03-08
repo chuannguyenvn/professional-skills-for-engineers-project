@@ -12,7 +12,7 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     
     [Header("Horizontal Properties")] 
     [SerializeField] private GameObject draggingHorizontalGameObject; 
-    [SerializeField] private List<Transform> stepHorizontalTransforms;
+    [SerializeField] private List<RectTransform> stepHorizontalTransforms;
     [SerializeField] private int _currentHorizontalStepIndex ;
     [SerializeField] private int _initHorizontalStepIndex = 0;
     [SerializeField] private float acceptHorizontalThreshHold = 0.2f;
@@ -22,7 +22,7 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     
     [Header("Vertical Properties")]
     [SerializeField] private GameObject draggingVerticalGameObject;
-    [SerializeField] private List<Transform> stepVerticalTransforms ;
+    [SerializeField] private List<RectTransform> stepVerticalTransforms ;
     [SerializeField] private int _currentVerticalStepIndex ;
     [SerializeField] private int _initVerticalStepIndex=0 ;
     [SerializeField] private float acceptVerticalThreshHold = 0.2f;
@@ -30,28 +30,29 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     
     private void Start()
     {
-        stepHorizontalTransforms = stepHorizontalTransforms.OrderBy(o => o.position.x).ToList();
+        stepHorizontalTransforms = stepHorizontalTransforms.OrderBy(o => o.position.x).Reverse().ToList();
         stepVerticalTransforms = stepVerticalTransforms.OrderBy(o => o.position.y).ToList();
-        
-        draggingHorizontalGameObject.transform.position = stepHorizontalTransforms[_initHorizontalStepIndex].position;
-        draggingVerticalGameObject.transform.position = stepVerticalTransforms[_initVerticalStepIndex].position;
-        
-        StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.transform.position, stepHorizontalTransforms[_currentHorizontalStepIndex].position, movingDuration));
-        StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.transform.position, stepVerticalTransforms[_currentVerticalStepIndex].position, movingDuration));
 
-        _beforeDraggingHorizontalPosition = stepHorizontalTransforms[_currentHorizontalStepIndex].position;
+        
+        draggingVerticalGameObject.transform.position = stepVerticalTransforms[_initVerticalStepIndex].position;
+        draggingHorizontalGameObject.transform.position = stepHorizontalTransforms[_initHorizontalStepIndex].localPosition + stepVerticalTransforms[_initVerticalStepIndex].position;
+        
         _beforeDraggingVerticalPosition = stepVerticalTransforms[_currentVerticalStepIndex].position;
+        _beforeDraggingHorizontalPosition = stepHorizontalTransforms[_currentHorizontalStepIndex].localPosition + _beforeDraggingVerticalPosition;
+        
+        StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.transform.position, _beforeDraggingHorizontalPosition, movingDuration));
+        StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.transform.position, _beforeDraggingVerticalPosition, movingDuration));
+
     }
     
     
     
     public void OnDrag(PointerEventData eventData)
     {
-        
-        Debug.Log("Drag "+ eventData.position + " - "+ eventData.pressPosition);
+        //Debug.Log("Drag "+ eventData.position + " - "+ eventData.pressPosition);
 
-        float xDifference = eventData.pressPosition.x - eventData.position.x;
-        float yDifference = eventData.pressPosition.y - eventData.position.y;
+        float xDifference = ( eventData.position.x - eventData.pressPosition.x);
+        float yDifference = eventData.position.y - eventData.pressPosition.y;
         if (_isFirstTimeDragging)
         {
             _isFirstTimeDragging = false;
@@ -61,11 +62,11 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             if (_isDraggingHorizontalNorVertical)
             {
-                draggingHorizontalGameObject.transform.position = _beforeDraggingHorizontalPosition - new Vector3(xDifference, 0,0);
+                draggingHorizontalGameObject.transform.position = _beforeDraggingHorizontalPosition + new Vector3(xDifference, 0,0);
             }
             else
             {
-                draggingVerticalGameObject.transform.position = _beforeDraggingVerticalPosition - new Vector3(0,yDifference ,0);
+                draggingVerticalGameObject.transform.position = _beforeDraggingVerticalPosition + new Vector3(0,yDifference ,0);
             }
         }
     }
@@ -87,51 +88,49 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void OnHorizontalEndDrag(PointerEventData eventData)
     {
-        float percentage = (eventData.pressPosition.x - eventData.position.x) / Screen.height;
+        float percentage = (eventData.position.x - eventData.pressPosition.x) / Screen.height;
         if(Mathf.Abs(percentage) >= acceptHorizontalThreshHold){
             Vector3 newLocation = _beforeDraggingHorizontalPosition;
-            if(percentage < 0 && _currentHorizontalStepIndex < stepHorizontalTransforms.Count-1){
-                _currentHorizontalStepIndex++;
-                newLocation = stepHorizontalTransforms[_currentHorizontalStepIndex].localPosition + _beforeDraggingVerticalPosition;
-            }
-            else if(percentage > 0 && _currentHorizontalStepIndex >= 1){
+            if(percentage > 0  && _currentHorizontalStepIndex >= 1){
                 _currentHorizontalStepIndex--;
-                newLocation = stepHorizontalTransforms[_currentHorizontalStepIndex].localPosition + _beforeDraggingVerticalPosition;
+            }
+            else if(percentage < 0 && _currentHorizontalStepIndex < stepHorizontalTransforms.Count-1){
+                _currentHorizontalStepIndex++;
             }
         
-            Debug.Log("Goto step "+ _currentHorizontalStepIndex +" Position "+ _beforeDraggingHorizontalPosition );
+            newLocation = stepHorizontalTransforms[_currentHorizontalStepIndex].localPosition + _beforeDraggingVerticalPosition;
             StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.transform.position, newLocation, movingDuration));
             _beforeDraggingHorizontalPosition = newLocation;
+            Debug.Log("Goto step "+ _currentHorizontalStepIndex +" Position "+ _beforeDraggingHorizontalPosition );
         }
         else{
-            Debug.Log("Back to beginning Position"+ _beforeDraggingHorizontalPosition );
             StartCoroutine(SmoothMove(draggingHorizontalGameObject,draggingHorizontalGameObject.transform.position, _beforeDraggingHorizontalPosition, movingDuration));
+            Debug.Log("Back to beginning Position"+ _beforeDraggingHorizontalPosition );
         }
     }
     
     
     private void OnVerticalEndDrag(PointerEventData eventData)
     {
-        float percentage = (eventData.pressPosition.y - eventData.position.y) / Screen.width;
+        float percentage = (eventData.position.y - eventData.pressPosition.y) / Screen.width;
         if(Mathf.Abs(percentage) >= acceptVerticalThreshHold){
             Vector3 newLocation = _beforeDraggingVerticalPosition;
-            if(percentage < 0 && _currentVerticalStepIndex < stepVerticalTransforms.Count-1){
+            if(percentage > 0 && _currentVerticalStepIndex < stepVerticalTransforms.Count-1){
                 _currentVerticalStepIndex++;
-                newLocation = stepVerticalTransforms[_currentVerticalStepIndex].position ;
             }
-            else if(percentage > 0 && _currentVerticalStepIndex >= 1){
+            else if(percentage < 0 && _currentVerticalStepIndex >= 1){
                 _currentVerticalStepIndex--;
-                newLocation = stepVerticalTransforms[_currentVerticalStepIndex].position ;
             }
         
-            Debug.Log("Goto step "+ _currentVerticalStepIndex +" Position "+ _beforeDraggingVerticalPosition );
+            newLocation = stepVerticalTransforms[_currentVerticalStepIndex].position ;
             StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.transform.position, newLocation, movingDuration));
+            _beforeDraggingHorizontalPosition += newLocation - _beforeDraggingVerticalPosition;
             _beforeDraggingVerticalPosition = newLocation;
-            _beforeDraggingHorizontalPosition += newLocation;
+            Debug.Log("Goto step "+ _currentVerticalStepIndex +" Position "+ _beforeDraggingVerticalPosition );
         }
         else{
-            Debug.Log("Back to beginning Position"+ _beforeDraggingVerticalPosition );
             StartCoroutine(SmoothMove(draggingVerticalGameObject,draggingVerticalGameObject.transform.position, _beforeDraggingVerticalPosition, movingDuration));
+            Debug.Log("Back to beginning Position"+ _beforeDraggingVerticalPosition );
         }
     }
     

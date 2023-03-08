@@ -13,9 +13,9 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     [Header("Horizontal Properties")] 
     [SerializeField] private RectTransform draggingHorizontalGameObject; 
     [SerializeField] private List<RectTransform> stepHorizontalTransforms;
+    [SerializeField] private RectTransform initHorizontalTransform;
     [SerializeField] private int _currentHorizontalStepIndex ;
-    [SerializeField] private int _initHorizontalStepIndex = 0;
-    [SerializeField] private float acceptHorizontalThreshHold = 0.2f;
+    [SerializeField, Range(0,1)] private float acceptHorizontalThreshHold = 0.2f;
     private Vector2 _beforeDraggingHorizontalPosition;
 
     
@@ -23,9 +23,9 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
     [Header("Vertical Properties")]
     [SerializeField] private RectTransform draggingVerticalGameObject;
     [SerializeField] private List<RectTransform> stepVerticalTransforms ;
+    [SerializeField] private RectTransform initVerticalTransform;
     [SerializeField] private int _currentVerticalStepIndex ;
-    [SerializeField] private int _initVerticalStepIndex=0 ;
-    [SerializeField] private float acceptVerticalThreshHold = 0.2f;
+    [SerializeField, Range(0,1)] private float acceptVerticalThreshHold = 0.2f;
     private Vector2 _beforeDraggingVerticalPosition;
     
     private void Start()
@@ -33,14 +33,14 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
         stepHorizontalTransforms = stepHorizontalTransforms.OrderBy(o => o.anchoredPosition.x).Reverse().ToList();
         stepVerticalTransforms = stepVerticalTransforms.OrderBy(o => o.anchoredPosition.y).ToList();
         
-        draggingVerticalGameObject.anchoredPosition = stepVerticalTransforms[_initVerticalStepIndex].anchoredPosition;
-        //draggingHorizontalGameObject.anchoredPosition = stepHorizontalTransforms[_initHorizontalStepIndex].anchoredPosition;
-        
-        _beforeDraggingVerticalPosition = stepVerticalTransforms[_currentVerticalStepIndex].anchoredPosition;
-        _beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
+        draggingVerticalGameObject.anchoredPosition = initVerticalTransform? initVerticalTransform.anchoredPosition : draggingVerticalGameObject.anchoredPosition;
+        draggingHorizontalGameObject.anchoredPosition = initHorizontalTransform? initHorizontalTransform.anchoredPosition : draggingHorizontalGameObject.anchoredPosition;
+
+        Vector3 verticalDestination =  stepVerticalTransforms[_currentVerticalStepIndex].anchoredPosition;
+        Vector3 horizontalDestination =  stepHorizontalTransforms[_currentHorizontalStepIndex].anchoredPosition;
         
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
-        StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, _beforeDraggingVerticalPosition, movingDuration));
+        StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
 
         
     }
@@ -57,6 +57,9 @@ public class SwipeGridStepsPage : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             _isFirstTimeDragging = false;
             _isDraggingHorizontalNorVertical = Mathf.Abs( xDifference) >= Mathf.Abs( yDifference) ;
+            
+            _beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
+            _beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
         }
         else
         {

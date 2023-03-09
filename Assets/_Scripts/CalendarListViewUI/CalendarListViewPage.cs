@@ -23,12 +23,17 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     
     private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
-    private void OnEnable()
+    public void OnEnterPage()
     {
-        GetSubjectInfo(DataManager.Instance.GetTimeTable());
         ClearAllTimeBlock();
+        GetSubjectInfo(DataManager.Instance.GetTimeTable());
         
         DisplayManyMedianWeeks(DateTime.Now, 10, 10);
+    }
+
+    public void OnOutPage()
+    {
+        ClearAllTimeBlock();
     }
 
     private void GetSubjectInfo(TimeTable timeTable)
@@ -101,17 +106,24 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     {
         GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubjectGo, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(subject);
+        timeBlocks.Add(instantiateTimeBlock);
     }
 
     private void CreateTimeBlockDayGap(DateTime dateTime)
     {
         GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGapGo, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime);
+        timeBlocks.Add(instantiateTimeBlock);
     }
     #endregion
    
     private void ClearAllTimeBlock()
     {
-        timeBlocks = new List<GameObject>();
+        foreach (var timeBlock in timeBlocks)
+        {
+            Destroy(timeBlock);
+        }
+
+        timeBlocks = new();
     }
 }

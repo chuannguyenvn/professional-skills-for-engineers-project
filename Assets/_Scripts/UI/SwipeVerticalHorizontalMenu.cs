@@ -46,8 +46,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
     public class ChildPageUI
     {
         public RectTransform rectTransform;
-        [FormerlySerializedAs("onSelect")] public UnityEvent onSelectEvent;
-        [FormerlySerializedAs("onDeselect")] public UnityEvent onDeselectEvent;
+        public UnityEvent onSelectEvent;
+        public UnityEvent onDeselectEvent;
 
         public void OnSelect()
         {
@@ -61,7 +61,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
     }
 
 
-    protected void Start()
+    protected void OnEnable()
     {
         horizontalPages = horizontalPages.OrderBy(o => o.rectTransform.anchoredPosition.x).Reverse().ToList();
         verticalPages = verticalPages.OrderBy(o => o.rectTransform.anchoredPosition.y).ToList();
@@ -76,12 +76,15 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         Vector3 verticalDestination = verticalPages[currentVerticalStepIndex].rectTransform.anchoredPosition;
         Vector3 horizontalDestination = horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition;
 
+        verticalPages[currentVerticalStepIndex].OnSelect();
+        horizontalPages[currentHorizontalStepIndex].OnSelect();
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
         //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
         SmoothMoveTo(draggingVerticalGameObject, verticalDestination, movingDuration);
         //SmoothMoveTo(draggingHorizontalGameObject, horizontalDestination, movingDuration);
     }
 
+    
 
     public void OnDrag(PointerEventData eventData)
     {

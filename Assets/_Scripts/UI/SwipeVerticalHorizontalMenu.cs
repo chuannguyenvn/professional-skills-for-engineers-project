@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Unity.VisualScripting;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
+
 
 
 public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDragHandler
@@ -63,7 +61,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
 
     protected void OnEnable()
     {
-        horizontalPages = horizontalPages.OrderBy(o => o.rectTransform.anchoredPosition.x).Reverse().ToList();
+        horizontalPages = horizontalPages.OrderBy(o => o.rectTransform.anchoredPosition.x).ToList();
         verticalPages = verticalPages.OrderBy(o => o.rectTransform.anchoredPosition.y).ToList();
 
         draggingVerticalGameObject.anchoredPosition = initVerticalTransform
@@ -147,6 +145,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         }
     }
 
+    // The Index is from right to left , right is 0 and left is count-1
     protected void OnHorizontalEndDrag(PointerEventData eventData)
     {
         float percentage = (eventData.position.x - eventData.pressPosition.x) / Screen.height;
@@ -155,8 +154,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
             Vector2 newLocation = beforeDraggingHorizontalPosition;
             if (percentage > 0 && currentHorizontalStepIndex >= 1)
             {
-                newLocation += (horizontalPages[currentHorizontalStepIndex - 1].rectTransform.anchoredPosition -
-                                horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition);
+                newLocation += (horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition -
+                                horizontalPages[currentHorizontalStepIndex - 1].rectTransform.anchoredPosition); // There for this is backward
 
                 horizontalPages[currentHorizontalStepIndex].OnDeselect();
                 currentHorizontalStepIndex--;
@@ -164,8 +163,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
             }
             else if (percentage < 0 && currentHorizontalStepIndex < horizontalPages.Count - 1)
             {
-                newLocation += (horizontalPages[currentHorizontalStepIndex + 1].rectTransform.anchoredPosition -
-                                horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition);
+                newLocation += (horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition -
+                                horizontalPages[currentHorizontalStepIndex + 1].rectTransform.anchoredPosition); //there for this is backward
 
                 horizontalPages[currentHorizontalStepIndex].OnDeselect();
                 currentHorizontalStepIndex++;

@@ -15,6 +15,12 @@ namespace _Scripts.Calendar
         [SerializeField] private TMP_Dropdown semesterDropdown;
 
         private MatchCollection _semesterMatchCollection;
+        
+        
+        private void OnEnable()
+        {
+            
+        }
 
         void Start()
         {

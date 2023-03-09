@@ -16,10 +16,10 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     [Header("TimeBlock List")] 
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
-    [SerializeField] private TimeTable _displayingTimeTable;
+    private TimeTable _displayingTimeTable;
 
     [Header("Data structure")] 
-    [SerializeField] private List<GameObject> _timeBlocks = new();
+    [SerializeField] private List<GameObject> timeBlocks = new();
     
     private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
@@ -112,6 +112,6 @@ public class CalendarListViewPage : HorizontalSwipePageBase
    
     private void ClearAllTimeBlock()
     {
-        _timeBlocks = new List<GameObject>();
+        timeBlocks = new List<GameObject>();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private Canvas mainCanvas;
+    /*[SerializeField] private Canvas mainCanvas;
     [SerializeField] private bool isOnScrollPage = false;
 
     [SerializeField] private LayerMask uiLayerMask;
@@ -25,6 +25,7 @@ public class UIManager : Singleton<UIManager>
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 1f, uiLayerMask );
         Debug.Log(hit.transform.gameObject);
     }
+    */
     
     #region Unused
     //

@@ -6,7 +6,8 @@ namespace Map
     {
         public static Vector2 GeoToWorldPosition(Vector2 geoPosition)
         {
-            return (geoPosition - MapData.GeoAnchor) / MapData.ConversionConst;
+            var reversedPos = (geoPosition - MapData.GeoAnchor) / MapData.ConversionConst;
+            return new Vector2(reversedPos.y, reversedPos.x);
         }
     }
 }

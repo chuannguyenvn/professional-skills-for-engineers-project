@@ -167,4 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75365a949c0c4d0785488868e4133343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Is3D: 0
+  BuildingHeight: 10
   polygon: {fileID: 6491382059367676626}

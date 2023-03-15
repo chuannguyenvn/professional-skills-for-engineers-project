@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Shapes;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Map
 {
@@ -58,7 +59,11 @@ namespace Map
 
         private void OnMouseDown()
         {
-            Debug.Log(gameObject.name);
+            Debug.Log(gameObject.name + " "+ EventSystem.current.IsPointerOverGameObject());
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
         }
     }
 }

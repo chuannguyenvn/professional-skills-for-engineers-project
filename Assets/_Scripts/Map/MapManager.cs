@@ -15,7 +15,19 @@ public class MapManager : Singleton<MapManager>
 
     private void Start()
     {
-        foreach (var (buildingName, buildingCoordinates) in MapData.Buildings)
+        foreach (var buildingSo in buildingScriptableObjects)
+        {
+            var building = Instantiate(ResourceManager.Instance.Building, mapParent);
+            building.Init(buildingSo);
+            buildings.Add(buildingSo.name, building);
+        }
+        
+    }
+}
+
+/*
+ Create Scriptable Object
+    foreach (var (buildingName, buildingCoordinates) in MapData.Buildings)
         {
             BuildingSO example = ScriptableObject.CreateInstance<BuildingSO>();
             string path = "Assets/ScriptableObject/Buildings/" + buildingName+".asset";
@@ -27,15 +39,4 @@ public class MapManager : Singleton<MapManager>
             AssetDatabase.Refresh();
             EditorUtility.FocusProjectWindow();
             Selection.activeObject = example;
-        }
-
-        /*foreach (var buildingSo in buildingScriptableObjects)
-        {
-            var building = Instantiate(ResourceManager.Instance.Building, mapParent);
-            building.Init(buildingSo);
-            buildings.Add(buildingSo.name, building);
-        
-        }
-        */
-    }
-}
+        }*/

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
   m_Name: "X\u01B0\u1EDFng Th\u1EF1c T\u1EADp \xD4 t\xF4"
   m_EditorClassIdentifier: 
-  name: xuongThucTapOTo
+  name: "X\u01B0\u1EDFng th\u1EF1c t\u1EADp \xF4 t\xF4"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.77503, y: 106.66081}

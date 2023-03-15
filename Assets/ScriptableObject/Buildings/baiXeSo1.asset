@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
+  m_Name: baiXeSo1
+  m_EditorClassIdentifier: 
+  name: baiXeSo1
+  color: {r: 0, g: 0, b: 0, a: 1}
+  geoCoordinate:
+  - {x: 10.771848, y: 106.65878}
+  - {x: 10.771831, y: 106.658745}
+  - {x: 10.771895, y: 106.65871}
+  - {x: 10.771765, y: 106.65846}
+  - {x: 10.771317, y: 106.65872}
+  - {x: 10.7714615, y: 106.659004}
+  height: 10

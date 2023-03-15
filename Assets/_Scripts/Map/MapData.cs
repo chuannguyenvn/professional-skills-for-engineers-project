@@ -7,7 +7,6 @@ namespace Map
     {
         public static float ConversionConst = 0.000008950159495243074f;
         public static readonly Vector2 GeoAnchor = new (10.772802f, 106.659716f);
-        
         public static Dictionary<string, List<Vector2>> Buildings = new()
         {
             {

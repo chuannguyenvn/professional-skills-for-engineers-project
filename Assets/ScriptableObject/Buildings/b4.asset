@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
+  m_Name: b4
+  m_EditorClassIdentifier: 
+  name: b4
+  color: {r: 0, g: 0, b: 0, a: 1}
+  geoCoordinate:
+  - {x: 10.773276, y: 106.65909}
+  - {x: 10.773262, y: 106.65909}
+  - {x: 10.773137, y: 106.65886}
+  - {x: 10.773126, y: 106.65886}
+  - {x: 10.772909, y: 106.65844}
+  - {x: 10.773016, y: 106.65838}
+  - {x: 10.773031, y: 106.65838}
+  - {x: 10.773225, y: 106.65874}
+  - {x: 10.773242, y: 106.65872}
+  - {x: 10.773309, y: 106.65886}
+  - {x: 10.773298, y: 106.65887}
+  - {x: 10.773386, y: 106.65902}
+  height: 10

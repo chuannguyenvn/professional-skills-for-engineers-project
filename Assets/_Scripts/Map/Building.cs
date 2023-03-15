@@ -12,6 +12,8 @@ namespace Map
         public float BuildingHeight = 10f;
 
         [SerializeField] private Polygon polygon;
+        [SerializeField] private PolygonCollider2D polygonCollider2D;
+        
         private List<Vector2> geoCoordinates;
         private List<Vector2> worldCoordinates;
 
@@ -31,6 +33,9 @@ namespace Map
             {
                 polygon.AddPoint(coordinate);
             }
+
+            polygonCollider2D.pathCount = worldCoordinates.Count;
+            polygonCollider2D.SetPath(0, worldCoordinates);
         }
 
         private void Init3D()
@@ -49,6 +54,11 @@ namespace Map
                 sidePolygon.transform.Rotate(Vector3.right, -90);
                 sidePolygon.AddPoints(new[] {bottomFirstPoint, bottomSecondPoint, topSecondPoint, topFirstPoint});
             }
+        }
+
+        private void OnMouseDown()
+        {
+            Debug.Log(gameObject.name);
         }
     }
 }

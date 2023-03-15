@@ -36,7 +36,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
 
     [SerializeField] protected List<ChildPageUI> verticalPages;
     [SerializeField] protected RectTransform initVerticalTransform;
-    [SerializeField] protected int currentVerticalStepIndex, initVerticalIndex;
+    [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
     protected Vector2 beforeDraggingVerticalPosition;
 
@@ -75,10 +75,13 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         //Vector3 horizontalDestination = horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition;
 
         currentHorizontalIndex = initHorizontalIndex;
-        currentVerticalStepIndex = initHorizontalIndex;
+        currentVerticalIndex = initVerticalIndex;
         horizontalPages[initHorizontalIndex].OnSelect();
         verticalPages[initVerticalIndex].OnSelect();
-        
+
+        //beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
+        //beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
+
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
         //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
         //SmoothMoveTo(draggingVerticalGameObject, verticalDestination, movingDuration, verticalPages[currentVerticalStepIndex].onSelectEvent);
@@ -197,29 +200,29 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         if (Mathf.Abs(percentage) >= acceptVerticalThreshHold)
         {
             Vector2 newLocation = beforeDraggingVerticalPosition;
-            if (percentage > 0 && currentVerticalStepIndex < verticalPages.Count - 1)
+            if (percentage > 0 && currentVerticalIndex < verticalPages.Count - 1)
             {
-                newLocation += verticalPages[currentVerticalStepIndex + 1].rectTransform.anchoredPosition -
-                               verticalPages[currentVerticalStepIndex].rectTransform.anchoredPosition;
+                newLocation += verticalPages[currentVerticalIndex + 1].rectTransform.anchoredPosition -
+                               verticalPages[currentVerticalIndex].rectTransform.anchoredPosition;
 
-                verticalPages[currentVerticalStepIndex].OnDeselect();
-                currentVerticalStepIndex++;
+                verticalPages[currentVerticalIndex].OnDeselect();
+                currentVerticalIndex++;
                 
             }
-            else if (percentage < 0 && currentVerticalStepIndex >= 1)
+            else if (percentage < 0 && currentVerticalIndex >= 1)
             {
-                newLocation += verticalPages[currentVerticalStepIndex - 1].rectTransform.anchoredPosition -
-                               verticalPages[currentVerticalStepIndex].rectTransform.anchoredPosition;
+                newLocation += verticalPages[currentVerticalIndex - 1].rectTransform.anchoredPosition -
+                               verticalPages[currentVerticalIndex].rectTransform.anchoredPosition;
 
-                verticalPages[currentVerticalStepIndex].OnDeselect();
-                currentVerticalStepIndex--;
+                verticalPages[currentVerticalIndex].OnDeselect();
+                currentVerticalIndex--;
             }
 
             //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, newLocation, movingDuration));
-            SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration,verticalPages[currentVerticalStepIndex].onSelectEvent);
+            SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration,verticalPages[currentVerticalIndex].onSelectEvent);
 
             beforeDraggingVerticalPosition = newLocation;
-            Debug.Log("Goto step " + currentVerticalStepIndex + " Position " + beforeDraggingVerticalPosition);
+            Debug.Log("Goto step " + currentVerticalIndex + " Position " + beforeDraggingVerticalPosition);
         }
         else
         {

@@ -1491,14 +1491,14 @@ RectTransform:
   m_GameObject: {fileID: 1339652698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1280645426}
   - {fileID: 533749025}
   - {fileID: 656270399}
-  m_Father: {fileID: 2003890929}
-  m_RootOrder: 3
+  m_Father: {fileID: 1962969637}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2218,6 +2218,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1339652699}
   - {fileID: 2003890929}
   m_Father: {fileID: 81740736}
   m_RootOrder: 0
@@ -2366,9 +2367,8 @@ RectTransform:
   - {fileID: 1916487616}
   - {fileID: 2024696397}
   - {fileID: 472981996}
-  - {fileID: 1339652699}
   m_Father: {fileID: 1962969637}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2481,7 +2481,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   initVerticalTransform: {fileID: 533749025}
-  currentVerticalStepIndex: 1
+  currentVerticalIndex: 1
   initVerticalIndex: 1
   acceptVerticalThreshHold: 0.1
 --- !u!114 &2003890931

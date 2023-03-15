@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: sanBongRo2
+  m_Name: "S\xE2n b\xF3ng r\u1ED5 2"
   m_EditorClassIdentifier: 
-  name: sanBongRo2
+  name: "S\xE2n b\xF3ng r\u1ED5 2"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.774621, y: 106.65983}

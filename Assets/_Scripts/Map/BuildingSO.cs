@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Building", menuName = "ScriptableObjects/Building", order = 1)]
@@ -9,4 +10,9 @@ public class BuildingSO : ScriptableObject
     public Color color = Color.black;
     public List<Vector2> geoCoordinate;
     public float height = 10f;
+
+    void OnValidate()
+    {
+        
+    }
 }

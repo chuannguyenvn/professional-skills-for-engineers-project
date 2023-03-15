@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: solarBK
+  m_Name: BK Food Court
   m_EditorClassIdentifier: 
-  name: solarBK
+  name: BK Food Court
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.774869, y: 106.660126}
-  - {x: 10.774783, y: 106.66017}
-  - {x: 10.774733, y: 106.66007}
-  - {x: 10.774818, y: 106.66003}
+  - {x: 10.773676, y: 106.65873}
+  - {x: 10.773526, y: 106.65882}
+  - {x: 10.773404, y: 106.65859}
+  - {x: 10.773553, y: 106.65851}
   height: 10

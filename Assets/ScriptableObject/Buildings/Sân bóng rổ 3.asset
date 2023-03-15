@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: xuongThucTapCoKhi_c1
+  m_Name: "S\xE2n b\xF3ng r\u1ED5 3"
   m_EditorClassIdentifier: 
-  name: xuongThucTapCoKhi_c1
+  name: "S\xE2n b\xF3ng r\u1ED5 3"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.775195, y: 106.65991}
-  - {x: 10.77493, y: 106.66006}
-  - {x: 10.7743845, y: 106.65905}
-  - {x: 10.774647, y: 106.6589}
+  - {x: 10.774288, y: 106.65956}
+  - {x: 10.774094, y: 106.65966}
+  - {x: 10.774073, y: 106.659615}
+  - {x: 10.774267, y: 106.659515}
   height: 10

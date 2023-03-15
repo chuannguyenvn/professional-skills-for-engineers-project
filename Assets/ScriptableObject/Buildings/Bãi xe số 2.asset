@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: "Qu\u1EA7y gi\xE1o tr\xECnh"
+  m_Name: "B\xE3i xe s\u1ED1 2"
   m_EditorClassIdentifier: 
-  name: "Qu\u1EA7y gi\xE1o tr\xECnh"
+  name: "B\xE3i xe s\u1ED1 2"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.773798, y: 106.66074}
-  - {x: 10.773719, y: 106.66079}
-  - {x: 10.773689, y: 106.660736}
-  - {x: 10.77377, y: 106.66069}
+  - {x: 10.772699, y: 106.65834}
+  - {x: 10.772635, y: 106.65838}
+  - {x: 10.772487, y: 106.65813}
+  - {x: 10.772867, y: 106.6579}
+  - {x: 10.772982, y: 106.658104}
+  - {x: 10.772673, y: 106.658295}
   height: 10

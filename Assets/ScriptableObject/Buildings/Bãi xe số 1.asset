@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: bkFoodCourt
+  m_Name: "B\xE3i xe s\u1ED1 1"
   m_EditorClassIdentifier: 
-  name: bkFoodCourt
+  name: "B\xE3i xe s\u1ED1 1"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.773676, y: 106.65873}
-  - {x: 10.773526, y: 106.65882}
-  - {x: 10.773404, y: 106.65859}
-  - {x: 10.773553, y: 106.65851}
+  - {x: 10.771848, y: 106.65878}
+  - {x: 10.771831, y: 106.658745}
+  - {x: 10.771895, y: 106.65871}
+  - {x: 10.771765, y: 106.65846}
+  - {x: 10.771317, y: 106.65872}
+  - {x: 10.7714615, y: 106.659004}
   height: 10

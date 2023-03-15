@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: baiXeSo1
+  m_Name: "\u0110\xE0i T\u01B0\u1EDFng Ni\u1EC7m"
   m_EditorClassIdentifier: 
-  name: baiXeSo1
+  name: "\u0110\xE0i T\u01B0\u1EDFng Ni\u1EC7m"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.771848, y: 106.65878}
-  - {x: 10.771831, y: 106.658745}
-  - {x: 10.771895, y: 106.65871}
-  - {x: 10.771765, y: 106.65846}
-  - {x: 10.771317, y: 106.65872}
-  - {x: 10.7714615, y: 106.659004}
+  - {x: 10.773953, y: 106.6604}
+  - {x: 10.77377, y: 106.66008}
+  - {x: 10.774066, y: 106.6599}
+  - {x: 10.774244, y: 106.66023}
   height: 10

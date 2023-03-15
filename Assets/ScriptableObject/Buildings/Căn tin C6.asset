@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: sanBongRo3
+  m_Name: "C\u0103n tin C6"
   m_EditorClassIdentifier: 
-  name: sanBongRo3
+  name: "C\u0103n tin C6"
   color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
-  - {x: 10.774288, y: 106.65956}
-  - {x: 10.774094, y: 106.65966}
-  - {x: 10.774073, y: 106.659615}
-  - {x: 10.774267, y: 106.659515}
+  - {x: 10.775598, y: 106.65971}
+  - {x: 10.77528, y: 106.65989}
+  - {x: 10.775212, y: 106.65976}
+  - {x: 10.77553, y: 106.659584}
   height: 10

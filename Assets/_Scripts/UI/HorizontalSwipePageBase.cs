@@ -38,13 +38,22 @@ public class HorizontalSwipePageBase : MonoBehaviour, IDragHandler, IEndDragHand
             menu.OnDragHorizontalChildPage(eventData);
             scrollRect.vertical = false;
         }
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        menu.OnEndDragHorizontalChildPage(eventData);
-        scrollRect.vertical = true;
-        _isFirstTimeDragging = true;
-        _isDraggingHorizontalNorVertical = false;
+        if (_isDraggingHorizontalNorVertical)
+        {
+            menu.OnEndDragHorizontalChildPage(eventData);
+            scrollRect.vertical = true;
+            _isFirstTimeDragging = true;
+            _isDraggingHorizontalNorVertical = false;
+
+        }
+        else
+        {
+            _isFirstTimeDragging = true;
+        }
     }
 }

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: b8
   m_EditorClassIdentifier: 
   name: b8
-  color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.773917, y: 106.660545}
   - {x: 10.773844, y: 106.66058}
@@ -23,4 +22,5 @@ MonoBehaviour:
   - {x: 10.773768, y: 106.660446}
   - {x: 10.773657, y: 106.66023}
   - {x: 10.77373, y: 106.660194}
+  mapColor: 4
   height: 10

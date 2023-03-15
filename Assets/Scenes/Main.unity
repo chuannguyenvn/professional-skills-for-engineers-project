@@ -347,6 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299498076}
+  - component: {fileID: 299498077}
   m_Layer: 0
   m_Name: VisualManager
   m_TagString: Untagged
@@ -369,6 +370,29 @@ Transform:
   m_Father: {fileID: 372999671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299498077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299498075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301693f88ab49004497c1024b19bf0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {r: 0, g: 0, b: 0, a: 0}
+  road: {r: 0, g: 0, b: 0, a: 0}
+  grass: {r: 0, g: 0, b: 0, a: 0}
+  aBuilding: {r: 0, g: 0, b: 0, a: 0}
+  bBuilding: {r: 0, g: 0, b: 0, a: 0}
+  cBuilding: {r: 0, g: 0, b: 0, a: 0}
+  foodAndDrinkBuilding: {r: 0, g: 0, b: 0, a: 0}
+  garageBuilding: {r: 0, g: 0, b: 0, a: 0}
+  stadiumBuilding: {r: 0, g: 0, b: 0, a: 0}
+  facilityBuilding: {r: 0, g: 0, b: 0, a: 0}
+  otherBuilding: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &363319315
 GameObject:
   m_ObjectHideFlags: 0

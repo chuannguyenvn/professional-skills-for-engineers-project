@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: "S\xE2n b\xF3ng r\u1ED5 2"
   m_EditorClassIdentifier: 
   name: "S\xE2n b\xF3ng r\u1ED5 2"
-  color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.774621, y: 106.65983}
   - {x: 10.774434, y: 106.65993}
   - {x: 10.774383, y: 106.659836}
   - {x: 10.774569, y: 106.65973}
+  mapColor: 8
   height: 10

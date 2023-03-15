@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Solar BK
   m_EditorClassIdentifier: 
   name: Solar BK
-  color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.774869, y: 106.660126}
   - {x: 10.774783, y: 106.66017}
   - {x: 10.774733, y: 106.66007}
   - {x: 10.774818, y: 106.66003}
+  mapColor: 6
   height: 10

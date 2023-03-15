@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: "C\u0103n tin C6"
   m_EditorClassIdentifier: 
   name: "C\u0103n tin C6"
-  color: {r: 0, g: 0, b: 0, a: 1}
   geoCoordinate:
   - {x: 10.775598, y: 106.65971}
   - {x: 10.77528, y: 106.65989}
   - {x: 10.775212, y: 106.65976}
   - {x: 10.77553, y: 106.659584}
+  mapColor: 6
   height: 10

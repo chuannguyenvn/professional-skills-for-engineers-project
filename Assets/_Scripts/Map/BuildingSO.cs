@@ -7,12 +7,10 @@ using UnityEngine;
 public class BuildingSO : ScriptableObject
 {
     public string name = "New building";
-    public Color color = Color.black;
     public List<Vector2> geoCoordinate;
+    
+    public VisualManager.MapColor mapColor;
     public float height = 10f;
 
-    void OnValidate()
-    {
-        
-    }
+    
 }

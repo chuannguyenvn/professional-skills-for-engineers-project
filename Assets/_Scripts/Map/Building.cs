@@ -20,8 +20,8 @@ namespace Map
         public void Init(string buildingName, List<Vector2> coordinates)
         {
             gameObject.name = buildingName;
-            geoCoordinates = new(coordinates);
-            worldCoordinates = coordinates.Select(MapHelper.GeoToWorldPosition).ToList();
+            geoCoordinates = new List<Vector2>(coordinates);
+            worldCoordinates = geoCoordinates.Select(MapHelper.GeoToWorldPosition).ToList();
             
             if (Is3D) Init3D();
             else Init2D();

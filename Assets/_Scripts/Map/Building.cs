@@ -17,11 +17,13 @@ namespace Map
         
         private List<Vector2> geoCoordinates;
         private List<Vector2> worldCoordinates;
+        private BuildingSO _buildingSo; 
 
-        public void Init(string buildingName, List<Vector2> coordinates)
+        public void Init(BuildingSO buildingSo)
         {
-            gameObject.name = buildingName;
-            geoCoordinates = new List<Vector2>(coordinates);
+            _buildingSo = buildingSo;
+            gameObject.name = buildingSo.name;
+            geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
             worldCoordinates = geoCoordinates.Select(MapHelper.GeoToWorldPosition).ToList();
             
             if (Is3D) Init3D();

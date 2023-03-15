@@ -25,8 +25,8 @@ public class MapManager : Singleton<MapManager>
     }
 }
 
-/*
- Create Scriptable Object
+/*  Create Scriptable Object
+    
     foreach (var (buildingName, buildingCoordinates) in MapData.Buildings)
         {
             BuildingSO example = ScriptableObject.CreateInstance<BuildingSO>();

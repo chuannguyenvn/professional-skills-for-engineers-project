@@ -337,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBlockSubjectGo: {fileID: 877624839575187372, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
   timeBlockDayGapGo: {fileID: 1071051506691009492, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
+  Building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
 --- !u!1 &299498075
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +687,7 @@ Transform:
   - {fileID: 284033239}
   - {fileID: 299498076}
   - {fileID: 1501946440}
+  - {fileID: 1389857787}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -905,7 +907,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -922,7 +924,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 200
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1503,6 +1505,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1389857786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389857787}
+  - component: {fileID: 1389857788}
+  m_Layer: 0
+  m_Name: Map Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1389857787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389857786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 372999671}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389857788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389857786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a436ee18f7a54b038042f1ea74bc5033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1402638441 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}

@@ -172,6 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadIntersectionNodes:
   - {fileID: 888980781}
+  - {fileID: 2112997322}
+  - {fileID: 46215965}
 --- !u!23 &10544895
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -319,7 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 10544894}
+  - {fileID: 1566931177}
+  - {fileID: 134763334}
 --- !u!23 &46215966
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -635,7 +640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 2112997322}
+  - {fileID: 501947484}
+  - {fileID: 511777835}
 --- !u!23 &97628766
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -783,7 +791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 46215965}
+  - {fileID: 1507813862}
+  - {fileID: 1199487939}
 --- !u!23 &134763335
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -1079,7 +1090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1122978116}
+  - {fileID: 1100735793}
+  - {fileID: 561684688}
 --- !u!23 &185103629
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -2330,7 +2344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1429097333}
+  - {fileID: 97628765}
+  - {fileID: 1100735793}
 --- !u!23 &501947485
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -2478,7 +2495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1122978116}
+  - {fileID: 638715904}
+  - {fileID: 1429097333}
 --- !u!23 &504158866
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -2626,7 +2646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 97628765}
+  - {fileID: 1204910902}
+  - {fileID: 740164662}
 --- !u!23 &511777836
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -3469,7 +3492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1566931177}
+  - {fileID: 1446498749}
+  - {fileID: 504158865}
 --- !u!23 &638715905
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -4019,7 +4045,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 511777835}
+  - {fileID: 1100735793}
+  - {fileID: 1295146298}
 --- !u!23 &740164663
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -4466,7 +4495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1509487648}
+  - {fileID: 1199487939}
 --- !u!23 &824852876
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -5521,7 +5552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 501947484}
+  - {fileID: 740164662}
+  - {fileID: 185103628}
+  - {fileID: 542859322}
 --- !u!23 &1100735794
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -5669,7 +5704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 504158865}
+  - {fileID: 524377289}
+  - {fileID: 185103628}
 --- !u!23 &1122978117
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -6342,7 +6380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 824852875}
+  - {fileID: 134763334}
+  - {fileID: 1446498749}
 --- !u!23 &1199487940
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -7263,7 +7304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1566931177}
+  - {fileID: 504158865}
+  - {fileID: 501947484}
 --- !u!23 &1429097334
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -7411,7 +7455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1199487939}
+  - {fileID: 638715904}
+  - {fileID: 1621889398}
 --- !u!23 &1446498750
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -7899,7 +7946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 134763334}
+  - {fileID: 1800237487}
 --- !u!23 &1507813863
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -8047,7 +8096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1800237487}
+  - {fileID: 824852875}
 --- !u!23 &1509487649
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -8195,7 +8246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 46215965}
+  - {fileID: 1429097333}
+  - {fileID: 638715904}
 --- !u!23 &1566931178
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -8343,7 +8397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1446498749}
 --- !u!23 &1621889399
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -8804,7 +8859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800237485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.33737, y: 367.7234, z: 0}
+  m_LocalPosition: {x: 41, y: 368.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8823,7 +8878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1507813862}
+  - {fileID: 1509487648}
 --- !u!23 &1800237488
 MeshRenderer:
   m_ObjectHideFlags: 2
@@ -10565,7 +10622,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 1164718976}
+  - {fileID: 97628765}
+  - {fileID: 10544894}
 --- !u!23 &2112997323
 MeshRenderer:
   m_ObjectHideFlags: 2

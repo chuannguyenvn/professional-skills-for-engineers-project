@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using _Scripts.Manager;
 using Map;
 using UnityEditor;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private Transform mapParent, newMap;
+    [SerializeField] private Transform mapParent, newMap, oldNodes, freshNodes;
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
@@ -38,7 +40,23 @@ public class MapManager : Singleton<MapManager>
         }
         
     }
-    
+
+    public void ConnectRoad()
+    {
+        for (int i = 0; i < 53; i++)
+        {
+            RoadIntersectionNode oldIntersectionNode = oldNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
+            RoadIntersectionNode freshIntersectionNode = freshNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
+
+            oldIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
+            foreach (var oldConnectionNode in oldIntersectionNode.roadIntersectionNodes)
+            {
+                int oldIndex = int.Parse(oldConnectionNode.name.Substring(5));
+                oldIntersectionNode.roadIntersectionNodes.Add(freshNodes.GetChild(oldIndex).GetComponent<RoadIntersectionNode>());
+            }
+        }
+    }
+
 
     public Building GetBuilding(string searching)
     {

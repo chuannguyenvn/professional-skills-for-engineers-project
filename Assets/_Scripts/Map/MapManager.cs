@@ -25,6 +25,20 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
+    public void Temp()
+    {
+        for (int i = 0; i < intersectionNodeParent.childCount; i++)
+        {
+            var road = Instantiate( ResourceManager.Instance.roadIntersectionNode, intersectionNodeParent.transform);
+            road.transform.position = intersectionNodeParent.GetChild(i).transform.position;
+            road.GetComponent<RoadIntersectionNode>().roadIntersectionNodes = intersectionNodeParent.GetChild(i)
+                .GetComponent<RoadIntersectionNode>().roadIntersectionNodes;
+            road.name = "Road Node "+i.ToString();
+            
+        }
+    }
+    
+
     public Building GetBuilding(string searching)
     {
         if (buildings.ContainsKey(searching)) return buildings[searching];

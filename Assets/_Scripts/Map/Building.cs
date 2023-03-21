@@ -18,12 +18,7 @@ namespace Map
         private List<Vector2> geoCoordinates;
         private List<Vector2> worldCoordinates;
         private BuildingSO _buildingSo;
-
-        private void OnValidate()
-        {
-            _buildingSo.geoCoordinate =  polygon.points.Select(MapUtilities.WorldToGeoPosition).ToList();
-            
-        }
+        
 
         public void Init(BuildingSO buildingSo)
         {

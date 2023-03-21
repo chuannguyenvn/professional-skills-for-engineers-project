@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RoadIntersectionNode : MonoBehaviour
 {
-    [SerializeField] private List<RoadIntersectionNode> roadIntersectionNodes;
+    [SerializeField] public List<RoadIntersectionNode> roadIntersectionNodes;
 
     void OnDrawGizmosSelected()
     {
@@ -16,4 +16,6 @@ public class RoadIntersectionNode : MonoBehaviour
         }
         
     }
+
+    
 }

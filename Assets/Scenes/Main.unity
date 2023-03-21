@@ -3698,7 +3698,6 @@ MonoBehaviour:
   - {fileID: 2071884275}
   - {fileID: 1325305323}
   - {fileID: 90056109}
-  - {fileID: 1671861362}
 --- !u!1001 &444334161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13793,17 +13792,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237586619}
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
---- !u!114 &1671861362 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
-  m_PrefabInstance: {fileID: 1671861358}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237586619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1679591057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17548,7 +17536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadIntersectionNodes: []
+  roadIntersectionNodes:
+  - {fileID: 413330625}
 --- !u!23 &2071884276
 MeshRenderer:
   m_ObjectHideFlags: 2

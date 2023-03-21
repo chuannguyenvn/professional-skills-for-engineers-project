@@ -8,6 +8,7 @@ using UnityEngine;
 public class MapManager : Singleton<MapManager>
 {
     [SerializeField] private Transform mapParent;
+    [SerializeField] private Transform intersectionNodeParent;
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
@@ -21,7 +22,11 @@ public class MapManager : Singleton<MapManager>
             building.Init(buildingSo);
             buildings.Add(buildingSo.name, building);
         }
-        
+
+        for (int i = 0; i < intersectionNodeParent.childCount; i++)
+        {
+            intersectionNodeParent.GetChild(i).name = "Node " + i.ToString();
+        }
     }
 
     

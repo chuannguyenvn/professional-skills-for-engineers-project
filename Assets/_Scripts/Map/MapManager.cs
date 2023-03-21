@@ -30,9 +30,9 @@ public class MapManager : Singleton<MapManager>
         for (int i = 0; i < intersectionNodeParent.childCount; i++)
         {
             var road = Instantiate( ResourceManager.Instance.roadIntersectionNode, intersectionNodeParent.transform);
-            road.transform.position = intersectionNodeParent.GetChild(i).transform.position;
-            road.GetComponent<RoadIntersectionNode>().roadIntersectionNodes = intersectionNodeParent.GetChild(i)
-                .GetComponent<RoadIntersectionNode>().roadIntersectionNodes;
+            var old = intersectionNodeParent.GetChild(i);
+            road.transform.position = old.transform.position;
+            road.GetComponent<RoadIntersectionNode>().roadIntersectionNodes = old.GetComponent<RoadIntersectionNode>().roadIntersectionNodes;
             road.name = "Road Node "+i.ToString();
             
         }

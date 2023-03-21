@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using _Scripts.Manager;
 using Map;
-using UnityEditor;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MapManager : Singleton<MapManager>
 {
@@ -74,16 +69,16 @@ public class MapManager : Singleton<MapManager>
     private void CreateBuildingPrefab(Building building)
     {
         // Create some asset folders.
-        AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
+        //AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
             
         // The paths to the mesh/prefab assets.
-        string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
+        //string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
  
         // Delete the assets if they already exist.
-        AssetDatabase.DeleteAsset(prefabPath);
+        //AssetDatabase.DeleteAsset(prefabPath);
             
         // Save the transform's GameObject as a prefab asset.
-        PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
+        //PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
 
     }    
     

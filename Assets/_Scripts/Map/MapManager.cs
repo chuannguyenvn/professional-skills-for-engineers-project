@@ -19,24 +19,7 @@ public class MapManager : Singleton<MapManager>
     [SerializeField] private GameObject roadNode; 
     private void Start()
     {
-        foreach (var buildingSo in buildingScriptableObjects)
-        {
-            var building = Instantiate(ResourceManager.Instance.building, mapParent);
-            building.Init(buildingSo);
-            buildings.Add(buildingSo.name.ToLower(), building);
-            
-            // Create some asset folders.
-            AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
-            
-            // The paths to the mesh/prefab assets.
-            string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
- 
-            // Delete the assets if they already exist.
-            AssetDatabase.DeleteAsset(prefabPath);
-            
-            // Save the transform's GameObject as a prefab asset.
-            PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
-        }
+        
     }
 
     public void ChangeInEditor()
@@ -51,24 +34,6 @@ public class MapManager : Singleton<MapManager>
             
         }
         
-    }
-
-    public void ConnectRoad()
-    {
-        for (int i = 0; i < 53; i++)
-        {
-            RoadIntersectionNode oldIntersectionNode = oldNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
-            RoadIntersectionNode freshIntersectionNode = freshNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
-
-            freshIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
-            foreach (var oldConnectionNode in oldIntersectionNode.roadIntersectionNodes)
-            {
-                string stringIndex = oldConnectionNode.gameObject.name.Substring(5);
-                //Debug.Log("Current i "+ i.ToString() +" index "+stringIndex.ToString());
-                int oldIndex = int.Parse(stringIndex);
-                freshIntersectionNode.roadIntersectionNodes.Add(freshNodes.GetChild(oldIndex).GetComponent<RoadIntersectionNode>());
-            }
-        }
     }
 
 
@@ -103,6 +68,27 @@ public class MapManager : Singleton<MapManager>
         }
 
     }
+
+    #region Unused
+
+    private void CreateBuildingPrefab(Building building)
+    {
+        // Create some asset folders.
+        AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
+            
+        // The paths to the mesh/prefab assets.
+        string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
+ 
+        // Delete the assets if they already exist.
+        AssetDatabase.DeleteAsset(prefabPath);
+            
+        // Save the transform's GameObject as a prefab asset.
+        PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
+
+    }    
+    
+
+    #endregion
 }
 
 /*  Create Scriptable Object

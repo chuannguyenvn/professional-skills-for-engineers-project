@@ -48,11 +48,11 @@ public class MapManager : Singleton<MapManager>
             RoadIntersectionNode oldIntersectionNode = oldNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
             RoadIntersectionNode freshIntersectionNode = freshNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
 
-            //oldIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
+            freshIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
             foreach (var oldConnectionNode in oldIntersectionNode.roadIntersectionNodes)
             {
                 string stringIndex = oldConnectionNode.gameObject.name.Substring(5);
-                Debug.Log("Current i "+ i.ToString() +" index "+stringIndex.ToString());
+                //Debug.Log("Current i "+ i.ToString() +" index "+stringIndex.ToString());
                 int oldIndex = int.Parse(stringIndex);
                 freshIntersectionNode.roadIntersectionNodes.Add(freshNodes.GetChild(oldIndex).GetComponent<RoadIntersectionNode>());
             }

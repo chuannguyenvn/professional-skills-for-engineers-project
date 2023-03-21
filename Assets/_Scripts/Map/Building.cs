@@ -15,42 +15,49 @@ namespace Map
         [SerializeField] private Polygon polygon;
         [SerializeField] private PolygonCollider2D polygonCollider2D;
         
-        private List<Vector2> geoCoordinates;
-        private List<Vector2> worldCoordinates;
-        public BuildingSO _buildingSo;
+        private List<Vector2> _geoCoordinates;
+        private List<Vector2> _worldCoordinates;
+        public BuildingSO buildingSo;
         
 
         public void Init(BuildingSO buildingSo)
         {
-            _buildingSo = buildingSo;
+            this.buildingSo = buildingSo;
             gameObject.name = buildingSo.name;
-            geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
-            worldCoordinates = geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
+            _geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
+            _worldCoordinates = _geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
             polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);
+
+            transform.position = _worldCoordinates[0];
+            for (int i = 0 ; i< _worldCoordinates.Count; i++)
+            {
+                _worldCoordinates[i] -=  (Vector2)transform.position;
+            }
+
             if (Is3D) Init3D();
             else Init2D();
         }
 
         private void Init2D()
         {
-            foreach (var coordinate in worldCoordinates)
+            foreach (var coordinate in _worldCoordinates)
             {
                 polygon.AddPoint(coordinate);
             }
 
-            polygonCollider2D.pathCount = worldCoordinates.Count;
-            polygonCollider2D.SetPath(0, worldCoordinates);
+            polygonCollider2D.pathCount = _worldCoordinates.Count;
+            polygonCollider2D.SetPath(0, _worldCoordinates);
         }
 
         private void Init3D()
         {
-            for (int i = 0; i < worldCoordinates.Count; i++)
+            for (int i = 0; i < _worldCoordinates.Count; i++)
             {
                 var firstIndex = i;
-                var secondIndex = (i + 1) % worldCoordinates.Count;
+                var secondIndex = (i + 1) % _worldCoordinates.Count;
 
-                var bottomFirstPoint = worldCoordinates[firstIndex];
-                var bottomSecondPoint = worldCoordinates[secondIndex];
+                var bottomFirstPoint = _worldCoordinates[firstIndex];
+                var bottomSecondPoint = _worldCoordinates[secondIndex];
                 var topSecondPoint = bottomSecondPoint + Vector2.up * BuildingHeight;
                 var topFirstPoint = bottomFirstPoint + Vector2.up * BuildingHeight;
 

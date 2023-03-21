@@ -24,6 +24,18 @@ public class MapManager : Singleton<MapManager>
             var building = Instantiate(ResourceManager.Instance.building, mapParent);
             building.Init(buildingSo);
             buildings.Add(buildingSo.name.ToLower(), building);
+            
+            // Create some asset folders.
+            AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
+            
+            // The paths to the mesh/prefab assets.
+            string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
+ 
+            // Delete the assets if they already exist.
+            AssetDatabase.DeleteAsset(prefabPath);
+            
+            // Save the transform's GameObject as a prefab asset.
+            PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
         }
     }
 
@@ -35,7 +47,7 @@ public class MapManager : Singleton<MapManager>
             var newObj = newMap.GetChild(i);
 
             newObj.transform.position = oldObj.transform.position;
-            newObj.GetComponent<Building>()._buildingSo = oldObj.GetComponent<Building>()._buildingSo;
+            newObj.GetComponent<Building>().buildingSo = oldObj.GetComponent<Building>().buildingSo;
             
         }
         

@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace _Scripts.Manager
 {
-    public class ResourceManager : PersistentSingleton<ResourceManager>
+    public class ResourceManager : Singleton<ResourceManager>
     {
         [Header("TimeBlock Prefabs")]
-        public GameObject timeBlockSubjectGo;
-        public GameObject timeBlockDayGapGo;
+        public TimeBlockSubject timeBlockSubject;
+        public TimeBlockDayGap timeBlockDayGap;
 
         [Header("Map")]
-        public Map.Building Building;
+        public Map.Building building;
+        public RoadNode roadNode;
     }
 }

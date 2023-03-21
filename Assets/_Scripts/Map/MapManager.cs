@@ -17,7 +17,7 @@ public class MapManager : Singleton<MapManager>
     {
         foreach (var buildingSo in buildingScriptableObjects)
         {
-            var building = Instantiate(ResourceManager.Instance.Building, mapParent);
+            var building = Instantiate(ResourceManager.Instance.building, mapParent);
             building.Init(buildingSo);
             buildings.Add(buildingSo.name, building);
         }

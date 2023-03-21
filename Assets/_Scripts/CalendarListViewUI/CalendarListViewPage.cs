@@ -104,14 +104,14 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void CreateTimeBlockSubject(SubjectInfo subject)
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubjectGo, content.transform);
+        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject.gameObject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(subject);
         timeBlocks.Add(instantiateTimeBlock);
     }
 
     private void CreateTimeBlockDayGap(DateTime dateTime)
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGapGo, content.transform);
+        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGap.gameObject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime);
         timeBlocks.Add(instantiateTimeBlock);
     }

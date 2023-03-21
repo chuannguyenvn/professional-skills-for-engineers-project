@@ -24,7 +24,7 @@ namespace Map
             _buildingSo = buildingSo;
             gameObject.name = buildingSo.name;
             geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
-            worldCoordinates = geoCoordinates.Select(MapHelper.GeoToWorldPosition).ToList();
+            worldCoordinates = geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
             //polygon.Color = Color.black;
             polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);
             if (Is3D) Init3D();

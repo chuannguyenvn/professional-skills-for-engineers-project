@@ -335,9 +335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3996ebe5c81dae64789c52e24e1d200c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBlockSubjectGo: {fileID: 877624839575187372, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
-  timeBlockDayGapGo: {fileID: 1071051506691009492, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
-  Building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
+  timeBlockSubject: {fileID: 3917935576029006568, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
+  timeBlockDayGap: {fileID: 8148482312268839404, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
+  building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
+  roadNode: {fileID: -7885193709978673120, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
 --- !u!1 &299498075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2853,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082671721}
   m_CullTransparentMesh: 1
+--- !u!1001 &5095831563984546363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799859, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799868, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799868, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: angUnitInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799868, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: angRadiansEnd
+      value: 6.2831855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095831562469799871, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
+      propertyPath: m_Name
+      value: Road Node
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9048fa2ece77a104f99f82b565a64fc0, type: 3}
 --- !u!1001 &6901552805892038104
 PrefabInstance:
   m_ObjectHideFlags: 0

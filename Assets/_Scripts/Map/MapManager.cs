@@ -9,7 +9,6 @@ using UnityEngine.Events;
 public class MapManager : Singleton<MapManager>
 {
     [SerializeField] private Transform mapParent;
-    [SerializeField] private Transform intersectionNodeParent;
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
@@ -26,17 +25,9 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
-    public void Temp()
+    public void ChangeInEditor()
     {
-        for (int i = 0; i < 52; i++)
-        {
-            var road = Instantiate( roadNode, intersectionNodeParent.transform);
-            var old = intersectionNodeParent.GetChild(i);
-            road.transform.position = old.transform.position;
-            road.GetComponent<RoadIntersectionNode>().roadIntersectionNodes = old.GetComponent<RoadIntersectionNode>().roadIntersectionNodes;
-            road.name = "Road Node "+i.ToString();
-            
-        }
+        
     }
     
 

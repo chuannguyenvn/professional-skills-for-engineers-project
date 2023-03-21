@@ -48,7 +48,7 @@ public class MapManager : Singleton<MapManager>
             RoadIntersectionNode oldIntersectionNode = oldNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
             RoadIntersectionNode freshIntersectionNode = freshNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
 
-            oldIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
+            //oldIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
             foreach (var oldConnectionNode in oldIntersectionNode.roadIntersectionNodes)
             {
                 int oldIndex = int.Parse(oldConnectionNode.name.Substring(5));

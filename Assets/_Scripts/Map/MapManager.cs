@@ -13,8 +13,9 @@ public class MapManager : Singleton<MapManager>
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
-    public List<RoadIntersectionNode> roadNodes; 
+    public List<RoadIntersectionNode> roadNodes;
 
+    [SerializeField] private GameObject roadNode; 
     private void Start()
     {
         foreach (var buildingSo in buildingScriptableObjects)
@@ -27,9 +28,9 @@ public class MapManager : Singleton<MapManager>
 
     public void Temp()
     {
-        for (int i = 0; i < intersectionNodeParent.childCount; i++)
+        for (int i = 0; i < 52; i++)
         {
-            var road = Instantiate( ResourceManager.Instance.roadIntersectionNode, intersectionNodeParent.transform);
+            var road = Instantiate( roadNode, intersectionNodeParent.transform);
             var old = intersectionNodeParent.GetChild(i);
             road.transform.position = old.transform.position;
             road.GetComponent<RoadIntersectionNode>().roadIntersectionNodes = old.GetComponent<RoadIntersectionNode>().roadIntersectionNodes;

@@ -1666,6 +1666,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d6802f5023818f4bb7839eefd62cc2c, type: 2}
   - {fileID: 11400000, guid: e18fef0940688a0449b74602db01afb0, type: 2}
   roadNodes: []
+  roadNode: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!224 &1402638441 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}

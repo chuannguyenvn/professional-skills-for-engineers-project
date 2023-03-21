@@ -17,7 +17,7 @@ namespace Map
         
         private List<Vector2> geoCoordinates;
         private List<Vector2> worldCoordinates;
-        private BuildingSO _buildingSo;
+        public BuildingSO _buildingSo;
         
 
         public void Init(BuildingSO buildingSo)
@@ -26,7 +26,6 @@ namespace Map
             gameObject.name = buildingSo.name;
             geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
             worldCoordinates = geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
-            //polygon.Color = Color.black;
             polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);
             if (Is3D) Init3D();
             else Init2D();

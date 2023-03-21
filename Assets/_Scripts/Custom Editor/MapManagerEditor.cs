@@ -15,7 +15,7 @@ public class MapManagerEditor : Editor
         
         if (GUILayout.Button("Convert Road"))
         {  
-            mapManager.Temp();
+            mapManager.ChangeInEditor();
         }
     }
 }

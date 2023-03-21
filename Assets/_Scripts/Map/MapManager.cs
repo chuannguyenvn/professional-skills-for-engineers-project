@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private Transform mapParent;
+    [SerializeField] private Transform mapParent, newMap;
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
@@ -27,6 +27,15 @@ public class MapManager : Singleton<MapManager>
 
     public void ChangeInEditor()
     {
+        for (int i = 0; i < 20; i++)
+        {
+            var oldObj = mapParent.GetChild(i);
+            var newObj = newMap.GetChild(i);
+
+            newObj.transform.position = oldObj.transform.position;
+            newObj.GetComponent<Building>()._buildingSo = oldObj.GetComponent<Building>()._buildingSo;
+            
+        }
         
     }
     

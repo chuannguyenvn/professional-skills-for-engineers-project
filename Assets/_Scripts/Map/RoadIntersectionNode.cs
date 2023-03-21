@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RoadIntersectionNode : MonoBehaviour
 {
+    [SerializeField] private List<RoadIntersectionNode> roadIntersectionNodes;
+
     void Awake()
     {
     }
@@ -12,5 +14,15 @@ public class RoadIntersectionNode : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);   
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        foreach (var roadIntersectionNode in roadIntersectionNodes)
+        {   
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, roadIntersectionNode.transform.position);
+        }
+        
     }
 }

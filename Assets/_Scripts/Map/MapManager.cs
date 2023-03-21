@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private Transform mapParent, newMap, oldNodes, freshNodes;
+    [SerializeField] private Transform mapParent, newMap;
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
@@ -39,6 +39,7 @@ public class MapManager : Singleton<MapManager>
         
     }
     
+<<<<<<< HEAD
 
     public void ConnectRoad()
     {
@@ -57,6 +58,8 @@ public class MapManager : Singleton<MapManager>
     }
 
     
+=======
+>>>>>>> parent of e43f420 (test: Try to get the connection back)
 
     public Building GetBuilding(string searching)
     {

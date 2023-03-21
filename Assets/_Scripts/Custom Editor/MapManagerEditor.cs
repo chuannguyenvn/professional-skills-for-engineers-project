@@ -14,8 +14,8 @@ public class MapManagerEditor : Editor
         MapManager mapManager = (MapManager)target;
         
         if (GUILayout.Button("Convert Road"))
-        {
-            mapManager.ConnectRoad();
+        {  
+            mapManager.ChangeInEditor();
         }
     }
 }

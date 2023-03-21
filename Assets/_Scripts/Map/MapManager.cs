@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using _Scripts.Manager;
 using Map;
 using UnityEditor;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -40,6 +38,7 @@ public class MapManager : Singleton<MapManager>
         }
         
     }
+    
 
     public void ConnectRoad()
     {
@@ -49,7 +48,7 @@ public class MapManager : Singleton<MapManager>
             RoadIntersectionNode freshIntersectionNode = freshNodes.GetChild(i).GetComponent<RoadIntersectionNode>();
 
             //oldIntersectionNode.roadIntersectionNodes = new List<RoadIntersectionNode>();
-            foreach (var oldConnectionNode in oldIntersectionNode.roadIntersectionNodes)
+            foreach (var oldConnectionNode in freshIntersectionNode.roadIntersectionNodes)
             {
                 int oldIndex = int.Parse(oldConnectionNode.name.Substring(5));
                 oldIntersectionNode.roadIntersectionNodes.Add(freshNodes.GetChild(oldIndex).GetComponent<RoadIntersectionNode>());
@@ -57,6 +56,7 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
+    
 
     public Building GetBuilding(string searching)
     {

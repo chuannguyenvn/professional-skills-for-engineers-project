@@ -4,6 +4,7 @@ using _Scripts.Manager;
 using Map;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MapManager : Singleton<MapManager>
 {
@@ -20,16 +21,41 @@ public class MapManager : Singleton<MapManager>
         {
             var building = Instantiate(ResourceManager.Instance.building, mapParent);
             building.Init(buildingSo);
-            buildings.Add(buildingSo.name, building);
-        }
-
-        for (int i = 0; i < intersectionNodeParent.childCount; i++)
-        {
-            intersectionNodeParent.GetChild(i).name = "Node " + i.ToString();
+            buildings.Add(buildingSo.name.ToLower(), building);
         }
     }
 
+    public Building GetBuilding(string searching)
+    {
+        if (buildings.ContainsKey(searching)) return buildings[searching];
+        
+        foreach (var buildingName in buildings.Keys)
+        {
+            if (buildingName.Contains(searching, StringComparison.CurrentCultureIgnoreCase ))
+            {
+                return buildings[ buildingName ];
+            }
+        }
+
+        return null;
+    }
+
     
+
+    public bool Navigate(string room)
+    {
+        Building building = GetBuilding(room);
+        if (building != null)
+        {
+            Debug.Log(room+" "+ building.name);        
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
 
 /*  Create Scriptable Object

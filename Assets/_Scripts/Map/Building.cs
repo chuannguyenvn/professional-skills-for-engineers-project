@@ -17,7 +17,13 @@ namespace Map
         
         private List<Vector2> geoCoordinates;
         private List<Vector2> worldCoordinates;
-        private BuildingSO _buildingSo; 
+        private BuildingSO _buildingSo;
+
+        private void OnValidate()
+        {
+            _buildingSo.geoCoordinate =  polygon.points.Select(MapUtilities.WorldToGeoPosition).ToList();
+            
+        }
 
         public void Init(BuildingSO buildingSo)
         {
@@ -62,7 +68,7 @@ namespace Map
 
         private void OnMouseDown()
         {
-            Debug.Log(gameObject.name + " "+ EventSystem.current.IsPointerOverGameObject());
+            //Debug.Log(gameObject.name + " "+ EventSystem.current.IsPointerOverGameObject());
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;

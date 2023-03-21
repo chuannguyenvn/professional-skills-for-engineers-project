@@ -11,6 +11,6 @@ namespace _Scripts.Manager
 
         [Header("Map")]
         public Map.Building building;
-        public RoadNode roadNode;
+        public RoadIntersectionNode roadIntersectionNode;
     }
 }

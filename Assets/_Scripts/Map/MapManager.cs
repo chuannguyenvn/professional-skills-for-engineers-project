@@ -11,7 +11,7 @@ public class MapManager : Singleton<MapManager>
     [SerializeField] private List <BuildingSO> buildingScriptableObjects;
 
     public Dictionary<string, Building> buildings = new();
-    
+    public List<RoadIntersectionNode> roadNodes; 
 
     private void Start()
     {
@@ -23,6 +23,8 @@ public class MapManager : Singleton<MapManager>
         }
         
     }
+
+    
 }
 
 /*  Create Scriptable Object

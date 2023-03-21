@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5095831562469799870}
   - component: {fileID: -7885193709978673120}
   m_Layer: 0
-  m_Name: Road Node
+  m_Name: RoadIntersectionNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   stencilRefID: 0
   stencilReadMask: 255
   stencilWriteMask: 255
-  type: 1
+  type: 0
   colorMode: 0
   colorOuterStart: {r: 1, g: 1, b: 1, a: 1}
   colorInnerEnd: {r: 1, g: 1, b: 1, a: 1}
@@ -69,8 +69,8 @@ MonoBehaviour:
   geometry: 0
   angUnitInput: 1
   angRadiansStart: 0
-  angRadiansEnd: 2.3561945
-  radius: 0.85
+  angRadiansEnd: 6.2831855
+  radius: 2
   radiusSpace: 0
   thickness: 0.5
   thicknessSpace: 0
@@ -113,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b288a2f59df392546ba534457fafda1a, type: 2}
+  - {fileID: 2100000, guid: 35eb9f982684e7745b8ef050ccf0604b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

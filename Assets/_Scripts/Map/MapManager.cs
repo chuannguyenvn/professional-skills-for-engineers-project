@@ -11,11 +11,14 @@ public class MapManager : Singleton<MapManager>
 
     private Dictionary<string, Building> _buildings = new();
     private DijkstraAlgorithm.GraphVertexList _graphVertexList = new();
+    private Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> _vertices = new();
 
     [SerializeField] private GameObject roadNode; 
     private void Start()
     {
         InitGetBuildings();
+        CreateVertexForRoadNodes();
+        Test();
     }
 
     private void InitGetBuildings()
@@ -23,35 +26,43 @@ public class MapManager : Singleton<MapManager>
         foreach (var building in buildingGameObjects)
         {
             _buildings.Add( building.buildingSo.name.ToLower(), building);
-            foreach (var roadIntersectionNode in building.entrances) 
-                roadIntersectionNodes.Add(roadIntersectionNode);
+            //foreach (var roadIntersectionNode in building.entrances) 
+            //    roadIntersectionNodes.Add(roadIntersectionNode);
         }
     }
 
     private void CreateVertexForRoadNodes()
     {
-        Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> vertices = new();
+        //Create Vertices for each node
         foreach (var roadIntersectionNode in roadIntersectionNodes)
         {
-            if (vertices.ContainsKey(roadIntersectionNode)) continue;
+            if (_vertices.ContainsKey(roadIntersectionNode)) continue;
             var vertex = new DijkstraAlgorithm.Vertex(roadIntersectionNode.GetInstanceID());
-            vertices.Add(roadIntersectionNode, vertex);
+            _vertices.Add(roadIntersectionNode, vertex);
         }
         
+        //make directed graph
         foreach (var roadIntersectionNode in roadIntersectionNodes)
         {
             Vector3 currentNodePosition = roadIntersectionNode.transform.position;
-            DijkstraAlgorithm.Vertex currentNodeVertex = vertices[roadIntersectionNode];
+            DijkstraAlgorithm.Vertex currentNodeVertex = _vertices[roadIntersectionNode];
             foreach (var adjacentRoadNode in roadIntersectionNode.adjacentRoadNodes)
             {
                 Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
-                DijkstraAlgorithm.Vertex adjacentNodeVertex = vertices[adjacentRoadNode];
+                DijkstraAlgorithm.Vertex adjacentNodeVertex = _vertices[adjacentRoadNode];
                 float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
-                _graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight );
+                _graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight);
             }
         }
+
     }
 
+    public void Test()
+    {
+        Debug.Log("Test "+ roadIntersectionNodes[0].name +" is Vertex "+ _vertices[roadIntersectionNodes[0]]);
+        DijkstraAlgorithm.PrintShortestPaths(_graphVertexList, _vertices[roadIntersectionNodes[0]]);
+        
+    }
     public Building GetBuilding(string searching)
     {
         if (_buildings.ContainsKey(searching)) return _buildings[searching];
@@ -83,62 +94,6 @@ public class MapManager : Singleton<MapManager>
         }
 
     }
-
-    
-
-    #region Dijkstra
-
-    /*
-    public class ShortestPathAlgorithm
-    {
-        
-        //private SortedSet<RoadIntersectionNode> _pQueueRoadNodes = new SortedSet<RoadIntersectionNode>(new DistanceComparer());
-
-        public void Dijkstra(RoadIntersectionNode entranceNode)
-        {
-            List<(int,RoadIntersectionNode)> 
-            foreach (var VARIABLE in nodes)
-            {
-
-                while (nodes.Count > 0)
-                {
-                    //Find smallest distance between each node
-                    RoadIntersectionNode smallestDistance = nodes[0];
-                    foreach (var node in nodes[0].adjacentRoadNodes)
-                    {
-                    
-                    }
-                }
-            }
-        }
-
-        public List<RoadIntersectionNode> ShortestPath(List<RoadIntersectionNode> entrances, List<RoadIntersectionNode> exits)
-        {
-            foreach (var entrance in entrances)
-            {
-                Dijkstra(entrance);
-            }
-        }
-        
-        private class DistanceComparer : IComparer<RoadIntersectionNode>
-        {
-            public int Compare(int[] x, int[] y)
-            {
-                if (x[0] == y[0]) {
-                    return x[1] - y[1];
-                }
-                return x[0] - y[0];
-            }
-
-            public int Compare(RoadIntersectionNode x, RoadIntersectionNode y)
-            {
-                return -1;
-            }
-        }
-    }
-    */
-    
-    #endregion
     
     
     #region Unused

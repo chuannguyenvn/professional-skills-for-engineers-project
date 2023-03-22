@@ -7,6 +7,12 @@ using UnityEngine.Android;
 public class PlayerGPS : MonoBehaviour
 {
     [SerializeField] private float longitude, latitude;
+
+    [Header("Navigation")] 
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private bool isNavigating, isOnNavigationCycle = false;
+
+    [SerializeField] private float navigationUpdateCycleTime = 5f;
     //[SerializeField] private TextMeshProUGUI debug;
     
     // Start is called before the first frame update
@@ -25,7 +31,8 @@ public class PlayerGPS : MonoBehaviour
         {
             longitude = Input.location.lastData.longitude;
             latitude = Input.location.lastData.latitude;
-        
+
+            //transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(longitude, latitude));
             //debug.text = "Longitude: " + longitude.ToString("R") + "\nLatitude: " + latitude.ToString("R") + "\nTimer: "+Time.time;
 
         }
@@ -33,9 +40,47 @@ public class PlayerGPS : MonoBehaviour
         {
             //debug.text = "Not Running";
         }
+
+
+        if (isNavigating)
+        {
+            StartCoroutine(CheckNavigation());
+        }
+    }
+
+    public void SetNavigation(bool setTo)
+    {
+        if (setTo)
+        {
+            isNavigating = true;
+            isOnNavigationCycle = false;
+        }
+        else
+        {
+            isNavigating = false;
+            StopCoroutine(CheckNavigation());
+            
+        }
     }
     
-    IEnumerator InitLocation()
+    
+    private void Navigating()
+    {
+        MapManager.Instance.Navigate( );
+    }
+
+    private IEnumerator CheckNavigation()
+    {
+        if (!isNavigating) yield break;
+        if (isOnNavigationCycle) yield break;
+
+        isOnNavigationCycle = true;
+        Navigating();
+        
+        yield return new WaitForSeconds(navigationUpdateCycleTime);
+        isOnNavigationCycle = false;
+    }
+    private IEnumerator InitLocation()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {

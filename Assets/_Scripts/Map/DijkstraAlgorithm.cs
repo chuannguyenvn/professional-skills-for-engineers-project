@@ -84,6 +84,20 @@ public class DijkstraAlgorithm
                 adjList.Add(destination, new List<Edge> { new Edge(destination, source, weight) });
             }
         }
+
+        public void RemoveEdge(Vertex source, Vertex destination)
+        {
+            if (adjList.ContainsKey(source))
+            {
+                var found = adjList[source].Find(edge => edge.Destination == destination);
+                if (found != null)
+                {
+                    adjList[source].Remove(found);
+                }
+
+                Debug.Log("Found"+ found.Source+" "+ found.Destination + " "+ found.Weight + " And result "+ adjList[source].Find(edge => edge.Destination == destination));
+            }
+        }
     }
 
     public static float ShortestPath(GraphVertexList graphVertexList, Vertex a, Vertex b)

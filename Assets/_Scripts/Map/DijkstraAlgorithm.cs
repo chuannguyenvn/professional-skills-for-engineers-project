@@ -1,20 +1,20 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Priority_Queue;
+using UnityEngine;
 
 public class DijkstraAlgorithm
 {
     public class Edge
     {
-        public Edge(Vertex source, Vertex destination, int weight)
+        public Edge(Vertex source, Vertex destination, float weight)
         {
             Source = source;
             Destination = destination;
             Weight = weight;
         }
 
-        public int Weight { get; set; }
+        public float Weight { get; set; }
         public Vertex Source { get; set; }
         public Vertex Destination { get; set; }
     }
@@ -46,7 +46,7 @@ public class DijkstraAlgorithm
             }
         }
 
-        public void AddEdgeDirected(Vertex source, Vertex destination, int weight)
+        public void AddEdgeDirected(Vertex source, Vertex destination, float weight)
         {
             if (adjList.ContainsKey(source))
             {
@@ -64,7 +64,7 @@ public class DijkstraAlgorithm
         }
 
         // Don't actually do this (i.e. actually write 2 classes for directed/undirected):
-        public void AddEdgeUndirected(Vertex source, Vertex destination, int weight)
+        public void AddEdgeUndirected(Vertex source, Vertex destination, float weight)
         {
             if (adjList.ContainsKey(source))
             {
@@ -86,7 +86,7 @@ public class DijkstraAlgorithm
         }
     }
 
-    public static int ShortestPath(GraphVertexList graphVertexList, Vertex a, Vertex b)
+    public static float ShortestPath(GraphVertexList graphVertexList, Vertex a, Vertex b)
     {
         var shortestPaths = DijkstraShortestPath(graphVertexList, a);
 
@@ -95,10 +95,10 @@ public class DijkstraAlgorithm
 
     private static Dictionary<Vertex, Vertex> outerParents;
 
-    public static Dictionary<Vertex, int> DijkstraShortestPath(GraphVertexList graphVertexList, Vertex source)
+    public static Dictionary<Vertex, float> DijkstraShortestPath(GraphVertexList graphVertexList, Vertex source)
     {
-        var pq = new SimplePriorityQueue<Vertex, int>();
-        var weights = new Dictionary<Vertex, int>();
+        var pq = new SimplePriorityQueue<Vertex, float>();
+        var weights = new Dictionary<Vertex, float>();
         var parents = new Dictionary<Vertex, Vertex>();
         var dq = new HashSet<Vertex>();
 
@@ -114,7 +114,7 @@ public class DijkstraAlgorithm
             else
             {
                 // O(log n)
-                pq.Enqueue(v, int.MaxValue);
+                pq.Enqueue(v, float.MaxValue);
             }
         }
 
@@ -148,9 +148,9 @@ public class DijkstraAlgorithm
                     continue;
                 }
 
-                int calcWeight = weights[current] + adjEdge.Weight;
+                float calcWeight = weights[current] + adjEdge.Weight;
                 // O(1)
-                int adjWeight = pq.GetPriority(adj);
+                float adjWeight = pq.GetPriority(adj);
 
                 // is tense?
                 if (calcWeight < adjWeight)
@@ -182,7 +182,7 @@ public class DijkstraAlgorithm
         {
             var vertex = kvp.Key;
             var shortestPathWeight = kvp.Value;
-            Console.WriteLine($"{vertex.Key} ({shortestPathWeight})");
+            Debug.Log($"{vertex.Key} ({shortestPathWeight})");
         }
     }
 
@@ -194,7 +194,7 @@ public class DijkstraAlgorithm
         PrintPath(destination, outerParents, path);
     }
 
-    private static void PrintPath(Vertex vertex, Dictionary<Vertex, Vertex> parents, Dictionary<Vertex, int> path)
+    private static void PrintPath(Vertex vertex, Dictionary<Vertex, Vertex> parents, Dictionary<Vertex, float> path)
     {
         if (vertex == null || !parents.ContainsKey(vertex))
         {
@@ -202,31 +202,31 @@ public class DijkstraAlgorithm
         }
 
         PrintPath(parents[vertex], parents, path);
-        Console.WriteLine($" {vertex.Key} ({path[vertex]})");
+        Debug.Log($" {vertex.Key} ({path[vertex]})");
     }
 
     public class Node
     {
-        public Node(Vertex v, int priority)
+        public Node(Vertex v, float priority)
         {
             V = v;
             Priority = priority;
         }
 
-        public int Priority { get; set; }
+        public float Priority { get; set; }
         public Vertex V { get; set; }
     }
 
     // Use only C# standard library. As there is no priority queue there is less efficiency
     // Big O in part derived from: https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet
-    public static Dictionary<Vertex, int> DijkstraShortestPath2(GraphVertexList graphVertexList, Vertex source)
+    public static Dictionary<Vertex, float> DijkstraShortestPathBetter(GraphVertexList graphVertexList, Vertex source)
     {
         var map = new Dictionary<Vertex, Node>();
         // set list capacity to number of vertices to keep Add() at O(1)
         // For details see:
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.add?view=netframework-4.8#remarks
         var pq = new List<Node>(graphVertexList.AdjList.Keys.Count);
-        var weights = new Dictionary<Vertex, int>();
+        var weights = new Dictionary<Vertex, float>();
         var parents = new Dictionary<Vertex, Vertex>();
         var dq = new HashSet<Vertex>();
 
@@ -241,7 +241,7 @@ public class DijkstraAlgorithm
             }
             else
             {
-                node.Priority = int.MaxValue;
+                node.Priority = float.MaxValue;
                 map.Add(v, node);
                 // O(1) unless capacity is exceeded
                 pq.Add(node);
@@ -282,9 +282,9 @@ public class DijkstraAlgorithm
                     continue;
                 }
 
-                int calcWeight = weights[current] + adjEdge.Weight;
+                float calcWeight = weights[current] + adjEdge.Weight;
                 var adjNode = map[adj];
-                int adjWeight = adjNode.Priority;
+                float adjWeight = adjNode.Priority;
 
                 // is tense?
                 if (calcWeight < adjWeight)
@@ -363,19 +363,19 @@ public class DijkstraAlgorithm
         }
 
         PrintPath(parents[v], parents);
-        Console.WriteLine($" {v.Key}");
+        Debug.Log($" {v.Key}");
     }
 
     public class GraphAdjacencyMatrix
     {
-        private int[,] adjMatrix;
+        private float[,] adjMatrix;
 
         public GraphAdjacencyMatrix(int vertices)
         {
-            adjMatrix = new int[vertices, vertices];
+            adjMatrix = new float[vertices, vertices];
         }
 
-        public int[,] AdjMatrix
+        public float[,] AdjMatrix
         {
             get
             {
@@ -383,12 +383,12 @@ public class DijkstraAlgorithm
             }
         }
 
-        public void AddEdgeDirected(int source, int destination, int weight)
+        public void AddEdgeDirected(int source, int destination, float weight)
         {
             adjMatrix[source, destination] = weight;
         }
 
-        public void AddEdgeUndirected(int source, int destination, int weight)
+        public void AddEdgeUndirected(int source, int destination, float weight)
         {
             adjMatrix[source, destination] = weight;
             adjMatrix[destination, source] = weight;
@@ -397,17 +397,17 @@ public class DijkstraAlgorithm
 
     private static Dictionary<int, int> outerParents2;
 
-    public static int[] DijkstraShortestPathAdjacencyMatrix(GraphAdjacencyMatrix graph, int source)
+    public static float[] DijkstraShortestPathAdjacencyMatrix(GraphAdjacencyMatrix graph, int source)
     {
         var parents = new Dictionary<int, int>();
         var numV = graph.AdjMatrix.GetLength(0);
         var visited = new HashSet<int>();
         var q = new Queue<int>();
-        var weights = new int[numV];
+        var weights = new float[numV];
 
         for (int i = 0; i < numV; i++)
         {
-            weights[i] = int.MaxValue;
+            weights[i] = float.MaxValue;
         }
 
         weights[source] = 0;
@@ -449,10 +449,10 @@ public class DijkstraAlgorithm
         return weights;
     }
 
-    private static int GetMinWeightVertex(int[] weights, HashSet<int> visited)
+    private static int GetMinWeightVertex(float[] weights, HashSet<int> visited)
     {
         var minWeightVertex = -1;
-        var minWeight = int.MaxValue;
+        var minWeight = float.MaxValue;
 
         for (int i = 0; i < weights.Length; i++)
         {
@@ -473,7 +473,7 @@ public class DijkstraAlgorithm
         PrintPath(dest, outerParents2, path);
     }
 
-    private static void PrintPath(int v, Dictionary<int, int> parents, int[] path)
+    private static void PrintPath(int v, Dictionary<int, int> parents, float[] path)
     {
         if (!parents.ContainsKey(v))
         {
@@ -481,7 +481,7 @@ public class DijkstraAlgorithm
         }
 
         PrintPath(parents[v], parents, path);
-        Console.WriteLine($"{v} ({path[v]})");
+        Debug.Log($"{v} ({path[v]})");
     }
 
     public static Dictionary<int, int> ShortestPathUnWeightedMatrix(GraphAdjacencyMatrix graph, int source, int dest)
@@ -536,7 +536,7 @@ public class DijkstraAlgorithm
         }
 
         PrintPath(parents[v], parents);
-        Console.WriteLine($" {v}");
+        Debug.Log($" {v}");
     }
 
     public static void Main()
@@ -572,9 +572,9 @@ public class DijkstraAlgorithm
         undirectedAL.AddEdgeUndirected(six, dest, 40);
 
         var dijkstra = DijkstraShortestPath(directedAL, source);
-        var dijkstra2 = DijkstraShortestPath2(directedAL, source);
+        var dijkstra2 = DijkstraShortestPathBetter(directedAL, source);
         var dijkstra3 = DijkstraShortestPath(undirectedAL, source);
-        var dijkstra4 = DijkstraShortestPath2(undirectedAL, source);
+        var dijkstra4 = DijkstraShortestPathBetter(undirectedAL, source);
         var shortest = ShortestPathUnWeighted(directedAL, source, dest);
         var shortest2 = ShortestPathUnWeighted(undirectedAL, source, dest);
 

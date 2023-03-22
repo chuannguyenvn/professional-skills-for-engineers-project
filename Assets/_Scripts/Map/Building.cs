@@ -9,12 +9,11 @@ namespace Map
 {
     public class Building : MonoBehaviour
     {
-        
         [SerializeField] private Polygon polygon;
         [SerializeField] private PolygonCollider2D polygonCollider2D;
 
         [Header("Road Node Entrances")] 
-        [SerializeField] private List<RoadIntersectionNode> entrances;
+        public List<RoadIntersectionNode> entrances;
 
         [Header("3D Variable")]
         [SerializeField] bool Is3D = true;

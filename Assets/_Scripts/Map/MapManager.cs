@@ -5,28 +5,62 @@ using UnityEngine;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private Transform mapParent, newMap, oldNodes, freshNodes;
-    [SerializeField] private List <BuildingSO> buildingScriptableObjects;
+    [SerializeField] private Transform mapParent;
+    [SerializeField] private List<Building> buildingGameObjects;
+    [SerializeField] private List<RoadIntersectionNode> roadIntersectionNodes;
 
-    public Dictionary<string, Building> buildings = new();
-    public List<RoadIntersectionNode> roadNodes;
+    private Dictionary<string, Building> _buildings = new();
+    private DijkstraAlgorithm.GraphVertexList _graphVertexList = new();
 
     [SerializeField] private GameObject roadNode; 
     private void Start()
     {
-        
+        InitGetBuildings();
     }
 
+    private void InitGetBuildings()
+    {
+        foreach (var building in buildingGameObjects)
+        {
+            _buildings.Add( building.buildingSo.name.ToLower(), building);
+            foreach (var roadIntersectionNode in building.entrances) 
+                roadIntersectionNodes.Add(roadIntersectionNode);
+        }
+    }
+
+    private void CreateVertexForRoadNodes()
+    {
+        Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> vertices = new();
+        foreach (var roadIntersectionNode in roadIntersectionNodes)
+        {
+            if (vertices.ContainsKey(roadIntersectionNode)) continue;
+            var vertex = new DijkstraAlgorithm.Vertex(roadIntersectionNode.GetInstanceID());
+            vertices.Add(roadIntersectionNode, vertex);
+        }
+        
+        foreach (var roadIntersectionNode in roadIntersectionNodes)
+        {
+            Vector3 currentNodePosition = roadIntersectionNode.transform.position;
+            DijkstraAlgorithm.Vertex currentNodeVertex = vertices[roadIntersectionNode];
+            foreach (var adjacentRoadNode in roadIntersectionNode.adjacentRoadNodes)
+            {
+                Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
+                DijkstraAlgorithm.Vertex adjacentNodeVertex = vertices[adjacentRoadNode];
+                float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
+                _graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight );
+            }
+        }
+    }
 
     public Building GetBuilding(string searching)
     {
-        if (buildings.ContainsKey(searching)) return buildings[searching];
+        if (_buildings.ContainsKey(searching)) return _buildings[searching];
         
-        foreach (var buildingName in buildings.Keys)
+        foreach (var buildingName in _buildings.Keys)
         {
             if (buildingName.Contains(searching, StringComparison.CurrentCultureIgnoreCase ))
             {
-                return buildings[ buildingName ];
+                return _buildings[ buildingName ];
             }
         }
 

@@ -17,20 +17,6 @@ public class MapManager : Singleton<MapManager>
         
     }
 
-    public void ChangeInEditor()
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            var oldObj = mapParent.GetChild(i);
-            var newObj = newMap.GetChild(i);
-
-            newObj.transform.position = oldObj.transform.position;
-            newObj.GetComponent<Building>().buildingSo = oldObj.GetComponent<Building>().buildingSo;
-            
-        }
-        
-    }
-
 
     public Building GetBuilding(string searching)
     {
@@ -64,6 +50,18 @@ public class MapManager : Singleton<MapManager>
 
     }
 
+    
+    public void Dijkstra(List<RoadIntersectionNode> nodes)
+    {
+        
+    }
+
+    #region Dijkstra
+    
+    
+    #endregion
+    
+    
     #region Unused
 
     private void CreateBuildingPrefab(Building building)

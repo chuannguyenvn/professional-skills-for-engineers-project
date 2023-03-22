@@ -9,11 +9,17 @@ namespace Map
 {
     public class Building : MonoBehaviour
     {
-        public bool Is3D = true;
-        public float BuildingHeight = 10f;
-
+        
         [SerializeField] private Polygon polygon;
         [SerializeField] private PolygonCollider2D polygonCollider2D;
+
+        [Header("Road Node Entrances")] 
+        [SerializeField] private List<RoadIntersectionNode> entrances;
+
+        [Header("3D Variable")]
+        [SerializeField] bool Is3D = true;
+        [SerializeField] private float BuildingHeight = 10f;
+
         
         private List<Vector2> _geoCoordinates;
         private List<Vector2> _worldCoordinates;

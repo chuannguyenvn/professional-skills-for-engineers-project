@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Priority_Queue;
 
-public class ShortestPathAlgorithm
+public class DijkstraAlgorithm
 {
     public class Edge
     {
@@ -29,11 +29,11 @@ public class ShortestPathAlgorithm
         public int Key { get; set; }
     }
 
-    public class Graph
+    public class GraphVertexList
     {
         private Dictionary<Vertex, List<Edge>> adjList;
 
-        public Graph()
+        public GraphVertexList()
         {
             adjList = new Dictionary<Vertex, List<Edge>>();
         }
@@ -86,23 +86,23 @@ public class ShortestPathAlgorithm
         }
     }
 
-    public static int ShortestPath(Graph graph, Vertex a, Vertex b)
+    public static int ShortestPath(GraphVertexList graphVertexList, Vertex a, Vertex b)
     {
-        var shortestPaths = DijstrasShortestPath(graph, a);
+        var shortestPaths = DijkstraShortestPath(graphVertexList, a);
 
         return shortestPaths[b];
     }
 
     private static Dictionary<Vertex, Vertex> outerParents;
 
-    public static Dictionary<Vertex, int> DijstrasShortestPath(Graph graph, Vertex source)
+    public static Dictionary<Vertex, int> DijkstraShortestPath(GraphVertexList graphVertexList, Vertex source)
     {
         var pq = new SimplePriorityQueue<Vertex, int>();
         var weights = new Dictionary<Vertex, int>();
         var parents = new Dictionary<Vertex, Vertex>();
         var dq = new HashSet<Vertex>();
 
-        foreach (var v in graph.AdjList.Keys)
+        foreach (var v in graphVertexList.AdjList.Keys)
         {
             var vertex = v;
 
@@ -136,7 +136,7 @@ public class ShortestPathAlgorithm
                 weights[current] = weight;
             }
 
-            foreach (var adjEdge in graph.AdjList[current])
+            foreach (var adjEdge in graphVertexList.AdjList[current])
             {
                 var adj = adjEdge.Source.Key == current.Key
                     ? adjEdge.Destination
@@ -174,9 +174,9 @@ public class ShortestPathAlgorithm
         return weights;
     }
 
-    public static void PrintShortestPaths(Graph graph, Vertex source)
+    public static void PrintShortestPaths(GraphVertexList graphVertexList, Vertex source)
     {
-        var path = DijstrasShortestPath(graph, source);
+        var path = DijkstraShortestPath(graphVertexList, source);
 
         foreach (var kvp in path)
         {
@@ -186,9 +186,9 @@ public class ShortestPathAlgorithm
         }
     }
 
-    public static void PrintShortestPath(Graph graph, Vertex source, Vertex destination)
+    public static void PrintShortestPath(GraphVertexList graphVertexList, Vertex source, Vertex destination)
     {
-        var path = DijstrasShortestPath(graph, source);
+        var path = DijkstraShortestPath(graphVertexList, source);
 
         // print shortest between source and destination vertices
         PrintPath(destination, outerParents, path);
@@ -219,18 +219,18 @@ public class ShortestPathAlgorithm
 
     // Use only C# standard library. As there is no priority queue there is less efficiency
     // Big O in part derived from: https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet
-    public static Dictionary<Vertex, int> DijstrasShortestPath2(Graph graph, Vertex source)
+    public static Dictionary<Vertex, int> DijkstraShortestPath2(GraphVertexList graphVertexList, Vertex source)
     {
         var map = new Dictionary<Vertex, Node>();
         // set list capacity to number of vertices to keep Add() at O(1)
         // For details see:
         // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.add?view=netframework-4.8#remarks
-        var pq = new List<Node>(graph.AdjList.Keys.Count);
+        var pq = new List<Node>(graphVertexList.AdjList.Keys.Count);
         var weights = new Dictionary<Vertex, int>();
         var parents = new Dictionary<Vertex, Vertex>();
         var dq = new HashSet<Vertex>();
 
-        foreach (var v in graph.AdjList.Keys)
+        foreach (var v in graphVertexList.AdjList.Keys)
         {
             var node = new Node(v, 0);
             if (v.Key == source.Key)
@@ -270,7 +270,7 @@ public class ShortestPathAlgorithm
                 weights[current] = weight;
             }
 
-            foreach (var adjEdge in graph.AdjList[current])
+            foreach (var adjEdge in graphVertexList.AdjList[current])
             {
                 var adj = adjEdge.Source.Key == current.Key
                     ? adjEdge.Destination
@@ -309,7 +309,7 @@ public class ShortestPathAlgorithm
         return weights;
     }
 
-    public static Dictionary<Vertex, Vertex> ShortestPathUnWeighted(Graph graph, Vertex source, Vertex dest)
+    public static Dictionary<Vertex, Vertex> ShortestPathUnWeighted(GraphVertexList graphVertexList, Vertex source, Vertex dest)
     {
         var parents = new Dictionary<Vertex, Vertex>();
         var visited = new HashSet<Vertex>();
@@ -322,7 +322,7 @@ public class ShortestPathAlgorithm
         {
             var current = q.Dequeue();
 
-            foreach (var node in graph.AdjList[current])
+            foreach (var node in graphVertexList.AdjList[current])
             {
                 var adj = node.Source.Key == current.Key
                     ? node.Destination
@@ -348,9 +348,9 @@ public class ShortestPathAlgorithm
         return new Dictionary<Vertex, Vertex> { { source, null } };
     }
 
-    public static void PrintShortestPathUnWeighted(Graph graph, Vertex source, Vertex dest)
+    public static void PrintShortestPathUnWeighted(GraphVertexList graphVertexList, Vertex source, Vertex dest)
     {
-        var parents = ShortestPathUnWeighted(graph, source, dest);
+        var parents = ShortestPathUnWeighted(graphVertexList, source, dest);
 
         PrintPath(dest, parents);
     }
@@ -366,11 +366,11 @@ public class ShortestPathAlgorithm
         Console.WriteLine($" {v.Key}");
     }
 
-    public class Graph2
+    public class GraphAdjacencyMatrix
     {
         private int[,] adjMatrix;
 
-        public Graph2(int vertices)
+        public GraphAdjacencyMatrix(int vertices)
         {
             adjMatrix = new int[vertices, vertices];
         }
@@ -397,7 +397,7 @@ public class ShortestPathAlgorithm
 
     private static Dictionary<int, int> outerParents2;
 
-    public static int[] DijkstraShortestPathMatrix(Graph2 graph, int source)
+    public static int[] DijkstraShortestPathAdjacencyMatrix(GraphAdjacencyMatrix graph, int source)
     {
         var parents = new Dictionary<int, int>();
         var numV = graph.AdjMatrix.GetLength(0);
@@ -466,9 +466,9 @@ public class ShortestPathAlgorithm
         return minWeightVertex;
     }
 
-    public static void PrintShortestPathMatrix(Graph2 graph, int source, int dest)
+    public static void PrintShortestPathAdjacencyMatrix(GraphAdjacencyMatrix graph, int source, int dest)
     {
-        var path = DijkstraShortestPathMatrix(graph, source);
+        var path = DijkstraShortestPathAdjacencyMatrix(graph, source);
 
         PrintPath(dest, outerParents2, path);
     }
@@ -484,7 +484,7 @@ public class ShortestPathAlgorithm
         Console.WriteLine($"{v} ({path[v]})");
     }
 
-    public static Dictionary<int, int> ShortestPathUnWeightedMatrix(Graph2 graph, int source, int dest)
+    public static Dictionary<int, int> ShortestPathUnWeightedMatrix(GraphAdjacencyMatrix graph, int source, int dest)
     {
         var numVertices = graph.AdjMatrix.GetLength(0);
         var parents = new Dictionary<int, int>();
@@ -521,7 +521,7 @@ public class ShortestPathAlgorithm
         return new Dictionary<int, int> { { source, -1 } };
     }
 
-    public static void PrintShortestPathUnWeightedMatrix(Graph2 graph, int source, int dest)
+    public static void PrintShortestPathUnWeightedMatrix(GraphAdjacencyMatrix graph, int source, int dest)
     {
         var parents = ShortestPathUnWeightedMatrix(graph, source, dest);
 
@@ -543,8 +543,8 @@ public class ShortestPathAlgorithm
     {
         // Adjacency List:
 
-        var directedAL = new Graph();
-        var undirectedAL = new Graph();
+        var directedAL = new GraphVertexList();
+        var undirectedAL = new GraphVertexList();
 
         // 1 --> 2 --> 3 --> 4 --> 7 = 56
         // 1 --> 6 --> 7 = 70
@@ -571,10 +571,10 @@ public class ShortestPathAlgorithm
         undirectedAL.AddEdgeUndirected(source, six, 30);
         undirectedAL.AddEdgeUndirected(six, dest, 40);
 
-        var dijkstra = DijstrasShortestPath(directedAL, source);
-        var dijkstra2 = DijstrasShortestPath2(directedAL, source);
-        var dijkstra3 = DijstrasShortestPath(undirectedAL, source);
-        var dijkstra4 = DijstrasShortestPath2(undirectedAL, source);
+        var dijkstra = DijkstraShortestPath(directedAL, source);
+        var dijkstra2 = DijkstraShortestPath2(directedAL, source);
+        var dijkstra3 = DijkstraShortestPath(undirectedAL, source);
+        var dijkstra4 = DijkstraShortestPath2(undirectedAL, source);
         var shortest = ShortestPathUnWeighted(directedAL, source, dest);
         var shortest2 = ShortestPathUnWeighted(undirectedAL, source, dest);
 
@@ -588,8 +588,8 @@ public class ShortestPathAlgorithm
         // -----------------------------------------------------------------------------
         // Adjacency Matrix:
 
-        var directedAM = new Graph2(10);
-        var undirectedAM = new Graph2(10);
+        var directedAM = new GraphAdjacencyMatrix(10);
+        var undirectedAM = new GraphAdjacencyMatrix(10);
 
         // 1 --> 2 --> 3 --> 4 --> 7 = 56
         // 1 --> 6 --> 7 = 70
@@ -609,12 +609,12 @@ public class ShortestPathAlgorithm
         undirectedAM.AddEdgeUndirected(1, 6, 30);
         undirectedAM.AddEdgeUndirected(6, 7, 40);
 
-        var dijkstraAM = DijkstraShortestPathMatrix(directedAM, 1);
-        var dijkstraAM2 = DijkstraShortestPathMatrix(undirectedAM, 1);
+        var dijkstraAM = DijkstraShortestPathAdjacencyMatrix(directedAM, 1);
+        var dijkstraAM2 = DijkstraShortestPathAdjacencyMatrix(undirectedAM, 1);
         var shortestAM = ShortestPathUnWeightedMatrix(directedAM, 1, 7);
         var shortestAM2 = ShortestPathUnWeightedMatrix(undirectedAM, 1, 7);
 
-        PrintShortestPathMatrix(directedAM, 1, 7);
-        PrintShortestPathMatrix(undirectedAM, 1, 7);
+        PrintShortestPathAdjacencyMatrix(directedAM, 1, 7);
+        PrintShortestPathAdjacencyMatrix(undirectedAM, 1, 7);
     }
 }

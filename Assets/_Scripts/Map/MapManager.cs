@@ -11,7 +11,8 @@ public class MapManager : Singleton<MapManager>
 
     private Dictionary<string, Building> _buildings = new();
     private DijkstraAlgorithm.GraphVertexList _graphVertexList = new();
-    private Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> _vertices = new();
+    private Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> _roadToVertices = new();
+    private Dictionary<DijkstraAlgorithm.Vertex, RoadIntersectionNode> _verticesToRoad = new();
 
     [SerializeField] private GameObject roadNode; 
     private void Start()
@@ -36,20 +37,22 @@ public class MapManager : Singleton<MapManager>
         //Create Vertices for each node
         foreach (var roadIntersectionNode in roadIntersectionNodes)
         {
-            if (_vertices.ContainsKey(roadIntersectionNode)) continue;
+            if (_roadToVertices.ContainsKey(roadIntersectionNode)) continue;
             var vertex = new DijkstraAlgorithm.Vertex(roadIntersectionNode.GetInstanceID());
-            _vertices.Add(roadIntersectionNode, vertex);
+            _roadToVertices.Add(roadIntersectionNode, vertex);
+            _verticesToRoad.Add(vertex, roadIntersectionNode);
+            Debug.Log("Test "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key);
         }
         
         //make directed graph
         foreach (var roadIntersectionNode in roadIntersectionNodes)
         {
             Vector3 currentNodePosition = roadIntersectionNode.transform.position;
-            DijkstraAlgorithm.Vertex currentNodeVertex = _vertices[roadIntersectionNode];
+            DijkstraAlgorithm.Vertex currentNodeVertex = _roadToVertices[roadIntersectionNode];
             foreach (var adjacentRoadNode in roadIntersectionNode.adjacentRoadNodes)
             {
                 Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
-                DijkstraAlgorithm.Vertex adjacentNodeVertex = _vertices[adjacentRoadNode];
+                DijkstraAlgorithm.Vertex adjacentNodeVertex = _roadToVertices[adjacentRoadNode];
                 float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
                 _graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight);
             }
@@ -59,9 +62,13 @@ public class MapManager : Singleton<MapManager>
 
     public void Test()
     {
-        Debug.Log("Test "+ roadIntersectionNodes[0].name +" is Vertex "+ _vertices[roadIntersectionNodes[0]]);
-        DijkstraAlgorithm.PrintShortestPaths(_graphVertexList, _vertices[roadIntersectionNodes[0]]);
-        
+        Debug.Log("Test "+ roadIntersectionNodes[0].name +" is Vertex "+ _roadToVertices[roadIntersectionNodes[0]].Key);
+        //DijkstraAlgorithm.PrintShortestPaths(_graphVertexList, _vertices[roadIntersectionNodes[0]]);
+        var shortestPathsWeight = DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
+        foreach (var (vertex, weight) in shortestPathsWeight)
+        {
+            Debug.Log("The " + _verticesToRoad[vertex].name + " Is "+ weight + "Far away");
+        }
     }
     public Building GetBuilding(string searching)
     {

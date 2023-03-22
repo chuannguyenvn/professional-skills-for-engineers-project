@@ -2211,7 +2211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a436ee18f7a54b038042f1ea74bc5033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapParent: {fileID: 1684905322}
   buildingGameObjects:
   - {fileID: 1209691498}
   - {fileID: 998457539}
@@ -2304,8 +2303,7 @@ MonoBehaviour:
   - {fileID: 346209360}
   - {fileID: 1194465392}
   - {fileID: 165820734}
-  player: {fileID: 0}
-  roadNode: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+  playerNavigation: {fileID: 3219722473000859463}
 --- !u!224 &1402638441 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
@@ -3990,6 +3988,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+--- !u!114 &3219722473000859463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7620985957730698357, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+  m_PrefabInstance: {fileID: 3219722473000859462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6010d2d4881ce47903c548680767b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6901552805892038104
 PrefabInstance:
   m_ObjectHideFlags: 0

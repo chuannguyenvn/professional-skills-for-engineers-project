@@ -5,35 +5,40 @@ using UnityEngine;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private Transform mapParent;
     [SerializeField] private List<Building> buildingGameObjects;
     [SerializeField] private List<RoadIntersectionNode> roadIntersectionNodes;
-    [SerializeField] private PlayerGPS player;
+    [SerializeField] private PlayerNavigation playerNavigation;
 
     private Dictionary<string, Building> _buildings = new();
     private DijkstraAlgorithm.GraphVertexList _graphVertexList = new();
     private Dictionary<RoadIntersectionNode, DijkstraAlgorithm.Vertex> _roadToVertices = new();
     private Dictionary<DijkstraAlgorithm.Vertex, RoadIntersectionNode> _verticesToRoad = new();
-
-    [SerializeField] private GameObject roadNode; 
+    
+    
     private void Start()
     {
-        InitGetBuildings();
-        CreateVertexForRoadNodes();
-        PrintShortestPathToDestinations();
+        InitBuildings();
+        InitPlayer();
+        InitVertexForRoadNodes();
     }
 
-    private void InitGetBuildings()
+    #region Init
+    private void InitBuildings()
     {
         foreach (var building in buildingGameObjects)
         {
             _buildings.Add( building.buildingSo.name.ToLower(), building);
-            //foreach (var roadIntersectionNode in building.entrances) 
-            //    roadIntersectionNodes.Add(roadIntersectionNode);
+            foreach (var roadIntersectionNode in building.entrances) 
+                roadIntersectionNodes.Add(roadIntersectionNode);
         }
     }
-
-    private void CreateVertexForRoadNodes()
+    
+    private void InitPlayer()
+    {
+        roadIntersectionNodes.Add(playerNavigation.playerRoadNode);    
+    }
+    
+    private void InitVertexForRoadNodes()
     {
         //Create Vertices for each node
         foreach (var roadIntersectionNode in roadIntersectionNodes)
@@ -61,6 +66,7 @@ public class MapManager : Singleton<MapManager>
 
     }
 
+    #endregion
     public void Test()
     {
         Debug.Log("Test " + roadIntersectionNodes[0].name + " is Vertex " +
@@ -87,20 +93,28 @@ public class MapManager : Singleton<MapManager>
     */
     }
 
-    public void PrintShortestPathToDestinations()
+    public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source, RoadIntersectionNode destination)
     {
         var shortestPathsWeight =
-            DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
+            DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[source]);
         var backTrackingVertices = DijkstraAlgorithm.backTrackingVertices;
 
-        for (DijkstraAlgorithm.Vertex traverseVertex = _roadToVertices[roadIntersectionNodes[16]]; //Destination 
+        List<RoadIntersectionNode> roadJourney = new();
+        for (DijkstraAlgorithm.Vertex traverseVertex = _roadToVertices[destination];  
              traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex); 
              traverseVertex = backTrackingVertices[traverseVertex])
         {
-            Debug.Log(_verticesToRoad[traverseVertex] + " " + shortestPathsWeight[traverseVertex]);
+            roadJourney.Add(_verticesToRoad[traverseVertex]);
+            //Debug.Log(_verticesToRoad[traverseVertex] + " " + shortestPathsWeight[traverseVertex]);
         }
+
+        return roadJourney;
     }
 
+    public void AddAdjacencyRoad()
+    {
+        
+    }
     public Building GetBuilding(string searching)
     {
         if (_buildings.ContainsKey(searching)) return _buildings[searching];
@@ -115,15 +129,14 @@ public class MapManager : Singleton<MapManager>
 
         return null;
     }
-
     
-
     public bool Navigate(string room)
     {
         Building building = GetBuilding(room);
         if (building != null)
         {
-            Debug.Log(room+" "+ building.name);        
+            var roadJourney = ShortestPathToDestinations(playerNavigation.playerRoadNode, building.entrances[0]);
+            playerNavigation.EnableNavigation(roadJourney);
             return true;
         }
         else

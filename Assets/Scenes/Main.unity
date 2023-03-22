@@ -471,6 +471,17 @@ MonoBehaviour:
   stadiumBuilding: {r: 0.20392159, g: 0.65882355, b: 0.3254902, a: 1}
   facilityBuilding: {r: 0.32941177, g: 0.5686275, b: 0.9607844, a: 1}
   otherBuilding: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+--- !u!114 &337378411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6407464985462994973, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &342979173 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 577641689916989137, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
@@ -3994,6 +4005,30 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[1].x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.5951867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219722473865997183, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4806746782172397402, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 1
@@ -4167,6 +4202,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2093076294}
     m_Modifications:
+    - target: {fileID: 3883636278919779213, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636278919779213, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 337378411}
     - target: {fileID: 3883636278968065701, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 3
@@ -4183,6 +4226,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 67.9
       objectReference: {fileID: 0}
+    - target: {fileID: 3883636279608057878, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279608057878, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 337378411}
     - target: {fileID: 3883636279800658620, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 3
@@ -4360,6 +4411,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6407464985462994969, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407464985462994969, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407464985462994973, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407464985462994973, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1494875247}
+    - target: {fileID: 6407464985462994973, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 665019093}
     - target: {fileID: 6649866857951746961, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: m_Mesh
       value: 

@@ -111,10 +111,17 @@ public class MapManager : Singleton<MapManager>
         return roadJourney;
     }
 
-    public void AddAdjacencyRoad()
+    public void AddAdjacentRoad(RoadIntersectionNode source, RoadIntersectionNode destination)
     {
-        
+        float weight = Vector3.Distance(source.transform.position, destination.transform.position);
+        _graphVertexList.AddEdgeDirected(_roadToVertices[source],_roadToVertices[destination], weight);
     }
+
+    public void RemoveAdjacentRoad(RoadIntersectionNode source, RoadIntersectionNode destination)
+    {
+        _graphVertexList.RemoveEdge(_roadToVertices[source],_roadToVertices[destination]);
+    }
+    
     public Building GetBuilding(string searching)
     {
         if (_buildings.ContainsKey(searching)) return _buildings[searching];

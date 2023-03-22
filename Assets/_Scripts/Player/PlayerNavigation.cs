@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,12 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] public RoadIntersectionNode playerRoadNode;
     [SerializeField] private bool isNavigating, isOnNavigationCycle = false;
-
     [SerializeField] private float navigationUpdateCycleTime = 5f;
 
+    [Header("Find Road Node")]
+    [SerializeField] float radiusFindingRoadNode = 10f;
+    [SerializeField] private LayerMask roadNodeLayer;
+    
     private List<RoadIntersectionNode> _roadJourney;
     // Start is called before the first frame update
     void Start()
@@ -55,6 +59,18 @@ public class PlayerNavigation : MonoBehaviour
         }
         
         lineRenderer.SetPositions(roadPositions);
+    }
+
+    private void CreateFindNearestRoadNode()
+    {
+        var hit2d= Physics2D.OverlapCircleAll(transform.position, radiusFindingRoadNode, roadNodeLayer);
+
+        List<RoadIntersectionNode> roadNodesInRange;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radiusFindingRoadNode);
     }
 
     private IEnumerator CheckNavigation()

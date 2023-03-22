@@ -29,7 +29,7 @@ namespace Map
             private const int INF = 2147483647;
          
             private int _numOfVertices;
-            private List<int[]>[] adj;
+            private List<int[]>[] _adj;
          
             public Graph(int numOfVertices)
             {   
@@ -37,18 +37,18 @@ namespace Map
                 this._numOfVertices = numOfVertices;
                 // In a weighted graph, we need to store vertex
                 // and weight pair for every edge
-                this.adj = new List<int[]>[numOfVertices];
+                this._adj = new List<int[]>[numOfVertices];
          
                 for (int i = 0; i < numOfVertices; i++)
                 {
-                    this.adj[i] = new List<int[]>();
+                    this._adj[i] = new List<int[]>();
                 } 
             }
          
-            public void AddEdge(int u, int v, int w)
+            public void AddEdge(int firstId, int secondId, int weight)
             {
-                this.adj[u].Add(new int[] { v, w });
-                this.adj[v].Add(new int[] { u, w });
+                this._adj[firstId].Add(new int[] { secondId, weight });
+                this._adj[secondId].Add(new int[] { firstId, weight });
             }
 
             // Prints shortest paths from src to all other vertices
@@ -75,32 +75,32 @@ namespace Map
                     distances are not finalized) */
                 while (pQueue.Count > 0)
                 {
-                  // The first vertex in pair is the minimum distance
-                  // vertex, extract it from priority queue.
-                  // vertex label is stored in second of pair (it
-                  // has to be done this way to keep the vertices
-                  // sorted by distance)
-                  int[] minDistVertex = pQueue.Min;
-                  pQueue.Remove(minDistVertex);
-                  int u = minDistVertex[1];
+                    // The first vertex in pair is the minimum distance
+                    // vertex, extract it from priority queue.
+                    // vertex label is stored in second of pair (it
+                    // has to be done this way to keep the vertices
+                    // sorted by distance)
+                    int[] minDistVertex = pQueue.Min;
+                    pQueue.Remove(minDistVertex);
+                    int u = minDistVertex[1];
 
-                  // 'i' is used to get all adjacent vertices of a
-                  // vertex
-                  foreach (int[] adjVertex in this.adj[u])
-                  {
-                    // Get vertex label and weight of current
-                    // adjacent of u.
-                    int v = adjVertex[0];
-                    int weight = adjVertex[1];
-
-                    // If there is a shorter path to v through u.
-                    if (dist[v] > dist[u] + weight)
+                    // 'i' is used to get all adjacent vertices of a
+                    // vertex
+                    foreach (int[] adjVertex in this._adj[u])
                     {
-                      // Updating distance of v
-                      dist[v] = dist[u] + weight;
-                      pQueue.Add(new int[] { dist[v], v });
+                        // Get vertex label and weight of current
+                        // adjacent of u.
+                        int v = adjVertex[0];
+                        int weight = adjVertex[1];
+
+                        // If there is a shorter path to v through u.
+                        if (dist[v] > dist[u] + weight)
+                        {
+                            // Updating distance of v
+                            dist[v] = dist[u] + weight;
+                            pQueue.Add(new int[] { dist[v], v });
+                        }
                     }
-                  }
                 }
 
                 // Print shortest distances stored in dist[]

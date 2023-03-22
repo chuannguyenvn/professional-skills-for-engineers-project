@@ -51,13 +51,45 @@ public class MapManager : Singleton<MapManager>
     }
 
     
-    public void Dijkstra(List<RoadIntersectionNode> nodes)
-    {
-        
-    }
 
     #region Dijkstra
-    
+
+    public class ShortestPathAlgorithm
+    {
+        
+        //private SortedSet<RoadIntersectionNode> _pQueueRoadNodes = new SortedSet<RoadIntersectionNode>(new DistanceComparer());
+
+        public void Dijkstra(List<RoadIntersectionNode> entranceNodes)
+        {
+            List<RoadIntersectionNode> nodes = new List<RoadIntersectionNode>( entranceNodes );
+            
+            while (nodes.Count > 0)
+            {
+                //Find smallest distance between each node
+                RoadIntersectionNode smallestDistance = null;
+                foreach (var node in nodes[0].adjacentRoadNodes)
+                {
+
+                }
+            }
+        }
+        
+        private class DistanceComparer : IComparer<RoadIntersectionNode>
+        {
+            public int Compare(int[] x, int[] y)
+            {
+                if (x[0] == y[0]) {
+                    return x[1] - y[1];
+                }
+                return x[0] - y[0];
+            }
+
+            public int Compare(RoadIntersectionNode x, RoadIntersectionNode y)
+            {
+                return -1;
+            }
+        }
+    }
     
     #endregion
     

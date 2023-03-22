@@ -24,12 +24,12 @@ namespace Map
         
         // This class represents a directed graph using
         // adjacency list representation
-        public class Graph <T>
+        public class Graph
         {
             private const int INF = 2147483647;
          
             private int _numOfVertices;
-            private List<T> _adj;
+            private List<int[]>[] adj;
          
             public Graph(int numOfVertices)
             {   
@@ -37,17 +37,18 @@ namespace Map
                 this._numOfVertices = numOfVertices;
                 // In a weighted graph, we need to store vertex
                 // and weight pair for every edge
-                this._adj = new List<T>();
+                this.adj = new List<int[]>[numOfVertices];
          
                 for (int i = 0; i < numOfVertices; i++)
                 {
-                    
+                    this.adj[i] = new List<int[]>();
                 } 
             }
-
+         
             public void AddEdge(int u, int v, int w)
             {
-                
+                this.adj[u].Add(new int[] { v, w });
+                this.adj[v].Add(new int[] { u, w });
             }
 
             // Prints shortest paths from src to all other vertices
@@ -85,7 +86,7 @@ namespace Map
 
                   // 'i' is used to get all adjacent vertices of a
                   // vertex
-                  /*foreach (int[] adjVertex in this._adj[u])
+                  foreach (int[] adjVertex in this.adj[u])
                   {
                     // Get vertex label and weight of current
                     // adjacent of u.
@@ -99,7 +100,7 @@ namespace Map
                       dist[v] = dist[u] + weight;
                       pQueue.Add(new int[] { dist[v], v });
                     }
-                  }*/
+                  }
                 }
 
                 // Print shortest distances stored in dist[]

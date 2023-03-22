@@ -93,7 +93,8 @@ public class DijkstraAlgorithm
         return shortestPaths[b];
     }
 
-    private static Dictionary<Vertex, Vertex> outerParents;
+    public static Dictionary<Vertex, Vertex> backTrackingVertices;
+
 
     public static Dictionary<Vertex, float> DijkstraShortestPath(GraphVertexList graphVertexList, Vertex source)
     {
@@ -169,7 +170,7 @@ public class DijkstraAlgorithm
         }
 
         // only here for PrintShortestPaths() & PrintShortestPath() - not recommended
-        outerParents = parents;
+        backTrackingVertices = parents;
 
         return weights;
     }
@@ -191,7 +192,7 @@ public class DijkstraAlgorithm
         var path = DijkstraShortestPath(graphVertexList, source);
 
         // print shortest between source and destination vertices
-        PrintPath(destination, outerParents, path);
+        PrintPath(destination, backTrackingVertices, path);
     }
 
     private static void PrintPath(Vertex vertex, Dictionary<Vertex, Vertex> parents, Dictionary<Vertex, float> path)
@@ -304,7 +305,7 @@ public class DijkstraAlgorithm
         }
 
         // only here for PrintShortestPaths() & PrintShortestPath() - not recommended
-        outerParents = parents;
+        backTrackingVertices = parents;
 
         return weights;
     }

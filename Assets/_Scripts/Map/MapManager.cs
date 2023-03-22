@@ -19,7 +19,7 @@ public class MapManager : Singleton<MapManager>
     {
         InitGetBuildings();
         CreateVertexForRoadNodes();
-        Test();
+        PrintShortestPathToDestinations();
     }
 
     private void InitGetBuildings()
@@ -62,14 +62,44 @@ public class MapManager : Singleton<MapManager>
 
     public void Test()
     {
-        Debug.Log("Test "+ roadIntersectionNodes[0].name +" is Vertex "+ _roadToVertices[roadIntersectionNodes[0]].Key);
+        Debug.Log("Test " + roadIntersectionNodes[0].name + " is Vertex " +
+                  _roadToVertices[roadIntersectionNodes[0]].Key);
+        var shortestPathsWeight =
+            DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
+
         //DijkstraAlgorithm.PrintShortestPaths(_graphVertexList, _vertices[roadIntersectionNodes[0]]);
-        var shortestPathsWeight = DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
-        foreach (var (vertex, weight) in shortestPathsWeight)
+        /*foreach (var (vertex, weight) in shortestPathsWeight)
         {
             Debug.Log("The " + _verticesToRoad[vertex].name + " Is "+ weight + "Far away");
         }
+        */
+
+
+        /*
+        if (vertex == null || !parents.ContainsKey(vertex))
+        {
+            return;
+        }
+
+        PrintPath(parents[vertex], parents, path);
+        Debug.Log($" {vertex.Key} ({path[vertex]})");
+    */
     }
+
+    public void PrintShortestPathToDestinations()
+    {
+        var shortestPathsWeight =
+            DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
+        var backTrackingVertices = DijkstraAlgorithm.backTrackingVertices;
+
+        for (DijkstraAlgorithm.Vertex traverseVertex = _roadToVertices[roadIntersectionNodes[43]]; //Destination 
+             traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex); 
+             traverseVertex = backTrackingVertices[traverseVertex])
+        {
+            Debug.Log(_verticesToRoad[traverseVertex] + " " + shortestPathsWeight[traverseVertex]);
+        }
+    }
+
     public Building GetBuilding(string searching)
     {
         if (_buildings.ContainsKey(searching)) return _buildings[searching];

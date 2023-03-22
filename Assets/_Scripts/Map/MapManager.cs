@@ -8,6 +8,7 @@ public class MapManager : Singleton<MapManager>
     [SerializeField] private Transform mapParent;
     [SerializeField] private List<Building> buildingGameObjects;
     [SerializeField] private List<RoadIntersectionNode> roadIntersectionNodes;
+    [SerializeField] private PlayerGPS player;
 
     private Dictionary<string, Building> _buildings = new();
     private DijkstraAlgorithm.GraphVertexList _graphVertexList = new();
@@ -92,7 +93,7 @@ public class MapManager : Singleton<MapManager>
             DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
         var backTrackingVertices = DijkstraAlgorithm.backTrackingVertices;
 
-        for (DijkstraAlgorithm.Vertex traverseVertex = _roadToVertices[roadIntersectionNodes[43]]; //Destination 
+        for (DijkstraAlgorithm.Vertex traverseVertex = _roadToVertices[roadIntersectionNodes[16]]; //Destination 
              traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex); 
              traverseVertex = backTrackingVertices[traverseVertex])
         {

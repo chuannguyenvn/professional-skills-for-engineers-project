@@ -13,7 +13,7 @@ namespace Map
         [SerializeField] private PolygonCollider2D polygonCollider2D;
 
         [Header("Road Node Entrances")] 
-        public List<RoadIntersectionNode> entrances;
+        public List<RoadIntersectionNode> entrances = new();
 
         [Header("3D Variable")]
         [SerializeField] bool Is3D = true;

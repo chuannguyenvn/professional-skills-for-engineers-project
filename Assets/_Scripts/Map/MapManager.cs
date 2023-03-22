@@ -142,6 +142,7 @@ public class MapManager : Singleton<MapManager>
         Building building = GetBuilding(room);
         if (building != null)
         {
+            Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);
             var roadJourney = ShortestPathToDestinations(playerNavigation.playerRoadNode, building.entrances[0]);
             playerNavigation.EnableNavigation(roadJourney);
             return true;

@@ -195,6 +195,7 @@ MonoBehaviour:
   entrances:
   - {fileID: 1331306759678251650}
   - {fileID: 42324557710364390}
+  - {fileID: 4062181828302468139}
   - {fileID: 894260873112364632}
   Is3D: 0
   BuildingHeight: 10

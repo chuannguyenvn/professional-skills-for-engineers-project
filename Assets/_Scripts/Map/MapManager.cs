@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Map;
 using UnityEngine;
 
@@ -125,8 +126,11 @@ public class MapManager : Singleton<MapManager>
     
     public Building GetBuilding(string searching)
     {
+        searching = searching.ToLower();
+        Debug.Log(searching +" Building");
         if (_buildings.ContainsKey(searching)) return _buildings[searching];
         
+        /*
         foreach (var buildingName in _buildings.Keys)
         {
             if (buildingName.Contains(searching, StringComparison.CurrentCultureIgnoreCase ))
@@ -134,13 +138,14 @@ public class MapManager : Singleton<MapManager>
                 return _buildings[ buildingName ];
             }
         }
+        */
 
         return null;
     }
     
-    public bool Navigate(string room)
+    public bool Navigate(string buildingName)
     {
-        Building building = GetBuilding(room);
+        Building building = GetBuilding(buildingName);
         if (building != null)
         {
             Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);

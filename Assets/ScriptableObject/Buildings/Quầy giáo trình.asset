@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
-  m_Name: "Qu\u1EA7y gi\xE1o tr\xECnh B10"
+  m_Name: "Qu\u1EA7y gi\xE1o tr\xECnh"
   m_EditorClassIdentifier: 
-  name: "Qu\u1EA7y gi\xE1o tr\xECnh B10"
+  name: "Qu\u1EA7y gi\xE1o tr\xECnh B 10"
   geoCoordinate:
   - {x: 10.773798, y: 106.66074}
   - {x: 10.773719, y: 106.66079}

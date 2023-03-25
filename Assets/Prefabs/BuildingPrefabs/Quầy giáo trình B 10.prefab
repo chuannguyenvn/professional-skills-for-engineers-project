@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6877548282070042852}
   - component: {fileID: 1449897110831850139}
   m_Layer: 6
-  m_Name: "Qu\u1EA7y gi\xE1o tr\xECnh B10"
+  m_Name: "Qu\u1EA7y gi\xE1o tr\xECnh B 10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75365a949c0c4d0785488868e4133343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Is3D: 0
-  BuildingHeight: 10
   polygon: {fileID: 6251651481660652520}
   polygonCollider2D: {fileID: 1449897110831850139}
+  entrances: []
+  Is3D: 0
+  BuildingHeight: 10
   buildingSo: {fileID: 11400000, guid: fb2c76633985c3243bdc76b2f9471b75, type: 2}
 --- !u!60 &1449897110831850139
 PolygonCollider2D:
@@ -80,9 +81,6 @@ PolygonCollider2D:
       - {x: 5.114586, y: -8.843971}
       - {x: -0.85243225, y: -12.1471405}
       - {x: -5.967018, y: -3.0900574}
-    - []
-    - []
-    - []
 --- !u!1 &6625800418033177810
 GameObject:
   m_ObjectHideFlags: 0

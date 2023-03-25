@@ -134,6 +134,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &13564034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764611784576979644, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &13564035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6958653284951707081, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &37500287 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5370466100164522562, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
@@ -925,6 +947,17 @@ MonoBehaviour:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3883636279409534846, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
   m_PrefabInstance: {fileID: 7818130254355231621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &427007098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -3083,6 +3116,17 @@ MonoBehaviour:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3883636279800658620, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
   m_PrefabInstance: {fileID: 7818130254355231621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1715582919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -5479,6 +5523,14 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[1]
       value: 
       objectReference: {fileID: 1210581974}
+    - target: {fileID: 447751244101723412, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 447751244101723412, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1382610313}
     - target: {fileID: 507995172653240889, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 3
@@ -5487,6 +5539,26 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 1313037232}
+    - target: {fileID: 512925329958102721, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 512925329958102721, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 685713706}
+    - target: {fileID: 512925329958102721, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1410243983}
+    - target: {fileID: 764611784576979644, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 764611784576979644, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1715582919}
     - target: {fileID: 810575963009563003, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 2
@@ -5549,7 +5621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[1]
@@ -5559,6 +5631,10 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 685713706}
+    - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 13564034}
     - target: {fileID: 2137086552845144304, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 4
@@ -5867,6 +5943,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6958653284951707081, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958653284951707081, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 427007098}
     - target: {fileID: 7172866114168739463, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 3
@@ -5937,7 +6021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[1]
@@ -5947,6 +6031,10 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 1382610313}
+    - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 13564035}
     - target: {fileID: 8439385964704646462, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 2

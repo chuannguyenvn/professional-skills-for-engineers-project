@@ -43,11 +43,11 @@ public class MapManager : Singleton<MapManager>
         //Create Vertices for each node
         foreach (var roadIntersectionNode in roadIntersectionNodes)
         {
-            if (_roadToVertices.ContainsKey(roadIntersectionNode)) continue;
+            //if (_roadToVertices.ContainsKey(roadIntersectionNode)) continue;
             var vertex = new DijkstraAlgorithm.Vertex(roadIntersectionNode.GetInstanceID());
             _roadToVertices.Add(roadIntersectionNode, vertex);
             _verticesToRoad.Add(vertex, roadIntersectionNode);
-            Debug.Log("Test "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key);
+            Debug.Log("Init "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key);
         }
         
         //make directed graph

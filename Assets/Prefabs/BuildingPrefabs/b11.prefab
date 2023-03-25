@@ -185,6 +185,8 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 4093853082784769561}
   entrances:
   - {fileID: 1183003430814291376}
+  - {fileID: 227715711564167133}
+  - {fileID: 5735400890443750409}
   Is3D: 0
   BuildingHeight: 10
   buildingSo: {fileID: 11400000, guid: 4acbfecd83841ad47a936d07babc5d0c, type: 2}
@@ -248,11 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.846645
+      value: -49.587597
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.995056
+      value: 63.592285
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -414,11 +416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.859047
+      value: -11.6
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.202774
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalPosition.z

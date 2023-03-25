@@ -209,6 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   polygon: {fileID: 9030583907406092345}
   polygonCollider2D: {fileID: 2550277493878777254}
+  allRoadNode:
+  - {fileID: 7040029849840095296}
+  - {fileID: 4813915469346722905}
+  - {fileID: 8226166378814086631}
+  - {fileID: 6110327416197457954}
   entrances:
   - {fileID: 7040029849840095296}
   - {fileID: 4813915469346722905}

@@ -53,6 +53,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 4300999540475072837}
   entrances:
   - {fileID: 3704294746923757740}
+  - {fileID: 6401538469276245460}
   - {fileID: 2757671640986513935}
   Is3D: 0
   BuildingHeight: 10

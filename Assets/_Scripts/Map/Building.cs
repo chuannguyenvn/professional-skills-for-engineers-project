@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Map;
 using Shapes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Map
+namespace _Scripts.Map
 {
     public class Building : MonoBehaviour
     {

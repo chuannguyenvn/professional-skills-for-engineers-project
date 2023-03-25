@@ -4258,6 +4258,22 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 8441421734966545485}
+    - target: {fileID: 3883636279833688542, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -61.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279833688542, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279865747226, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -94.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279865747226, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3883636280279623726, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 4
@@ -4347,6 +4363,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1466938891781122393, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466938891781122393, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 599046806}
+    - target: {fileID: 1466938891781122393, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 2009635162}
     - target: {fileID: 1471970014493916662, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: m_Mesh
       value: 

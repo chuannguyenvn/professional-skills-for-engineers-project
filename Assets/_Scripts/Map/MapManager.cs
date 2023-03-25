@@ -47,7 +47,7 @@ public class MapManager : Singleton<MapManager>
             var vertex = new DijkstraAlgorithm.Vertex(roadIntersectionNode.GetInstanceID());
             _roadToVertices.Add(roadIntersectionNode, vertex);
             _verticesToRoad.Add(vertex, roadIntersectionNode);
-            Debug.Log("Init "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key);
+            //Debug.Log("Init "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key+ " - "+ _roadToVertices[roadIntersectionNode] + " "+ _verticesToRoad[vertex]);
         }
         
         //make directed graph
@@ -57,6 +57,7 @@ public class MapManager : Singleton<MapManager>
             DijkstraAlgorithm.Vertex currentNodeVertex = _roadToVertices[roadIntersectionNode];
             foreach (var adjacentRoadNode in roadIntersectionNode.adjacentRoadNodes)
             {
+                //Debug.Log("Adjacency "+ roadIntersectionNode.name + " and "+ adjacentRoadNode.name);
                 Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
                 DijkstraAlgorithm.Vertex adjacentNodeVertex = _roadToVertices[adjacentRoadNode];
                 float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);

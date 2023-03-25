@@ -5809,7 +5809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216386890937314607, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: entrances.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6276667694171836258, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: m_Mesh

@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class RoadIntersectionNode : MonoBehaviour
 {
     
-    [SerializeField, FormerlySerializedAs("roadIntersectionNodes")] public List<RoadIntersectionNode> adjacentRoadNodes;
+    [SerializeField, FormerlySerializedAs("roadIntersectionNodes")] public List<RoadIntersectionNode> adjacentRoadNodes = new List<RoadIntersectionNode>();
 
     void OnDrawGizmosSelected()
     {
@@ -21,9 +21,14 @@ public class RoadIntersectionNode : MonoBehaviour
 
     private void OnValidate()
     {
-        foreach (var roadNode in adjacentRoadNodes)
+        if (adjacentRoadNodes != null)
         {
-            if( roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
+            foreach (var roadNode in adjacentRoadNodes)
+            {
+                if(roadNode.adjacentRoadNodes == null ) continue;
+                
+                if(roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
+            }    
         }
     }
 }

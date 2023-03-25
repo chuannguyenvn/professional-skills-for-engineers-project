@@ -61,8 +61,9 @@ namespace _Scripts.Map
                     //Debug.Log("Adjacency "+ roadIntersectionNode.name + " and "+ adjacentRoadNode.name);
                     Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
                     PathfindingAlgorithm.Vertex adjacentNodeVertex = _roadToVertices[adjacentRoadNode];
-                    float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
-                    _graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight);
+                    AddAdjacentRoad(roadIntersectionNode, adjacentRoadNode);
+                    //float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
+                    //_graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight);
                 }
             }
 

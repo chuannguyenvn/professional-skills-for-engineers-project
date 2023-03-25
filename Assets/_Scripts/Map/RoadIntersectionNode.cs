@@ -21,14 +21,12 @@ public class RoadIntersectionNode : MonoBehaviour
 
     private void OnValidate()
     {
-        if (adjacentRoadNodes != null)
+        if (adjacentRoadNodes == null) return;
+        foreach (var roadNode in adjacentRoadNodes)
         {
-            foreach (var roadNode in adjacentRoadNodes)
-            {
-                if(roadNode.adjacentRoadNodes == null ) continue;
+            if(roadNode.adjacentRoadNodes == null ) continue;
                 
-                if(roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
-            }    
+            if(roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
         }
     }
 }

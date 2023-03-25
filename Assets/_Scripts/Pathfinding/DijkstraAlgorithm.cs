@@ -3,113 +3,14 @@ using System.Linq;
 using Priority_Queue;
 using UnityEngine;
 
-public class DijkstraAlgorithm
+public class DijkstraAlgorithm: PathfindingAlgorithm
 {
-    public class Edge
-    {
-        public Edge(Vertex source, Vertex destination, float weight)
-        {
-            Source = source;
-            Destination = destination;
-            Weight = weight;
-        }
-
-        public float Weight { get; set; }
-        public Vertex Source { get; set; }
-        public Vertex Destination { get; set; }
-    }
-
-    public class Vertex
-    {
-        public Vertex(int key)
-        {
-            Key = key;
-        }
-
-        public int Key { get; set; }
-    }
-
-    public class GraphVertexList
-    {
-        private Dictionary<Vertex, List<Edge>> adjList;
-
-        public GraphVertexList()
-        {
-            adjList = new Dictionary<Vertex, List<Edge>>();
-        }
-
-        public Dictionary<Vertex, List<Edge>> AdjList
-        {
-            get
-            {
-                return adjList;
-            }
-        }
-
-        public void AddEdgeDirected(Vertex source, Vertex destination, float weight)
-        {
-            if (adjList.ContainsKey(source))
-            {
-                adjList[source].Add(new Edge(source, destination, weight));
-            }
-            else
-            {
-                adjList.Add(source, new List<Edge> { new Edge(source, destination, weight) });
-            }
-
-            if (!adjList.ContainsKey(destination))
-            {
-                adjList.Add(destination, new List<Edge>());
-            }
-        }
-
-        // Don't actually do this (i.e. actually write 2 classes for directed/undirected):
-        public void AddEdgeUndirected(Vertex source, Vertex destination, float weight)
-        {
-            if (adjList.ContainsKey(source))
-            {
-                adjList[source].Add(new Edge(source, destination, weight));
-            }
-            else
-            {
-                adjList.Add(source, new List<Edge> { new Edge(source, destination, weight) });
-            }
-
-            if (adjList.ContainsKey(destination))
-            {
-                adjList[destination].Add(new Edge(destination, source, weight));
-            }
-            else
-            {
-                adjList.Add(destination, new List<Edge> { new Edge(destination, source, weight) });
-            }
-        }
-
-        public void RemoveEdge(Vertex source, Vertex destination)
-        {
-            if (adjList.ContainsKey(source))
-            {
-                var found = adjList[source].Find(edge => edge.Destination == destination);
-                if (found != null)
-                {
-                    adjList[source].Remove(found);
-                }
-
-                Debug.Log("Found"+ found.Source+" "+ found.Destination + " "+ found.Weight + " And result "+ adjList[source].Find(edge => edge.Destination == destination));
-            }
-        }
-    }
-
     public static float ShortestPath(GraphVertexList graphVertexList, Vertex a, Vertex b)
     {
         var shortestPaths = DijkstraShortestPath(graphVertexList, a);
 
         return shortestPaths[b];
     }
-
-    public static Dictionary<Vertex, Vertex> backTrackingVertices;
-
-
     public static Dictionary<Vertex, float> DijkstraShortestPath(GraphVertexList graphVertexList, Vertex source)
     {
         var pq = new SimplePriorityQueue<Vertex, float>();
@@ -188,7 +89,6 @@ public class DijkstraAlgorithm
 
         return weights;
     }
-
     public static void PrintShortestPaths(GraphVertexList graphVertexList, Vertex source)
     {
         var path = DijkstraShortestPath(graphVertexList, source);
@@ -200,7 +100,6 @@ public class DijkstraAlgorithm
             Debug.Log($"{vertex.Key} ({shortestPathWeight})");
         }
     }
-
     public static void PrintShortestPath(GraphVertexList graphVertexList, Vertex source, Vertex destination)
     {
         var path = DijkstraShortestPath(graphVertexList, source);
@@ -208,7 +107,6 @@ public class DijkstraAlgorithm
         // print shortest between source and destination vertices
         PrintPath(destination, backTrackingVertices, path);
     }
-
     private static void PrintPath(Vertex vertex, Dictionary<Vertex, Vertex> parents, Dictionary<Vertex, float> path)
     {
         if (vertex == null || !parents.ContainsKey(vertex))
@@ -381,37 +279,6 @@ public class DijkstraAlgorithm
         Debug.Log($" {v.Key}");
     }
 
-    public class GraphAdjacencyMatrix
-    {
-        private float[,] adjMatrix;
-
-        public GraphAdjacencyMatrix(int vertices)
-        {
-            adjMatrix = new float[vertices, vertices];
-        }
-
-        public float[,] AdjMatrix
-        {
-            get
-            {
-                return adjMatrix;
-            }
-        }
-
-        public void AddEdgeDirected(int source, int destination, float weight)
-        {
-            adjMatrix[source, destination] = weight;
-        }
-
-        public void AddEdgeUndirected(int source, int destination, float weight)
-        {
-            adjMatrix[source, destination] = weight;
-            adjMatrix[destination, source] = weight;
-        }
-    }
-
-    private static Dictionary<int, int> outerParents2;
-
     public static float[] DijkstraShortestPathAdjacencyMatrix(GraphAdjacencyMatrix graph, int source)
     {
         var parents = new Dictionary<int, int>();
@@ -459,7 +326,7 @@ public class DijkstraAlgorithm
             }
         }
 
-        outerParents2 = parents;
+        backTrackingMatrix = parents;
 
         return weights;
     }
@@ -485,7 +352,7 @@ public class DijkstraAlgorithm
     {
         var path = DijkstraShortestPathAdjacencyMatrix(graph, source);
 
-        PrintPath(dest, outerParents2, path);
+        PrintPath(dest, backTrackingMatrix, path);
     }
 
     private static void PrintPath(int v, Dictionary<int, int> parents, float[] path)

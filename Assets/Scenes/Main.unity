@@ -4234,6 +4234,22 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 337378411}
+    - target: {fileID: 3883636279776514634, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279776514634, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279776514638, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636279776514638, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 8441421734966545486}
     - target: {fileID: 3883636279800658620, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 3
@@ -4242,6 +4258,14 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 8441421734966545485}
+    - target: {fileID: 3883636280279623726, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883636280279623726, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 8441421734966545487}
     - target: {fileID: 7818130253966947212, guid: 0af0257521a96184e868bcfea1d2223a, type: 3}
       propertyPath: m_Name
       value: Road Intersection Nodes
@@ -4319,10 +4343,38 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1941327054}
+    - target: {fileID: 1811143695236036585, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 685713706}
+    - target: {fileID: 2152602586446809036, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152602586446809036, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 5426808}
     - target: {fileID: 2277742365499603922, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2320637873450794939, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320637873450794939, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 965004064}
     - target: {fileID: 2633939522773679805, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 2
@@ -4463,6 +4515,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1337264674}
+    - target: {fileID: 8417958031361086109, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1382610313}
     - target: {fileID: 8441421733283287333, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
       propertyPath: m_Name
       value: Buildings
@@ -4532,6 +4596,28 @@ PrefabInstance:
 --- !u!114 &8441421734966545485 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2633939522773679805, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8441421734966545486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2152602586446809036, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
+  m_PrefabInstance: {fileID: 8441421734966545484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8441421734966545487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2320637873450794939, guid: 1b96763f6a2e19d488f10abd5bb5b2c3, type: 3}
   m_PrefabInstance: {fileID: 8441421734966545484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

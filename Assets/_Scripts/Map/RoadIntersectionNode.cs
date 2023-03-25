@@ -19,5 +19,11 @@ public class RoadIntersectionNode : MonoBehaviour
         
     }
 
-    
+    private void OnValidate()
+    {
+        foreach (var roadNode in adjacentRoadNodes)
+        {
+            if( roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
+        }
+    }
 }

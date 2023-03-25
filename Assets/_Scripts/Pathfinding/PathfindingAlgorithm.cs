@@ -87,15 +87,13 @@ public class PathfindingAlgorithm
 
         public void RemoveEdge(Vertex source, Vertex destination)
         {
-            if (adjList.ContainsKey(source))
+            if (!adjList.ContainsKey(source)) return;
+            //BUG
+            var found = adjList[source].Find(edge => edge.Destination == destination);
+            if (found == null) return;
             {
-                var found = adjList[source].Find(edge => edge.Destination == destination);
-                if (found != null)
-                {
-                    adjList[source].Remove(found);
-                }
-
                 Debug.Log("Found"+ found.Source+" "+ found.Destination + " "+ found.Weight + " And result "+ adjList[source].Find(edge => edge.Destination == destination));
+                adjList[source].Remove(found); 
             }
         }
     }

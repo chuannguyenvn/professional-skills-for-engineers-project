@@ -18,7 +18,7 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] float radiusFindingRoadNode = 10f;
     [SerializeField] private LayerMask roadNodeLayer;
     private List<RoadIntersectionNode> _roadJourney;
-    private List<RoadIntersectionNode> _roadNodesNearBy = new ();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,7 @@ public class PlayerNavigation : MonoBehaviour
     }
 
 
-    private void Navigating()
+    private void SetLineTrack()
     {
         int count = _roadJourney.Count;
         lineRenderer.positionCount = count;
@@ -62,23 +62,33 @@ public class PlayerNavigation : MonoBehaviour
         lineRenderer.SetPositions(roadPositions);
     }
 
-    private void CreateFindNearestRoadNode()
+    private void RemoveOldNearByNode()
     {
-        var hit2d= Physics2D.OverlapCircleAll(transform.position, radiusFindingRoadNode, roadNodeLayer);
-
-        foreach (var oldRoadNode in _roadNodesNearBy)
+        foreach (var oldRoadNode in playerRoadNode.adjacentRoadNodes)
         {
-            oldRoadNode.adjacentRoadNodes.Remove(playerRoadNode);
-            playerRoadNode.adjacentRoadNodes.Remove(oldRoadNode);
-            
+            Debug.Log("Delete "+ oldRoadNode.name);
             MapManager.Instance.RemoveAdjacentRoad(oldRoadNode, playerRoadNode);
             MapManager.Instance.RemoveAdjacentRoad(playerRoadNode, oldRoadNode);
+            oldRoadNode.adjacentRoadNodes.Remove(playerRoadNode);
         }
 
-        _roadNodesNearBy = new List<RoadIntersectionNode>();
-        
-        
+        playerRoadNode.adjacentRoadNodes = new List<RoadIntersectionNode>();   
+    }
+    private void FindNearByRoadNode()
+    {
 
+        var hit2d= Physics2D.OverlapCircleAll(transform.position, radiusFindingRoadNode, roadNodeLayer);
+
+        foreach (var hit in hit2d)
+        {
+            Debug.Log("Hit " + hit.gameObject.name);
+            var freshRoadNode = hit.gameObject.GetComponent<RoadIntersectionNode>();
+            freshRoadNode.adjacentRoadNodes.Add(playerRoadNode);
+            playerRoadNode.adjacentRoadNodes.Add(freshRoadNode);
+            
+            MapManager.Instance.AddAdjacentRoad(freshRoadNode, playerRoadNode);
+            MapManager.Instance.AddAdjacentRoad(playerRoadNode, freshRoadNode);
+        }
     }
 
     private void OnDrawGizmos()
@@ -92,7 +102,9 @@ public class PlayerNavigation : MonoBehaviour
         if (isOnNavigationCycle) yield break;
 
         isOnNavigationCycle = true;
-        Navigating();
+        RemoveOldNearByNode();
+        FindNearByRoadNode();
+        SetLineTrack();
         
         yield return new WaitForSeconds(navigationUpdateCycleTime);
         isOnNavigationCycle = false;

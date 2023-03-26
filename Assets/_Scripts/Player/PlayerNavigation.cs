@@ -41,7 +41,6 @@ public class PlayerNavigation : MonoBehaviour
         isNavigating = true; 
         isOnNavigationCycle = false;
         _destinationBuilding = destinationBuilding;
-        StartCoroutine(CheckNavigation());
     }
 
     public void DisableNavigation()
@@ -112,15 +111,16 @@ public class PlayerNavigation : MonoBehaviour
         if (isOnNavigationCycle) yield break;
 
         isOnNavigationCycle = true;
+        
         RemoveOldNearByNode();
         yield return null;
         FindNearByRoadNode();
         yield return null;
         ReCheckingShortestPath();
-        yield return null;
         SetLineTrack();
         
         yield return new WaitForSeconds(navigationUpdateCycleTime);
+        
         isOnNavigationCycle = false;
     }
 }

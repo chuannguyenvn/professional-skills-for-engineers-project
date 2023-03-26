@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 42324557710364390}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node
+      value: Road Node b2 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (2)
+      value: Road Node b2 3
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 894260873112364632}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (1)
+      value: Road Node b2 2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

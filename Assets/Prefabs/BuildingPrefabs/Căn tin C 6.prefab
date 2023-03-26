@@ -218,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node
+      value: Road Node ct c6 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

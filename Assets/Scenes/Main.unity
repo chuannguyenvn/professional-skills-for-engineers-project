@@ -16224,6 +16224,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4806746782172397401, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
+      propertyPath: m_Name
+      value: Player Road Node
+      objectReference: {fileID: 0}
     - target: {fileID: 4806746782172397402, guid: 11447b340f1850349a5c8b5ae78aa0e8, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 1

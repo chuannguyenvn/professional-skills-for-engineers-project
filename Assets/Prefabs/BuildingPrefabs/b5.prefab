@@ -49,8 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   polygon: {fileID: 7285444043563254174}
   polygonCollider2D: {fileID: 7452310403459273389}
-  allRoadNode:
-  - {fileID: 7723927772848009126}
   entrances:
   - {fileID: 7723927772848009126}
   Is3D: 0
@@ -220,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node
+      value: Road Node b5 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

@@ -185,10 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   polygon: {fileID: 7756928136719372388}
   polygonCollider2D: {fileID: 249837842497611752}
-  allRoadNode:
-  - {fileID: 7025168405739759258}
-  - {fileID: 8190293924470652461}
-  - {fileID: 8117523176017181397}
   entrances:
   - {fileID: 7025168405739759258}
   - {fileID: 8190293924470652461}
@@ -250,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 7025168405739759258}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (1)
+      value: Road Node b4 2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -331,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 7025168405739759258}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (2)
+      value: Road Node b4 3
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -416,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 8117523176017181397}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node
+      value: Road Node b4 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

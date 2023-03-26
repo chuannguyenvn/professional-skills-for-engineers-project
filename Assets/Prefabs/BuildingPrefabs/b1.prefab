@@ -209,11 +209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   polygon: {fileID: 9030583907406092345}
   polygonCollider2D: {fileID: 2550277493878777254}
-  allRoadNode:
-  - {fileID: 7040029849840095296}
-  - {fileID: 4813915469346722905}
-  - {fileID: 8226166378814086631}
-  - {fileID: 6110327416197457954}
   entrances:
   - {fileID: 7040029849840095296}
   - {fileID: 4813915469346722905}
@@ -299,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 8226166378814086631}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (3)
+      value: Road Node b1 4
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -380,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 7040029849840095296}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (1)
+      value: Road Node b1 2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -465,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 6110327416197457954}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node (2)
+      value: Road Node b1 3
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -550,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 8226166378814086631}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node
+      value: Road Node b1 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

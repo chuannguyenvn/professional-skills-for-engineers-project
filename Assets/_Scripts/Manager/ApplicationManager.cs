@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ApplicationManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        for (int i = 0; i < 10; i++)
+        {
+            
+            StartCoroutine(nameof(Test));
+        }
+    }
+
+    IEnumerator Test()
+    {
+        Debug.Log("Hello world");
+        yield return new WaitForSeconds(10);
     }
 }

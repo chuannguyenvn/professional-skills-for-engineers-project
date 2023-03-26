@@ -150,8 +150,7 @@ namespace _Scripts.Map
             if (building != null)
             {
                 Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);
-                var roadJourney = ShortestPathToDestinations(playerNavigation.playerRoadNode, building.entrances[0]);
-                playerNavigation.EnableNavigation(roadJourney);
+                playerNavigation.EnableNavigation(building);
                 return true;
             }
             else

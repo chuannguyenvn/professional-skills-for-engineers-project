@@ -18,6 +18,7 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] float radiusFindingRoadNode = 10f;
     [SerializeField] private LayerMask roadNodeLayer;
     private List<RoadIntersectionNode> _roadJourney;
+    private Building _destinationBuilding;
     
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,16 @@ public class PlayerNavigation : MonoBehaviour
     {
         if (isNavigating)
         {
+            if(lineRenderer.positionCount > 1) lineRenderer.SetPosition(lineRenderer.positionCount-1, transform.position);
             StartCoroutine(CheckNavigation());
         }
     }
     
-    public void EnableNavigation(List<RoadIntersectionNode> journey)
+    public void EnableNavigation(Building destinationBuilding)
     {
         isNavigating = true; 
         isOnNavigationCycle = false;
-        _roadJourney = journey;
+        _destinationBuilding = destinationBuilding;
         StartCoroutine(CheckNavigation());
     }
 
@@ -62,6 +64,10 @@ public class PlayerNavigation : MonoBehaviour
         lineRenderer.SetPositions(roadPositions);
     }
 
+    private void ReCheckingShortestPath()
+    {
+       _roadJourney =  MapManager.Instance.ShortestPathToDestinations(playerRoadNode, _destinationBuilding.entrances[0]);
+    }
     private void RemoveOldNearByNode()
     {
         foreach (var oldRoadNode in playerRoadNode.adjacentRoadNodes)
@@ -107,7 +113,11 @@ public class PlayerNavigation : MonoBehaviour
 
         isOnNavigationCycle = true;
         RemoveOldNearByNode();
+        yield return null;
         FindNearByRoadNode();
+        yield return null;
+        ReCheckingShortestPath();
+        yield return null;
         SetLineTrack();
         
         yield return new WaitForSeconds(navigationUpdateCycleTime);

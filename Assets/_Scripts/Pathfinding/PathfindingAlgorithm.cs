@@ -29,7 +29,7 @@ public class PathfindingAlgorithm
         public int Key { get; set; }
     }
 
-    public class GraphVertexList
+    /*public class GraphVertexList
     {
         private Dictionary<Vertex, List<Edge>> adjList;
 
@@ -95,9 +95,59 @@ public class PathfindingAlgorithm
                 Debug.Log("Found"+ found.Source+" "+ found.Destination + " "+ found.Weight + " And result "+ adjList[source].Find(edge => edge.Destination == destination));
                 adjList[source].Remove(found); 
             }
+
         }
     }
-    
+    */
+    public class GraphVertexList
+    {
+        private Dictionary<Vertex, Dictionary<Vertex, Edge>> adjList;
+
+        public GraphVertexList()
+        {
+            adjList = new Dictionary<Vertex, Dictionary<Vertex, Edge>>();
+        }
+
+        public Dictionary<Vertex, Dictionary<Vertex, Edge>> AdjList
+        {
+            get
+            {
+                return adjList;
+            }
+        }
+
+        public void AddEdgeUndirected(Vertex source, Vertex destination, float weight)
+        {
+            AddEdgeDirected(source, destination, weight);
+            AddEdgeDirected(destination, source, weight);
+        }
+
+        public void AddEdgeDirected(Vertex source, Vertex destination, float weight)
+        {
+            if (!adjList.ContainsKey(source))
+            {
+                adjList.Add(source, new Dictionary<Vertex, Edge>());
+            }
+
+            adjList[source][destination] = new Edge(source, destination, weight);
+        }
+
+        public void RemoveEdge(Vertex source, Vertex destination)
+        {
+            if (!adjList.ContainsKey(source)) return;
+
+            if (adjList[source].ContainsKey(destination))
+            {
+                adjList[source].Remove(destination);
+            }
+
+            if (adjList.ContainsKey(destination) && adjList[destination].ContainsKey(source))
+            {
+                adjList[destination].Remove(source);
+            }
+        }
+    }
+
     
     public class GraphAdjacencyMatrix
     {

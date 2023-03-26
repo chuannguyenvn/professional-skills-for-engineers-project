@@ -52,7 +52,7 @@ public class DijkstraAlgorithm: PathfindingAlgorithm
                 weights[current] = weight;
             }
 
-            foreach (var adjEdge in graphVertexList.AdjList[current])
+            foreach (var (destinationVertex, adjEdge) in graphVertexList.AdjList[current])
             {
                 var adj = adjEdge.Source.Key == current.Key
                     ? adjEdge.Destination
@@ -183,7 +183,7 @@ public class DijkstraAlgorithm: PathfindingAlgorithm
                 weights[current] = weight;
             }
 
-            foreach (var adjEdge in graphVertexList.AdjList[current])
+            foreach (var (destinationVertex,adjEdge) in graphVertexList.AdjList[current])
             {
                 var adj = adjEdge.Source.Key == current.Key
                     ? adjEdge.Destination
@@ -235,7 +235,7 @@ public class DijkstraAlgorithm: PathfindingAlgorithm
         {
             var current = q.Dequeue();
 
-            foreach (var node in graphVertexList.AdjList[current])
+            foreach (var (destinationVertex,node) in graphVertexList.AdjList[current])
             {
                 var adj = node.Source.Key == current.Key
                     ? node.Destination

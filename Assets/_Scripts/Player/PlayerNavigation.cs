@@ -66,6 +66,8 @@ public class PlayerNavigation : MonoBehaviour
     {
         foreach (var oldRoadNode in playerRoadNode.adjacentRoadNodes)
         {
+            if(oldRoadNode == playerRoadNode) continue;
+
             Debug.Log("Delete "+ oldRoadNode.name);
             MapManager.Instance.RemoveAdjacentRoad(oldRoadNode, playerRoadNode);
             MapManager.Instance.RemoveAdjacentRoad(playerRoadNode, oldRoadNode);
@@ -83,6 +85,8 @@ public class PlayerNavigation : MonoBehaviour
         {
             Debug.Log("Hit " + hit.gameObject.name);
             var freshRoadNode = hit.gameObject.GetComponent<RoadIntersectionNode>();
+            if(freshRoadNode == playerRoadNode) continue;
+            
             freshRoadNode.adjacentRoadNodes.Add(playerRoadNode);
             playerRoadNode.adjacentRoadNodes.Add(freshRoadNode);
             

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class HorizontalSwipePageBase : MonoBehaviour, IDragHandler, IEndDragHandler
+public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Base")]
     [SerializeField] private SwipeVerticalHorizontalMenu menu;
@@ -20,6 +20,19 @@ public class HorizontalSwipePageBase : MonoBehaviour, IDragHandler, IEndDragHand
 
         scrollRect = gameObject.GetComponent<ScrollRect>();
     }
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        menu.OnPointerDownHorizontalChildPage(eventData);
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        float xDifference = eventData.position.x - eventData.pressPosition.x;
+        float yDifference = eventData.position.y - eventData.pressPosition.y;
+        
+        _isDraggingHorizontalNorVertical = Mathf.Abs( xDifference) >= Mathf.Abs( yDifference);
+        if (_isDraggingHorizontalNorVertical) menu.OnBeginDragHorizontalChildPage(eventData);
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -27,11 +40,6 @@ public class HorizontalSwipePageBase : MonoBehaviour, IDragHandler, IEndDragHand
         float xDifference = eventData.position.x - eventData.pressPosition.x;
         float yDifference = eventData.position.y - eventData.pressPosition.y;
         
-        if (_isFirstTimeDragging)
-        {
-            _isFirstTimeDragging = false;
-            _isDraggingHorizontalNorVertical = Mathf.Abs( xDifference) >= Mathf.Abs( yDifference);
-        }
 
         if (_isDraggingHorizontalNorVertical)
         {
@@ -49,11 +57,11 @@ public class HorizontalSwipePageBase : MonoBehaviour, IDragHandler, IEndDragHand
             scrollRect.vertical = true;
             _isFirstTimeDragging = true;
             _isDraggingHorizontalNorVertical = false;
-
         }
         else
         {
             _isFirstTimeDragging = true;
         }
     }
+
 }

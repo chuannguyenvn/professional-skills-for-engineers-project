@@ -17,7 +17,7 @@ public class ApplicationManager : MonoBehaviour
 
     IEnumerator Test()
     {
-        Debug.Log("Hello world");
+        //Debug.Log("Hello world");
         yield return new WaitForSeconds(10);
     }
 }

@@ -9,14 +9,13 @@ using UnityEngine.EventSystems;
 
 
 
-public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDragHandler
+public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IDragHandler, IEndDragHandler
 {
     [Header("Animation Properties")] [SerializeField]
     protected float movingDuration = 0.5f;
 
     [SerializeField] protected Ease ease = Ease.InCubic;
     protected bool isDraggingHorizontalNorVertical;
-    protected bool isFirstTimeDragging = true;
     protected bool isMoving = false;
 
 
@@ -79,8 +78,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         horizontalPages[initHorizontalIndex].OnSelect();
         verticalPages[initVerticalIndex].OnSelect();
 
-        //beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
-        //beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
+        draggingHorizontalGameObject.anchoredPosition = beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
+        draggingVerticalGameObject.anchoredPosition = beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
 
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
         //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
@@ -88,59 +87,43 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         //SmoothMoveTo(draggingHorizontalGameObject, horizontalDestination, movingDuration, horizontalPages[currentHorizontalStepIndex].onSelectEvent);
     }
 
-    
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+                  " Horizontal " + beforeDraggingHorizontalPosition);
+        beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
+        beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
+    }
 
-        //Debug.Log("Drag "+ eventData.anchoredPosition + " - "+ eventData.pressPosition);
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("Begin Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+                  " Horizontal " + beforeDraggingHorizontalPosition);
         float xDifference = eventData.position.x - eventData.pressPosition.x;
         float yDifference = eventData.position.y - eventData.pressPosition.y;
-        if (isFirstTimeDragging)
-        {
-            isFirstTimeDragging = false;
-            isDraggingHorizontalNorVertical = Mathf.Abs(xDifference) >= Mathf.Abs(yDifference);
 
-            beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
-            beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
-        }
-
+        isDraggingHorizontalNorVertical = Mathf.Abs(xDifference) >= Mathf.Abs(yDifference);
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("On Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+                  " Horizontal " + beforeDraggingHorizontalPosition);
         if (isDraggingHorizontalNorVertical)
         {
-            draggingHorizontalGameObject.anchoredPosition =
-                beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
+            float xDifference = eventData.position.x - eventData.pressPosition.x;
+            draggingHorizontalGameObject.anchoredPosition = new Vector2(xDifference, 0) + beforeDraggingHorizontalPosition;
         }
         else
         {
-            draggingVerticalGameObject.anchoredPosition = beforeDraggingVerticalPosition + new Vector2(0, yDifference);
+            float yDifference = eventData.position.y - eventData.pressPosition.y;
+            draggingVerticalGameObject.anchoredPosition =  new Vector2(0, yDifference) + beforeDraggingVerticalPosition ;
         }
-    }
-
-    public void OnDragHorizontalChildPage(PointerEventData eventData)
-    {
-        float xDifference = eventData.position.x - eventData.pressPosition.x;
-
-        if (isFirstTimeDragging)
-        {
-            isFirstTimeDragging = false;
-            isDraggingHorizontalNorVertical = true;
-            beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
-            beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
-        }
-
-        draggingHorizontalGameObject.anchoredPosition = beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
-    }
-
-    public void OnEndDragHorizontalChildPage(PointerEventData eventData)
-    {
-        isFirstTimeDragging = true;
-        OnHorizontalEndDrag(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("EndDrag "+ eventData.anchoredPosition + " - "+ eventData.pressPosition);
-        isFirstTimeDragging = true;
         if (isDraggingHorizontalNorVertical)
         {
             OnHorizontalEndDrag(eventData);
@@ -187,6 +170,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         else
         {
             //StartCoroutine(SmoothMove(draggingHorizontalGameObject,draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
+            Debug.Log("Before Back to beginning Position" + beforeDraggingHorizontalPosition);
+
             SmoothMoveTo(draggingHorizontalGameObject, beforeDraggingHorizontalPosition, movingDuration, new UnityEvent());
 
             Debug.Log("Back to beginning Position" + beforeDraggingHorizontalPosition);
@@ -227,11 +212,46 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
         else
         {
             //StartCoroutine(SmoothMove(draggingVerticalGameObject,draggingVerticalGameObject.anchoredPosition, _beforeDraggingVerticalPosition, movingDuration));
-            SmoothMoveTo(draggingHorizontalGameObject, beforeDraggingVerticalPosition, movingDuration, new UnityEvent());
+
+            Debug.Log("Before Back to beginning Position" + beforeDraggingVerticalPosition);
+
+            SmoothMoveTo(draggingVerticalGameObject, beforeDraggingVerticalPosition, movingDuration, new UnityEvent());
             Debug.Log("Back to beginning Position" + beforeDraggingVerticalPosition);
         }
     }
 
+    #region Horizontal Child Page
+
+    public void OnPointerDownHorizontalChildPage(PointerEventData eventData)
+    {
+        beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
+        beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
+    }
+
+    public void OnBeginDragHorizontalChildPage(PointerEventData eventData)
+    {
+        isDraggingHorizontalNorVertical = true;
+    }
+    
+    public void OnDragHorizontalChildPage(PointerEventData eventData)
+    {
+        float xDifference = eventData.position.x - eventData.pressPosition.x;
+        draggingHorizontalGameObject.anchoredPosition = beforeDraggingHorizontalPosition + new Vector2(xDifference, 0);
+    }
+
+    public void OnEndDragHorizontalChildPage(PointerEventData eventData)
+    {
+        OnHorizontalEndDrag(eventData);
+    }
+    
+    #endregion
+    
+    private void SmoothMoveTo(RectTransform movingObject, Vector3 endPos, float seconds, UnityEvent onSelect)
+    {
+        movingObject.DOAnchorPos(endPos, seconds).SetEase(ease).OnComplete(onSelect.Invoke);
+    }
+
+    
     /*
     IEnumerator SmoothMove(RectTransform movingObject, Vector3 startPos, Vector3 endPos, float seconds){
         if (_isMoving) {
@@ -251,8 +271,4 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IDragHandler, IEndDrag
     }
     */
 
-    private void SmoothMoveTo(RectTransform movingObject, Vector3 endPos, float seconds, UnityEvent onSelect)
-    {
-        movingObject.DOAnchorPos(endPos, seconds).SetEase(ease).OnComplete(onSelect.Invoke);
-    }
 }

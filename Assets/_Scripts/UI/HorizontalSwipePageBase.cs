@@ -23,6 +23,7 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
     
     public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log("Child pointer down");
         menu.OnPointerDownHorizontalChildPage(eventData);
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -31,16 +32,15 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
         float yDifference = eventData.position.y - eventData.pressPosition.y;
         
         _isDraggingHorizontalNorVertical = Mathf.Abs( xDifference) >= Mathf.Abs( yDifference);
-        if (_isDraggingHorizontalNorVertical) menu.OnBeginDragHorizontalChildPage(eventData);
+        if (_isDraggingHorizontalNorVertical)
+        {
+            Debug.Log("child begin horizontal drag");
+            menu.OnBeginDragHorizontalChildPage(eventData);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        
-        float xDifference = eventData.position.x - eventData.pressPosition.x;
-        float yDifference = eventData.position.y - eventData.pressPosition.y;
-        
-
         if (_isDraggingHorizontalNorVertical)
         {
             menu.OnDragHorizontalChildPage(eventData);

@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstHeader: {fileID: 4800765862090266616}
   secondHeader: {fileID: 5219112350081095014}
+  navigationButton: {fileID: 0}
 --- !u!1 &1644800234876968019
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644800234876968019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 

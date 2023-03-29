@@ -26,7 +26,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] protected int currentHorizontalIndex, initHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
     protected Vector2 beforeDraggingHorizontalPosition, expectDestinationHorizontalPosition;
-    protected Sequence horizontalSequence = DOTween.Sequence();
+    protected Sequence horizontalSequence;
 
     [Header("Vertical Properties")] [SerializeField]
     protected RectTransform draggingVerticalGameObject;
@@ -36,7 +36,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
     protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
-    protected Sequence verticalSequence = DOTween.Sequence();
+    protected Sequence verticalSequence;
     
     [Serializable]
     public class ChildPageUI
@@ -91,8 +91,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
-        //          " Horizontal " + beforeDraggingHorizontalPosition);
+        Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+                  " Horizontal " + beforeDraggingHorizontalPosition);
         
         beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
         beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
@@ -100,8 +100,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("Begin Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
-        //          " Horizontal " + beforeDraggingHorizontalPosition);
+        Debug.Log("Begin Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+                  " Horizontal " + beforeDraggingHorizontalPosition);
         float xDifference = eventData.position.x - eventData.pressPosition.x;
         float yDifference = eventData.position.y - eventData.pressPosition.y;
         
@@ -231,8 +231,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void OnPointerDownHorizontalChildPage(PointerEventData eventData)
     {
-        beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
-        beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;
+        OnPointerDown(eventData);
     }
 
     public void OnBeginDragHorizontalChildPage(PointerEventData eventData)

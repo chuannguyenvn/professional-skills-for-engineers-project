@@ -13,15 +13,15 @@ public class TimeBlockSubject : TimeBlock<SubjectInfo>
     [SerializeField] private TextMeshProUGUI secondHeader;
     [SerializeField] private Button navigationButton;
     
-    public override void Init(SubjectInfo subjectInfo)
+    public override void Init(SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage)
     {
         firstHeader.text = subjectInfo.name;
         secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" + subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
                             subjectInfo.lessonEndHour.Hours + ":" + subjectInfo.lessonEndHour.Minutes.ToString("D2") +
                             " tại " + subjectInfo.room;
         room = subjectInfo.room;
-        
-        
+        _calendarListViewPage = calendarListViewPage;
+
     }
 
     public void Navigate()

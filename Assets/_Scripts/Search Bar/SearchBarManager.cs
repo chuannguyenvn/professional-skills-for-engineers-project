@@ -27,12 +27,11 @@ public class SearchBarManager : MonoBehaviour, IPointerClickHandler
     public void OnSelect()
     { 
         searchMenuCanvas.gameObject.SetActive(true);
-
-        homeSearchBar.DeactivateInputField();
-        homeSearchBar.interactable = false;
+        
+        homeMenuCanvas.interactable = false;
 
         trueSearchBar.ActivateInputField();
-        trueSearchBar.interactable = true;
+        searchMenuCanvas.interactable = true;
 
         searchMenuCanvas.alpha = 0;
         DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 1, transitionDuration);
@@ -45,12 +44,11 @@ public class SearchBarManager : MonoBehaviour, IPointerClickHandler
     public void OnDeselect()
     { 
         homeMenuCanvas.gameObject.SetActive(true);
+        
+        searchMenuCanvas.interactable = false;
 
         trueSearchBar.DeactivateInputField();
-        trueSearchBar.interactable = false;
-
-        homeSearchBar.ActivateInputField();
-        homeSearchBar.interactable = true;
+        homeMenuCanvas.interactable = true;
 
         homeMenuCanvas.alpha = 0;
         DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 1, transitionDuration);

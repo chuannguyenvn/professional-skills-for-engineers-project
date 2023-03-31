@@ -35,6 +35,7 @@ public class SearchManager : Singleton<SearchManager>
     public void OnChangeValue()
     {
         homeSearchBar.text = trueSearchBar.text;
+        if (trueSearchBar.text == "") return;
         List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(trueSearchBar.text);
 
         // Get the list of objects to destroy
@@ -47,7 +48,7 @@ public class SearchManager : Singleton<SearchManager>
             _foundSearchItems.Remove(item);
         }
 
-        for (int i = 0; i < Mathf.Min( maxFoundElement, freshFoundBuildings.Count); i++)
+        for (int i = _foundSearchItems.Count; i < Mathf.Min( maxFoundElement, freshFoundBuildings.Count); i++)
         {
             if (_foundSearchItems.Any(item => item.GetObjectVariable() == freshFoundBuildings[i]))
             {

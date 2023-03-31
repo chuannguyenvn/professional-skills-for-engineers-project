@@ -7,6 +7,8 @@ using UnityEngine;
 public class BuildingSO : ScriptableObject
 {
     public string name = "New building";
+    public string description;
+    public List<Sprite> descriptiveSprites;
     public List<Vector2> geoCoordinate;
     public VisualManager.MapColor mapColor;
     public float height = 10f;

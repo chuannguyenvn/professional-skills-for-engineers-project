@@ -14,7 +14,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [Header("Animation Properties")] [SerializeField]
     protected float movingDuration = 0.5f;
 
-    [SerializeField] protected Ease ease = Ease.InCubic;
+    [SerializeField] protected Ease ease = Ease.OutCubic;
     protected bool isDraggingHorizontalNorVertical;
     
 

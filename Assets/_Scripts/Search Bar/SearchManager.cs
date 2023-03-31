@@ -35,7 +35,18 @@ public class SearchManager : Singleton<SearchManager>
     public void OnChangeValue()
     {
         homeSearchBar.text = trueSearchBar.text;
-        if (trueSearchBar.text == "") return;
+        if (trueSearchBar.text == "")
+        {
+            foreach (var foundSearchItem in _foundSearchItems)
+            {
+                Destroy(foundSearchItem.gameObject);
+                
+            }
+            _foundSearchItems.Clear();
+            
+            return;
+            
+        }
         List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(trueSearchBar.text);
 
         // Get the list of objects to destroy
@@ -82,10 +93,10 @@ public class SearchManager : Singleton<SearchManager>
         searchMenuCanvas.interactable = true;
 
         searchMenuCanvas.alpha = 0;
-        DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 1, transitionDuration);
+        DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 1, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
 
-        homeMenuCanvas.alpha = 1;
-        DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
+        //homeMenuCanvas.alpha = 1;
+        //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
         
     }
     
@@ -98,8 +109,8 @@ public class SearchManager : Singleton<SearchManager>
         trueSearchBar.DeactivateInputField();
         homeMenuCanvas.interactable = true;
 
-        homeMenuCanvas.alpha = 0;
-        DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 1, transitionDuration);
+        //homeMenuCanvas.alpha = 0;
+        //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 1, transitionDuration).OnComplete(() => searchMenuCanvas.gameObject.SetActive(false));
 
         searchMenuCanvas.alpha = 1;
         DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => searchMenuCanvas.gameObject.SetActive(false));

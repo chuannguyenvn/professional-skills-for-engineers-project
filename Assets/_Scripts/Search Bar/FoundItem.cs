@@ -22,4 +22,9 @@ public class FoundItem : MonoBehaviour
     {
         return _foundObject;
     }
+
+    public void ShowDescriptiveBuilding()
+    {
+        BuildingInfoManager.Instance.OnShow(_foundObject.buildingSo);
+    }
 }

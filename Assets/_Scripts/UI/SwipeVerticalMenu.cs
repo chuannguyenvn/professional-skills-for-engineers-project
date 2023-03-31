@@ -65,7 +65,7 @@ namespace _Scripts.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition);
+            //Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition);
 
             beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
         }

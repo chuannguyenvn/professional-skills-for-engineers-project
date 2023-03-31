@@ -27,4 +27,9 @@ public class FoundItem : MonoBehaviour
     {
         BuildingInfoManager.Instance.OnShow(_foundObject);
     }
+
+    public void Navigate()
+    {
+        MapManager.Instance.Navigate(_foundObject);
+    }
 }

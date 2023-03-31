@@ -12349,7 +12349,6 @@ MonoBehaviour:
   buildingName: {fileID: 363024387}
   description: {fileID: 328227085}
   imageContent: {fileID: 516191758}
-  currentBuilding: {fileID: 0}
 --- !u!114 &1835170515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7037533103654199868, guid: 963c970f287b66c469e0e73647db0ecf, type: 3}
@@ -14619,6 +14618,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81740736}
     m_Modifications:
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1833599012}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Navigate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildingInfoManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088092219271920578, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3870731347060070239, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00024414062

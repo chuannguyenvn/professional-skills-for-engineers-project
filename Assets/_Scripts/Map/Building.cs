@@ -74,10 +74,10 @@ namespace _Scripts.Map
 
         private void OnMouseDown()
         {
-            //Debug.Log(gameObject.name + " "+ EventSystem.current.IsPointerOverGameObject());
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                return;
+                Debug.Log(gameObject.name + " Clicked ");
+                BuildingInfoManager.Instance.OnShow(buildingSo);
             }
         }
     }

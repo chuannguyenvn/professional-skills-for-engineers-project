@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingInfoManager : MonoBehaviour
+public class BuildingInfoManager : Singleton<BuildingInfoManager>
 {
     [SerializeField] private Canvas buildingInfoCanvas;
     [SerializeField] private TextMeshProUGUI buildingName, description;
@@ -16,6 +16,7 @@ public class BuildingInfoManager : MonoBehaviour
 
     public void OnShow(BuildingSO buildingSo)
     {
+        Debug.Log("Show Building Info "+ buildingSo.name);
         buildingInfoCanvas.gameObject.SetActive(true);
         currentBuilding = buildingSo;
         buildingName.text = buildingSo.name;

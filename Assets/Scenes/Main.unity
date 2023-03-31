@@ -14624,6 +14624,10 @@ PrefabInstance:
       value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: movingDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1962664780}
@@ -14718,6 +14722,10 @@ PrefabInstance:
     - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Name
       value: Building Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5827257343368853153, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Name

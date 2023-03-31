@@ -2491,7 +2491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.85
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2507,7 +2507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 435.19995
+      value: 0.19995117
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -2555,7 +2555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 217.60007
+      value: 0.100097656
       objectReference: {fileID: 0}
     - target: {fileID: 7487811688987179800, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2581,17 +2581,21 @@ PrefabInstance:
       propertyPath: m_Value
       value: 0.99999124
       objectReference: {fileID: 0}
+    - target: {fileID: 7487811690028079523, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -41.640137
+      objectReference: {fileID: 0}
     - target: {fileID: 7487811690049774585, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487811690049774585, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9999912
+      value: 0.9999913
       objectReference: {fileID: 0}
     - target: {fileID: 7487811690049774585, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.14998302
+      value: 0.13450961
       objectReference: {fileID: 0}
     - target: {fileID: 7487811690078076630, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14747,7 +14751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3f774930d21e9d941823fcf9b4e4bc50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15428,6 +15432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2024696397}
     m_Modifications:
+    - target: {fileID: 597492436183251325, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 597492436183251326, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_Name
       value: Calendar List View Page
@@ -15450,7 +15458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.85
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_AnchorMin.x
@@ -15466,7 +15474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 435.19995
+      value: 0.19995117
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_LocalScale.x
@@ -15514,7 +15522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 217.60007
+      value: 0.100097656
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183251327, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15938,7 +15946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6273585, g: 1, b: 0.96248394, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

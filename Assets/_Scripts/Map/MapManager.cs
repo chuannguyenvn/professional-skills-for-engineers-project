@@ -54,16 +54,10 @@ namespace _Scripts.Map
             //make directed graph
             foreach (var roadIntersectionNode in roadIntersectionNodes)
             {
-                Vector3 currentNodePosition = roadIntersectionNode.transform.position;
-                PathfindingAlgorithm.Vertex currentNodeVertex = _roadToVertices[roadIntersectionNode];
                 foreach (var adjacentRoadNode in roadIntersectionNode.adjacentRoadNodes)
                 {
                     //Debug.Log("Adjacency "+ roadIntersectionNode.name + " and "+ adjacentRoadNode.name);
-                    Vector3 adjacentNodePosition = adjacentRoadNode.transform.position;
-                    PathfindingAlgorithm.Vertex adjacentNodeVertex = _roadToVertices[adjacentRoadNode];
                     AddAdjacentRoad(roadIntersectionNode, adjacentRoadNode);
-                    //float weight = Vector3.Distance(currentNodePosition, adjacentNodePosition);
-                    //_graphVertexList.AddEdgeDirected(currentNodeVertex,adjacentNodeVertex, weight);
                 }
             }
 
@@ -125,28 +119,44 @@ namespace _Scripts.Map
             _graphVertexList.RemoveEdge(_roadToVertices[source],_roadToVertices[destination]);
         }
     
-        public Building GetBuilding(string searching)
+        public Building FindBuilding(string searching)
         {
             searching = searching.ToLower();
-            Debug.Log(searching +" Building");
+            //Debug.Log(searching +" Building");
             if (_buildings.ContainsKey(searching)) return _buildings[searching];
         
             /*
-        foreach (var buildingName in _buildings.Keys)
-        {
-            if (buildingName.Contains(searching, StringComparison.CurrentCultureIgnoreCase ))
+            foreach (var buildingName in _buildings.Keys)
             {
-                return _buildings[ buildingName ];
+                if (buildingName.Contains(searching, StringComparison.CurrentCultureIgnoreCase ))
+                {
+                    return _buildings[ buildingName ];
+                }
             }
-        }
-        */
-
+            */
             return null;
+        }
+
+        public List<Building> FindBuildings(string searching)
+        {
+            searching = searching.ToLower();
+            //Debug.Log(searching +" Buildings ");
+
+            List<Building> result = new();
+            foreach (var (name, foundBuidling) in _buildings)
+            {
+                if (name.Contains(searching))
+                {
+                    result.Add(foundBuidling);
+                }
+            }
+
+            return result;
         }
     
         public bool Navigate(string buildingName)
         {
-            Building building = GetBuilding(buildingName);
+            Building building = FindBuilding(buildingName);
             if (building != null)
             {
                 Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);

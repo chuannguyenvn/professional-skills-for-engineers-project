@@ -1,3 +1,4 @@
+using _Scripts.Map;
 using Shapes;
 using UnityEngine;
 
@@ -12,5 +13,7 @@ namespace _Scripts.Manager
         [Header("Map")]
         public Map.Building building;
         public RoadIntersectionNode roadIntersectionNode;
+
+        [Header("Search Prefabs")] public FoundItem foundItem;
     }
 }

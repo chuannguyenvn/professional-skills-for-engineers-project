@@ -1972,6 +1972,7 @@ MonoBehaviour:
   timeBlockDayGap: {fileID: 8148482312268839404, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
   building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
   roadIntersectionNode: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+  foundItem: {fileID: 2767298771157038515, guid: 5dae3877c8407854c9d488311ed1c1cc, type: 3}
 --- !u!1001 &287452095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9339,19 +9340,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SearchBar, Assembly-CSharp
-        m_MethodName: OnSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls: []
@@ -9363,7 +9352,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1376495699}
+        m_TargetAssemblyTypeName: SearchManager, Assembly-CSharp
+        m_MethodName: OnChangeValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10254,6 +10255,8 @@ MonoBehaviour:
   trueSearchBar: {fileID: 1299680428}
   homeSearchBar: {fileID: 240077903}
   transitionDuration: 0.2
+  foundContents: {fileID: 629482803}
+  maxFoundElement: 4
 --- !u!1001 &1379887702
 PrefabInstance:
   m_ObjectHideFlags: 0

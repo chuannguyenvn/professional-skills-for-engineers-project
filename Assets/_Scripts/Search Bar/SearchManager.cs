@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using _Scripts.Manager;
+using _Scripts.Map;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
-public class SearchBarManager : MonoBehaviour, IPointerClickHandler
+public class SearchManager : Singleton<SearchManager>
 {
     [SerializeField] private CanvasGroup homeMenuCanvas;
     [SerializeField] private CanvasGroup searchMenuCanvas;
     [SerializeField] private TMP_InputField trueSearchBar;
     [SerializeField] private TMP_InputField homeSearchBar;
     [SerializeField] private float transitionDuration;
+
+    [SerializeField] private VerticalLayoutGroup foundContents;
+    [SerializeField, Range(0, 10)] private int maxFoundElement;
+    private List<FoundItem> _foundSearchItems=new ();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +32,45 @@ public class SearchBarManager : MonoBehaviour, IPointerClickHandler
         
     }
 
+    public void OnChangeValue()
+    {
+        homeSearchBar.text = trueSearchBar.text;
+        List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(trueSearchBar.text);
+
+        // Get the list of objects to destroy
+        var toDestroy = _foundSearchItems.Where(item => !freshFoundBuildings.Contains(item.GetObjectVariable())).ToList();
+
+        // Destroy the objects to destroy
+        foreach (var item in toDestroy)
+        {
+            Destroy(item.gameObject);
+            _foundSearchItems.Remove(item);
+        }
+
+        for (int i = 0; i < Mathf.Min( maxFoundElement, freshFoundBuildings.Count); i++)
+        {
+            if (_foundSearchItems.Any(item => item.GetObjectVariable() == freshFoundBuildings[i]))
+            {
+                // Object already exists, skip
+                continue;
+            }
+
+            var newItem = Instantiate(ResourceManager.Instance.foundItem, foundContents.transform);// Create a new FoundItem object using Instantiate
+            newItem.Init(freshFoundBuildings[i], "Building",freshFoundBuildings[i].name);
+            _foundSearchItems.Add(newItem); // Add the new object to the list
+        }
+        
+    }
+
+    private void Reinspection(string value)
+    {
+        foreach (var foundItem in _foundSearchItems)
+        {
+            //foundContents
+        }
+    }
+        
+    
     public void OnSelect()
     { 
         searchMenuCanvas.gameObject.SetActive(true);
@@ -58,8 +105,5 @@ public class SearchBarManager : MonoBehaviour, IPointerClickHandler
         
     }
     
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        
-    }
+    
 }

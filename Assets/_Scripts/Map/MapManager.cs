@@ -169,7 +169,21 @@ namespace _Scripts.Map
             }
 
         }
-        
+
+        public bool Navigate(Building building)
+        {
+            if (building != null)
+            {
+                Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);
+                playerNavigation.EnableNavigation(building);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     
         #region Unused
 

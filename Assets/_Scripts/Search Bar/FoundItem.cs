@@ -25,6 +25,6 @@ public class FoundItem : MonoBehaviour
 
     public void ShowDescriptiveBuilding()
     {
-        BuildingInfoManager.Instance.OnShow(_foundObject.buildingSo);
+        BuildingInfoManager.Instance.OnShow(_foundObject);
     }
 }

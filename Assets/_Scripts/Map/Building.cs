@@ -77,7 +77,7 @@ namespace _Scripts.Map
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 Debug.Log(gameObject.name + " Clicked ");
-                BuildingInfoManager.Instance.OnShow(buildingSo);
+                BuildingInfoManager.Instance.OnShow(this);
             }
         }
     }

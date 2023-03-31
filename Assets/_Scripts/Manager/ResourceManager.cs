@@ -1,6 +1,7 @@
 using _Scripts.Map;
 using Shapes;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.Manager
 {
@@ -15,5 +16,7 @@ namespace _Scripts.Manager
         public RoadIntersectionNode roadIntersectionNode;
 
         [Header("Search Prefabs")] public FoundItem foundItem;
+
+        [Header("Building Info")] public Image descriptiveImage;
     }
 }

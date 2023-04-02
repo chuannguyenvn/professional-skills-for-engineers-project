@@ -19,17 +19,21 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     
     [Header("Horizontal Properties")] 
     [SerializeField] protected RectTransform draggingHorizontalGameObject;
+    [SerializeField] protected RectTransform initHorizontalPosition;
     [SerializeField] protected List<ChildPageUI> horizontalPages;
-    [SerializeField] protected int currentHorizontalIndex, initHorizontalIndex;
+    [SerializeField] protected int initHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
+    protected int currentHorizontalIndex;
     protected Vector2 beforeDraggingHorizontalPosition, expectDestinationHorizontalPosition;
     protected Sequence horizontalSequence;
 
     [Header("Vertical Properties")] 
     [SerializeField] protected RectTransform draggingVerticalGameObject;
+    [SerializeField] protected RectTransform initVerticalPosition;
     [SerializeField] protected List<ChildPageUI> verticalPages;
-    [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
+    [SerializeField] protected int initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
+    protected int currentVerticalIndex;
     protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
     protected Sequence verticalSequence;
     
@@ -57,23 +61,31 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
         horizontalPages = horizontalPages.OrderBy(o => o.rectTransform.anchoredPosition.x).ToList();
         verticalPages = verticalPages.OrderBy(o => o.rectTransform.anchoredPosition.y).ToList();
         
-        //Vector3 verticalDestination = verticalPages[currentVerticalStepIndex].rectTransform.anchoredPosition;
-        //Vector3 horizontalDestination = horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition;
+        draggingVerticalGameObject.anchoredPosition = initVerticalPosition != null
+            ? initVerticalPosition.anchoredPosition
+            : draggingVerticalGameObject.anchoredPosition;
+        draggingHorizontalGameObject.anchoredPosition = initHorizontalPosition != null
+            ? initHorizontalPosition.anchoredPosition
+            : draggingHorizontalGameObject.anchoredPosition;
+
 
         currentHorizontalIndex = initHorizontalIndex;
         currentVerticalIndex = initVerticalIndex;
         horizontalPages[initHorizontalIndex].OnSelect();
         verticalPages[initVerticalIndex].OnSelect();
 
-        draggingHorizontalGameObject.anchoredPosition = expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
-        draggingVerticalGameObject.anchoredPosition = expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
+        expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
+        expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
 
         horizontalSequence = DOTween.Sequence();
         verticalSequence = DOTween.Sequence();
         //StartCoroutine(SmoothMove(draggingHorizontalGameObject, draggingHorizontalGameObject.anchoredPosition, _beforeDraggingHorizontalPosition, movingDuration));
         //StartCoroutine(SmoothMove(draggingVerticalGameObject, draggingVerticalGameObject.anchoredPosition, verticalDestination , movingDuration));
-        //SmoothMoveTo(draggingVerticalGameObject, verticalDestination, movingDuration, verticalPages[currentVerticalStepIndex].onSelectEvent);
-        //SmoothMoveTo(draggingHorizontalGameObject, horizontalDestination, movingDuration, horizontalPages[currentHorizontalStepIndex].onSelectEvent);
+        
+        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[initVerticalIndex].onSelectEvent);
+        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[initHorizontalIndex].onSelectEvent);
+
+        
     }
 
 

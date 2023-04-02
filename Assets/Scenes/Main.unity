@@ -348,6 +348,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 42310138}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &54073193 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4466763319433043157, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+  m_PrefabInstance: {fileID: 5827257341396372580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &60095711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1529,11 +1534,6 @@ PrefabInstance:
       objectReference: {fileID: 1210581974}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78b6ff15267c204c9a4f99a3583d74f, type: 3}
---- !u!224 &243489858 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2881811369035469419, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &265593266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2045,11 +2045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &364750450 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4617400337199213735, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &372999670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,124 +2669,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986313743}
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
---- !u!1 &483908197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2881811369266776790, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &483908198 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2881811369266776791, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &483908202
+--- !u!114 &483908202 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+  m_PrefabInstance: {fileID: 2881811367300757542}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483908197}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed14386b7c182f7478e4a76dfbf242cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingDuration: 0.2
-  ease: 9
-  draggingHorizontalGameObject: {fileID: 243489858}
-  horizontalPages:
-  - rectTransform: {fileID: 1176749558}
-    onSelectEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1176749554}
-          m_TargetAssemblyTypeName: CalendarListViewPage, Assembly-CSharp
-          m_MethodName: OnEnterPage
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onDeselectEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1176749554}
-          m_TargetAssemblyTypeName: CalendarListViewPage, Assembly-CSharp
-          m_MethodName: OnOutPage
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - rectTransform: {fileID: 364750450}
-    onSelectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  currentHorizontalIndex: 0
-  initHorizontalIndex: 0
-  acceptHorizontalThreshHold: 0.2
-  draggingVerticalGameObject: {fileID: 483908198}
-  verticalPages:
-  - rectTransform: {fileID: 895332943}
-    onSelectEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1962664780}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1962969633}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onDeselectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - rectTransform: {fileID: 1575101384}
-    onSelectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - rectTransform: {fileID: 960274799}
-    onSelectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselectEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  currentVerticalIndex: 1
-  initVerticalIndex: 1
-  acceptVerticalThreshHold: 0.2
-  initVerticalPosition: {fileID: 895332943}
 --- !u!1001 &504912411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5355,11 +5243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &895332943 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2881811368312430868, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907552145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5808,11 +5691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &960274799 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2881811367922834457, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &965004064 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
@@ -7137,22 +7015,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 1176514510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1176749554 stripped
+--- !u!114 &1176749555 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3437645229784134654, guid: d15d9412f0e830640b6b855113145114, type: 3}
   m_PrefabInstance: {fileID: 2881811367300757542}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 171c2e4ac18c5554698a6acf436b8afc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1176749558 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3437645229784134653, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1178665208
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10217,11 +10090,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1089829470871911075, guid: a34b7b670732cd347b05c6f81fe70df8, type: 3}
   m_PrefabInstance: {fileID: 1976948165}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1575101384 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2881811367515694343, guid: d15d9412f0e830640b6b855113145114, type: 3}
-  m_PrefabInstance: {fileID: 2881811367300757542}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1578584934
 MeshRenderer:
@@ -14536,14 +14404,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81740736}
     m_Modifications:
-    - target: {fileID: 2881811368312430868, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881811368312430868, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4220
-      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1962664780}
     - target: {fileID: 2881811369230103042, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Camera
       value: 
@@ -14636,18 +14500,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Calendar Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2881811369266776788, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 2881811369266776789, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2881811369266776788, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+    - target: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: menu
       value: 
-      objectReference: {fileID: 1962664780}
-    - target: {fileID: 4617400337199213734, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Name
-      value: Calendar Creation Page Scroll View
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 483908202}
+    - target: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 1176749555}
+    - target: {fileID: 4617400337199213752, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 483908202}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}
 --- !u!1001 &3219722473000859462
@@ -14835,8 +14703,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: movingDuration
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: initVerticalPosition
+      value: 
+      objectReference: {fileID: 54073193}
     - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -14936,6 +14808,14 @@ PrefabInstance:
     - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466763319433043157, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466763319433043157, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4220
       objectReference: {fileID: 0}
     - target: {fileID: 5827257341626792553, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_VerticalFit

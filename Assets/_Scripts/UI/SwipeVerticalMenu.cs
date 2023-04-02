@@ -20,7 +20,7 @@ namespace _Scripts.UI
         protected RectTransform draggingVerticalGameObject;
 
         [SerializeField] protected List<SwipeVerticalHorizontalMenu.ChildPageUI> verticalPages;
-        [SerializeField] protected RectTransform initVerticalTransform;
+        [SerializeField] protected RectTransform initVerticalPosition;
         [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
         [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
         protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
@@ -49,17 +49,19 @@ namespace _Scripts.UI
         {
             verticalPages = verticalPages.OrderBy(o => o.rectTransform.anchoredPosition.y).ToList();
 
-            draggingVerticalGameObject.anchoredPosition = initVerticalTransform
-                ? initVerticalTransform.anchoredPosition
+            draggingVerticalGameObject.anchoredPosition = initVerticalPosition != null
+                ? initVerticalPosition.anchoredPosition
                 : draggingVerticalGameObject.anchoredPosition;
             
             currentVerticalIndex = initVerticalIndex;
             verticalPages[initVerticalIndex].OnSelect();
 
-            draggingVerticalGameObject.anchoredPosition = expectDestinationVerticalPosition =
-                beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
+            expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
 
             verticalSequence = DOTween.Sequence();
+            
+            SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[initVerticalIndex].onSelectEvent);
+
         }
 
 

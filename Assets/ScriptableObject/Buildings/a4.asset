@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: a4
   m_EditorClassIdentifier: 
   name: a4
+  description: "V\u0103n ph\xF2ng \u0110\xE0o t\u1EA1o Qu\u1ED1c t\u1EBF OISP"
+  descriptiveSprites:
+  - {fileID: 21300000, guid: aaaf01f3a5cc3744899fe6afd4da3987, type: 3}
+  - {fileID: 21300000, guid: 44e352b90e5a8bb49bfaf52b59c0debe, type: 3}
+  - {fileID: 21300000, guid: d1c7801fcef047040b489af894bc07f3, type: 3}
   geoCoordinate:
   - {x: 10.773377, y: 106.66015}
   - {x: 10.773269, y: 106.65996}

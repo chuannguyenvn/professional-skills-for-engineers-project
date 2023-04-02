@@ -1682,7 +1682,7 @@ MonoBehaviour:
   building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
   roadIntersectionNode: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   foundItem: {fileID: 2767298771157038515, guid: 5dae3877c8407854c9d488311ed1c1cc, type: 3}
-  descriptiveImage: {fileID: 0}
+  descriptiveImage: {fileID: 4983542879267764222, guid: 22fc92726127c6b40b6f0b64d2e9175c, type: 3}
 --- !u!1001 &287452095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14646,6 +14646,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3870731347058593343, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_Vertical
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3870731347060070239, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00024414062
@@ -14754,9 +14758,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5827257341626792553, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_VerticalFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257341626792553, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_HorizontalFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257341626792554, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257341626792554, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827257343368853153, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Name
       value: Descriptive Images
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257343368853155, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_Vertical
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257343368853155, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_MovementType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}

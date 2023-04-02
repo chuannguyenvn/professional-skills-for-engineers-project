@@ -21,6 +21,7 @@ public class BuildingInfoManager : Singleton<BuildingInfoManager>
         Debug.Log("Show Building Info "+ building.name);
         
         buildingInfoCanvas.gameObject.SetActive(true);
+        currentBuilding = building;
         currentBuildingSo = building.buildingSo;
         buildingName.text = currentBuildingSo.name;
         description.text = currentBuildingSo.description;

@@ -68,7 +68,7 @@ public class SearchManager : Singleton<SearchManager>
             }
 
             var newItem = Instantiate(ResourceManager.Instance.foundItem, foundContents.transform);// Create a new FoundItem object using Instantiate
-            newItem.Init(freshFoundBuildings[i], "Building",freshFoundBuildings[i].name);
+            newItem.Init(freshFoundBuildings[i], "Building",freshFoundBuildings[i].gameObject.name);
             _foundSearchItems.Add(newItem); // Add the new object to the list
         }
         

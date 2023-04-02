@@ -258,7 +258,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2767298771157038515}
         m_TargetAssemblyTypeName: FoundItem, Assembly-CSharp
-        m_MethodName: ShowDescriptiveBuilding
+        m_MethodName: ShowBuildingInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -562,11 +562,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2767298771157038515}
     - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7794295768162039859}
+    - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
@@ -575,6 +587,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FoundItem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FoundItem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6901552807477700050, guid: 4d8f5e0fa1afb5047a90181197a89867, type: 3}

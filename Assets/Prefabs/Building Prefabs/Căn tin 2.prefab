@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7809069002460389139}
   - component: {fileID: 7813129685768330550}
   m_Layer: 6
-  m_Name: "C\u0103n tin C 6"
+  m_Name: "C\u0103n tin 2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
-      value: Road Node ct c6 1
+      value: Road Node CT2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder

@@ -14,8 +14,8 @@ public class FoundItem : MonoBehaviour
     public void Init(Building item,string typeText, string addressText)
     {
         _foundObject = item;
-        this.type.text = typeText;
-        this.address.text = addressText;
+        type.text = typeText;
+        address.text = addressText;
     }
 
     public Building GetObjectVariable()
@@ -23,13 +23,15 @@ public class FoundItem : MonoBehaviour
         return _foundObject;
     }
 
-    public void ShowDescriptiveBuilding()
+    public void ShowBuildingInfo()
     {
+        SearchManager.Instance.OnDeselect();
         BuildingInfoManager.Instance.OnShow(_foundObject);
     }
 
     public void Navigate()
     {
+        SearchManager.Instance.OnDeselect();
         MapManager.Instance.Navigate(_foundObject);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "C\u0103n tin 2"
   m_EditorClassIdentifier: 
   name: "C\u0103n tin 2"
-  description: 
+  description: "C\u0103n tin C6"
   descriptiveSprites: []
   geoCoordinate:
   - {x: 10.775598, y: 106.65971}

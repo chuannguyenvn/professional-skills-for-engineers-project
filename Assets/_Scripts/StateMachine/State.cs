@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Scripts.StateMachine
 {
-    public abstract class State : MonoBehaviour
+    public class State : MonoBehaviour
     {
         public enum StateEvent
         {

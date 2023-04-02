@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.StateMachine;
 using UnityEngine;
 
-public class ApplicationManager : MonoBehaviour
+public enum AppState
 {
+    Home,
+    Navigate,
+    Info,
+    Search,
+    Calendar
+}
 
-    // Update is called once per frame
+public class ApplicationManager : PersistentSingleton<ApplicationManager>
+{
+    private StateMachine<AppState> _stateMachine = new();
+    
     void Start()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            
-            StartCoroutine(nameof(Test));
-        }
+        
     }
 
-    IEnumerator Test()
-    {
-        //Debug.Log("Hello world");
-        yield return new WaitForSeconds(10);
-    }
+    
 }

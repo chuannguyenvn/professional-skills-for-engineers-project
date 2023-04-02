@@ -11,28 +11,23 @@ using UnityEngine.EventSystems;
 
 public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IDragHandler, IEndDragHandler
 {
-    [Header("Animation Properties")] [SerializeField]
-    protected float movingDuration = 0.5f;
-
+    [Header("Animation Properties")] 
+    [SerializeField] protected float movingDuration = 0.5f;
     [SerializeField] protected Ease ease = Ease.OutCubic;
     protected bool isDraggingHorizontalNorVertical;
     
-
-
-    [Header("Horizontal Properties")] [SerializeField]
-    protected RectTransform draggingHorizontalGameObject;
+    
+    [Header("Horizontal Properties")] 
+    [SerializeField] protected RectTransform draggingHorizontalGameObject;
     [SerializeField] protected List<ChildPageUI> horizontalPages;
-    [SerializeField] protected RectTransform initHorizontalTransform;
     [SerializeField] protected int currentHorizontalIndex, initHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
     protected Vector2 beforeDraggingHorizontalPosition, expectDestinationHorizontalPosition;
     protected Sequence horizontalSequence;
 
-    [Header("Vertical Properties")] [SerializeField]
-    protected RectTransform draggingVerticalGameObject;
-
+    [Header("Vertical Properties")] 
+    [SerializeField] protected RectTransform draggingVerticalGameObject;
     [SerializeField] protected List<ChildPageUI> verticalPages;
-    [SerializeField] protected RectTransform initVerticalTransform;
     [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
     protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
@@ -57,18 +52,11 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     }
 
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
         horizontalPages = horizontalPages.OrderBy(o => o.rectTransform.anchoredPosition.x).ToList();
         verticalPages = verticalPages.OrderBy(o => o.rectTransform.anchoredPosition.y).ToList();
-
-        draggingVerticalGameObject.anchoredPosition = initVerticalTransform
-            ? initVerticalTransform.anchoredPosition
-            : draggingVerticalGameObject.anchoredPosition;
-        draggingHorizontalGameObject.anchoredPosition = initHorizontalTransform
-            ? initHorizontalTransform.anchoredPosition
-            : draggingHorizontalGameObject.anchoredPosition;
-
+        
         //Vector3 verticalDestination = verticalPages[currentVerticalStepIndex].rectTransform.anchoredPosition;
         //Vector3 horizontalDestination = horizontalPages[currentHorizontalStepIndex].rectTransform.anchoredPosition;
 
@@ -252,7 +240,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     
     #endregion
     
-    private void SmoothMoveTo(RectTransform movingObject, Vector3 endPos, float seconds, UnityEvent onSelect)
+    protected void SmoothMoveTo(RectTransform movingObject, Vector3 endPos, float seconds, UnityEvent onSelect)
     {
         if (movingObject == draggingHorizontalGameObject)
         {
@@ -269,25 +257,5 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
             verticalSequence.Play();
         }        
     }
-
     
-    /*
-    IEnumerator SmoothMove(RectTransform movingObject, Vector3 startPos, Vector3 endPos, float seconds){
-        if (_isMoving) {
-            yield return new WaitForSeconds(seconds); // exit coroutine if already moving
-        }
-
-        _isMoving = true;
-        
-        float t = 0f;
-        while(t <= 1.0){
-            t += Time.deltaTime / seconds;
-            movingObject.anchoredPosition = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0f, 1f, t));
-            yield return null;
-        }
-
-        _isMoving = false;
-    }
-    */
-
 }

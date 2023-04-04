@@ -14548,6 +14548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Calendar Menu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2881811369266776789, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -14558,7 +14562,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.1998291
+      value: -1442.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526623, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_VerticalFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526623, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_HorizontalFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526624, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526624, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526624, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: menu
@@ -14572,6 +14596,14 @@ PrefabInstance:
       propertyPath: scrollRect
       value: 
       objectReference: {fileID: 1176749555}
+    - target: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: topLoadPercentage
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229784134401, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: bottomLoadPercentage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3437645229784134654, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -14600,10 +14632,42 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3437645230873680145, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4617400337199213752, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: menu
       value: 
       objectReference: {fileID: 483908202}
+    - target: {fileID: 4617400337304522043, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}
 --- !u!1001 &3219722473000859462

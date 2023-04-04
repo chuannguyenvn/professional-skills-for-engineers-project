@@ -19,8 +19,8 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     [Header("TimeBlock List")] 
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
 
-    [SerializeField, Range(0,0.5f)] private float bottomLoadPercentage = 0.2f;
-    [SerializeField, Range(0.5f,1f)] private float topLoadPercentage = 0.8f;
+    [SerializeField, Range(0,20)] private int bottomLoadPercentage = 10;
+    [SerializeField, Range(0,20)] private int topLoadPercentage = 10;
     private TimeTable _displayingTimeTable;
     
     [Header("Data structure")] 
@@ -44,20 +44,20 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     public void OnScrollValueChange(Vector2 amount)
     {
-        int firstIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
+        int topItemIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
         int oldCount = timeBlocks.Count;
-        if ((float)firstIndex/timeBlocks.Count >= topLoadPercentage )
+        if ( timeBlocks.Count - topItemIndex <= topLoadPercentage )
         {
-            Debug.Log("Load more at the top" + firstIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the top" + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[0];
             DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), firstTimeBlock.dateTime, false, true);
             CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), true);
             //firstIndex = Mathf.RoundToInt(oldCount  * (timeBlocks.Count));
         }
 
-        if ((float)firstIndex/timeBlocks.Count <= bottomLoadPercentage)
+        if (topItemIndex <= bottomLoadPercentage)
         {
-            Debug.Log("Load more at the bottom " + firstIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the bottom " + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[^1];
             DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0), firstTimeBlock.dateTime);
             CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0));

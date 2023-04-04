@@ -91,8 +91,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
-                  " Horizontal " + beforeDraggingHorizontalPosition);
+        //Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+        //          " Horizontal " + beforeDraggingHorizontalPosition);
         
         beforeDraggingVerticalPosition = draggingVerticalGameObject.anchoredPosition;
         beforeDraggingHorizontalPosition = draggingHorizontalGameObject.anchoredPosition;

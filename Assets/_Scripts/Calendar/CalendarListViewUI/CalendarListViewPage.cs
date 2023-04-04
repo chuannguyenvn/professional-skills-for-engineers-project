@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Calendar;
 using _Scripts.Manager;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 /// <summary>
 /// This is a class managing the Calendar List View Page
@@ -12,14 +14,16 @@ using UnityEngine;
 /// </summary>
 public class CalendarListViewPage : HorizontalSwipePageBase
 {
-    [SerializeField] private GameObject content;
-
+    [SerializeField] private RectTransform content;
+    
     [Header("TimeBlock List")] 
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
-    private TimeTable _displayingTimeTable;
 
+    [SerializeField, Range(0,1)] private float upperLoadPercentage = 0.2f, lowerLoadPercentage = 0.8f;
+    private TimeTable _displayingTimeTable;
+    
     [Header("Data structure")] 
-    [SerializeField] private List<GameObject> timeBlocks = new();
+    [SerializeField] private List<TimeBlock> timeBlocks = new();
     
     private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
@@ -29,11 +33,29 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         GetSubjectInfo(DataManager.Instance.GetTimeTable());
         
         DisplayManyMedianWeeks(DateTime.Now, 10, 10);
+        content.pivot = new Vector2(0.5f,0.5f);
     }
 
     public void OnOutPage()
     {
         ClearAllTimeBlock();
+    }
+
+    public void OnScrollValueChange(Vector2 amount)
+    {
+        int firstIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
+        int lastIndex = firstIndex + timeBlocks.Count - 1;
+
+        Debug.Log(firstIndex + " , "+lastIndex);
+
+        while ((float)firstIndex/timeBlocks.Count <= upperLoadPercentage )
+        {
+            var firstItem = timeBlocks[0];
+            //DisplaySubjectInRange();
+            //CreateTimeBlockDayGap();
+        }
+            
+        
     }
 
     private void GetSubjectInfo(TimeTable timeTable)
@@ -67,19 +89,19 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         
         for (int i = 0 ; i< numberOfPreviousWeeks; i++)
         {
-            Display1Week(startOfPreviousWeek, endOfPreviousWeek);
+            DisplaySubjectInRange(startOfPreviousWeek, endOfPreviousWeek);
             CreateTimeBlockDayGap(endOfPreviousWeek);
 
             startOfPreviousWeek = startOfPreviousWeek.AddDays(+7);
             endOfPreviousWeek = endOfPreviousWeek.AddDays(+7);
         }
         
-        Display1Week(startOfWeek, endOfWeek);
+        DisplaySubjectInRange(startOfWeek, endOfWeek);
         CreateTimeBlockDayGap(startOfWeek);
         
         for (int i = 0 ; i< numberOfFollowingWeek; i++)
         {
-            Display1Week(startOfFollowingWeek, endOfFollowingWeek);
+            DisplaySubjectInRange(startOfFollowingWeek, endOfFollowingWeek);
             CreateTimeBlockDayGap(endOfFollowingWeek);
 
             startOfFollowingWeek = startOfFollowingWeek.AddDays(7);
@@ -88,7 +110,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     }
 
-    private void Display1Week(DateTime startTime, DateTime endTime)
+    private void DisplaySubjectInRange(DateTime startTime, DateTime endTime)
     {
         List<SubjectInfo> valuesInRange = _dateTimeAndSubjectInfosDictionary
             .Where(kv => kv.Key >= startTime && kv.Key <= endTime)
@@ -102,18 +124,41 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     #region Creation
 
-    private void CreateTimeBlockSubject(SubjectInfo subject)
+    private void CreateTimeBlockSubject(SubjectInfo subject, bool showDay = false, bool isFrontNorBack = false)
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject.gameObject, content.transform);
+        var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(subject, this);
-        timeBlocks.Add(instantiateTimeBlock);
+
+        if (isFrontNorBack)
+        {
+            content.pivot = new Vector2(0.5f, 0);
+            instantiateTimeBlock.transform.SetAsFirstSibling();
+            timeBlocks.Insert(0, instantiateTimeBlock);
+        }
+        else
+        {
+            content.pivot = new Vector2(0.5f, 1);
+            instantiateTimeBlock.transform.SetAsLastSibling();
+            timeBlocks.Add(instantiateTimeBlock);
+        }
     }
 
-    private void CreateTimeBlockDayGap(DateTime dateTime)
+    private void CreateTimeBlockDayGap(DateTime dateTime,bool isFrontNorBack = false)
     {
-        GameObject instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGap.gameObject, content.transform);
+        var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGap, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime, this);
-        timeBlocks.Add(instantiateTimeBlock);
+        if (isFrontNorBack)
+        {
+            content.pivot = new Vector2(0.5f, 0);
+            instantiateTimeBlock.transform.SetAsFirstSibling();
+            timeBlocks.Insert(0, instantiateTimeBlock);
+        }
+        else
+        {
+            content.pivot = new Vector2(0.5f, 1);
+            instantiateTimeBlock.transform.SetAsLastSibling();
+            timeBlocks.Add(instantiateTimeBlock);
+        }
     }
     #endregion
    

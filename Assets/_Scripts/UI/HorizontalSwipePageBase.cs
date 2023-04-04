@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Base")]
-    [SerializeField] private SwipeVerticalHorizontalMenu menu;
-    [SerializeField] private ScrollRect scrollRect;
-    
+    [SerializeField] protected SwipeVerticalHorizontalMenu menu;
+    [SerializeField] protected ScrollRect scrollRect;
+    [Header("Child")]
     private bool _isFirstTimeDragging = true;
     bool _isDraggingHorizontalNorVertical = false;
 
@@ -23,7 +23,7 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
     
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Child pointer down");
+        //Debug.Log("Child pointer down");
         menu.OnPointerDownHorizontalChildPage(eventData);
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -34,7 +34,7 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
         _isDraggingHorizontalNorVertical = Mathf.Abs( xDifference) >= Mathf.Abs( yDifference);
         if (_isDraggingHorizontalNorVertical)
         {
-            Debug.Log("child begin horizontal drag");
+            //Debug.Log("child begin horizontal drag");
             menu.OnBeginDragHorizontalChildPage(eventData);
         }
     }

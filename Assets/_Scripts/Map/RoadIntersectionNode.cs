@@ -20,6 +20,7 @@ public class RoadIntersectionNode : MonoBehaviour
     }
 
     
+    /*
     private void OnValidate()
     {
         if (adjacentRoadNodes == null) return;
@@ -29,6 +30,6 @@ public class RoadIntersectionNode : MonoBehaviour
                 
             if(roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
         }
-    }
+    }*/
     
 }

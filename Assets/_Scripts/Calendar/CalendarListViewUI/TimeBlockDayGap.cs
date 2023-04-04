@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TimeBlockDayGap : TimeBlock<DateTime>
+public class TimeBlockDayGap : TimeBlock
 {
     [SerializeField] private TextMeshProUGUI header1;
-    public override void Init(DateTime subjectInfo, CalendarListViewPage calendarListViewPage)
+    public void Init(DateTime subjectInfo, CalendarListViewPage calendarListViewPage)
     {
         header1.text = subjectInfo.ToString();
         _calendarListViewPage = calendarListViewPage;

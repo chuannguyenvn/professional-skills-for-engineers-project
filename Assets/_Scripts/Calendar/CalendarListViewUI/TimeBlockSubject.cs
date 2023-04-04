@@ -6,14 +6,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeBlockSubject : TimeBlock<SubjectInfo>
+public class TimeBlockSubject : TimeBlock
 {
     private string room;
     [SerializeField] private TextMeshProUGUI firstHeader;
     [SerializeField] private TextMeshProUGUI secondHeader;
     [SerializeField] private Button navigationButton;
     
-    public override void Init(SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage)
+    public void Init(SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage, bool showDay = false)
     {
         firstHeader.text = subjectInfo.name;
         secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" + subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
@@ -22,6 +22,7 @@ public class TimeBlockSubject : TimeBlock<SubjectInfo>
         room = subjectInfo.room;
         _calendarListViewPage = calendarListViewPage;
 
+        
     }
 
     public void Navigate()

@@ -72,7 +72,7 @@ namespace _Scripts.Map
             }
         }
 
-        private void OnMouseDown()
+        private void OnMouseUpAsButton()
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {

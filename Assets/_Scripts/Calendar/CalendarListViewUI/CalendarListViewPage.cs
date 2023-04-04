@@ -45,22 +45,22 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     public void OnScrollValueChange(Vector2 amount)
     {
         int firstIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
-        int lastIndex = firstIndex + timeBlocks.Count - 1;
-
-        Debug.Log(firstIndex + " , "+lastIndex);
-
+        int oldCount = timeBlocks.Count;
         if ((float)firstIndex/timeBlocks.Count >= topLoadPercentage )
         {
-            Debug.Log("Load more at the top");
+            Debug.Log("Load more at the top" + firstIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[0];
-            //DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7), firstTimeBlock.dateTime);
-            //CreateTimeBlockDayGap(firstTimeBlock.dateTime);
+            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), firstTimeBlock.dateTime, false, true);
+            CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), true);
+            //firstIndex = Mathf.RoundToInt(oldCount  * (timeBlocks.Count));
         }
 
         if ((float)firstIndex/timeBlocks.Count <= bottomLoadPercentage)
         {
-            Debug.Log("Load more at the bottom");
+            Debug.Log("Load more at the bottom " + firstIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[^1];
+            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0), firstTimeBlock.dateTime);
+            CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0));
         }
     }
 
@@ -116,7 +116,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     }
 
-    private void DisplaySubjectInRange(DateTime startTime, DateTime endTime)
+    private void DisplaySubjectInRange(DateTime startTime, DateTime endTime, bool showDay = false, bool isTopNorBottom = false)
     {
         List<KeyValuePair<DateTime, SubjectInfo>> valuesInRange = _dateTimeAndSubjectInfosDictionary
             .Where(kv => kv.Key >= startTime && kv.Key <= endTime)
@@ -124,18 +124,18 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             .ToList();
         foreach (var keyValuePair in valuesInRange)
         {
-            CreateTimeBlockSubject(keyValuePair.Key, keyValuePair.Value);
+            CreateTimeBlockSubject(keyValuePair.Key, keyValuePair.Value, showDay, isTopNorBottom);
         }
     }
 
     #region Creation
 
-    private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false, bool isFrontNorBack = false)
+    private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false, bool isTopNorBottom = false)
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this);
 
-        if (isFrontNorBack)
+        if (isTopNorBottom)
         {
             content.pivot = new Vector2(0.5f, 0);
             instantiateTimeBlock.transform.SetAsFirstSibling();
@@ -147,13 +147,14 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
         }
+        content.pivot = new Vector2(0.5f, 0.5f);
     }
 
-    private void CreateTimeBlockDayGap(DateTime dateTime,bool isFrontNorBack = false)
+    private void CreateTimeBlockDayGap(DateTime dateTime,bool isTopNorBottom = false)
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGap, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime, this);
-        if (isFrontNorBack)
+        if (isTopNorBottom)
         {
             content.pivot = new Vector2(0.5f, 0);
             instantiateTimeBlock.transform.SetAsFirstSibling();
@@ -165,6 +166,8 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
         }
+        
+        content.pivot = new Vector2(0.5f, 0.5f);
     }
     #endregion
    

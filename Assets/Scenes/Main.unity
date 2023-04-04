@@ -14550,7 +14550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881811369266776789, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Color.a
@@ -14566,11 +14566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526623, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_VerticalFit
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526623, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_HorizontalFit
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526624, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_ChildAlignment
@@ -14642,7 +14642,7 @@ PrefabInstance:
       objectReference: {fileID: 483908202}
     - target: {fileID: 4617400337304522043, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00024414062
+      value: 0.029785156
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14662,11 +14662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.9999912
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.14992443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}

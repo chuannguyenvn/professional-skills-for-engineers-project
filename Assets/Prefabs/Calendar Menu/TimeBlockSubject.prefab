@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77635835a5d6ed04e8e3949538a28e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 657601815917833603}
   firstHeader: {fileID: 4800765862090266616}
   secondHeader: {fileID: 5219112350081095014}
   navigationButton: {fileID: 0}

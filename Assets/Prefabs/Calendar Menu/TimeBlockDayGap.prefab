@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8126913575768445061}
   - component: {fileID: 3606817010623760552}
   - component: {fileID: 8148482312268839404}
+  - component: {fileID: 910281462866072074}
   m_Layer: 5
   m_Name: TimeBlockDayGap
   m_TagString: Untagged
@@ -90,7 +91,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10aac85eda16884428c4c4673df3fe4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 851345058378148347}
   header1: {fileID: 4643052414959653760}
+--- !u!114 &910281462866072074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071051506691009492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &1451093212429342763
 GameObject:
   m_ObjectHideFlags: 0

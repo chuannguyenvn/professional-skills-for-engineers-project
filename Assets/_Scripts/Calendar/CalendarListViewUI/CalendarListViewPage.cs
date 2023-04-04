@@ -28,6 +28,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     
     private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
+    
     public void OnEnterPage()
     {
         ClearAllTimeBlock();
@@ -137,17 +138,19 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
         if (isTopNorBottom)
         {
-            content.pivot = new Vector2(0.5f, 0);
+            content.anchoredPosition += new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
+            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
-            content.pivot = new Vector2(0.5f, 1);
+            content.anchoredPosition -= new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
+            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
-        content.pivot = new Vector2(0.5f, 0.5f);
+        
     }
 
     private void CreateTimeBlockDayGap(DateTime dateTime,bool isTopNorBottom = false)
@@ -156,21 +159,38 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime, this);
         if (isTopNorBottom)
         {
-            content.pivot = new Vector2(0.5f, 0);
+            content.anchoredPosition += new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
+            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
-            content.pivot = new Vector2(0.5f, 1);
+            content.anchoredPosition -= new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
+            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
         
-        content.pivot = new Vector2(0.5f, 0.5f);
     }
     #endregion
-   
+
+    private void DestroyTimeBlock(bool isTopNorBottom)
+    {
+        if (isTopNorBottom)
+        {
+            Destroy(timeBlocks[0].gameObject);
+            timeBlocks.RemoveAt(0);
+        }
+        else
+        {
+            int last = timeBlocks.Count - 1;
+            Destroy(timeBlocks[last].gameObject);
+            timeBlocks.RemoveAt(last);
+        }
+        
+    }
+    
     private void ClearAllTimeBlock()
     {
         foreach (var timeBlock in timeBlocks)

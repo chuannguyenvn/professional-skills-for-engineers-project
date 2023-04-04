@@ -19,7 +19,8 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     [Header("TimeBlock List")] 
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
 
-    [SerializeField, Range(0,1)] private float upperLoadPercentage = 0.2f, lowerLoadPercentage = 0.8f;
+    [SerializeField, Range(0,0.5f)] private float bottomLoadPercentage = 0.2f;
+    [SerializeField, Range(0.5f,1f)] private float topLoadPercentage = 0.8f;
     private TimeTable _displayingTimeTable;
     
     [Header("Data structure")] 
@@ -48,15 +49,19 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
         Debug.Log(firstIndex + " , "+lastIndex);
 
-        if ((float)firstIndex/timeBlocks.Count <= upperLoadPercentage )
+        if ((float)firstIndex/timeBlocks.Count >= topLoadPercentage )
         {
             Debug.Log("Load more at the top");
-            var firstItem = timeBlocks[0];
-            //DisplaySubjectInRange(firstItem.);
-            //CreateTimeBlockDayGap();
+            var firstTimeBlock = timeBlocks[0];
+            //DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7), firstTimeBlock.dateTime);
+            //CreateTimeBlockDayGap(firstTimeBlock.dateTime);
         }
-            
-        
+
+        if ((float)firstIndex/timeBlocks.Count <= bottomLoadPercentage)
+        {
+            Debug.Log("Load more at the bottom");
+            var firstTimeBlock = timeBlocks[^1];
+        }
     }
 
     private void GetSubjectInfo(TimeTable timeTable)
@@ -167,7 +172,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     {
         foreach (var timeBlock in timeBlocks)
         {
-            Destroy(timeBlock);
+            Destroy(timeBlock.gameObject);
         }
 
         timeBlocks = new();

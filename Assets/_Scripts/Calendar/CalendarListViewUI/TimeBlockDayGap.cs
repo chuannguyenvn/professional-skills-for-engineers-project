@@ -9,7 +9,9 @@ public class TimeBlockDayGap : TimeBlock
     [SerializeField] private TextMeshProUGUI header1;
     public void Init(DateTime subjectInfo, CalendarListViewPage calendarListViewPage)
     {
-        header1.text = subjectInfo.ToString();
+        dateTime = subjectInfo;
         _calendarListViewPage = calendarListViewPage;
+
+        header1.text = subjectInfo.ToString();
     }
 }

@@ -48,10 +48,11 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
         Debug.Log(firstIndex + " , "+lastIndex);
 
-        while ((float)firstIndex/timeBlocks.Count <= upperLoadPercentage )
+        if ((float)firstIndex/timeBlocks.Count <= upperLoadPercentage )
         {
+            Debug.Log("Load more at the top");
             var firstItem = timeBlocks[0];
-            //DisplaySubjectInRange();
+            //DisplaySubjectInRange(firstItem.);
             //CreateTimeBlockDayGap();
         }
             
@@ -112,22 +113,22 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void DisplaySubjectInRange(DateTime startTime, DateTime endTime)
     {
-        List<SubjectInfo> valuesInRange = _dateTimeAndSubjectInfosDictionary
+        List<KeyValuePair<DateTime, SubjectInfo>> valuesInRange = _dateTimeAndSubjectInfosDictionary
             .Where(kv => kv.Key >= startTime && kv.Key <= endTime)
-            .Select(kv => kv.Value)
+            .Select(kv => kv )
             .ToList();
-        foreach (var subjectInfo in valuesInRange)
+        foreach (var keyValuePair in valuesInRange)
         {
-            CreateTimeBlockSubject(subjectInfo);
+            CreateTimeBlockSubject(keyValuePair.Key, keyValuePair.Value);
         }
     }
 
     #region Creation
 
-    private void CreateTimeBlockSubject(SubjectInfo subject, bool showDay = false, bool isFrontNorBack = false)
+    private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false, bool isFrontNorBack = false)
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
-        instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(subject, this);
+        instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this);
 
         if (isFrontNorBack)
         {

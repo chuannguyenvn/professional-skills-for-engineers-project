@@ -18,15 +18,12 @@ namespace _Scripts.Manager
 
     public class ApplicationManager : StateMachineManager<ApplicationManager, AppState>
     {
-        [SerializeField] private StateMachine<MonoBehaviour,AppState> initStateMachine;
+        [SerializeField] private AppState initState;
+
+        [SerializeField] private List<StateMachine<MonoBehaviour, AppState>> appStateMachines;
         void Start()
         {
-            currentStateMachine = initStateMachine;
-            var states = FindObjectsOfType<StateMachine<MonoBehaviour,AppState>>();
-            foreach (var state in states)
-            {
-                AddState(state.myStateEnum, state);
-            }
+            currentStateMachine = appStateMachines.Find(state => state.myStateEnum == initState);
         }
 
     

@@ -12,7 +12,6 @@ namespace _Scripts.StateMachine
         [Header("State Machine ")]
         [SerializeField] public TStateEnum myStateEnum;
         
-        [Header("Child")]
         protected List<Func<IEnumerator>> onEnterEvents = new();
         protected List<Func<IEnumerator>> onExitEvents = new();
         private Coroutine _currentQueueCoroutine;

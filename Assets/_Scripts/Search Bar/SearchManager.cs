@@ -12,6 +12,7 @@ namespace _Scripts.Search_Bar
 {
     public class SearchManager : StateMachine<SearchManager,AppState> 
     {
+        [Header("Search UI")]
         [SerializeField] private CanvasGroup homeMenuCanvas;
         [SerializeField] private CanvasGroup searchMenuCanvas;
         [SerializeField] private TMP_InputField trueSearchBar;

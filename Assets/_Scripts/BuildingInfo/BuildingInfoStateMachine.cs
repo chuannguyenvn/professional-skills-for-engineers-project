@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Manager;
 using _Scripts.Map;
+using _Scripts.StateMachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingInfoManager : Singleton<BuildingInfoManager>
+public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, AppState>
 {
     [SerializeField] private Canvas buildingInfoCanvas;
     [SerializeField] private TextMeshProUGUI buildingName, description;
@@ -15,6 +16,11 @@ public class BuildingInfoManager : Singleton<BuildingInfoManager>
     private Building currentBuilding;
     private BuildingSO currentBuildingSo;
     private List<Image> _descriptiveImages = new List<Image>();
+
+    private void Awake()
+    {
+        throw new NotImplementedException();
+    }
 
     public void OnShow(Building building)
     {

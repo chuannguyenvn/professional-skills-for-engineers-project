@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Manager;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace _Scripts.Search_Bar
 {
-    public class SearchManager : StateMachine<SearchManager,AppState> 
+    public class SearchStateMachine : StateMachine<SearchStateMachine,AppState>
     {
         [Header("Search UI")]
         [SerializeField] private CanvasGroup homeMenuCanvas;
@@ -22,17 +23,11 @@ namespace _Scripts.Search_Bar
         [SerializeField] private VerticalLayoutGroup foundContents;
         [SerializeField, Range(0, 10)] private int maxFoundElement;
         private List<FoundItem> _foundSearchItems = new();
-    
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
+        private void Awake()
         {
-        
+            AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
+            AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
         }
 
         public void OnChangeValue()
@@ -77,13 +72,6 @@ namespace _Scripts.Search_Bar
         
         }
 
-        private void Reinspection(string value)
-        {
-            foreach (var foundItem in _foundSearchItems)
-            {
-                //foundContents
-            }
-        }
         
     
         public void OnSelect()

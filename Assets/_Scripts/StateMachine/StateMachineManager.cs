@@ -7,13 +7,13 @@ namespace _Scripts.StateMachine
 {
     public class StateMachineManager<TMonoBehaviour,TStateEnum> : PersistentSingleton<TMonoBehaviour> where TStateEnum : Enum where TMonoBehaviour : MonoBehaviour
     {
-        protected StateMachine<MonoBehaviour,TStateEnum> currentStateMachine;
-        private Dictionary<TStateEnum, StateMachine<MonoBehaviour,TStateEnum>> _states = new ();
+        protected StateMachine<TStateEnum> currentStateMachine;
+        private Dictionary<TStateEnum, StateMachine<TStateEnum>> _states = new ();
 
-        private Queue<StateMachine<MonoBehaviour,TStateEnum>> _changingStateQueue = new ();
+        private Queue<StateMachine<TStateEnum>> _changingStateQueue = new ();
         private bool _isChangingState;
         
-        public void AddState(TStateEnum stateEnum, StateMachine<MonoBehaviour,TStateEnum> stateMachine)
+        public void AddState(TStateEnum stateEnum, StateMachine<TStateEnum> stateMachine)
         {
             _states[stateEnum] = stateMachine;
         }
@@ -25,7 +25,7 @@ namespace _Scripts.StateMachine
 
         public void SetState(TStateEnum stateEnum)
         {
-            if (_states.TryGetValue(stateEnum, out StateMachine<MonoBehaviour,TStateEnum> nextState))
+            if (_states.TryGetValue(stateEnum, out StateMachine<TStateEnum> nextState))
             {
                 _changingStateQueue.Enqueue(nextState);
             }

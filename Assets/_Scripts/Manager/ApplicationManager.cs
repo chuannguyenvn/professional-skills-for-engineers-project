@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using _Scripts.Search_Bar;
 using _Scripts.StateMachine;
-using Unity.VisualScripting;
 using UnityEngine;
+
 
 namespace _Scripts.Manager
 {
@@ -20,10 +22,16 @@ namespace _Scripts.Manager
     {
         [SerializeField] private AppState initState;
 
-        [SerializeField] private List<StateMachine<MonoBehaviour, AppState>> appStateMachines;
+        [SerializeField] private List<StateMachine<AppState>> appStateMachines;
         void Start()
         {
             currentStateMachine = appStateMachines.Find(state => state.myStateEnum == initState);
+            appStateMachines = FindObjectsOfType<StateMachine<AppState>>().ToList();
+            foreach (var stateMachine in appStateMachines)
+            {
+                AddState(stateMachine.myStateEnum, stateMachine);
+            }
+            
         }
 
     

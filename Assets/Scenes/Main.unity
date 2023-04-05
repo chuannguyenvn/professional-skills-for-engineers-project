@@ -8971,6 +8971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c316a5fa90310b44f8dd4a328f200b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStateEnum: 0
   homeMenuCanvas: {fileID: 1962664785}
   searchMenuCanvas: {fileID: 479487000}
   trueSearchBar: {fileID: 1299680428}
@@ -10333,7 +10334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8eb3a2a295b0044832830a416a265e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
+  initState: 4
+  appStateMachines:
+  - {fileID: 0}
 --- !u!114 &1534094632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3698867575553244691, guid: 97940afa4623cef4f83a6b9927aef046, type: 3}

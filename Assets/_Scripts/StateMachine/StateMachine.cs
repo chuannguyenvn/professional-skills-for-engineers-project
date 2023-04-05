@@ -7,22 +7,21 @@ using UnityEngine;
 
 namespace _Scripts.StateMachine
 {
-    public abstract class StateMachine<TMonoBehavior, TStateEnum> : Singleton<TMonoBehavior> where TStateEnum : Enum where TMonoBehavior : MonoBehaviour
+    public abstract class StateMachine<TStateEnum> : MonoBehaviour where TStateEnum : Enum
     {
         [Header("State Machine ")]
         [SerializeField] public TStateEnum myStateEnum;
-        
+
         protected List<Func<IEnumerator>> onEnterEvents = new();
         protected List<Func<IEnumerator>> onExitEvents = new();
-        private Coroutine _currentQueueCoroutine;
-        
+    
         
         public enum StateEvent
         {
             OnEnter,
             OnExit
         }
-        
+
         public IEnumerator OnExitState()
         {
             foreach (var enterEvent in onExitEvents)
@@ -38,8 +37,14 @@ namespace _Scripts.StateMachine
                 yield return StartCoroutine(exitEvent.Invoke());
             }
         }
+
+    }
     
-        public void AddToFunctionQueue(System.Action action, StateEvent stateEvent)
+    public class StateMachine<TMonoBehavior, TStateEnum> : StateMachine<TStateEnum>
+        where TMonoBehavior : StateMachine<TStateEnum>
+        where TStateEnum : Enum 
+    {
+        public void AddToFunctionQueue(Action action, StateEvent stateEvent)
         {
             switch (stateEvent)
             {

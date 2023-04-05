@@ -24,13 +24,13 @@ namespace _Scripts.Search_Bar
 
         public void ShowBuildingInfo()
         {
-            SearchManager.Instance.OnDeselect();
+            //SearchManager.Instance.OnDeselect();
             BuildingInfoManager.Instance.OnShow(_foundObject);
         }
 
         public void Navigate()
         {
-            SearchManager.Instance.OnDeselect();
+            //SearchManager.Instance.OnDeselect();
             MapManager.Instance.Navigate(_foundObject);
         }
     }

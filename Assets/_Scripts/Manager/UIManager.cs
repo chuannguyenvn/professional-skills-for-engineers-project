@@ -2,60 +2,42 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIManager : Singleton<UIManager>
 {
-    /*[SerializeField] private Canvas mainCanvas;
-    [SerializeField] private bool isOnScrollPage = false;
-
-    [SerializeField] private LayerMask uiLayerMask;
-    private void Update()
+    public enum UIStateType
     {
-        if( Input.GetMouseButtonDown(0))
-        {
-            MouseClicked();
-            
-        }
+        Navigate,
+        Home, 
+        Search,
+        CalendarView,
+        BuildingInfo
     }
-    
-    
-    void MouseClicked(){
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 1f, uiLayerMask );
-        Debug.Log(hit.transform.gameObject);
+    [Serializable]
+    private class UIStateInfo
+    {
+        public UIStateType myState;
+        public List<UIStateType> outStates;
+        public UnityEvent onEnter;
+        public UnityEvent onExit;
     }
-    */
-    
-    #region Unused
-    //
-    // public Vector3 WorldToUISpace(Canvas parentCanvas, Vector3 worldPos)
-    // {
-    //     if (parentCanvas == null) parentCanvas = mainCanvas;
-    //     //Convert the world for screen point so that it can be used with ScreenPointToLocalPointInRectangle function
-    //     Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-    //     Vector2 movePos;
-    //
-    //     //Convert the screenpoint to ui rectangle local point
-    //     RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, screenPos, parentCanvas.worldCamera, out movePos);
-    //     //Convert the local point to world point
-    //     return parentCanvas.transform.TransformPoint(movePos);
-    // }
-    // public Vector3 WorldToUISpace(Vector3 worldPos)
-    // {
-    //     
-    //     //Convert the world for screen point so that it can be used with ScreenPointToLocalPointInRectangle function
-    //     Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-    //     Vector2 movePos;
-    //
-    //     //Convert the screenpoint to ui rectangle local point
-    //     RectTransformUtility.ScreenPointToLocalPointInRectangle(mainCanvas.transform as RectTransform, screenPos, mainCanvas.worldCamera, out movePos);
-    //     //Convert the local point to world point
-    //     return mainCanvas.transform.TransformPoint(movePos);
-    // }
-    
 
-    #endregion
+    [SerializeField] private List<UIStateInfo> _uiStates;
+    private UIStateInfo currentState;
+    
+    public void ChangeState(UIStateType uiStateChangeTo)
+    {
+        var nextStateInfo = GetAccess(uiStateChangeTo);
+        if (nextStateInfo == null) return;
 
+    }
+
+    private UIStateInfo GetAccess(UIStateType uiStateChangeTo)
+    {
+        var currentUIStateInfo = _uiStates.Find(state => state.myState == currentState.myState);
+        return currentUIStateInfo.outStates.Contains(uiStateChangeTo)? _uiStates.Find(state => state.myState == uiStateChangeTo) : null;
+    }
 
 }

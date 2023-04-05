@@ -1,58 +1,103 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 namespace _Scripts.StateMachine
 {
-    public class StateMachine<TState> : MonoBehaviour where TState : Enum
+    public abstract class StateMachine<TMonoBehavior, TStateEnum> : Singleton<TMonoBehavior> where TStateEnum : Enum where TMonoBehavior : MonoBehaviour
     {
-        private Dictionary<TState, State> _states = new ();
-        private State _currentState;
-
-        private Queue<State> _changingStateQueue = new ();
-        private bool _isChangingState;
+        [Header("State Machine ")]
+        [SerializeField] public TStateEnum myStateEnum;
         
-        public void AddState(TState stateEnum, State state)
+        [Header("Child")]
+        protected List<Func<IEnumerator>> onEnterEvents = new();
+        protected List<Func<IEnumerator>> onExitEvents = new();
+        private Coroutine _currentQueueCoroutine;
+        
+        
+        public enum StateEvent
         {
-            _states[stateEnum] = state;
-        }
-
-        public void RemoveState(TState stateEnum)
-        {
-            _states.Remove(stateEnum);
-        }
-
-        public void SetState(TState stateEnum)
-        {
-            if (_states.TryGetValue(stateEnum, out State nextState))
-            {
-                _changingStateQueue.Enqueue(nextState);
-            }
-            else
-            {
-                Debug.LogWarning($"State {stateEnum} not found in state machine.");
-            }
-        }
-
-        private IEnumerator SwitchingState()
-        {
-            if (_isChangingState)
-            {
-                yield break;
-            }
-
-            _isChangingState = true;
-            while (_changingStateQueue.Count>0)
-            {
-                var nextState = _changingStateQueue.Dequeue();
-                yield return StartCoroutine(_currentState.OnExitState());
-                yield return StartCoroutine(nextState.OnEnterState());
-                _currentState = nextState;
-            }
-
-            _isChangingState = false;
+            OnEnter,
+            OnExit
         }
         
+        public IEnumerator OnExitState()
+        {
+            foreach (var enterEvent in onExitEvents)
+            {
+                yield return StartCoroutine(enterEvent.Invoke());
+            }
+        }
+
+        public IEnumerator OnEnterState()
+        {
+            foreach (var exitEvent in onEnterEvents)
+            {
+                yield return StartCoroutine(exitEvent.Invoke());
+            }
+        }
+    
+        public void AddToFunctionQueue(System.Action action, StateEvent stateEvent)
+        {
+            switch (stateEvent)
+            {
+                case StateEvent.OnEnter:
+                    onEnterEvents.Add(() =>
+                    {
+                        action.Invoke();
+                        return null;
+                    });
+                    break;
+                case StateEvent.OnExit:
+                    onExitEvents.Add(() =>
+                    {
+                        action.Invoke();
+                        return null;
+                    });
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
+            }
+        
+        }
+
+        public void AddToFunctionQueue(IEnumerator coroutine, StateEvent stateEvent)
+        {
+            switch (stateEvent)
+            {
+                case StateEvent.OnEnter:
+                    onEnterEvents.Add(() => coroutine);
+                    break;
+                case StateEvent.OnExit:
+                    onExitEvents.Add(() => coroutine);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
+            }
+        }
+
+        public void AddToFunctionQueue(Tween tween, StateEvent stateEvent)
+        {
+            switch (stateEvent)
+            {
+                case StateEvent.OnEnter:
+                    onEnterEvents.Add(() => WaitForTween(tween));
+                    break;
+                case StateEvent.OnExit:
+                    onExitEvents.Add(() => WaitForTween(tween));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
+            }
+        }
+
+        private IEnumerator WaitForTween(Tween tween)
+        {   
+            yield return tween.WaitForCompletion(); //Intentionally make them to Coroutine
+        }
+
     }
 }

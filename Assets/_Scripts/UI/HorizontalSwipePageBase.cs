@@ -8,7 +8,6 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
     [SerializeField] protected SwipeVerticalHorizontalMenu menu;
     [SerializeField] protected ScrollRect scrollRect;
     [Header("Child")]
-    private bool _isFirstTimeDragging = true;
     bool _isDraggingHorizontalNorVertical = false;
 
     private void Start()
@@ -55,13 +54,9 @@ public class HorizontalSwipePageBase : MonoBehaviour, IPointerDownHandler, IBegi
         {
             menu.OnEndDragHorizontalChildPage(eventData);
             scrollRect.vertical = true;
-            _isFirstTimeDragging = true;
             _isDraggingHorizontalNorVertical = false;
         }
-        else
-        {
-            _isFirstTimeDragging = true;
-        }
+        
     }
 
 }

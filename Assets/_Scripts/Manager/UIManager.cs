@@ -31,7 +31,7 @@ public class UIManager : Singleton<UIManager>
     {
         var nextStateInfo = GetAccess(uiStateChangeTo);
         if (nextStateInfo == null) return;
-
+        
     }
 
     private UIStateInfo GetAccess(UIStateType uiStateChangeTo)

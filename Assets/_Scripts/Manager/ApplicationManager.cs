@@ -1,25 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.StateMachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public enum AppState
+namespace _Scripts.Manager
 {
-    Home,
-    Navigate,
-    Info,
-    Search,
-    Calendar
-}
-
-public class ApplicationManager : PersistentSingleton<ApplicationManager>
-{
-    private StateMachine<AppState> _stateMachine = new();
-    
-    void Start()
+    public enum AppState
     {
-        
+        Home,
+        Navigate,
+        Info,
+        Search,
+        Calendar
     }
 
+    public class ApplicationManager : StateMachineManager<ApplicationManager, AppState>
+    {
+        [SerializeField] private StateMachine<MonoBehaviour,AppState> initStateMachine;
+        void Start()
+        {
+            currentStateMachine = initStateMachine;
+            var states = FindObjectsOfType<StateMachine<MonoBehaviour,AppState>>();
+            foreach (var state in states)
+            {
+                AddState(state.myStateEnum, state);
+            }
+        }
+
     
+    }
 }

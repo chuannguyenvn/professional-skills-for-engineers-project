@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBlockSubject: {fileID: 3917935576029006568, guid: bbc38b95e48844f449f2f826ae97201b, type: 3}
-  timeBlockWeekGap: {fileID: 0}
+  timeBlockWeekGap: {fileID: 8148482312268839404, guid: c875d80f98ce70a42b699962bebe3e1b, type: 3}
   building: {fileID: 9187201447212761243, guid: c4917667aacfbfd408b5dd7759570b2b, type: 3}
   roadIntersectionNode: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   foundItem: {fileID: 2767298771157038515, guid: 5dae3877c8407854c9d488311ed1c1cc, type: 3}
@@ -14573,7 +14573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14597,11 +14597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 4267.7
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2066.0376
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437645229782526623, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_VerticalFit
@@ -14685,7 +14685,7 @@ PrefabInstance:
       objectReference: {fileID: 483908202}
     - target: {fileID: 4617400337304522043, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00024414062
+      value: 0.029785156
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14705,11 +14705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9999999
+      value: 0.9999912
       objectReference: {fileID: 0}
     - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.14993307
+      value: 0.14992443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}

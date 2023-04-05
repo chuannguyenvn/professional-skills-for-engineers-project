@@ -36,7 +36,6 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         GetSubjectInfo(DataManager.Instance.GetTimeTable());
         
         DisplayManyMedianWeeks(DateTime.Now, 10, 10);
-        content.pivot = new Vector2(0.5f,0.5f);
 
         currentTopIndex = timeBlocks.Count;
         currentBottomIndex = 0;
@@ -76,6 +75,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         if(timeTable == null) return;
         
         _displayingTimeTable = timeTable;
+        _dateTimeAndSubjectInfosDictionary = new();
         foreach (var subjectInfo in timeTable.subjectInfos)
         {
             foreach (var dateTime in subjectInfo.classDateTimes)

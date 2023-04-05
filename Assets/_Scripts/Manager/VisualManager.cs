@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class VisualManager : Singleton<VisualManager>
 {
@@ -17,6 +18,10 @@ public class VisualManager : Singleton<VisualManager>
     [SerializeField] private Color stadiumBuilding;
     [SerializeField] private Color facilityBuilding;
     [SerializeField] private Color otherBuilding;
+
+    [Header("Timeblock Background")] 
+    [SerializeField] private List<Sprite> timeblockBackground;
+
     public enum MapColor
     {
         Water,
@@ -51,4 +56,9 @@ public class VisualManager : Singleton<VisualManager>
         };
     }
 
+    public Sprite GetRandomTimeBlockBackGround()
+    {
+        int index = Random.Range(0, timeblockBackground.Count);
+        return timeblockBackground[index];
+    }
 }

@@ -19,8 +19,9 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     [Header("TimeBlock List")] 
     [SerializeField] private int numberOfRenderingTimeBlock = 30;
 
-    [SerializeField, Range(0,20)] private int bottomLoadPercentage = 10;
-    [SerializeField, Range(0,20)] private int topLoadPercentage = 10;
+    [SerializeField, Range(0,0.5f)] private float bottomLoadPercentage = 0.2f;
+    [SerializeField, Range(0.5f,1)] private float topLoadPercentage = 0.8f;
+    private int currentTopIndex, currentBottomIndex;
     private TimeTable _displayingTimeTable;
     
     [Header("Data structure")] 
@@ -36,6 +37,9 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         
         DisplayManyMedianWeeks(DateTime.Now, 10, 10);
         content.pivot = new Vector2(0.5f,0.5f);
+
+        currentTopIndex = timeBlocks.Count;
+        currentBottomIndex = 0;
     }
 
     public void OnOutPage()
@@ -46,19 +50,21 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     public void OnScrollValueChange(Vector2 amount)
     {
         int topItemIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
-        int oldCount = timeBlocks.Count;
-        if ( timeBlocks.Count - topItemIndex <= topLoadPercentage )
+
+        Debug.Log("Change " + amount + " index "+ topItemIndex);
+        return;
+        if ( (float)(currentTopIndex - topItemIndex)/timeBlocks.Count <= topLoadPercentage )
         {
-            Debug.Log("Load more at the top" + topItemIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the top"+ currentTopIndex+ " " + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[0];
             DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), firstTimeBlock.dateTime, false, true);
             CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), true);
             //firstIndex = Mathf.RoundToInt(oldCount  * (timeBlocks.Count));
         }
 
-        if (topItemIndex <= bottomLoadPercentage)
+        if ( (float)(topItemIndex - currentBottomIndex)/timeBlocks.Count <= bottomLoadPercentage)
         {
-            Debug.Log("Load more at the bottom " + topItemIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the bottom "+ currentBottomIndex+" " + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[^1];
             DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0), firstTimeBlock.dateTime);
             CreateTimeBlockDayGap(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0));
@@ -135,19 +141,19 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this);
-
+        Debug.Log("create timeblock "+ subject.name +" At " +dateTime.ToString());
         if (isTopNorBottom)
         {
-            content.anchoredPosition += new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
+            currentTopIndex++;
             if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
-            content.anchoredPosition -= new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
+            currentBottomIndex--;
             if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
         
@@ -155,20 +161,20 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void CreateTimeBlockDayGap(DateTime dateTime,bool isTopNorBottom = false)
     {
-        var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockDayGap, content.transform);
-        instantiateTimeBlock.GetComponent<TimeBlockDayGap>().Init(dateTime, this);
+        var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockWeekGap, content.transform);
+        instantiateTimeBlock.GetComponent<TimeBlockWeekGap>().Init(dateTime, this);
         if (isTopNorBottom)
         {
-            content.anchoredPosition += new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
+            currentTopIndex++;
             if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
-            content.anchoredPosition -= new Vector2( 0,instantiateTimeBlock.rectTransform.anchoredPosition.y);
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
+            currentBottomIndex--;
             if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
         
@@ -177,6 +183,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void DestroyTimeBlock(bool isTopNorBottom)
     {
+        return;
         if (isTopNorBottom)
         {
             Destroy(timeBlocks[0].gameObject);

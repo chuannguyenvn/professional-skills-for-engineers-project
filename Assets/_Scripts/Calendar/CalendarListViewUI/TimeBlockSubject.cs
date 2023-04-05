@@ -14,7 +14,8 @@ public class TimeBlockSubject : TimeBlock
     [SerializeField] private TextMeshProUGUI firstHeader;
     [SerializeField] private TextMeshProUGUI secondHeader;
     [SerializeField] private Button navigationButton;
-    
+    [SerializeField] private TextMeshProUGUI dayOfWeek;
+    [SerializeField] private TextMeshProUGUI date;
     public void Init(DateTime dateTime, SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage, bool showDay = false)
     {
         this.dateTime = dateTime;
@@ -27,6 +28,8 @@ public class TimeBlockSubject : TimeBlock
                             subjectInfo.lessonEndHour.Hours + ":" + subjectInfo.lessonEndHour.Minutes.ToString("D2") +
                             " tại " + subjectInfo.room;
         room = subjectInfo.room;
+        dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0,3);
+        date.text = dateTime.Day.ToString();
     }
 
     public void Navigate()

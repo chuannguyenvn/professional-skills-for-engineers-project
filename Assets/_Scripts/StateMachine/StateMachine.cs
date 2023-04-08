@@ -22,7 +22,7 @@ namespace _Scripts.StateMachine
             OnExit
         }
 
-        public IEnumerator OnExitState(object [] parameters)
+        public IEnumerator OnExitState(object [] parameters = null)
         {
             foreach (var exitEnumerator in onExitEvents)
             {
@@ -30,7 +30,7 @@ namespace _Scripts.StateMachine
             }
         }
         
-        public IEnumerator OnEnterState(object [] parameters)
+        public IEnumerator OnEnterState(object [] parameters = null)
         {
             foreach (var enterEnumerator in onEnterEvents)
             {
@@ -44,31 +44,34 @@ namespace _Scripts.StateMachine
         where TMonoBehavior : StateMachine<TStateEnum>
         where TStateEnum : Enum 
     {
-        public void AddToFunctionQueue(Action action, StateEvent stateEvent, object[] parameters = null)
+        public void AddToFunctionQueue(Action action, StateEvent stateEvent)
         {
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add((_) => ConvertToIEnumerator(action,parameters));
+                    onEnterEvents.Add((_) => ConvertToIEnumerator(action));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add((_) => ConvertToIEnumerator(action,parameters));
+                    onExitEvents.Add((_) => ConvertToIEnumerator(action));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
             }
         
         }
-
-        public void AddToFunctionQueue(IEnumerator coroutine, StateEvent stateEvent, object[] parameters = null)
+    
+        /// <summary>
+        /// Add a IEnumerator to the queue, this is the only way for multiple parameter to be pass in 
+        /// </summary>
+        public void AddToFunctionQueue(Func<object[], IEnumerator> coroutine, StateEvent stateEvent)
         {
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add((_) => coroutine);
+                    onEnterEvents.Add(coroutine);
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add((_) => coroutine);
+                    onExitEvents.Add(coroutine);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -89,13 +92,13 @@ namespace _Scripts.StateMachine
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
             }
         }
-
-
-        private IEnumerator ConvertToIEnumerator(Action action, object[] parameters)
+        
+        private IEnumerator ConvertToIEnumerator(Action action)
         {
-            action.DynamicInvoke(parameters);
+            action.Invoke();
             yield return null;
         }
+        
         private IEnumerator ConvertToIEnumerator(Tween tween)
         {   
             yield return tween.WaitForCompletion(); //Intentionally make them to Coroutine

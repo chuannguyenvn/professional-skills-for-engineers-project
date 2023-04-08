@@ -11,7 +11,7 @@ namespace _Scripts.StateMachine
         protected StateMachine<TStateEnum> currentStateMachine;
         private Dictionary<TStateEnum, StateMachine<TStateEnum>> _states = new ();
 
-        private Queue<StateMachine<TStateEnum>> _changingStateQueue = new ();
+        private Queue<(StateMachine<TStateEnum>, object[], object[])> _changingStateQueue = new ();
         private bool _isChangingState;
         
         public void AddState(TStateEnum stateEnum, StateMachine<TStateEnum> stateMachine)
@@ -24,12 +24,12 @@ namespace _Scripts.StateMachine
             _states.Remove(stateEnum);
         }
 
-        public void SetState(TStateEnum stateEnum)
+        public void SetState(TStateEnum stateEnum, object[] exitParameters = null, object[] enterParameters = null)
         {
             if (_states.TryGetValue(stateEnum, out StateMachine<TStateEnum> nextState))
             {
                 //Debug.Log("State Machine Manager Enqueue state "+ nextState);
-                _changingStateQueue.Enqueue(nextState);
+                _changingStateQueue.Enqueue((nextState, exitParameters, enterParameters));
                 StartCoroutine(nameof(SwitchingState));
             }
             else
@@ -49,11 +49,13 @@ namespace _Scripts.StateMachine
             _isChangingState = true;
             while (_changingStateQueue.Count>0)
             {
-                var nextState = _changingStateQueue.Dequeue();
+                var info = _changingStateQueue.Dequeue();
+                var nextState = info.Item1;
+                object[] exitParameters = info.Item2, enterParameters = info.Item3 ;
                 Debug.Log("State Machine Manager Change"+ currentStateMachine+ " To "+ nextState);
-                
-                yield return StartCoroutine(currentStateMachine.OnExitState());
-                yield return StartCoroutine(nextState.OnEnterState());
+
+                yield return StartCoroutine(currentStateMachine.OnExitState(exitParameters));
+                yield return StartCoroutine(nextState.OnEnterState(enterParameters));
                 currentStateMachine = nextState;
             }
 

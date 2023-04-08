@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Manager;
 using Map;
 using Shapes;
 using UnityEngine;
@@ -77,7 +78,7 @@ namespace _Scripts.Map
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 Debug.Log(gameObject.name + " Clicked ");
-                //BuildingInfoStateMachine.Instance.OnShow(this);
+                ApplicationManager.Instance.SetState(AppState.Info, null, new object[]{this});
             }
         }
     }

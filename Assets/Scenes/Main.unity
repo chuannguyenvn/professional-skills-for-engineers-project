@@ -4590,6 +4590,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d1d9811f708bd4b926f3c4eb16e0fb, type: 3}
+--- !u!114 &735839308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+  m_PrefabInstance: {fileID: 5827257341396372580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8eeb836373a8554a98d0d913cd7b906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &741193666 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4462555445592952525, guid: fe177911ab156c54dbc3cbab980919c5, type: 3}
@@ -12875,6 +12886,7 @@ MonoBehaviour:
   buildingName: {fileID: 363024387}
   description: {fileID: 328227085}
   imageContent: {fileID: 516191758}
+  buildingInfoSwipe: {fileID: 735839308}
 --- !u!114 &1835170515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7037533103654199868, guid: 963c970f287b66c469e0e73647db0ecf, type: 3}
@@ -15945,9 +15957,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 54073193}
     - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1962664780}
+    - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1962664780}
+    - target: {fileID: 4466763318747002652, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4466763318783676354, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16038,7 +16062,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Name
-      value: Building Menu Canvas
+      value: Building Info Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_IsActive

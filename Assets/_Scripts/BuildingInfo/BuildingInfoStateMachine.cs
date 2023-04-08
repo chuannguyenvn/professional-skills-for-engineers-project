@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using _Scripts.Manager;
 using _Scripts.Map;
 using _Scripts.StateMachine;
+using _Scripts.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,18 +14,28 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     [SerializeField] private Canvas buildingInfoCanvas;
     [SerializeField] private TextMeshProUGUI buildingName, description;
     [SerializeField] private HorizontalLayoutGroup imageContent;
+    [SerializeField] private SwipeVerticalMenu buildingInfoSwipe;
+    
     private Building currentBuilding;
     private BuildingSO currentBuildingSo;
     private List<Image> _descriptiveImages = new List<Image>();
 
     private void Awake()
     {
-        AddToFunctionQueue(() => OnShow(currentBuilding), StateEvent.OnEnter);
+        AddToFunctionQueue(OnShow, StateEvent.OnEnter);
+        AddToFunctionQueue(OnHide, StateEvent.OnExit);
+        buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
     }
 
-    public void OnShow(Building building)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="parameter">
+    /// [0] : Building
+    /// </param>
+    public IEnumerator OnShow(object[] parameter)
     {
-        Debug.Log("Show Building Info "+ building.name);
+        Building building = parameter[0] as Building;
         
         buildingInfoCanvas.gameObject.SetActive(true);
         currentBuilding = building;
@@ -43,6 +54,13 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
             descriptiveImage.sprite = sprite;
             _descriptiveImages.Add(descriptiveImage);
         }
+        
+        yield return null;
+    }
+
+    public void OnHide()
+    {
+        
     }
 
     public void Navigate()

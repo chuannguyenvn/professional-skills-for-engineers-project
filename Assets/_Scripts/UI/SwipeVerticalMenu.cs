@@ -18,8 +18,7 @@ namespace _Scripts.UI
         
         [Header("Vertical Properties")] [SerializeField]
         protected RectTransform draggingVerticalGameObject;
-
-        [SerializeField] protected List<SwipeVerticalHorizontalMenu.ChildPageUI> verticalPages;
+        [SerializeField] public List<SwipeVerticalHorizontalMenu.ChildPageUI> verticalPages;
         [SerializeField] protected RectTransform initVerticalPosition;
         [SerializeField] protected int currentVerticalIndex, initVerticalIndex;
         [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;

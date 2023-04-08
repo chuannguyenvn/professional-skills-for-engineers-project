@@ -38,7 +38,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
         //Debug.Log("Info enter");
         Building building = parameter[0] as Building;
         
-        buildingInfoCanvas.gameObject.SetActive(true);
+        if(exitState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(true);
         currentBuilding = building;
         currentBuildingSo = building.buildingSo;
         buildingName.text = currentBuildingSo.buildingName;
@@ -62,7 +62,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     public void OnHide(AppState enterState)
     {
         //Debug.Log("Info exit");
-        buildingInfoCanvas.gameObject.SetActive(false);
+        if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
     }
 
     public void Navigate()

@@ -1,15 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Manager;
 using _Scripts.Map;
+using _Scripts.Search_Bar;
 using _Scripts.StateMachine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Scripts.Search_Bar
+namespace _Scripts.State
 {
     public class SearchStateMachine : StateMachine<SearchStateMachine,AppState>
     {

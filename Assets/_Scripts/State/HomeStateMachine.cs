@@ -34,14 +34,14 @@ public class HomeStateMachine : StateMachine<HomeStateMachine, AppState>
         });
     }
     
-    void OnShow()
+    void OnShow(AppState exitState)
     {
         Debug.Log("Home enter");
         _homeMenuCanvas.alpha = 1;
         _homeMenuCanvas.interactable = true;
     }
 
-    private void OnHide()
+    private void OnHide(AppState enterState)
     {
         Debug.Log("Home exit");
         _homeMenuCanvas.alpha = 0;

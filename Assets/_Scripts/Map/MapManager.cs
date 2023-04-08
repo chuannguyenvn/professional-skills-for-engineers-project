@@ -28,7 +28,7 @@ namespace _Scripts.Map
         {
             foreach (var building in buildingGameObjects)
             {
-                _buildings.Add( building.buildingSo.name.ToLower(), building);
+                _buildings.Add( building.buildingSo.buildingName.ToLower(), building);
                 foreach (var roadIntersectionNode in building.entrances) 
                     roadIntersectionNodes.Add(roadIntersectionNode);
             }

@@ -12,8 +12,8 @@ namespace _Scripts.StateMachine
         [Header("State Machine ")]
         [SerializeField] public TStateEnum myStateEnum;
 
-        protected List<Func<IEnumerator>> onEnterEvents = new();
-        protected List<Func<IEnumerator>> onExitEvents = new();
+        protected List<IEnumerator> onEnterEvents = new();
+        protected List<IEnumerator> onExitEvents = new();
     
         
         public enum StateEvent
@@ -26,7 +26,7 @@ namespace _Scripts.StateMachine
         {
             foreach (var enterEvent in onExitEvents)
             {
-                yield return StartCoroutine(enterEvent.Invoke());
+                yield return StartCoroutine(enterEvent);
             }
         }
 
@@ -34,7 +34,7 @@ namespace _Scripts.StateMachine
         {
             foreach (var exitEvent in onEnterEvents)
             {
-                yield return StartCoroutine(exitEvent.Invoke());
+                yield return StartCoroutine(exitEvent);
             }
         }
 
@@ -49,18 +49,10 @@ namespace _Scripts.StateMachine
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(() =>
-                    {
-                        action.Invoke();
-                        return null;
-                    });
+                    onEnterEvents.Add(ConvertToIEnumerator(action));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(() =>
-                    {
-                        action.Invoke();
-                        return null;
-                    });
+                    onExitEvents.Add(ConvertToIEnumerator(action));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -73,10 +65,10 @@ namespace _Scripts.StateMachine
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(() => coroutine);
+                    onEnterEvents.Add(coroutine);
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(() => coroutine);
+                    onExitEvents.Add(coroutine);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -88,17 +80,23 @@ namespace _Scripts.StateMachine
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(() => WaitForTween(tween));
+                    onEnterEvents.Add(ConvertToIEnumerator(tween));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(() => WaitForTween(tween));
+                    onExitEvents.Add(ConvertToIEnumerator(tween));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
             }
         }
 
-        private IEnumerator WaitForTween(Tween tween)
+
+        private IEnumerator ConvertToIEnumerator(Action action)
+        {
+            action.Invoke();
+            yield return null;
+        }
+        private IEnumerator ConvertToIEnumerator(Tween tween)
         {   
             yield return tween.WaitForCompletion(); //Intentionally make them to Coroutine
         }

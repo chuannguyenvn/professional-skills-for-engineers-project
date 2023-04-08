@@ -28,7 +28,7 @@ namespace _Scripts.Map
         public void Init(BuildingSO buildingSo)
         {
             this.buildingSo = buildingSo;
-            gameObject.name = buildingSo.name;
+            gameObject.name = buildingSo.buildingName;
             _geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
             _worldCoordinates = _geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
             polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);

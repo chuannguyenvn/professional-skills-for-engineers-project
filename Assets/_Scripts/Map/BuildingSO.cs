@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Building", menuName = "ScriptableObjects/Building", order = 1)]
 public class BuildingSO : ScriptableObject
 {
-    public string name = "New building";
+    public string buildingName = "New building";
     public string description;
     public List<Sprite> descriptiveSprites;
     public List<Vector2> geoCoordinate;

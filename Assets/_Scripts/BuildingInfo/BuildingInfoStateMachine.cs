@@ -19,7 +19,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
 
     private void Awake()
     {
-        throw new NotImplementedException();
+        AddToFunctionQueue(()=> OnShow(currentBuilding), StateEvent.OnEnter);
     }
 
     public void OnShow(Building building)
@@ -29,7 +29,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
         buildingInfoCanvas.gameObject.SetActive(true);
         currentBuilding = building;
         currentBuildingSo = building.buildingSo;
-        buildingName.text = currentBuildingSo.name;
+        buildingName.text = currentBuildingSo.buildingName;
         description.text = currentBuildingSo.description;
         foreach (var descriptiveImage in _descriptiveImages)
         {

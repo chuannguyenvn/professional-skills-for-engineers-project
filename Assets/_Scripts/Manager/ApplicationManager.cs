@@ -25,12 +25,12 @@ namespace _Scripts.Manager
         [SerializeField] private List<StateMachine<AppState>> appStateMachines;
         void Start()
         {
-            currentStateMachine = appStateMachines.Find(state => state.myStateEnum == initState);
+            currentStateMachine = appStateMachines.Find(state => state._myStateEnum == initState);
             appStateMachines = FindObjectsOfType<StateMachine<AppState>>().ToList();
             foreach (var stateMachine in appStateMachines)
             {
-                Debug.Log("Add state "+ stateMachine.myStateEnum.ToString());
-                AddState(stateMachine.myStateEnum, stateMachine);
+                Debug.Log("Add state "+ stateMachine._myStateEnum.ToString());
+                AddState(stateMachine._myStateEnum, stateMachine);
             }
             
         }

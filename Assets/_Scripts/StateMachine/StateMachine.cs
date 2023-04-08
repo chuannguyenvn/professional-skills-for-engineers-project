@@ -10,10 +10,10 @@ namespace _Scripts.StateMachine
     public abstract class StateMachine<TStateEnum> : MonoBehaviour where TStateEnum : Enum
     {
         [Header("State Machine ")]
-        [SerializeField] public TStateEnum myStateEnum;
+        [SerializeField] public TStateEnum _myStateEnum;
 
-        protected List<IEnumerator> onEnterEvents = new();
-        protected List<IEnumerator> onExitEvents = new();
+        protected List<Func<object[],IEnumerator>> onEnterEvents = new();
+        protected List<Func<object[],IEnumerator>> onExitEvents = new();
     
         
         public enum StateEvent
@@ -22,19 +22,19 @@ namespace _Scripts.StateMachine
             OnExit
         }
 
-        public IEnumerator OnExitState()
+        public IEnumerator OnExitState(object [] parameters)
         {
-            foreach (var enterEvent in onExitEvents)
+            foreach (var exitEnumerator in onExitEvents)
             {
-                yield return StartCoroutine(enterEvent);
+                yield return StartCoroutine(exitEnumerator.Invoke(parameters));
             }
         }
-
-        public IEnumerator OnEnterState()
+        
+        public IEnumerator OnEnterState(object [] parameters)
         {
-            foreach (var exitEvent in onEnterEvents)
+            foreach (var enterEnumerator in onEnterEvents)
             {
-                yield return StartCoroutine(exitEvent);
+                yield return StartCoroutine(enterEnumerator.Invoke(parameters));
             }
         }
 
@@ -44,15 +44,15 @@ namespace _Scripts.StateMachine
         where TMonoBehavior : StateMachine<TStateEnum>
         where TStateEnum : Enum 
     {
-        public void AddToFunctionQueue(Action action, StateEvent stateEvent)
+        public void AddToFunctionQueue(Action action, StateEvent stateEvent, object[] parameters = null)
         {
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(ConvertToIEnumerator(action));
+                    onEnterEvents.Add((_) => ConvertToIEnumerator(action,parameters));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(ConvertToIEnumerator(action));
+                    onExitEvents.Add((_) => ConvertToIEnumerator(action,parameters));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -60,15 +60,15 @@ namespace _Scripts.StateMachine
         
         }
 
-        public void AddToFunctionQueue(IEnumerator coroutine, StateEvent stateEvent)
+        public void AddToFunctionQueue(IEnumerator coroutine, StateEvent stateEvent, object[] parameters = null)
         {
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(coroutine);
+                    onEnterEvents.Add((_) => coroutine);
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(coroutine);
+                    onExitEvents.Add((_) => coroutine);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -80,10 +80,10 @@ namespace _Scripts.StateMachine
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add(ConvertToIEnumerator(tween));
+                    onEnterEvents.Add((_) => ConvertToIEnumerator(tween));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add(ConvertToIEnumerator(tween));
+                    onExitEvents.Add((_) => ConvertToIEnumerator(tween));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -91,9 +91,9 @@ namespace _Scripts.StateMachine
         }
 
 
-        private IEnumerator ConvertToIEnumerator(Action action)
+        private IEnumerator ConvertToIEnumerator(Action action, object[] parameters)
         {
-            action.Invoke();
+            action.DynamicInvoke(parameters);
             yield return null;
         }
         private IEnumerator ConvertToIEnumerator(Tween tween)

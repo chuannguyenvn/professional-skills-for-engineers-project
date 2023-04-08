@@ -19,7 +19,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
 
     private void Awake()
     {
-        AddToFunctionQueue(()=> OnShow(currentBuilding), StateEvent.OnEnter);
+        AddToFunctionQueue(() => OnShow(currentBuilding), StateEvent.OnEnter);
     }
 
     public void OnShow(Building building)

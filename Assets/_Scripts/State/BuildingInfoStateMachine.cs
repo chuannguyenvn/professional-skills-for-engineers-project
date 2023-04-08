@@ -35,7 +35,6 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     /// </param>
     public IEnumerator OnSelect(AppState exitState, object[] parameter)
     {
-        //Debug.Log("Info enter");
         Building building = parameter[0] as Building;
         
         if(exitState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(true);
@@ -61,7 +60,6 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
 
     public void OnDeselect(AppState enterState)
     {
-        //Debug.Log("Info exit");
         if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
     }
 

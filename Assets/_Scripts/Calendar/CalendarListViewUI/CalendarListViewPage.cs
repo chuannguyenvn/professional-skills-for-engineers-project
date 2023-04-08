@@ -50,8 +50,9 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     {
         int topItemIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
 
-        Debug.Log("Change " + amount + " index "+ topItemIndex);
         return;
+        Debug.Log("Change " + amount + " index "+ topItemIndex);
+
         if ( (float)(currentTopIndex - topItemIndex)/timeBlocks.Count <= topLoadPercentage )
         {
             Debug.Log("Load more at the top"+ currentTopIndex+ " " + topItemIndex + " " + timeBlocks.Count);

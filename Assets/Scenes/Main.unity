@@ -8327,8 +8327,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301320277}
+  - component: {fileID: 1301320278}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Calendar State Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8349,6 +8350,21 @@ Transform:
   m_Father: {fileID: 1525145514}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1301320278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301320276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9414fc4ff404a034a99072d043d61947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myStateEnum: 4
+  _calendarCanvas: {fileID: 1962969640}
+  _calendarMenu: {fileID: 483908202}
 --- !u!114 &1313037232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
@@ -13359,6 +13375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbb3746d0de99548a3f9142bc0568d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myStateEnum: 0
 --- !u!4 &1869100967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 512754069115480319, guid: 0097b47514ad24d43ac598ee453389e3, type: 3}
@@ -13865,6 +13882,11 @@ GameObject:
 --- !u!224 &1962969637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2881811369230103043, guid: d15d9412f0e830640b6b855113145114, type: 3}
+  m_PrefabInstance: {fileID: 2881811367300757542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1962969640 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2881811369230103042, guid: d15d9412f0e830640b6b855113145114, type: 3}
   m_PrefabInstance: {fileID: 2881811367300757542}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1964670928
@@ -15434,9 +15456,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 81740736}
     m_Modifications:
     - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1962664780}
+      objectReference: {fileID: 1962969633}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2881811369230103042, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Camera
       value: 

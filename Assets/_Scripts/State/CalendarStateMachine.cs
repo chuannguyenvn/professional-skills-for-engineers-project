@@ -25,7 +25,7 @@ namespace _Scripts.State
     
         public void OnDeselect(AppState enterState)
         {
-            if(enterState != AppState.Calendar) _calendarCanvas.gameObject.SetActive(true);    
+            if(enterState != AppState.Calendar) _calendarCanvas.gameObject.SetActive(false);    
         }
         
     }

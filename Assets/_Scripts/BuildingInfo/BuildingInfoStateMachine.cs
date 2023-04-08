@@ -33,7 +33,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     /// <param name="parameter">
     /// [0] : Building
     /// </param>
-    public IEnumerator OnShow(object[] parameter)
+    public IEnumerator OnShow(AppState exitState, object[] parameter)
     {
         //Debug.Log("Info enter");
         Building building = parameter[0] as Building;
@@ -59,7 +59,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
         yield return null;
     }
 
-    public void OnHide()
+    public void OnHide(AppState enterState)
     {
         //Debug.Log("Info exit");
         buildingInfoCanvas.gameObject.SetActive(false);

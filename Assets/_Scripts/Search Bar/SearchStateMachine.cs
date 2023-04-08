@@ -81,7 +81,7 @@ namespace _Scripts.Search_Bar
 
         
     
-        public void OnSelect()
+        public void OnSelect(AppState exitState)
         { 
             Debug.Log("Active state search");
             _searchMenuCanvas.gameObject.SetActive(true);
@@ -94,7 +94,7 @@ namespace _Scripts.Search_Bar
             
         }
     
-        public void OnDeselect()
+        public void OnDeselect(AppState enterState)
         {
             _searchMenuCanvas.interactable = false;
             _trueSearchBar.DeactivateInputField();

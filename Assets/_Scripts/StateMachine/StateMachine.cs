@@ -12,8 +12,8 @@ namespace _Scripts.StateMachine
         [Header("State Machine ")]
         [SerializeField] public TStateEnum _myStateEnum;
 
-        protected List<Func<object[],IEnumerator>> onEnterEvents = new();
-        protected List<Func<object[],IEnumerator>> onExitEvents = new();
+        protected List<Func<TStateEnum,object[],IEnumerator>> onEnterEvents = new();
+        protected List<Func<TStateEnum,object[],IEnumerator>> onExitEvents = new();
     
         
         public enum StateEvent
@@ -22,19 +22,19 @@ namespace _Scripts.StateMachine
             OnExit
         }
 
-        public IEnumerator OnExitState(object [] parameters = null)
+        public IEnumerator OnExitState(TStateEnum enterState = default, object [] parameters = null)
         {
             foreach (var exitEnumerator in onExitEvents)
             {
-                yield return StartCoroutine(exitEnumerator.Invoke(parameters));
+                yield return StartCoroutine(exitEnumerator.Invoke(enterState, parameters));
             }
         }
         
-        public IEnumerator OnEnterState(object [] parameters = null)
+        public IEnumerator OnEnterState(TStateEnum exitState = default, object [] parameters = null)
         {
             foreach (var enterEnumerator in onEnterEvents)
             {
-                yield return StartCoroutine(enterEnumerator.Invoke(parameters));
+                yield return StartCoroutine(enterEnumerator.Invoke(exitState, parameters));
             }
         }
 
@@ -44,15 +44,15 @@ namespace _Scripts.StateMachine
         where TMonoBehavior : StateMachine<TStateEnum>
         where TStateEnum : Enum 
     {
-        public void AddToFunctionQueue(Action action, StateEvent stateEvent)
+        public void AddToFunctionQueue(Action<TStateEnum> action, StateEvent stateEvent)
         {
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add((_) => ConvertToIEnumerator(action));
+                    onEnterEvents.Add((stateEnum,_) => ConvertToIEnumerator(action, stateEnum));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add((_) => ConvertToIEnumerator(action));
+                    onExitEvents.Add((stateEnum,_) => ConvertToIEnumerator(action, stateEnum));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
@@ -63,7 +63,7 @@ namespace _Scripts.StateMachine
         /// <summary>
         /// Add a IEnumerator to the queue, this is the only way for multiple parameter to be pass in 
         /// </summary>
-        public void AddToFunctionQueue(Func<object[], IEnumerator> coroutine, StateEvent stateEvent)
+        public void AddToFunctionQueue(Func<TStateEnum,object[], IEnumerator> coroutine, StateEvent stateEvent)
         {
             switch (stateEvent)
             {
@@ -83,19 +83,19 @@ namespace _Scripts.StateMachine
             switch (stateEvent)
             {
                 case StateEvent.OnEnter:
-                    onEnterEvents.Add((_) => ConvertToIEnumerator(tween));
+                    onEnterEvents.Add((_,_) => ConvertToIEnumerator(tween));
                     break;
                 case StateEvent.OnExit:
-                    onExitEvents.Add((_) => ConvertToIEnumerator(tween));
+                    onExitEvents.Add((_,_) => ConvertToIEnumerator(tween));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
             }
         }
         
-        private IEnumerator ConvertToIEnumerator(Action action)
+        private IEnumerator ConvertToIEnumerator(Action<TStateEnum> action, TStateEnum stateEnum)
         {
-            action.Invoke();
+            action.Invoke(stateEnum);
             yield return null;
         }
         

@@ -54,8 +54,8 @@ namespace _Scripts.StateMachine
                 object[] exitParameters = info.Item2, enterParameters = info.Item3 ;
                 Debug.Log("State Machine Manager Change"+ currentStateMachine+ " To "+ nextState);
 
-                yield return StartCoroutine(currentStateMachine.OnExitState(exitParameters));
-                yield return StartCoroutine(nextState.OnEnterState(enterParameters));
+                yield return StartCoroutine(currentStateMachine.OnExitState(nextState._myStateEnum,exitParameters));
+                yield return StartCoroutine(nextState.OnEnterState(currentStateMachine._myStateEnum,enterParameters));
                 currentStateMachine = nextState;
             }
 

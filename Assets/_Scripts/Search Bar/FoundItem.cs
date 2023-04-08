@@ -1,6 +1,8 @@
+using _Scripts.Manager;
 using _Scripts.Map;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.Search_Bar
 {
@@ -8,6 +10,8 @@ namespace _Scripts.Search_Bar
     {
         [SerializeField] private TextMeshProUGUI type;
         [SerializeField] private TextMeshProUGUI address;
+        [SerializeField] private Button panelButton;
+        [SerializeField] private Button navigationButton;
         private Building _foundObject;
     
         public void Init(Building item,string typeText, string addressText)
@@ -15,6 +19,9 @@ namespace _Scripts.Search_Bar
             _foundObject = item;
             type.text = typeText;
             address.text = addressText;
+            
+            panelButton.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Info, null, new object[]{_foundObject}));
+            navigationButton.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[]{_foundObject}));
         }
 
         public Building GetObjectVariable()

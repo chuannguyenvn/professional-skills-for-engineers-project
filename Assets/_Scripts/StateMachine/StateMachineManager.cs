@@ -28,8 +28,8 @@ namespace _Scripts.StateMachine
         {
             if (_states.TryGetValue(stateEnum, out StateMachine<TStateEnum> nextState))
             {
+                //Debug.Log("State Machine Manager Enqueue state "+ nextState);
                 _changingStateQueue.Enqueue(nextState);
-                
                 StartCoroutine(nameof(SwitchingState));
             }
             else
@@ -50,6 +50,8 @@ namespace _Scripts.StateMachine
             while (_changingStateQueue.Count>0)
             {
                 var nextState = _changingStateQueue.Dequeue();
+                Debug.Log("State Machine Manager Change"+ currentStateMachine+ " To "+ nextState);
+                
                 yield return StartCoroutine(currentStateMachine.OnExitState());
                 yield return StartCoroutine(nextState.OnEnterState());
                 currentStateMachine = nextState;

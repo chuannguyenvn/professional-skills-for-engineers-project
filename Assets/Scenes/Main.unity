@@ -9059,7 +9059,7 @@ MonoBehaviour:
   _backButton: {fileID: 1072684558}
   _transitionDuration: 0.25
   _foundContents: {fileID: 629482803}
-  _maxFoundElement: 0
+  _maxFoundElement: 5
 --- !u!1001 &1379887702
 PrefabInstance:
   m_ObjectHideFlags: 0

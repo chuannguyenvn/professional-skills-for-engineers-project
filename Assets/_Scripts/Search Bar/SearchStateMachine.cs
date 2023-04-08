@@ -41,7 +41,6 @@ namespace _Scripts.Search_Bar
 
         public void OnSearchValueChanged(string text)
         {
-            Debug.Log("search " + _trueSearchBar.text + " and input "+ text);
             _homeSearchBar.text = text;
             if (text == "")
             {
@@ -51,11 +50,9 @@ namespace _Scripts.Search_Bar
                 
                 }
                 _foundSearchItems.Clear();
-            
                 return;
-            
             }
-            List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(_trueSearchBar.text);
+            List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(text);
 
             // Get the list of objects to destroy
             var toDestroy = _foundSearchItems.Where(item => !freshFoundBuildings.Contains(item.GetObjectVariable())).ToList();
@@ -86,33 +83,22 @@ namespace _Scripts.Search_Bar
     
         public void OnSelect()
         { 
+            Debug.Log("Active state search");
             _searchMenuCanvas.gameObject.SetActive(true);
-        
-            _homeMenuCanvas.interactable = false;
-
+            
             _trueSearchBar.ActivateInputField();
             _searchMenuCanvas.interactable = true;
 
             _searchMenuCanvas.alpha = 0;
-            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration).OnComplete(() => _homeMenuCanvas.gameObject.SetActive(false));
-
-            //homeMenuCanvas.alpha = 1;
-            //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
-        
+            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration);
+            
         }
     
         public void OnDeselect()
-        { 
-            _homeMenuCanvas.gameObject.SetActive(true);
-        
+        {
             _searchMenuCanvas.interactable = false;
-
             _trueSearchBar.DeactivateInputField();
-            _homeMenuCanvas.interactable = true;
-
-            //homeMenuCanvas.alpha = 0;
-            //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 1, transitionDuration).OnComplete(() => searchMenuCanvas.gameObject.SetActive(false));
-
+            
             _searchMenuCanvas.alpha = 1;
             DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 0, _transitionDuration).OnComplete(() => _searchMenuCanvas.gameObject.SetActive(false));
         

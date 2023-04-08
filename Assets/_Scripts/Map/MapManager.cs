@@ -143,11 +143,11 @@ namespace _Scripts.Map
             //Debug.Log(searching +" Buildings ");
 
             List<Building> result = new();
-            foreach (var (name, foundBuidling) in _buildings)
+            foreach (var (foundName, foundBuilding) in _buildings)
             {
-                if (name.Contains(searching))
+                if (foundName.Contains(searching))
                 {
-                    result.Add(foundBuidling);
+                    result.Add(foundBuilding);
                 }
             }
 

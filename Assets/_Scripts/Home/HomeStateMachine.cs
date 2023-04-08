@@ -27,7 +27,11 @@ public class HomeStateMachine : StateMachine<HomeStateMachine, AppState>
     {
         _navigationButton?.onClick.AddListener(()=> Debug.Log("Navigation in home"));
         _calendarPageButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Calendar));
-        _searchBar?.onSelect.AddListener((_) => ApplicationManager.Instance.SetState(AppState.Search));
+        _searchBar?.onSelect.AddListener((_) =>
+        {
+            Debug.Log("Clicked on search bar");
+            ApplicationManager.Instance.SetState(AppState.Search);
+        });
     }
     
     void OnShow()

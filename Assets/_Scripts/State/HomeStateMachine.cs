@@ -19,29 +19,26 @@ public class HomeStateMachine : StateMachine<HomeStateMachine, AppState>
     private void Awake()
     {
         InitEvent();
-        AddToFunctionQueue(OnShow, StateEvent.OnEnter);
-        AddToFunctionQueue(OnHide, StateEvent.OnExit);
+        AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
+        AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
     }
 
     private void InitEvent()
     {
         _navigationButton?.onClick.AddListener(()=> Debug.Log("Navigation in home"));
         _calendarPageButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Calendar));
-        _searchBar?.onSelect.AddListener((_) =>
-        {
-            Debug.Log("Clicked on search bar");
-            ApplicationManager.Instance.SetState(AppState.Search);
-        });
+        _searchBar?.onSelect.AddListener((_) => ApplicationManager.Instance.SetState(AppState.Search));
+        
     }
     
-    void OnShow(AppState exitState)
+    void OnSelect(AppState exitState)
     {
         Debug.Log("Home enter");
         _homeMenuCanvas.alpha = 1;
         _homeMenuCanvas.interactable = true;
     }
 
-    private void OnHide(AppState enterState)
+    private void OnDeselect(AppState enterState)
     {
         Debug.Log("Home exit");
         _homeMenuCanvas.alpha = 0;

@@ -22,8 +22,8 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
 
     private void Awake()
     {
-        AddToFunctionQueue(OnShow, StateEvent.OnEnter);
-        AddToFunctionQueue(OnHide, StateEvent.OnExit);
+        AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
+        AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
         buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
     }
 
@@ -33,7 +33,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     /// <param name="parameter">
     /// [0] : Building
     /// </param>
-    public IEnumerator OnShow(AppState exitState, object[] parameter)
+    public IEnumerator OnSelect(AppState exitState, object[] parameter)
     {
         //Debug.Log("Info enter");
         Building building = parameter[0] as Building;
@@ -59,7 +59,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
         yield return null;
     }
 
-    public void OnHide(AppState enterState)
+    public void OnDeselect(AppState enterState)
     {
         //Debug.Log("Info exit");
         if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);

@@ -20,7 +20,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [Header("Horizontal Properties")] 
     [SerializeField] protected RectTransform draggingHorizontalGameObject;
     [SerializeField] protected RectTransform initHorizontalPosition;
-    [SerializeField] protected List<ChildPageUI> horizontalPages;
+    [SerializeField] public List<ChildPageUI> horizontalPages;
     [SerializeField] protected int initHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
     protected int currentHorizontalIndex;
@@ -30,7 +30,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [Header("Vertical Properties")] 
     [SerializeField] protected RectTransform draggingVerticalGameObject;
     [SerializeField] protected RectTransform initVerticalPosition;
-    [SerializeField] protected List<ChildPageUI> verticalPages;
+    [SerializeField] public List<ChildPageUI> verticalPages;
     [SerializeField] protected int initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
     protected int currentVerticalIndex;

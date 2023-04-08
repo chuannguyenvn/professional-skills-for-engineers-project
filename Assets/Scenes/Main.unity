@@ -2341,7 +2341,6 @@ Transform:
   - {fileID: 284033239}
   - {fileID: 299498076}
   - {fileID: 1389857787}
-  - {fileID: 1833599011}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7013,6 +7012,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 1106387502}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1072684558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1918873514028215672, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
+  m_PrefabInstance: {fileID: 1918873513030575071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1086754149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6104523559306741965, guid: cb44cbb485c0b7943a4679eab6402078, type: 3}
@@ -9042,13 +9052,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStateEnum: 3
-  homeMenuCanvas: {fileID: 1962664785}
-  searchMenuCanvas: {fileID: 479487000}
-  trueSearchBar: {fileID: 1299680428}
-  homeSearchBar: {fileID: 1496670565}
-  transitionDuration: 0.25
-  foundContents: {fileID: 629482803}
-  maxFoundElement: 5
+  _homeMenuCanvas: {fileID: 1962664785}
+  _searchMenuCanvas: {fileID: 479487000}
+  _trueSearchBar: {fileID: 1299680428}
+  _homeSearchBar: {fileID: 1496670565}
+  _backButton: {fileID: 1072684558}
+  _transitionDuration: 0.25
+  _foundContents: {fileID: 629482803}
+  _maxFoundElement: 0
 --- !u!1001 &1379887702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10391,6 +10402,7 @@ Transform:
   m_Children:
   - {fileID: 722076256}
   - {fileID: 1376495698}
+  - {fileID: 1833599011}
   m_Father: {fileID: 372999671}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12838,13 +12850,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833599010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 372999671}
-  m_RootOrder: 5
+  m_Father: {fileID: 1525145514}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1833599012
 MonoBehaviour:
@@ -12858,7 +12870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd402e8d8a3c4f742b2bcf934146dec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStateEnum: 0
+  myStateEnum: 2
   buildingInfoCanvas: {fileID: 7864325358096434087}
   buildingName: {fileID: 363024387}
   description: {fileID: 328227085}
@@ -15306,9 +15318,17 @@ PrefabInstance:
       value: Search Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 1918873514028215672, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918873514028215672, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1376495699}
+    - target: {fileID: 1918873514293620595, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1918873514293620595, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

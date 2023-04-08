@@ -29,12 +29,15 @@ namespace _Scripts.StateMachine
             if (_states.TryGetValue(stateEnum, out StateMachine<TStateEnum> nextState))
             {
                 _changingStateQueue.Enqueue(nextState);
+                
+                StartCoroutine(nameof(SwitchingState));
             }
             else
             {
                 Debug.LogWarning($"State {stateEnum} not found in state machine.");
             }
         }
+        
 
         private IEnumerator SwitchingState()
         {

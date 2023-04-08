@@ -14,26 +14,36 @@ namespace _Scripts.Search_Bar
     public class SearchStateMachine : StateMachine<SearchStateMachine,AppState>
     {
         [Header("Search UI")]
-        [SerializeField] private CanvasGroup homeMenuCanvas;
-        [SerializeField] private CanvasGroup searchMenuCanvas;
-        [SerializeField] private TMP_InputField trueSearchBar;
-        [SerializeField] private TMP_InputField homeSearchBar;
-        [SerializeField] private float transitionDuration;
-
-        [SerializeField] private VerticalLayoutGroup foundContents;
-        [SerializeField, Range(0, 10)] private int maxFoundElement;
+        [SerializeField] private CanvasGroup _homeMenuCanvas;
+        [SerializeField] private CanvasGroup _searchMenuCanvas;
+        [SerializeField] private TMP_InputField _trueSearchBar;
+        [SerializeField] private TMP_InputField _homeSearchBar;
+        [SerializeField] private Button _backButton;
+        [SerializeField] private float _transitionDuration;
+        
+        [Header("Search Contain")]
+        [SerializeField] private VerticalLayoutGroup _foundContents;
+        [SerializeField, Range(0, 10)] private int _maxFoundElement;
         private List<FoundItem> _foundSearchItems = new();
 
         private void Awake()
         {
+            InitEvent();
             AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
             AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
         }
 
-        public void OnChangeValue()
+        private void InitEvent()
         {
-            homeSearchBar.text = trueSearchBar.text;
-            if (trueSearchBar.text == "")
+            _trueSearchBar.onValueChanged.AddListener(OnSearchValueChanged);
+            _backButton.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Home));
+        }
+
+        public void OnSearchValueChanged(string text)
+        {
+            Debug.Log("search " + _trueSearchBar.text + " and input "+ text);
+            _homeSearchBar.text = text;
+            if (text == "")
             {
                 foreach (var foundSearchItem in _foundSearchItems)
                 {
@@ -45,7 +55,7 @@ namespace _Scripts.Search_Bar
                 return;
             
             }
-            List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(trueSearchBar.text);
+            List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(_trueSearchBar.text);
 
             // Get the list of objects to destroy
             var toDestroy = _foundSearchItems.Where(item => !freshFoundBuildings.Contains(item.GetObjectVariable())).ToList();
@@ -57,7 +67,7 @@ namespace _Scripts.Search_Bar
                 _foundSearchItems.Remove(item);
             }
 
-            for (int i = _foundSearchItems.Count; i < Mathf.Min( maxFoundElement, freshFoundBuildings.Count); i++)
+            for (int i = _foundSearchItems.Count; i < Mathf.Min( _maxFoundElement, freshFoundBuildings.Count); i++)
             {
                 if (_foundSearchItems.Any(item => item.GetObjectVariable() == freshFoundBuildings[i]))
                 {
@@ -65,7 +75,7 @@ namespace _Scripts.Search_Bar
                     continue;
                 }
 
-                var newItem = Instantiate(ResourceManager.Instance.foundItem, foundContents.transform);// Create a new FoundItem object using Instantiate
+                var newItem = Instantiate(ResourceManager.Instance.foundItem, _foundContents.transform);// Create a new FoundItem object using Instantiate
                 newItem.Init(freshFoundBuildings[i], "Building",freshFoundBuildings[i].gameObject.name);
                 _foundSearchItems.Add(newItem); // Add the new object to the list
             }
@@ -76,15 +86,15 @@ namespace _Scripts.Search_Bar
     
         public void OnSelect()
         { 
-            searchMenuCanvas.gameObject.SetActive(true);
+            _searchMenuCanvas.gameObject.SetActive(true);
         
-            homeMenuCanvas.interactable = false;
+            _homeMenuCanvas.interactable = false;
 
-            trueSearchBar.ActivateInputField();
-            searchMenuCanvas.interactable = true;
+            _trueSearchBar.ActivateInputField();
+            _searchMenuCanvas.interactable = true;
 
-            searchMenuCanvas.alpha = 0;
-            DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 1, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
+            _searchMenuCanvas.alpha = 0;
+            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration).OnComplete(() => _homeMenuCanvas.gameObject.SetActive(false));
 
             //homeMenuCanvas.alpha = 1;
             //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => homeMenuCanvas.gameObject.SetActive(false));
@@ -93,18 +103,18 @@ namespace _Scripts.Search_Bar
     
         public void OnDeselect()
         { 
-            homeMenuCanvas.gameObject.SetActive(true);
+            _homeMenuCanvas.gameObject.SetActive(true);
         
-            searchMenuCanvas.interactable = false;
+            _searchMenuCanvas.interactable = false;
 
-            trueSearchBar.DeactivateInputField();
-            homeMenuCanvas.interactable = true;
+            _trueSearchBar.DeactivateInputField();
+            _homeMenuCanvas.interactable = true;
 
             //homeMenuCanvas.alpha = 0;
             //DOTween.To(() => homeMenuCanvas.alpha, x => homeMenuCanvas.alpha = x, 1, transitionDuration).OnComplete(() => searchMenuCanvas.gameObject.SetActive(false));
 
-            searchMenuCanvas.alpha = 1;
-            DOTween.To(() => searchMenuCanvas.alpha, x => searchMenuCanvas.alpha = x, 0, transitionDuration).OnComplete(() => searchMenuCanvas.gameObject.SetActive(false));
+            _searchMenuCanvas.alpha = 1;
+            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 0, _transitionDuration).OnComplete(() => _searchMenuCanvas.gameObject.SetActive(false));
         
         }
     

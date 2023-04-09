@@ -27,6 +27,6 @@ public class NavigateStateMachine : StateMachine<NavigateStateMachine, AppState>
     
     public void OnDeselect(AppState enterState)
     {
-        if(enterState != AppState.Calendar) _navigateCanvas.gameObject.SetActive(false);    
+g        if(enterState != AppState.Calendar) _navigateCanvas.gameObject.SetActive(false);    
     }
 }

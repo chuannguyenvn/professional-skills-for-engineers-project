@@ -61,9 +61,5 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     {
         if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
     }
-
-    public void Navigate()
-    {
-        MapManager.Instance.Navigate(currentBuilding);
-    }
+    
 }

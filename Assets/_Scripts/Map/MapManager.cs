@@ -94,9 +94,42 @@ namespace _Scripts.Map
         {
             var shortestPathsWeight =
                 DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[source]);
-            var backTrackingVertices = PathfindingAlgorithm.backTrackingVertices;
+            
+            return GetRoadJourney(destination);
+        }
 
-            List<RoadIntersectionNode> roadJourney = new();
+        
+        public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source, List<RoadIntersectionNode> destinations)
+        {
+            var shortestPathsWeight =
+                DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[source]);
+
+            RoadIntersectionNode shortestRoadNode = null;
+            float smallestWeight = float.MaxValue;
+            foreach ( var (vertex, weight)  in shortestPathsWeight)
+            {
+                var currentRoadNode = _verticesToRoad[vertex];
+                if (destinations.Contains(currentRoadNode))
+                {
+                    if (weight < smallestWeight)
+                    {
+                        smallestWeight = weight;
+                        shortestRoadNode = currentRoadNode;
+                    }
+                }
+            }
+            
+           
+            return GetRoadJourney(shortestRoadNode);
+        }
+
+        private List<RoadIntersectionNode> GetRoadJourney(RoadIntersectionNode destination)
+        {
+            if (destination == null) return null;
+
+                List<RoadIntersectionNode> roadJourney = new();
+            
+            var backTrackingVertices = PathfindingAlgorithm.backTrackingVertices;
             for (PathfindingAlgorithm.Vertex traverseVertex = _roadToVertices[destination];  
                  traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex); 
                  traverseVertex = backTrackingVertices[traverseVertex])
@@ -170,21 +203,6 @@ namespace _Scripts.Map
 
         }
 
-        public bool Navigate(Building building)
-        {
-            if (building != null)
-            {
-                Debug.Log("Building " + building.name + " Num of Entrances " + building.entrances.Count);
-                playerNavigation.EnableNavigation(building);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-    
         #region Unused
 
         private void CreateBuildingPrefab(Building building)

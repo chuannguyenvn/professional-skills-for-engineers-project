@@ -52,6 +52,12 @@ public class PlayerNavigation : MonoBehaviour
 
     private void SetLineTrack()
     {
+        if (_roadJourney == null)
+        {
+            lineRenderer.positionCount = 0;
+            return;
+        }
+        
         int count = _roadJourney.Count;
         lineRenderer.positionCount = count;
         var roadPositions = new Vector3[count];
@@ -65,7 +71,7 @@ public class PlayerNavigation : MonoBehaviour
 
     private void ReCheckingShortestPath()
     {
-       _roadJourney =  MapManager.Instance.ShortestPathToDestinations(playerRoadNode, _destinationBuilding.entrances[0]);
+       _roadJourney =  MapManager.Instance.ShortestPathToDestinations(playerRoadNode, _destinationBuilding.entrances);
     }
     private void RemoveOldNearByNode()
     {

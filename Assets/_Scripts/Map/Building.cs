@@ -73,12 +73,17 @@ namespace _Scripts.Map
             }
         }
 
+        
         private void OnMouseUpAsButton()
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 Debug.Log(gameObject.name + " Clicked ");
-                ApplicationManager.Instance.SetState(AppState.Info, null, new object[]{this});
+
+                AppState currentState = ApplicationManager.Instance.GetState();
+                
+                if(currentState is AppState.Home or AppState.Info  ) 
+                    ApplicationManager.Instance.SetState(AppState.Info, null, new object[]{this});
             }
         }
     }

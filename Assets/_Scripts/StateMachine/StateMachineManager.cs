@@ -38,6 +38,10 @@ namespace _Scripts.StateMachine
             }
         }
         
+        public TStateEnum GetState()
+        {
+            return currentStateMachine._myStateEnum;
+        }
 
         private IEnumerator SwitchingState()
         {

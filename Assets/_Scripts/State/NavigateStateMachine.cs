@@ -24,8 +24,6 @@ public class NavigateStateMachine : StateMachine<NavigateStateMachine, AppState>
         AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
         AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
     }
-
-    
     
     public void OnSelect(AppState exitState, object[] parameters)
     {

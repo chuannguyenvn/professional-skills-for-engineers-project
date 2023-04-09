@@ -20,7 +20,7 @@ public class NavigateStateMachine : StateMachine<NavigateStateMachine, AppState>
     
     public void Awake()
     {
-        _backButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Home));
+        _backButton?.onClick.AddListener(() => ApplicationManager.Instance.SetToLastState());
         AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
         AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
     }
@@ -30,6 +30,7 @@ public class NavigateStateMachine : StateMachine<NavigateStateMachine, AppState>
         Building building = parameters[0] as Building;
 
         if (building == null) return;
+
         _buildingText.text = building.buildingSo.buildingName;
         _playerNavigation.EnableNavigation(building);
         

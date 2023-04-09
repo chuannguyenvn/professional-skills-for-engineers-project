@@ -12,6 +12,11 @@ namespace _Scripts.StateMachine
         private Dictionary<TStateEnum, StateMachine<TStateEnum>> _states = new ();
 
         private Queue<(StateMachine<TStateEnum>, object[], object[])> _changingStateQueue = new ();
+
+        [Header("History")] 
+        [SerializeField, Range(0,20)]private int _maxHistoryLength = 10;
+        private LinkedList<(StateMachine<TStateEnum>, object[], object[])> _historyStates = new();
+        
         private bool _isChangingState;
         
         public void AddState(TStateEnum stateEnum, StateMachine<TStateEnum> stateMachine)
@@ -31,11 +36,37 @@ namespace _Scripts.StateMachine
                 //Debug.Log("State Machine Manager Enqueue state "+ nextState);
                 _changingStateQueue.Enqueue((nextState, exitParameters, enterParameters));
                 StartCoroutine(nameof(SwitchingState));
+                AddStateToHistory(nextState, exitParameters, enterParameters);
             }
             else
             {
                 Debug.LogWarning($"State {stateEnum} not found in state machine.");
             }
+        }
+        
+        public void SetToLastState()
+        {
+            if (_historyStates.Count != 0)
+            {
+                _historyStates.RemoveFirst();
+                _changingStateQueue.Enqueue(_historyStates.First.Value);
+                StartCoroutine(nameof(SwitchingState));
+            }
+            else
+            {
+                Debug.LogError("No state in the history state machine");
+            }
+            
+        }
+
+        private void AddStateToHistory( StateMachine<TStateEnum> state, object[] exitParameters = null, object[] enterParameters = null)
+        {
+            if (_historyStates.Count >= _maxHistoryLength)
+            {
+                _historyStates.RemoveLast();
+            }
+
+            _historyStates.AddFirst((state, exitParameters, enterParameters));
         }
         
         public TStateEnum GetState()

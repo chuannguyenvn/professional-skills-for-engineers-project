@@ -30,9 +30,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
         buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    
     /// <param name="parameter">
     /// [0] : Building
     /// </param>

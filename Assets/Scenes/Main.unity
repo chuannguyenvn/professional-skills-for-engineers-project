@@ -10163,6 +10163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8eb3a2a295b0044832830a416a265e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHistoryLength: 10
   initState: 0
   appStateMachines:
   - {fileID: 722076257}
@@ -14666,6 +14667,50 @@ PrefabInstance:
     - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Name
       value: Calendar Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881811369266776789, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1682.8083
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 691.5539
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338255767913, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338296681542, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}

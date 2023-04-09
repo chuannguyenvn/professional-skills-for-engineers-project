@@ -59,10 +59,23 @@ namespace _Scripts.StateMachine
             }
         
         }
-    
-        /// <summary>
-        /// Add a IEnumerator to the queue, this is the only way for multiple parameter to be pass in 
-        /// </summary>
+        
+        public void AddToFunctionQueue(Action<TStateEnum, object[]> action, StateEvent stateEvent)
+        {
+            switch (stateEvent)
+            {
+                case StateEvent.OnEnter:
+                    onEnterEvents.Add((stateEnum, parameters) => ConvertToIEnumerator(action, stateEnum, parameters));
+                    break;
+                case StateEvent.OnExit:
+                    onExitEvents.Add((stateEnum, parameters) => ConvertToIEnumerator(action, stateEnum, parameters));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(stateEvent), stateEvent, null);
+            }
+        
+        }
+        
         public void AddToFunctionQueue(Func<TStateEnum,object[], IEnumerator> coroutine, StateEvent stateEvent)
         {
             switch (stateEvent)
@@ -96,6 +109,12 @@ namespace _Scripts.StateMachine
         private IEnumerator ConvertToIEnumerator(Action<TStateEnum> action, TStateEnum stateEnum)
         {
             action.Invoke(stateEnum);
+            yield return null;
+        }
+        
+        private IEnumerator ConvertToIEnumerator(Action<TStateEnum, object[]> action, TStateEnum stateEnum, object[] parameters = null)
+        {
+            action.Invoke(stateEnum, parameters);
             yield return null;
         }
         

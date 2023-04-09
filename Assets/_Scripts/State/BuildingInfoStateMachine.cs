@@ -33,7 +33,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     /// <param name="parameter">
     /// [0] : Building
     /// </param>
-    public IEnumerator OnSelect(AppState exitState, object[] parameter)
+    public void OnSelect(AppState exitState, object[] parameter)
     {
         Building building = parameter[0] as Building;
         
@@ -54,8 +54,6 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
             descriptiveImage.sprite = sprite;
             _descriptiveImages.Add(descriptiveImage);
         }
-        
-        yield return null;
     }
 
     public void OnDeselect(AppState enterState)

@@ -33,15 +33,13 @@ public class HomeStateMachine : StateMachine<HomeStateMachine, AppState>
     
     void OnSelect(AppState exitState)
     {
-        Debug.Log("Home enter");
         _homeMenuCanvas.alpha = 1;
         _homeMenuCanvas.interactable = true;
     }
 
     private void OnDeselect(AppState enterState)
     {
-        Debug.Log("Home exit");
-        _homeMenuCanvas.alpha = 0;
+        if(enterState != AppState.Search) _homeMenuCanvas.alpha = 0;
         _homeMenuCanvas.interactable = false;
     }
 }

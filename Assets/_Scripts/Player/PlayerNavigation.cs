@@ -88,7 +88,7 @@ public class PlayerNavigation : MonoBehaviour
 
         foreach (var hit in hit2d)
         {
-            Debug.Log("Hit " + hit.gameObject.name);
+           // Debug.Log("Hit " + hit.gameObject.name);
             var freshRoadNode = hit.gameObject.GetComponent<RoadIntersectionNode>();
             if(freshRoadNode == playerRoadNode) continue;
             

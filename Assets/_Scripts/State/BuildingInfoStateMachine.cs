@@ -15,6 +15,7 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     [SerializeField] private TextMeshProUGUI buildingName, description;
     [SerializeField] private HorizontalLayoutGroup imageContent;
     [SerializeField] private SwipeVerticalMenu buildingInfoSwipe;
+    [SerializeField] private Button _navigationButton;
     
     private Building currentBuilding;
     private BuildingSO currentBuildingSo;
@@ -24,6 +25,8 @@ public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, A
     {
         AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
         AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
+        
+        _navigationButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[] { currentBuilding }));
         buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
     }
 

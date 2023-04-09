@@ -81,7 +81,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         {
             foreach (var dateTime in subjectInfo.classDateTimes)
             {
-                _dateTimeAndSubjectInfosDictionary.Add(dateTime, subjectInfo);
+                if(!_dateTimeAndSubjectInfosDictionary.ContainsKey(dateTime)) _dateTimeAndSubjectInfosDictionary.Add(dateTime, subjectInfo);
             }
         }
     }

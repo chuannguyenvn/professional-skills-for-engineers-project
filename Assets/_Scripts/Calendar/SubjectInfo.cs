@@ -37,8 +37,8 @@ public class SubjectInfo
         credits = infoStrings[2] != "--" ? int.Parse(infoStrings[2]) : 0;
         
         classGroup = infoStrings[4];
-        dayOfWeek = (DayOfWeek)(int.Parse(infoStrings[5]) % 7 - 1);
-        TimeDecodeIntoTimeSpan(infoStrings[7]);
+        dayOfWeek = infoStrings[5] != "--" ? (DayOfWeek)(int.Parse(infoStrings[5]) % 7 - 1): (DayOfWeek) 1;
+        DecodeIntoTimeSpan(infoStrings[7]);
 
         string buildingPattern = @"[a-c|A-C]\d+", roomPattern = @"[\d]{3}";
         Regex regex1 = new Regex(buildingPattern), regex2 = new Regex(roomPattern);
@@ -50,7 +50,7 @@ public class SubjectInfo
         DecodeWeekString(infoStrings[10]);
     }
 
-    private void TimeDecodeIntoTimeSpan(string time)
+    private void DecodeIntoTimeSpan(string time)
     {
         Regex pattern = new Regex(@"(\d+):(\d+) - (\d+):(\d+)");
         Match match = pattern.Match(time);

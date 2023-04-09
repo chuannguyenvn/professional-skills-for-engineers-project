@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using _Scripts.Map;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class SubjectInfo
     public DayOfWeek dayOfWeek;
     public TimeSpan lessonStartHour, lessonEndHour;
     public string room;
+    public Building building;
     public List<DateTime> classDateTimes = new();
     public int startYear;
 
@@ -31,20 +33,21 @@ public class SubjectInfo
         subjectCode = infoStrings[0];
         name = infoStrings[1];
 
-        try
-        {
-            credits = int.Parse(infoStrings[2]);
-        }
-        catch 
-        {
-            credits = 0;
-        }
 
+        credits = infoStrings[2] != "--" ? int.Parse(infoStrings[2]) : 0;
+        
         classGroup = infoStrings[4];
         dayOfWeek = (DayOfWeek)(int.Parse(infoStrings[5]) % 7 - 1);
         TimeDecodeIntoTimeSpan(infoStrings[7]);
-        room = infoStrings[8];
-        WeekStringDecode(infoStrings[10]);
+
+        string buildingPattern = @"[a-c|A-C]\d+", roomPattern = @"[\d]{3}";
+        Regex regex1 = new Regex(buildingPattern), regex2 = new Regex(roomPattern);
+        Match match1 = regex1.Match(infoStrings[8]), match2 = regex2.Match(infoStrings[8]);
+        
+        building = MapManager.Instance.FindBuilding(match1.Value);
+        room = match2.Value;
+        
+        DecodeWeekString(infoStrings[10]);
     }
 
     private void TimeDecodeIntoTimeSpan(string time)
@@ -62,7 +65,7 @@ public class SubjectInfo
         lessonEndHour = new TimeSpan(endHour, endMinute, 0);
     }
 
-    private void WeekStringDecode(string weeksLine)
+    private void DecodeWeekString(string weeksLine)
     {
         string[] weeks = weeksLine.Split("|");
 

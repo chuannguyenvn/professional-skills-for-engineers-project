@@ -20,12 +20,14 @@ namespace _Scripts.State
 
         public void OnSelect(AppState exitState)
         {
-            if(exitState != AppState.Calendar) _calendarCanvas.gameObject.SetActive(true);
+            _calendarCanvas.gameObject.SetActive(true);
+            _calendarMenu.Show();
         }
     
         public void OnDeselect(AppState enterState)
         {
-            if(enterState != AppState.Calendar) _calendarCanvas.gameObject.SetActive(false);    
+            _calendarCanvas.gameObject.SetActive(false);    
+            _calendarMenu.Hide();
         }
         
     }

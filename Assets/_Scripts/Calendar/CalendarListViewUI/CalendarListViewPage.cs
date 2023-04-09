@@ -142,7 +142,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this);
-        Debug.Log("create timeblock "+ subject.name +" At " +dateTime.ToString());
+        //Debug.Log("create timeblock "+ subject.name +" At " +dateTime.ToString());
         if (isTopNorBottom)
         {
             instantiateTimeBlock.transform.SetAsFirstSibling();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Manager;
 using Map;
@@ -10,21 +11,23 @@ namespace _Scripts.Map
 {
     public class Building : MonoBehaviour
     {
+        private static Building firstTouchedBuilding;
+
         [SerializeField] private Polygon polygon;
         [SerializeField] private PolygonCollider2D polygonCollider2D;
 
-        [Header("Road Node Entrances")] 
-        public List<RoadIntersectionNode> entrances = new();
+        [Header("Road Node Entrances")] public List<RoadIntersectionNode> entrances = new();
 
-        [Header("3D Variable")]
-        [SerializeField] bool Is3D = true;
+        [Header("3D Variable")] [SerializeField]
+        bool Is3D = true;
+
         [SerializeField] private float BuildingHeight = 10f;
 
-        
+
         private List<Vector2> _geoCoordinates;
         private List<Vector2> _worldCoordinates;
         public BuildingSO buildingSo;
-        
+
 
         public void Init(BuildingSO buildingSo)
         {
@@ -35,9 +38,9 @@ namespace _Scripts.Map
             polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);
 
             transform.position = _worldCoordinates[0];
-            for (int i = 0 ; i< _worldCoordinates.Count; i++)
+            for (int i = 0; i < _worldCoordinates.Count; i++)
             {
-                _worldCoordinates[i] -=  (Vector2)transform.position;
+                _worldCoordinates[i] -= (Vector2)transform.position;
             }
 
             if (Is3D) Init3D();
@@ -73,18 +76,27 @@ namespace _Scripts.Map
             }
         }
 
-        
-        private void OnMouseUpAsButton()
+        private void OnMouseDown()
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            firstTouchedBuilding = this;
+        }
+
+        private void OnMouseUp()
+        {
+            if (EvaluateClick())
             {
                 Debug.Log(gameObject.name + " Clicked ");
 
                 AppState currentState = ApplicationManager.Instance.GetState();
-                
-                if(currentState is AppState.Home or AppState.Info  ) 
-                    ApplicationManager.Instance.SetState(AppState.Info, null, new object[]{this});
+
+                if (currentState is AppState.Home or AppState.Info)
+                    ApplicationManager.Instance.SetState(AppState.Info, null, new object[] {this});
             }
+        }
+
+        private bool EvaluateClick()
+        {
+            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
         }
     }
 }

@@ -69,6 +69,10 @@ MonoBehaviour:
   isNavigating: 0
   isOnNavigationCycle: 0
   navigationUpdateCycleTime: 5
+  radiusFindingRoadNode: 10
+  roadNodeLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!120 &3219722473865997183
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +119,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2.5
     widthCurve:
       serializedVersion: 2
       m_Curve:

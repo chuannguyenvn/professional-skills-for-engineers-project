@@ -175,7 +175,8 @@ public static class Utility
 
     public static Vector3 RandomVector3((float, float) x, (float, float) y, (float, float) z)
     {
-        return new Vector3(Random.Range(x.Item1, x.Item2), Random.Range(y.Item1, y.Item2),
+        return new Vector3(Random.Range(x.Item1, x.Item2),
+            Random.Range(y.Item1, y.Item2),
             Random.Range(z.Item1, z.Item2));
     }
 
@@ -201,15 +202,13 @@ public static class Utility
         action?.Invoke();
     }
 
-    public static bool IsInBetweenInclusive(this IComparable mid, IComparable firstLimit,
-        IComparable secondLimit)
+    public static bool IsInBetweenInclusive(this IComparable mid, IComparable firstLimit, IComparable secondLimit)
     {
         return mid.CompareTo(firstLimit) >= 0 && mid.CompareTo(secondLimit) <= 0 ||
                mid.CompareTo(secondLimit) >= 0 && mid.CompareTo(firstLimit) <= 0;
     }
 
-    public static bool IsInBetweenExclusive(this IComparable mid, IComparable firstLimit,
-        IComparable secondLimit)
+    public static bool IsInBetweenExclusive(this IComparable mid, IComparable firstLimit, IComparable secondLimit)
     {
         return mid.CompareTo(firstLimit) > 0 && mid.CompareTo(secondLimit) < 0 ||
                mid.CompareTo(secondLimit) > 0 && mid.CompareTo(firstLimit) < 0;
@@ -222,7 +221,7 @@ public static class Utility
         return mid.CompareTo(firstLimit) >= 0 && mid.CompareTo(secondLimit) <= 0 ||
                mid.CompareTo(secondLimit) >= 0 && mid.CompareTo(firstLimit) <= 0;
     }
-    
+
     public static int RandomSign()
     {
         return Random.Range(0, 2) == 0 ? 1 : -1;
@@ -263,7 +262,8 @@ public static class Utility
     {
         Vector3 extents = boxCollider.size / 2f;
         Vector3 point = new Vector3(Random.Range(-extents.x, extents.x),
-            Random.Range(-extents.y, extents.y), Random.Range(-extents.z, extents.z));
+            Random.Range(-extents.y, extents.y),
+            Random.Range(-extents.z, extents.z));
 
         return boxCollider.transform.TransformPoint(point);
     }
@@ -271,8 +271,7 @@ public static class Utility
     public static Vector2 GetRandomPointInsideCollider(this BoxCollider2D boxCollider)
     {
         Vector2 extents = boxCollider.size / 2f;
-        Vector2 point = new Vector2(Random.Range(-extents.x, extents.x),
-            Random.Range(-extents.y, extents.y));
+        Vector2 point = new Vector2(Random.Range(-extents.x, extents.x), Random.Range(-extents.y, extents.y));
 
         return boxCollider.transform.TransformPoint(point);
     }
@@ -293,7 +292,7 @@ public static class Utility
         if (lineRenderer.positionCount == 0) return;
         lineRenderer.positionCount--;
     }
-    
+
     public static void UpdateLastPoint(this LineRenderer lineRenderer, Vector3 pos)
     {
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, pos);
@@ -315,12 +314,11 @@ public static class Utility
         return newPath;
     }
 
-    public static bool IsIntersectionOnLine(Vector2 a1, Vector2 a2, Vector2 b1, Vector2 b2,
-        out Vector2 intersection, bool checkHead = true)
+    public static bool IsIntersectionOnLine(Vector2 a1, Vector2 a2, Vector2 b1, Vector2 b2, out Vector2 intersection,
+        bool checkHead = true)
     {
-
         intersection = Vector2.positiveInfinity;
-        
+
         if (Mathfs.Approximately((a1 - a2).normalized, (b1 - b2).normalized))
         {
             if (Mathf.Approximately(b1.x, b2.x))
@@ -344,8 +342,7 @@ public static class Utility
         else
         {
             intersection.x =
-                (b1.y - a1.y - b1.x * ((b2.y - b1.y) / (b2.x - b1.x)) +
-                 a1.x * ((a2.y - a1.y) / (a2.x - a1.x))) /
+                (b1.y - a1.y - b1.x * ((b2.y - b1.y) / (b2.x - b1.x)) + a1.x * ((a2.y - a1.y) / (a2.x - a1.x))) /
                 ((a2.y - a1.y) / (a2.x - a1.x) - (b2.y - b1.y) / (b2.x - b1.x));
 
             intersection.y = (a2.y - a1.y) / (a2.x - a1.x) * (intersection.x - a1.x) + a1.y;
@@ -379,8 +376,7 @@ public static class Utility
         else
         {
             intersection.x =
-                (b1.y - a1.y - b1.x * ((b2.y - b1.y) / (b2.x - b1.x)) +
-                 a1.x * ((a2.y - a1.y) / (a2.x - a1.x))) /
+                (b1.y - a1.y - b1.x * ((b2.y - b1.y) / (b2.x - b1.x)) + a1.x * ((a2.y - a1.y) / (a2.x - a1.x))) /
                 ((a2.y - a1.y) / (a2.x - a1.x) - (b2.y - b1.y) / (b2.x - b1.x));
             intersection.y = (a2.y - a1.y) / (a2.x - a1.x) * (intersection.x - a1.x) + a1.y;
         }
@@ -388,8 +384,8 @@ public static class Utility
         return intersection;
     }
 
-    public static bool TryGetIntersectionOneLineExtended(Vector2 extendA, Vector2 extendB, Vector2 lineA,
-        Vector2 lineB, out Vector2 intersection)
+    public static bool TryGetIntersectionOneLineExtended(Vector2 extendA, Vector2 extendB, Vector2 lineA, Vector2 lineB,
+        out Vector2 intersection)
     {
         Vector2? test = GetIntersection(extendA, extendB, lineA, lineB);
         intersection = test.GetValueOrDefault();
@@ -399,12 +395,10 @@ public static class Utility
 
     public static bool IsBetweenPointsInclusive(this Vector2 point, Vector2 a, Vector2 b)
     {
-        return Math.Abs(Vector2.Distance(point, a) + Vector2.Distance(point, b) -
-                        Vector2.Distance(a, b)) < 0.001f;
+        return Math.Abs(Vector2.Distance(point, a) + Vector2.Distance(point, b) - Vector2.Distance(a, b)) < 0.001f;
     }
 
-    public static bool IsInsideTriangle(this Vector2 point, Vector2 a, Vector2 b, Vector2 c,
-        float errorTolerance = -1f)
+    public static bool IsInsideTriangle(this Vector2 point, Vector2 a, Vector2 b, Vector2 c, float errorTolerance = -1f)
     {
         float s1 = Sign(point, a, b);
         float s2 = Sign(point, b, c);
@@ -423,8 +417,7 @@ public static class Utility
         }
     }
 
-    public static bool IsLineBetweenPoints(Vector2 center, Vector2 lineEnd, Vector2 pointA,
-        Vector2 pointB)
+    public static bool IsLineBetweenPoints(Vector2 center, Vector2 lineEnd, Vector2 pointA, Vector2 pointB)
     {
         var ALine = (pointA - center).normalized;
         var BLine = (pointB - center).normalized;
@@ -512,5 +505,35 @@ public static class Utility
     public static Vector2 LerpDistance(Vector2 a, Vector2 b, float distance)
     {
         return Vector2.Lerp(a, b, distance / Vector2.Distance(a, b));
+    }
+
+    private static readonly string[] VietnameseSigns =
+    {
+        "aAeEoOuUiIdDyY",
+        "áàạảãâấầậẩẫăắằặẳẵ",
+        "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+        "éèẹẻẽêếềệểễ",
+        "ÉÈẸẺẼÊẾỀỆỂỄ",
+        "óòọỏõôốồộổỗơớờợởỡ",
+        "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+        "úùụủũưứừựửữ",
+        "ÚÙỤỦŨƯỨỪỰỬỮ",
+        "íìịỉĩ",
+        "ÍÌỊỈĨ",
+        "đ",
+        "Đ",
+        "ýỳỵỷỹ",
+        "ÝỲỴỶỸ"
+    };
+
+    public static string RemoveSpecialVietnameseSigns(string str)
+    {
+        for (int i = 1; i < VietnameseSigns.Length; i++)
+        {
+            for (int j = 0; j < VietnameseSigns[i].Length; j++)
+                str = str.Replace(VietnameseSigns[i][j], VietnameseSigns[0][i - 1]);
+        }
+
+        return str;
     }
 }

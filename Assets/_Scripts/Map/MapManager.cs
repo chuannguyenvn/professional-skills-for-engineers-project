@@ -14,8 +14,8 @@ namespace _Scripts.Map
         private PathfindingAlgorithm.GraphVertexList _graphVertexList = new();
         private Dictionary<RoadIntersectionNode, PathfindingAlgorithm.Vertex> _roadToVertices = new();
         private Dictionary<PathfindingAlgorithm.Vertex, RoadIntersectionNode> _verticesToRoad = new();
-    
-    
+
+
         private void Start()
         {
             InitBuildings();
@@ -24,21 +24,22 @@ namespace _Scripts.Map
         }
 
         #region Init
+
         private void InitBuildings()
         {
             foreach (var building in buildingGameObjects)
             {
-                _buildings.Add( building.buildingSo.buildingName.ToLower(), building);
-                foreach (var roadIntersectionNode in building.entrances) 
+                _buildings.Add(building.buildingSo.buildingName.ToLower(), building);
+                foreach (var roadIntersectionNode in building.entrances)
                     roadIntersectionNodes.Add(roadIntersectionNode);
             }
         }
-    
+
         private void InitPlayer()
         {
-            roadIntersectionNodes.Add(playerNavigation.playerRoadNode);    
+            roadIntersectionNodes.Add(playerNavigation.playerRoadNode);
         }
-    
+
         private void InitVertexForRoadNodes()
         {
             //Create Vertices for each node
@@ -50,7 +51,7 @@ namespace _Scripts.Map
                 _verticesToRoad.Add(vertex, roadIntersectionNode);
                 //Debug.Log("Init "+ roadIntersectionNode.name +" is Vertex "+ _roadToVertices[roadIntersectionNode].Key+ " - "+ _roadToVertices[roadIntersectionNode] + " "+ _verticesToRoad[vertex]);
             }
-        
+
             //make directed graph
             foreach (var roadIntersectionNode in roadIntersectionNodes)
             {
@@ -60,16 +61,17 @@ namespace _Scripts.Map
                     AddAdjacentRoad(roadIntersectionNode, adjacentRoadNode);
                 }
             }
-
         }
 
         #endregion
+
         public void Test()
         {
             Debug.Log("Test " + roadIntersectionNodes[0].name + " is Vertex " +
                       _roadToVertices[roadIntersectionNodes[0]].Key);
             var shortestPathsWeight =
-                DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[roadIntersectionNodes[0]]);
+                DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList,
+                    _roadToVertices[roadIntersectionNodes[0]]);
 
             //DijkstraAlgorithm.PrintShortestPaths(_graphVertexList, _vertices[roadIntersectionNodes[0]]);
             /*foreach (var (vertex, weight) in shortestPathsWeight)
@@ -90,23 +92,25 @@ namespace _Scripts.Map
     */
         }
 
-        public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source, RoadIntersectionNode destination)
+        public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source,
+            RoadIntersectionNode destination)
         {
             var shortestPathsWeight =
                 DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[source]);
-            
+
             return GetRoadJourney(destination);
         }
 
-        
-        public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source, List<RoadIntersectionNode> destinations)
+
+        public List<RoadIntersectionNode> ShortestPathToDestinations(RoadIntersectionNode source,
+            List<RoadIntersectionNode> destinations)
         {
             var shortestPathsWeight =
                 DijkstraAlgorithm.DijkstraShortestPathBetter(_graphVertexList, _roadToVertices[source]);
 
             RoadIntersectionNode shortestRoadNode = null;
             float smallestWeight = float.MaxValue;
-            foreach ( var (vertex, weight)  in shortestPathsWeight)
+            foreach (var (vertex, weight) in shortestPathsWeight)
             {
                 var currentRoadNode = _verticesToRoad[vertex];
                 if (destinations.Contains(currentRoadNode))
@@ -118,8 +122,8 @@ namespace _Scripts.Map
                     }
                 }
             }
-            
-           
+
+
             return GetRoadJourney(shortestRoadNode);
         }
 
@@ -127,11 +131,11 @@ namespace _Scripts.Map
         {
             if (destination == null) return null;
 
-                List<RoadIntersectionNode> roadJourney = new();
-            
+            List<RoadIntersectionNode> roadJourney = new();
+
             var backTrackingVertices = PathfindingAlgorithm.backTrackingVertices;
-            for (PathfindingAlgorithm.Vertex traverseVertex = _roadToVertices[destination];  
-                 traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex); 
+            for (PathfindingAlgorithm.Vertex traverseVertex = _roadToVertices[destination];
+                 traverseVertex != null && backTrackingVertices.ContainsKey(traverseVertex);
                  traverseVertex = backTrackingVertices[traverseVertex])
             {
                 roadJourney.Add(_verticesToRoad[traverseVertex]);
@@ -144,20 +148,20 @@ namespace _Scripts.Map
         public void AddAdjacentRoad(RoadIntersectionNode source, RoadIntersectionNode destination)
         {
             float weight = Vector3.Distance(source.transform.position, destination.transform.position);
-            _graphVertexList.AddEdgeDirected(_roadToVertices[source],_roadToVertices[destination], weight);
+            _graphVertexList.AddEdgeDirected(_roadToVertices[source], _roadToVertices[destination], weight);
         }
 
         public void RemoveAdjacentRoad(RoadIntersectionNode source, RoadIntersectionNode destination)
         {
-            _graphVertexList.RemoveEdge(_roadToVertices[source],_roadToVertices[destination]);
+            _graphVertexList.RemoveEdge(_roadToVertices[source], _roadToVertices[destination]);
         }
-    
+
         public Building FindBuilding(string searching)
         {
             searching = searching.ToLower();
             //Debug.Log(searching +" Building");
             if (_buildings.ContainsKey(searching)) return _buildings[searching];
-        
+
             /*
             foreach (var buildingName in _buildings.Keys)
             {
@@ -178,7 +182,7 @@ namespace _Scripts.Map
             List<Building> result = new();
             foreach (var (foundName, foundBuilding) in _buildings)
             {
-                if (foundName.Contains(searching))
+                if (Utility.RemoveSpecialVietnameseSigns(foundName).Contains(searching))
                 {
                     result.Add(foundBuilding);
                 }
@@ -186,7 +190,7 @@ namespace _Scripts.Map
 
             return result;
         }
-    
+
         public bool Navigate(string buildingName)
         {
             Building building = FindBuilding(buildingName);
@@ -200,7 +204,6 @@ namespace _Scripts.Map
             {
                 return false;
             }
-
         }
 
         #region Unused
@@ -209,18 +212,16 @@ namespace _Scripts.Map
         {
             // Create some asset folders.
             //AssetDatabase.CreateFolder("Assets/Prefabs", "BuildingPrefabs");
-            
+
             // The paths to the mesh/prefab assets.
             //string prefabPath = "Assets/Prefabs/BuildingPrefabs/"+ building.name +".prefab";
- 
+
             // Delete the assets if they already exist.
             //AssetDatabase.DeleteAsset(prefabPath);
-            
+
             // Save the transform's GameObject as a prefab asset.
             //PrefabUtility.CreatePrefab(prefabPath, building.gameObject);
-
-        }    
-    
+        }
 
         #endregion
     }

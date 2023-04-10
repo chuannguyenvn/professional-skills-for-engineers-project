@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
   m_Name: a4
   m_EditorClassIdentifier: 
-  name: a4
+  buildingName: A4
   description: "V\u0103n ph\xF2ng \u0110\xE0o t\u1EA1o Qu\u1ED1c t\u1EBF OISP"
   descriptiveSprites:
   - {fileID: 21300000, guid: aaaf01f3a5cc3744899fe6afd4da3987, type: 3}

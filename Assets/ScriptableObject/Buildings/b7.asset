@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
   m_Name: b7
   m_EditorClassIdentifier: 
-  name: b7
+  buildingName: B7
+  description: 
+  descriptiveSprites: []
   geoCoordinate:
   - {x: 10.77444, y: 106.66126}
   - {x: 10.774509, y: 106.661316}

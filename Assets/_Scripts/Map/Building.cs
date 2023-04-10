@@ -27,7 +27,7 @@ namespace _Scripts.Map
         private List<Vector2> _geoCoordinates;
         private List<Vector2> _worldCoordinates;
         public BuildingSO buildingSo;
-
+    
 
         public void Init(BuildingSO buildingSo)
         {

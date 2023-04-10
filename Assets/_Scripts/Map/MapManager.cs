@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Map;
 using UnityEngine;
 
@@ -179,16 +180,19 @@ namespace _Scripts.Map
             searching = searching.ToLower();
             //Debug.Log(searching +" Buildings ");
 
-            List<Building> result = new();
+            List<(string, Building)> result = new();
             foreach (var (foundName, foundBuilding) in _buildings)
             {
                 if (Utility.RemoveSpecialVietnameseSigns(foundName).Contains(searching))
                 {
-                    result.Add(foundBuilding);
+                    result.Add((foundName, foundBuilding));
                 }
             }
 
-            return result;
+            return result.OrderBy(tuple => tuple.Item1.Length)
+                .ThenBy(tuple => tuple.Item1)
+                .Select(tuple => tuple.Item2)
+                .ToList();
         }
 
         public bool Navigate(string buildingName)

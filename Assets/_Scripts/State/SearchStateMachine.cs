@@ -42,44 +42,24 @@ namespace _Scripts.State
         public void OnSearchValueChanged(string text)
         {
             text = Utility.RemoveSpecialVietnameseSigns(text);
-            
-            _homeSearchBar.text = text;
-            if (text == "")
-            {
-                foreach (var foundSearchItem in _foundSearchItems)
-                {
-                    Destroy(foundSearchItem.gameObject);
-                }
 
-                _foundSearchItems.Clear();
-                return;
+            _homeSearchBar.text = text;
+
+            foreach (var foundSearchItem in _foundSearchItems)
+            {
+                Destroy(foundSearchItem.gameObject);
             }
+
+            _foundSearchItems.Clear();
 
             List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(text);
 
-            // Get the list of objects to destroy
-            var toDestroy = _foundSearchItems.Where(item => !freshFoundBuildings.Contains(item.GetObjectVariable()))
-                .ToList();
-
-            // Destroy the objects to destroy
-            foreach (var item in toDestroy)
+            foreach (var building in freshFoundBuildings)
             {
-                Destroy(item.gameObject);
-                _foundSearchItems.Remove(item);
-            }
-
-            for (int i = _foundSearchItems.Count; i < Mathf.Min(_maxFoundElement, freshFoundBuildings.Count); i++)
-            {
-                if (_foundSearchItems.Any(item => item.GetObjectVariable() == freshFoundBuildings[i]))
-                {
-                    // Object already exists, skip
-                    continue;
-                }
-
                 var newItem =
                     Instantiate(ResourceManager.Instance.foundItem,
                         _foundContents.transform); // Create a new FoundItem object using Instantiate
-                newItem.Init(freshFoundBuildings[i], "Building", freshFoundBuildings[i].gameObject.name);
+                newItem.Init(building, "Building", building.buildingSo.buildingName);
                 _foundSearchItems.Add(newItem); // Add the new object to the list
             }
         }

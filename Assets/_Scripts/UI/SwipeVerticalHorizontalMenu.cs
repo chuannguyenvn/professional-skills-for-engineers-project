@@ -94,7 +94,30 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
         SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[initHorizontalIndex].onSelectEvent);
     }
 
+    public void SetToHorizontalPage(int index)
+    {
+        if(index < 0 || index >= horizontalPages.Count) return;
+        
+        horizontalPages[currentHorizontalIndex].OnDeselect();
+        currentHorizontalIndex = index;
+        expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[index].rectTransform.anchoredPosition;
+        
+        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[index].onSelectEvent);
 
+    }
+
+    public void SetToVerticalPage(int index)
+    {
+        if(index < 0 || index >= verticalPages.Count) return;
+        
+        verticalPages[currentVerticalIndex].OnDeselect();
+        currentVerticalIndex = index;
+        expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[index].rectTransform.anchoredPosition;
+        
+        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[index].onSelectEvent);
+
+    }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         //Debug.Log("Pointer down " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +

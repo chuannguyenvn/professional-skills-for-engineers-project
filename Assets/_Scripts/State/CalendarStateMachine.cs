@@ -13,7 +13,11 @@ namespace _Scripts.State
         
         public void Awake()
         {
-            _calendarMenu?.verticalPages[0]?.onSelectEvent.AddListener(() => ApplicationManager.Instance.SetState(AppState.Home));
+            _calendarMenu?.verticalPages[0]?.onSelectEvent.AddListener(() =>
+            {
+                _calendarCanvas.gameObject.SetActive(false);    
+                ApplicationManager.Instance.SetState(AppState.Home);
+            });
             AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
             AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
         }
@@ -26,7 +30,6 @@ namespace _Scripts.State
     
         public void OnDeselect(AppState enterState)
         {
-            _calendarCanvas.gameObject.SetActive(false);    
             _calendarMenu.Hide();
         }
         

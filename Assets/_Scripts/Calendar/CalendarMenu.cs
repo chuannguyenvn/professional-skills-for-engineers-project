@@ -1,13 +1,20 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+
 
 namespace _Scripts.Calendar
 {
     public class CalendarMenu : SwipeVerticalHorizontalMenu
     {
-        [Header("Visualize UI")]
+        [Header("Visualize Swipe Button UI")]
         [SerializeField] private CalendarSwipeButton [] _swipeButtons;
         private CalendarSwipeButton _currentSelectButton;
+        
+        [Header("Visualize Swipe Bar UI")]
+        [SerializeField] private RectTransform _miniBarBelowButton;
+        [SerializeField, Range(0,1)] private float _minBarMovingDuration = 0.25f;
+        [SerializeField] private Ease _miniBarEase;
         private void Start()
         {
             for (var i = 0 ; i < _swipeButtons.Length; i++)
@@ -30,6 +37,7 @@ namespace _Scripts.Calendar
             _currentSelectButton?.VisualizeDeselect();
             _currentSelectButton = _swipeButtons[index];
             _currentSelectButton.VisualizeSelect();
+            _miniBarBelowButton.DOAnchorPosX(_currentSelectButton.rectTransform.anchoredPosition.x, _minBarMovingDuration).SetEase(_miniBarEase);
         }
     }
 }

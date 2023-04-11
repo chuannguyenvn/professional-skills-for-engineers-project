@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,12 +8,19 @@ namespace _Scripts.Calendar
     [RequireComponent(typeof(Button))]
     public class CalendarSwipeButton : MonoBehaviour, IPointerDownHandler
     {
-        public Button button;
         [SerializeField] private CalendarMenu _calendarMenu;
         [SerializeField] private Image _icon;
         [SerializeField] private Sprite _selectSprite, _idleSprite;
         [SerializeField] private Color _selectColor, _idleColor;
+        
+        [HideInInspector] public Button button;
+        [HideInInspector] public RectTransform rectTransform;
 
+        private void Awake()
+        {
+            button = GetComponent<Button>();
+            rectTransform = GetComponent<RectTransform>();
+        }
 
         public void VisualizeSelect()
         {

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : Singleton<CameraMovement>
 {
-    private static float TOUCH_FINGER_MOVEMENT_THRESHOLD = 2f;
+    [SerializeField]private static float TOUCH_FINGER_MOVEMENT_THRESHOLD = 2f;
     public bool IsDragging { get; private set; }
 
     Vector2 touchStart;

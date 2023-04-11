@@ -78,7 +78,7 @@ namespace _Scripts.Map
 
         private void OnMouseDown()
         {
-            firstTouchedBuilding = this;
+            if(Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) firstTouchedBuilding = this;
         }
 
         private void OnMouseUp()
@@ -96,7 +96,7 @@ namespace _Scripts.Map
 
         private bool EvaluateClick()
         {
-            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
+            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
         }
     }
 }

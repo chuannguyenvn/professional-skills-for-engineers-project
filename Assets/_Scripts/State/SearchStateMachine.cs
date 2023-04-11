@@ -68,23 +68,25 @@ namespace _Scripts.State
         public void OnSelect(AppState exitState)
         {
             Debug.Log("Active state search");
+            
+            if (exitState == AppState.Search) return;
             _searchMenuCanvas.gameObject.SetActive(true);
 
             _trueSearchBar.ActivateInputField();
-            _searchMenuCanvas.interactable = true;
-
-            _searchMenuCanvas.alpha = 0;
-            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration);
+            
+            _searchMenuCanvas.alpha = 1;
+            //DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration);
         }
 
         public void OnDeselect(AppState enterState)
         {
-            _searchMenuCanvas.interactable = false;
-            _trueSearchBar.DeactivateInputField();
-
+            //_trueSearchBar.DeactivateInputField();
+            if (enterState == AppState.Search) return;
+            
             _searchMenuCanvas.alpha = 1;
             DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 0, _transitionDuration)
                 .OnComplete(() => _searchMenuCanvas.gameObject.SetActive(false));
+            
         }
     }
 }

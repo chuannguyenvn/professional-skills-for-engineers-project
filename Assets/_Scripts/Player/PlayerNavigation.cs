@@ -47,6 +47,8 @@ public class PlayerNavigation : MonoBehaviour
     {
         isNavigating = false;
         StopCoroutine(CheckNavigation());
+        _roadJourney = null;
+        SetLineTrack();
     }
 
 

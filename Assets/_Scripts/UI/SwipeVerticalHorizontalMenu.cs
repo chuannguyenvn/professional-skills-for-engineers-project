@@ -95,7 +95,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void SetToHorizontalPage(int index)
     {
-        if(index < 0 || index >= horizontalPages.Count ) return;
+        if(index < 0 || index >= horizontalPages.Count || index == currentHorizontalIndex) return;
         
         horizontalPages[currentHorizontalIndex].OnDeselect();
         Debug.Log(expectDestinationVerticalPosition +" "+ (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
@@ -111,7 +111,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void SetToVerticalPage(int index)
     {
-        if(index < 0 || index >= verticalPages.Count ) return;
+        if(index < 0 || index >= verticalPages.Count || index == currentVerticalIndex) return;
         
         verticalPages[currentVerticalIndex].OnDeselect();
         expectDestinationVerticalPosition += verticalPages[index].rectTransform.anchoredPosition -

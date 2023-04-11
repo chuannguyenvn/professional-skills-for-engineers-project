@@ -23,7 +23,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] public List<ChildPageUI> horizontalPages;
     [SerializeField] protected int initHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
-    protected int currentHorizontalIndex;
+    [SerializeField] protected int currentHorizontalIndex;
     protected Vector2 beforeDraggingHorizontalPosition, expectDestinationHorizontalPosition;
     protected Sequence horizontalSequence;
 
@@ -33,7 +33,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] public List<ChildPageUI> verticalPages;
     [SerializeField] protected int initVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
-    protected int currentVerticalIndex;
+    [SerializeField] protected int currentVerticalIndex;
     protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
     protected Sequence verticalSequence;
     
@@ -96,11 +96,12 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void SetToHorizontalPage(int index)
     {
-        if(index < 0 || index >= horizontalPages.Count) return;
+        if(index < 0 || index >= horizontalPages.Count || index == currentHorizontalIndex) return;
         
         horizontalPages[currentHorizontalIndex].OnDeselect();
+        expectDestinationVerticalPosition += (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
+                                              horizontalPages[index].rectTransform.anchoredPosition); // Therefore this is backward
         currentHorizontalIndex = index;
-        expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[index].rectTransform.anchoredPosition;
         
         SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[index].onSelectEvent);
 
@@ -108,11 +109,12 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void SetToVerticalPage(int index)
     {
-        if(index < 0 || index >= verticalPages.Count) return;
+        if(index < 0 || index >= verticalPages.Count || index == currentVerticalIndex) return;
         
         verticalPages[currentVerticalIndex].OnDeselect();
+        expectDestinationVerticalPosition += verticalPages[index].rectTransform.anchoredPosition -
+                       verticalPages[currentVerticalIndex].rectTransform.anchoredPosition;
         currentVerticalIndex = index;
-        expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[index].rectTransform.anchoredPosition;
         
         SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[index].onSelectEvent);
 
@@ -175,7 +177,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
             if (percentage > 0 && currentHorizontalIndex >= 1)
             {
                 newLocation += (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
-                                horizontalPages[currentHorizontalIndex - 1].rectTransform.anchoredPosition); // There for this is backward
+                                horizontalPages[currentHorizontalIndex - 1].rectTransform.anchoredPosition); // Therefore this is backward
 
                 horizontalPages[currentHorizontalIndex].OnDeselect();
                 currentHorizontalIndex--;
@@ -184,7 +186,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
             else if (percentage < 0 && currentHorizontalIndex < horizontalPages.Count - 1)
             {
                 newLocation += (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
-                                horizontalPages[currentHorizontalIndex + 1].rectTransform.anchoredPosition); //there for this is backward
+                                horizontalPages[currentHorizontalIndex + 1].rectTransform.anchoredPosition); //Therefore this is backward
 
                 horizontalPages[currentHorizontalIndex].OnDeselect();
                 currentHorizontalIndex++;

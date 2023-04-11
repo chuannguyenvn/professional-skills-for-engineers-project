@@ -16,7 +16,7 @@ namespace _Scripts.Calendar
                 var i1 = i;
                 swipeButton.button.onClick.AddListener(() =>
                 {
-                    Debug.Log("SET SWIPE TO "+ i1 + " "+ swipeButton.gameObject.name);
+                    SelectSwipeButton(i1);
                     SetToHorizontalPage(i1);
                 });
                 swipeButton.Deselect();
@@ -24,6 +24,15 @@ namespace _Scripts.Calendar
             
             _swipeButtons[initHorizontalIndex].Select();
         
+        }
+
+        private void SelectSwipeButton(int index)
+        {
+            foreach (var swipeButton in _swipeButtons)
+            {
+                swipeButton.Deselect();
+            }
+            _swipeButtons[index].Select();
         }
     }
 }

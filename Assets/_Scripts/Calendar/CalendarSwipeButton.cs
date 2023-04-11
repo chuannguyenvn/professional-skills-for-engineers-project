@@ -11,21 +11,19 @@ namespace _Scripts.Calendar
         [SerializeField] private CalendarMenu _calendarMenu;
         [SerializeField] private Image _icon;
         [SerializeField] private Sprite _selectSprite, _idleSprite;
-    
-        void Start()
-        {
-        }
+        [SerializeField] private Color _selectColor, _idleColor;
+
 
         public void Select()
         {
             _icon.sprite = _selectSprite;
-            _icon.color = new Color(27, 124, 210);
+            _icon.color = _selectColor;
         }
 
         public void Deselect()
         {
             _icon.sprite = _idleSprite;
-            _icon.color = Color.black;
+            _icon.color = _idleColor;
         }
 
         public void OnPointerDown(PointerEventData eventData)

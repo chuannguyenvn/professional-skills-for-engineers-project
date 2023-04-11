@@ -14832,6 +14832,66 @@ PrefabInstance:
       propertyPath: _swipeButtons.Array.data[1]
       value: 
       objectReference: {fileID: 1245465367}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 483908202}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 483908202}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SelectSwipeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectSwipeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: _Scripts.Calendar.CalendarMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _Scripts.Calendar.CalendarMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: horizontalPages.Array.data[1].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1245465362, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Name
       value: Creation Button

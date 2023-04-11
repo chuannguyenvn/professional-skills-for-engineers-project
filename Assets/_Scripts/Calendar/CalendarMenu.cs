@@ -7,7 +7,7 @@ namespace _Scripts.Calendar
     {
         [Header("Visualize UI")]
         [SerializeField] private CalendarSwipeButton [] _swipeButtons;
-        
+        private CalendarSwipeButton _currentSelectButton;
         private void Start()
         {
             for (var i = 0 ; i < _swipeButtons.Length; i++)
@@ -16,23 +16,20 @@ namespace _Scripts.Calendar
                 var i1 = i;
                 swipeButton.button.onClick.AddListener(() =>
                 {
-                    SelectSwipeButton(i1);
                     SetToHorizontalPage(i1);
                 });
-                swipeButton.Deselect();
+                swipeButton.VisualizeDeselect();
             }
             
-            _swipeButtons[initHorizontalIndex].Select();
-        
+            _currentSelectButton = _swipeButtons[initHorizontalIndex];
+            _currentSelectButton.VisualizeSelect();
         }
 
-        private void SelectSwipeButton(int index)
+        public void SelectSwipeButton(int index)
         {
-            foreach (var swipeButton in _swipeButtons)
-            {
-                swipeButton.Deselect();
-            }
-            _swipeButtons[index].Select();
+            _currentSelectButton?.VisualizeDeselect();
+            _currentSelectButton = _swipeButtons[index];
+            _currentSelectButton.VisualizeSelect();
         }
     }
 }

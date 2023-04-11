@@ -14,13 +14,13 @@ namespace _Scripts.Calendar
         [SerializeField] private Color _selectColor, _idleColor;
 
 
-        public void Select()
+        public void VisualizeSelect()
         {
             _icon.sprite = _selectSprite;
             _icon.color = _selectColor;
         }
 
-        public void Deselect()
+        public void VisualizeDeselect()
         {
             _icon.sprite = _idleSprite;
             _icon.color = _idleColor;

@@ -96,20 +96,22 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void SetToHorizontalPage(int index)
     {
-        if(index < 0 || index >= horizontalPages.Count || index == currentHorizontalIndex) return;
+        if(index < 0 || index >= horizontalPages.Count ) return;
         
         horizontalPages[currentHorizontalIndex].OnDeselect();
-        expectDestinationVerticalPosition += (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
+        Debug.Log(expectDestinationVerticalPosition +" "+ (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
+                                                           horizontalPages[index].rectTransform.anchoredPosition));
+
+        expectDestinationHorizontalPosition += (horizontalPages[currentHorizontalIndex].rectTransform.anchoredPosition -
                                               horizontalPages[index].rectTransform.anchoredPosition); // Therefore this is backward
         currentHorizontalIndex = index;
-        
         SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[index].onSelectEvent);
 
     }
 
     public void SetToVerticalPage(int index)
     {
-        if(index < 0 || index >= verticalPages.Count || index == currentVerticalIndex) return;
+        if(index < 0 || index >= verticalPages.Count ) return;
         
         verticalPages[currentVerticalIndex].OnDeselect();
         expectDestinationVerticalPosition += verticalPages[index].rectTransform.anchoredPosition -
@@ -117,7 +119,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
         currentVerticalIndex = index;
         
         SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[index].onSelectEvent);
-
+        
     }
     
     public void OnPointerDown(PointerEventData eventData)
@@ -131,8 +133,8 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
-                  " Horizontal " + beforeDraggingHorizontalPosition);
+        //Debug.Log("Begin Drag " + eventData.position + " Vertical " + beforeDraggingVerticalPosition +
+        //          " Horizontal " + beforeDraggingHorizontalPosition);
         float xDifference = eventData.position.x - eventData.pressPosition.x;
         float yDifference = eventData.position.y - eventData.pressPosition.y;
         

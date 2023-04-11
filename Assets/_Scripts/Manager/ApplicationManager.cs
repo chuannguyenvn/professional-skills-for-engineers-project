@@ -29,7 +29,7 @@ namespace _Scripts.Manager
             appStateMachines = FindObjectsOfType<StateMachine<AppState>>().ToList();
             foreach (var stateMachine in appStateMachines)
             {
-                Debug.Log("Add state "+ stateMachine._myStateEnum.ToString());
+                //Debug.Log("Add state "+ stateMachine._myStateEnum.ToString());
                 AddState(stateMachine._myStateEnum, stateMachine);
             }
             

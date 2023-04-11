@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -21,7 +22,6 @@ namespace _Scripts.Calendar
 
         private void DecodeInfo()
         {
-            
             string[] subjectLineStrings = _info.Split("\n");
 
             int startYear = _semester == 1 ? _year : _year + 1;
@@ -34,6 +34,8 @@ namespace _Scripts.Calendar
                 SubjectInfo subjectInfo = new(startYear,subjectLineStrings[i]);
                 subjectInfos.Add(subjectInfo);
             }
+            
         }
+        
     }
 }

@@ -74,8 +74,8 @@ namespace _Scripts.State
 
             _trueSearchBar.ActivateInputField();
             
-            _searchMenuCanvas.alpha = 1;
-            //DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration);
+            _searchMenuCanvas.alpha = 0;
+            DOTween.To(() => _searchMenuCanvas.alpha, x => _searchMenuCanvas.alpha = x, 1, _transitionDuration);
         }
 
         public void OnDeselect(AppState enterState)

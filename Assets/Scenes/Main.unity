@@ -15401,42 +15401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81740736}
     m_Modifications:
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: _miniBarEase
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: _minBarMovingDuration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 483908202}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hide
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SwipeVerticalHorizontalMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 483908202, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: verticalPages.Array.data[0].onSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2881811369230103042, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Camera
       value: 
@@ -15528,46 +15492,6 @@ PrefabInstance:
     - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_Name
       value: Calendar Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881811369230103047, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881811369266776789, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437645229782526622, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1682.8083
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8235295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.g
-      value: 0.48627454
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.r
-      value: 0.10588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d15d9412f0e830640b6b855113145114, type: 3}
@@ -15733,30 +15657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81740736}
     m_Modifications:
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1088092219271920577, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 4466763318783676354, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15849,66 +15749,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Info Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341626792552, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1650
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999462, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontSize
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: b8b1b4a20b7a5214880c647e7d04aa54, type: 2}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3057801322840054090, guid: 58bd2b078e2e79d4098862d873908100, type: 2}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257343176159061, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257343176159061, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e0e9bb8fb1ed5534ead2e72c661ee70c, type: 2}
-    - target: {fileID: 5827257343176159061, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257343176159061, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827257343176159061, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 8423129440198783054, guid: e0e9bb8fb1ed5534ead2e72c661ee70c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
 --- !u!1001 &6104523559631886552
@@ -16139,30 +15979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Search Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1013485489190690736, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1013485489190690739, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7502095599697288414, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -17.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7502095599697288414, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7502095600434979849, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7502095600434979849, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
 --- !u!33 &7818130253652089284

@@ -873,7 +873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2881811369230103043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1168,8 +1168,8 @@ MonoBehaviour:
   - {fileID: 1723705103}
   - {fileID: 1245465367}
   _miniBarBelowButton: {fileID: 1227317200}
-  _minBarMovingDuration: 0.15
-  _miniBarEase: 18
+  _minBarMovingDuration: 0.2
+  _miniBarEase: 9
 --- !u!1 &4812136241954059299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1448,6 +1448,18 @@ PrefabInstance:
     - target: {fileID: 7487811689628303559, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_Value
       value: 0.99994135
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487811689931391604, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487811689931391604, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48627454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487811689931391604, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10588236
       objectReference: {fileID: 0}
     - target: {fileID: 7487811690028079523, guid: 6cb590a6ca6d74346bb1a674c19e17a6, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1672,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183736348, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1682.8083
       objectReference: {fileID: 0}
     - target: {fileID: 597492436183736348, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_SizeDelta.y

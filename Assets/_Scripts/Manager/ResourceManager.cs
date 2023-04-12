@@ -19,5 +19,7 @@ namespace _Scripts.Manager
         [Header("Search Prefabs")] public FoundItem foundItem;
 
         [Header("Building Info")] public Image descriptiveImage;
+
+        public Polyline Polyline;
     }
 }

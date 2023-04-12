@@ -27,7 +27,13 @@ namespace _Scripts.Map
         private List<Vector2> _geoCoordinates;
         private List<Vector2> _worldCoordinates;
         public BuildingSO buildingSo;
-    
+
+
+        private void Start()
+        {
+            var polyline = Instantiate(ResourceManager.Instance.Polyline, transform);
+            polyline.SetPoints(polygon.points);
+        }
 
         public void Init(BuildingSO buildingSo)
         {
@@ -78,7 +84,14 @@ namespace _Scripts.Map
 
         private void OnMouseDown()
         {
-            if(Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) firstTouchedBuilding = this;
+#if UNITY_ANDROID
+            if (Input.touchCount > 0)
+                firstTouchedBuilding = this;
+
+#else
+         if (Input.GetMouseButtonDown(0))
+                firstTouchedBuilding = this;
+#endif
         }
 
         private void OnMouseUp()
@@ -96,7 +109,10 @@ namespace _Scripts.Map
 
         private bool EvaluateClick()
         {
-            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+            Debug.Log("firstTouchedBuilding == this: " + (firstTouchedBuilding == this) + "\n" +
+                      "CameraMovement.Instance.IsDragging: " + (CameraMovement.Instance.IsDragging) + "\n");
+
+            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
         }
     }
 }

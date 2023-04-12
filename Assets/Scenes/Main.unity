@@ -2200,6 +2200,7 @@ MonoBehaviour:
   roadIntersectionNode: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   foundItem: {fileID: 1978008485615400203, guid: 5f8172e1f6a51674398c84fd2771dbf2, type: 3}
   descriptiveImage: {fileID: 4983542879267764222, guid: 22fc92726127c6b40b6f0b64d2e9175c, type: 3}
+  Polyline: {fileID: 7176889017015966692, guid: 6b1307d6434104a4aa9fce8313455158, type: 3}
 --- !u!1001 &287452095
 PrefabInstance:
   m_ObjectHideFlags: 0

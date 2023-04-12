@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class VisualManager : Singleton<VisualManager>
 {
+    [SerializeField] private Color primary;
+    
     [Header("Map Color")] 
     [SerializeField] private Color water;
     [SerializeField] private Color road;
@@ -24,6 +26,7 @@ public class VisualManager : Singleton<VisualManager>
 
     public enum MapColor
     {
+        Primary,
         Water,
         Road,
         Grass,
@@ -37,10 +40,11 @@ public class VisualManager : Singleton<VisualManager>
         OtherBuilding
     }
 
-    public Color GetMapColor(MapColor mapColor)
+    public Color GetColor(MapColor mapColor)
     {
         return mapColor switch
         {
+            MapColor.Primary => primary,
             MapColor.Water => water,
             MapColor.Road => road,
             MapColor.Grass => grass,

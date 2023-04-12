@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Manager;
+using DG.Tweening;
 using Map;
 using Shapes;
 using UnityEngine;
@@ -11,9 +12,10 @@ namespace _Scripts.Map
 {
     public class Building : MonoBehaviour
     {
-        private static Building firstTouchedBuilding;
+        private static Building latestTouchedBuilding;
 
         [SerializeField] private Polygon polygon;
+        private Polyline _polyline;
         [SerializeField] private PolygonCollider2D polygonCollider2D;
 
         [Header("Road Node Entrances")] public List<RoadIntersectionNode> entrances = new();
@@ -28,12 +30,13 @@ namespace _Scripts.Map
         private List<Vector2> _worldCoordinates;
         public BuildingSO buildingSo;
 
+        private Color _initialColor;
 
         private void Start()
         {
-            var polyline = Instantiate(ResourceManager.Instance.Polyline, transform);
-            polyline.SetPoints(polygon.points);
-            polyline.Color = polygon.Color;
+            _polyline = Instantiate(ResourceManager.Instance.Polyline, transform);
+            _polyline.SetPoints(polygon.points);
+            _initialColor = _polyline.Color = polygon.Color;
         }
 
         public void Init(BuildingSO buildingSo)
@@ -42,7 +45,7 @@ namespace _Scripts.Map
             gameObject.name = buildingSo.buildingName;
             _geoCoordinates = new List<Vector2>(buildingSo.geoCoordinate);
             _worldCoordinates = _geoCoordinates.Select(MapUtilities.GeoToWorldPosition).ToList();
-            polygon.Color = VisualManager.Instance.GetMapColor(buildingSo.mapColor);
+            polygon.Color = VisualManager.Instance.GetColor(buildingSo.mapColor);
 
             transform.position = _worldCoordinates[0];
             for (int i = 0; i < _worldCoordinates.Count; i++)
@@ -85,14 +88,7 @@ namespace _Scripts.Map
 
         private void OnMouseDown()
         {
-#if UNITY_ANDROID
-            if (Input.touchCount > 0)
-                firstTouchedBuilding = this;
-
-#else
-         if (Input.GetMouseButtonDown(0))
-                firstTouchedBuilding = this;
-#endif
+            latestTouchedBuilding = this;
         }
 
         private void OnMouseUp()
@@ -108,12 +104,28 @@ namespace _Scripts.Map
             }
         }
 
+        public void Select()
+        {
+            var finalColor = _initialColor.MultiplyHSV(1, 1.3f, 1.3f);
+            DOVirtual.Color(polygon.Color, finalColor, 0.2f, c => polygon.Color = c);
+            DOVirtual.Color(_polyline.Color, finalColor, 0.2f, c => _polyline.Color = c);
+
+            polygon.SortingOrder = 99;
+            _polyline.SortingOrder = 100;
+        }
+
+        public void Deselect()
+        {
+            DOVirtual.Color(polygon.Color, _initialColor, 0.2f, c => polygon.Color = c);
+            DOVirtual.Color(_polyline.Color, _initialColor, 0.2f, c => _polyline.Color = c);
+
+            polygon.SortingOrder = 0;
+            _polyline.SortingOrder = 0;
+        }
+
         private bool EvaluateClick()
         {
-            Debug.Log("firstTouchedBuilding == this: " + (firstTouchedBuilding == this) + "\n" +
-                      "CameraMovement.Instance.IsDragging: " + (CameraMovement.Instance.IsDragging) + "\n");
-
-            return firstTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
+            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
         }
     }
 }

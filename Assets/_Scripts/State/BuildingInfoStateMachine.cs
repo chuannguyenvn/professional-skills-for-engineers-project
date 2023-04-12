@@ -36,6 +36,8 @@ namespace _Scripts.State
         /// </param>
         public void OnSelect(AppState exitState, object[] parameter)
         {
+            if (currentBuilding != null) currentBuilding.Deselect();
+            
             Building building = parameter[0] as Building;
         
             if(exitState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(true);
@@ -55,11 +57,17 @@ namespace _Scripts.State
                 descriptiveImage.sprite = sprite;
                 _descriptiveImages.Add(descriptiveImage);
             }
+            
+            currentBuilding.Select();
         }
 
         public void OnDeselect(AppState enterState)
         {
-            if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
+            if(enterState != AppState.Info)
+            {
+                if (currentBuilding != null) currentBuilding.Deselect();
+                buildingInfoCanvas.gameObject.SetActive(false);
+            }
         }
     
     }

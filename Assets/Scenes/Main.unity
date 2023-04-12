@@ -14579,6 +14579,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -1682.8083
       objectReference: {fileID: 0}
+    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48627454
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617400338415015371, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845339175896944706, guid: d15d9412f0e830640b6b855113145114, type: 3}
       propertyPath: m_RaycastTarget
       value: 0

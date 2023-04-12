@@ -3492,8 +3492,8 @@ MonoBehaviour:
   zoomOutMax: 300
   zoomSpeed: 10
   _cameraCenter: {x: -10, y: 100}
-  _startFadeDistance: 300
-  _maxDistance: 400
+  _startFadeDistance: 400
+  _maxDistance: 500
   _maxDistanceBackgroundColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
 --- !u!1001 &524359189
 PrefabInstance:

@@ -33,6 +33,7 @@ namespace _Scripts.Map
         {
             var polyline = Instantiate(ResourceManager.Instance.Polyline, transform);
             polyline.SetPoints(polygon.points);
+            polyline.Color = polygon.Color;
         }
 
         public void Init(BuildingSO buildingSo)

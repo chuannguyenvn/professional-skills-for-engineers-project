@@ -694,8 +694,9 @@ RectTransform:
   - {fileID: 1723705099}
   - {fileID: 1245465363}
   - {fileID: 1227317200}
+  - {fileID: 6555159581557472686}
   m_Father: {fileID: 2881811369266776791}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.85}
   m_AnchorMax: {x: 1, y: 0.925}
@@ -771,7 +772,7 @@ RectTransform:
   - {fileID: 3437645229784134653}
   - {fileID: 4617400337199213735}
   m_Father: {fileID: 2881811369266776791}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.85}
@@ -809,7 +810,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2881811369266776791}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.925}
   m_AnchorMax: {x: 1, y: 1}
@@ -987,10 +988,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2881811369213018086}
-  - {fileID: 2881811368334809082}
   - {fileID: 3878489449389482881}
+  - {fileID: 2881811369213018086}
   - {fileID: 2881811369035469419}
+  - {fileID: 2881811368334809082}
   m_Father: {fileID: 2881811369230103043}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,6 +1083,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    onEnterCompleteEvent:
+      m_PersistentCalls:
+        m_Calls: []
     onDeselectEvent:
       m_PersistentCalls:
         m_Calls:
@@ -1113,10 +1117,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    onEnterCompleteEvent:
+      m_PersistentCalls:
+        m_Calls: []
     onDeselectEvent:
       m_PersistentCalls:
         m_Calls: []
   initHorizontalIndex: 0
+  exitHorizontalIndex: 0
   acceptHorizontalThreshHold: 0.2
   currentHorizontalIndex: 0
   draggingVerticalGameObject: {fileID: 2881811369266776791}
@@ -1126,11 +1134,17 @@ MonoBehaviour:
     onSelectEvent:
       m_PersistentCalls:
         m_Calls: []
+    onEnterCompleteEvent:
+      m_PersistentCalls:
+        m_Calls: []
     onDeselectEvent:
       m_PersistentCalls:
         m_Calls: []
   - rectTransform: {fileID: 2881811367515694343}
     onSelectEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    onEnterCompleteEvent:
       m_PersistentCalls:
         m_Calls: []
     onDeselectEvent:
@@ -1140,10 +1154,14 @@ MonoBehaviour:
     onSelectEvent:
       m_PersistentCalls:
         m_Calls: []
+    onEnterCompleteEvent:
+      m_PersistentCalls:
+        m_Calls: []
     onDeselectEvent:
       m_PersistentCalls:
         m_Calls: []
   initVerticalIndex: 1
+  exitVerticalIndex: 0
   acceptVerticalThreshHold: 0.2
   currentVerticalIndex: 0
   _swipeButtons:
@@ -1152,6 +1170,82 @@ MonoBehaviour:
   _miniBarBelowButton: {fileID: 1227317200}
   _minBarMovingDuration: 0.15
   _miniBarEase: 18
+--- !u!1 &4812136241954059299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6555159581557472686}
+  - component: {fileID: 2545579045198044034}
+  - component: {fileID: 1046238807506810517}
+  m_Layer: 5
+  m_Name: Fader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6555159581557472686
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812136241954059299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2881811368334809082}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!222 &2545579045198044034
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812136241954059299}
+  m_CullTransparentMesh: 1
+--- !u!114 &1046238807506810517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812136241954059299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4f278f90c24b9d84eb9c9dafa521600c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7369560358319401759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1277,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2881811369266776791}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.85}
@@ -1595,6 +1689,10 @@ PrefabInstance:
     - target: {fileID: 597492436183736349, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
       propertyPath: m_HorizontalFit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 597492436183736354, guid: 212b3320b1557874d8c9d16962babe47, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 212b3320b1557874d8c9d16962babe47, type: 3}

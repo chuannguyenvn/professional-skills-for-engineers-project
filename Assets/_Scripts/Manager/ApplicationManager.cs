@@ -23,8 +23,11 @@ namespace _Scripts.Manager
         [SerializeField] private AppState initState;
 
         [SerializeField] private List<StateMachine<AppState>> appStateMachines;
+
         void Start()
         {
+            Application.targetFrameRate = 60;
+
             currentStateMachine = appStateMachines.Find(state => state._myStateEnum == initState);
             appStateMachines = FindObjectsOfType<StateMachine<AppState>>().ToList();
             foreach (var stateMachine in appStateMachines)
@@ -32,8 +35,6 @@ namespace _Scripts.Manager
                 //Debug.Log("Add state "+ stateMachine._myStateEnum.ToString());
                 AddState(stateMachine._myStateEnum, stateMachine);
             }
-            
         }
-
     }
 }

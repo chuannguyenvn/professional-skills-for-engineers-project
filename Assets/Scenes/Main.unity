@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -225,6 +229,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -286,6 +294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 55
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -328,6 +340,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -447,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -489,6 +513,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -671,6 +699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 33
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -713,6 +745,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1068,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 31
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -1110,6 +1150,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1423,6 +1467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 46
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 46
@@ -1465,6 +1513,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1562,6 +1614,218 @@ PrefabInstance:
       objectReference: {fileID: 1210581974}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78b6ff15267c204c9a4f99a3583d74f, type: 3}
+--- !u!1 &225431924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225431927}
+  - component: {fileID: 225431926}
+  - component: {fileID: 225431925}
+  m_Layer: 0
+  m_Name: Closed Sprite Shape (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &225431925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225431924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90539df1cd5704abcb25fec9f3f5f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_IsOpenEnded: 0
+    m_ControlPoints:
+    - position: {x: -17.33469, y: -4.756894, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -22.211876, y: 6.3370056, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -5.67612, y: 15.169258, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -8.771707, y: 20.571373, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 2.1637006, y: 29.124205, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 21.709381, y: -0.94306874, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 8.225624, y: -14.50131, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -15.3085165, y: -32.822742, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -28.015577, y: -12.601401, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+  m_SpriteShape: {fileID: 11400000, guid: f24cddf7c09a6442abbce710a6fd7397, type: 2}
+  m_FillPixelPerUnit: 254.65
+  m_StretchTiling: 1
+  m_SplineDetail: 16
+  m_AdaptiveUV: 1
+  m_StretchUV: 0
+  m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 40.7
+  m_ColliderDetail: 16
+  m_ColliderOffset: 0.5
+  m_UpdateCollider: 1
+  m_OptimizeCollider: 1
+  m_OptimizeGeometry: 1
+  m_EnableTangents: 0
+  m_GeometryCached: 0
+  m_UTess2D: 0
+--- !u!1971053207 &225431926
+SpriteShapeRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225431924}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_MaskInteraction: 0
+  m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_Sprites:
+  - {fileID: 21300000, guid: 0ae2b74b1edd14bb18dd7b65ae916a54, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_LocalAABB:
+    m_Center: {x: -3.1610203, y: -1.8503342, z: 0}
+    m_Extent: {x: 25.190033, y: 31.3395, z: 0}
+--- !u!4 &225431927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225431924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.7919, y: 113.00572, z: 4.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &265593266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1609,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 36
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -1653,8 +1921,224 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+--- !u!1 &279978879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 279978882}
+  - component: {fileID: 279978881}
+  - component: {fileID: 279978880}
+  m_Layer: 0
+  m_Name: Closed Sprite Shape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &279978880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279978879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90539df1cd5704abcb25fec9f3f5f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_IsOpenEnded: 0
+    m_ControlPoints:
+    - position: {x: -17.33469, y: -4.756894, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -22.211876, y: 6.3370056, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -5.67612, y: 15.169258, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -8.771707, y: 20.571373, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 2.1637006, y: 29.124205, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 21.709381, y: -0.94306874, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 8.225624, y: -14.50131, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -15.3085165, y: -32.822742, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -28.015577, y: -12.601401, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+  m_SpriteShape: {fileID: 11400000, guid: f24cddf7c09a6442abbce710a6fd7397, type: 2}
+  m_FillPixelPerUnit: 254.65
+  m_StretchTiling: 1
+  m_SplineDetail: 16
+  m_AdaptiveUV: 1
+  m_StretchUV: 0
+  m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 40.7
+  m_ColliderDetail: 16
+  m_ColliderOffset: 0.5
+  m_UpdateCollider: 1
+  m_OptimizeCollider: 1
+  m_OptimizeGeometry: 1
+  m_EnableTangents: 0
+  m_GeometryCached: 0
+  m_UTess2D: 0
+--- !u!1971053207 &279978881
+SpriteShapeRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279978879}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42d0b2fb3267cf6439d0e9263bb23dad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Color: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+  m_MaskInteraction: 0
+  m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_Sprites:
+  - {fileID: 21300000, guid: 0ae2b74b1edd14bb18dd7b65ae916a54, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_LocalAABB:
+    m_Center: {x: -3.1610203, y: -1.8503342, z: 0}
+    m_Extent: {x: 25.190033, y: 31.3395, z: 0}
+--- !u!4 &279978882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279978879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.7919, y: 113.00572, z: 4.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &281145271 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6401538469276245460, guid: 47aeb95a80800874e911086b792919f6, type: 3}
@@ -1763,6 +2247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1807,16 +2295,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &287452097
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861040245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1853,7 +2345,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &287452098
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1982,6 +2474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 27
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -2024,6 +2520,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2394,6 +2894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2438,6 +2942,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!114 &447862724 stripped
@@ -2477,6 +2985,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -2520,6 +3032,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2604,6 +3124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2648,16 +3172,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &482398237
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986313743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2694,7 +3222,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &482398238
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2742,6 +3270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 56
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -2784,6 +3316,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2886,7 +3426,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2996,6 +3536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -3040,16 +3584,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &532190810
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295412880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3086,7 +3634,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &532190811
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3175,6 +3723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 24
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -3219,16 +3771,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &551871326
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867023616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3265,7 +3821,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &551871327
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3456,6 +4012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 22
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -3500,16 +4060,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &627296964
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88598409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3546,7 +4110,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &627296965
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3642,12 +4206,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 11386a4228eff94489ac66861eb98b1b, type: 3}
 --- !u!23 &652649326
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883418812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3684,7 +4248,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &652649327
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3759,6 +4323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 43
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -3803,16 +4371,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &693835414
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135182139}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3849,7 +4421,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &693835415
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4108,6 +4680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4150,6 +4726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4224,12 +4804,12 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &734235092
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071565133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4266,7 +4846,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &734235093
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4425,6 +5005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 21
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -4467,6 +5051,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4530,6 +5118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 49
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -4572,6 +5164,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4704,6 +5300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -4746,6 +5346,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4813,6 +5417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 32
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -4857,6 +5465,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!1001 &798658610
@@ -4893,6 +5505,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -4938,16 +5554,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &798658612
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144402769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4984,7 +5604,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &798658613
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5045,6 +5665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 48
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -5087,6 +5711,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5201,6 +5829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 34
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -5245,6 +5877,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!1001 &876033564
@@ -5265,6 +5901,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -5310,6 +5950,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!114 &876033565 stripped
@@ -5336,12 +5984,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &907771523
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626516069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5378,7 +6026,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &907771524
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5441,6 +6089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5483,6 +6135,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5530,6 +6186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 39
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -5574,16 +6234,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &939454693
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203766793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5620,7 +6284,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &939454694
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5633,7 +6297,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962743468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5716,12 +6380,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &972711527
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920172485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5758,7 +6422,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &972711528
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5838,6 +6502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 23
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -5882,6 +6550,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!1001 &992663115
@@ -5922,6 +6594,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -5965,6 +6641,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6028,6 +6708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 45
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -6070,6 +6754,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6324,6 +7012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6368,16 +7060,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1050177131
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038110131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6414,7 +7110,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1050177132
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6499,6 +7195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6541,6 +7241,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6603,6 +7307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 29
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -6647,16 +7355,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1060240063
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316606477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6693,7 +7405,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1060240064
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6722,12 +7434,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &1095324251
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751100473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6764,7 +7476,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1095324252
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6813,6 +7525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -6855,6 +7571,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6904,12 +7624,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &1165008203
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664204256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6946,7 +7666,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1165008204
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6981,6 +7701,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -7026,6 +7750,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!114 &1176514511 stripped
@@ -7046,12 +7778,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1178665208
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769624348}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7088,7 +7820,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1178665209
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7141,6 +7873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -7185,16 +7921,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1180741903
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346816050}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7231,7 +7971,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1180741904
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7585,6 +8325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7629,6 +8373,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1255125604
@@ -7638,7 +8386,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807422189}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7683,12 +8431,12 @@ MeshFilter:
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &1268146166
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674282164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7725,7 +8473,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1268146167
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7754,12 +8502,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1290777407
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463971101}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7796,7 +8544,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1290777408
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7854,6 +8602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 37
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -7898,16 +8650,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1291815419
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30371352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7944,7 +8700,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1291815420
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8071,6 +8827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 54
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -8113,6 +8873,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8231,12 +8999,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &1338606857
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576625877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8273,7 +9041,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1338606858
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8330,6 +9098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 35
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -8374,16 +9146,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1340944709
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461843997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8420,7 +9196,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1340944710
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8536,6 +9312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8580,16 +9360,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1362085716
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248337569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8626,7 +9410,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1362085717
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9105,6 +9889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 16
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -9149,16 +9937,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1402974114
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268508768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9195,7 +9987,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1402974115
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9235,6 +10027,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -9278,6 +10074,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9327,12 +10127,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1423829766
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698784107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9369,7 +10169,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1423829767
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9439,6 +10239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 51
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -9481,6 +10285,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9528,6 +10336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -9570,6 +10382,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9617,6 +10433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 42
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -9661,6 +10481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1437182630
@@ -9670,7 +10494,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758910027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9745,6 +10569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -9787,6 +10615,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9989,7 +10821,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630311807}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10034,12 +10866,12 @@ MeshFilter:
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &1523878525
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33089709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10076,7 +10908,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1523878526
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10170,12 +11002,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1578584934
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760571283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10212,7 +11044,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1578584935
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10277,6 +11109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 18
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -10319,6 +11155,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10378,6 +11218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 26
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -10422,6 +11266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1595424207
@@ -10431,7 +11279,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861559740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10497,12 +11345,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1622528190
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203497175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10539,7 +11387,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1622528191
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10610,6 +11458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 28
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -10654,6 +11506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1626727162
@@ -10663,7 +11519,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429347075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10765,6 +11621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 17
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -10809,16 +11669,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1635765179
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67878971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10855,7 +11719,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1635765180
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10916,6 +11780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 47
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -10958,6 +11826,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11107,6 +11979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -11151,6 +12027,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1671861360
@@ -11160,7 +12040,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598165591}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -11345,6 +12225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 19
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -11387,6 +12271,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11569,12 +12457,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &1742167238
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858414096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -11611,7 +12499,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1742167239
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11664,6 +12552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 60
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -11706,6 +12598,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11840,12 +12740,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1934a759342b4c141bb4cb26f949e995, type: 3}
 --- !u!23 &1763431257
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070068630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -11882,7 +12782,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1763431258
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12027,6 +12927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 61
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 61
@@ -12069,6 +12973,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -12114,12 +13022,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1786334536
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325541665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12156,7 +13064,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1786334537
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12188,6 +13096,10 @@ PrefabInstance:
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
@@ -12231,6 +13143,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12522,12 +13438,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1854928909
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159844281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12564,7 +13480,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1854928910
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12655,6 +13571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -12699,16 +13619,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1867300995
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292137080}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12745,7 +13669,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1867300996
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12904,6 +13828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 44
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -12948,16 +13876,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &1916364397
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991709630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12994,7 +13926,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1916364398
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13018,12 +13950,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1922971120
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110308062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13060,7 +13992,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1922971121
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13232,7 +14164,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632682609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13312,7 +14244,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421861237}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13530,12 +14462,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &2019909829
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26510928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13572,7 +14504,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2019909830
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13580,12 +14512,12 @@ MeshFilter:
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &2020847408
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085617503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13622,7 +14554,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2020847409
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13645,12 +14577,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &2043120434
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612595951}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13687,7 +14619,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2043120435
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13809,6 +14741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 53
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -13853,6 +14789,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670251854107993066, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!114 &2053207783 stripped
@@ -13884,12 +14828,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!23 &2054547678
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609776817}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13926,7 +14870,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2054547679
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13934,12 +14878,12 @@ MeshFilter:
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &2064312766
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543575792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13976,7 +14920,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2064312767
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14209,12 +15153,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &2103390344
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968603224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -14251,7 +15195,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2103390345
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14325,6 +15269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Node 41
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -14369,16 +15317,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6456726546221246110, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
 --- !u!23 &2144570020
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037456490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -14415,7 +15367,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2144570021
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15185,7 +16137,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
 --- !u!33 &7818130253652089284
 MeshFilter:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15193,12 +16145,12 @@ MeshFilter:
   m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &7818130253652089285
 MeshRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782131263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

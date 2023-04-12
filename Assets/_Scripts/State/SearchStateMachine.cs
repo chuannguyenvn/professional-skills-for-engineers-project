@@ -52,6 +52,8 @@ namespace _Scripts.State
 
             _foundSearchItems.Clear();
 
+            if (text == "") return;
+            
             List<Building> freshFoundBuildings = MapManager.Instance.FindBuildings(text);
 
             foreach (var building in freshFoundBuildings)

@@ -17,6 +17,12 @@ namespace _Scripts.Calendar
         [SerializeField] private Ease _miniBarEase;
         private void Start()
         {
+            InitSwipeButton();
+        }
+        
+
+        private void InitSwipeButton()
+        {
             for (var i = 0 ; i < _swipeButtons.Length; i++)
             {
                 var swipeButton = _swipeButtons[i];

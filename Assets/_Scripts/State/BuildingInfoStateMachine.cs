@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Manager;
 using _Scripts.Map;
@@ -9,57 +7,60 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, AppState>
+namespace _Scripts.State
 {
-    [SerializeField] private Canvas buildingInfoCanvas;
-    [SerializeField] private TextMeshProUGUI buildingName, description;
-    [SerializeField] private HorizontalLayoutGroup imageContent;
-    [SerializeField] private SwipeVerticalMenu buildingInfoSwipe;
-    [SerializeField] private Button _navigationButton;
-    
-    private Building currentBuilding;
-    private BuildingSO currentBuildingSo;
-    private List<Image> _descriptiveImages = new List<Image>();
-
-    private void Awake()
+    public class BuildingInfoStateMachine : StateMachine<BuildingInfoStateMachine, AppState>
     {
-        AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
-        AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
-        
-        _navigationButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[] { currentBuilding }));
-        buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
-    }
-
+        [SerializeField] private Canvas buildingInfoCanvas;
+        [SerializeField] private TextMeshProUGUI buildingName, description;
+        [SerializeField] private HorizontalLayoutGroup imageContent;
+        [SerializeField] private SwipeVerticalMenu buildingInfoSwipe;
+        [SerializeField] private Button _navigationButton;
     
-    /// <param name="parameter">
-    /// [0] : Building
-    /// </param>
-    public void OnSelect(AppState exitState, object[] parameter)
-    {
-        Building building = parameter[0] as Building;
-        
-        if(exitState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(true);
-        currentBuilding = building;
-        currentBuildingSo = building.buildingSo;
-        buildingName.text = currentBuildingSo.buildingName;
-        description.text = currentBuildingSo.description;
-        foreach (var descriptiveImage in _descriptiveImages)
+        private Building currentBuilding;
+        private BuildingSO currentBuildingSo;
+        private List<Image> _descriptiveImages = new List<Image>();
+
+        private void Awake()
         {
-            Destroy(descriptiveImage.gameObject);
+            AddToFunctionQueue(OnSelect, StateEvent.OnEnter);
+            AddToFunctionQueue(OnDeselect, StateEvent.OnExit);
+        
+            _navigationButton?.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[] { currentBuilding }));
+            buildingInfoSwipe?.verticalPages[0]?.onSelectEvent.AddListener( () => ApplicationManager.Instance.SetState(AppState.Home));
         }
 
-        _descriptiveImages = new List<Image>();
-        foreach (var sprite in currentBuildingSo.descriptiveSprites)
-        {
-            var descriptiveImage = Instantiate(ResourceManager.Instance.descriptiveImage, imageContent.transform);
-            descriptiveImage.sprite = sprite;
-            _descriptiveImages.Add(descriptiveImage);
-        }
-    }
-
-    public void OnDeselect(AppState enterState)
-    {
-        if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
-    }
     
+        /// <param name="parameter">
+        /// [0] : Building
+        /// </param>
+        public void OnSelect(AppState exitState, object[] parameter)
+        {
+            Building building = parameter[0] as Building;
+        
+            if(exitState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(true);
+            currentBuilding = building;
+            currentBuildingSo = building.buildingSo;
+            buildingName.text = currentBuildingSo.buildingName;
+            description.text = currentBuildingSo.description;
+            foreach (var descriptiveImage in _descriptiveImages)
+            {
+                Destroy(descriptiveImage.gameObject);
+            }
+
+            _descriptiveImages = new List<Image>();
+            foreach (var sprite in currentBuildingSo.descriptiveSprites)
+            {
+                var descriptiveImage = Instantiate(ResourceManager.Instance.descriptiveImage, imageContent.transform);
+                descriptiveImage.sprite = sprite;
+                _descriptiveImages.Add(descriptiveImage);
+            }
+        }
+
+        public void OnDeselect(AppState enterState)
+        {
+            if(enterState != AppState.Info) buildingInfoCanvas.gameObject.SetActive(false);
+        }
+    
+    }
 }

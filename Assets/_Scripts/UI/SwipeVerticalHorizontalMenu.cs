@@ -21,7 +21,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] protected RectTransform draggingHorizontalGameObject;
     [SerializeField] protected RectTransform initHorizontalPosition;
     [SerializeField] public List<ChildPageUI> horizontalPages;
-    [SerializeField] protected int initHorizontalIndex;
+    [SerializeField] protected int initHorizontalIndex, exitHorizontalIndex;
     [SerializeField, Range(0, 1)] protected float acceptHorizontalThreshHold = 0.2f;
     [SerializeField] protected int currentHorizontalIndex;
     protected Vector2 beforeDraggingHorizontalPosition, expectDestinationHorizontalPosition;
@@ -31,7 +31,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] protected RectTransform draggingVerticalGameObject;
     [SerializeField] protected RectTransform initVerticalPosition;
     [SerializeField] public List<ChildPageUI> verticalPages;
-    [SerializeField] protected int initVerticalIndex;
+    [SerializeField] protected int initVerticalIndex, exitVerticalIndex;
     [SerializeField, Range(0, 1)] protected float acceptVerticalThreshHold = 0.2f;
     [SerializeField] protected int currentVerticalIndex;
     protected Vector2 beforeDraggingVerticalPosition, expectDestinationVerticalPosition;
@@ -42,6 +42,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
     {
         public RectTransform rectTransform;
         public UnityEvent onSelectEvent;
+        public UnityEvent onEnterCompleteEvent;
         public UnityEvent onDeselectEvent;
 
         public void OnSelect()
@@ -80,17 +81,17 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
         verticalSequence = DOTween.Sequence();
         
         
-        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration);
-        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration);
+        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[initVerticalIndex].onEnterCompleteEvent );
+        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[initHorizontalIndex].onEnterCompleteEvent);
     }
 
     public void Hide()
     {
-        expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[initHorizontalIndex].rectTransform.anchoredPosition;
-        expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[initVerticalIndex].rectTransform.anchoredPosition;
+        expectDestinationHorizontalPosition = beforeDraggingHorizontalPosition = horizontalPages[exitHorizontalIndex].rectTransform.anchoredPosition;
+        expectDestinationVerticalPosition = beforeDraggingVerticalPosition = verticalPages[exitVerticalIndex].rectTransform.anchoredPosition;
 
-        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[initVerticalIndex].onSelectEvent);
-        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[initHorizontalIndex].onSelectEvent);
+        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[exitVerticalIndex].onEnterCompleteEvent);
+        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[exitHorizontalIndex].onEnterCompleteEvent);
     }
 
     public void SetToHorizontalPage(int index)
@@ -105,7 +106,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                                               horizontalPages[index].rectTransform.anchoredPosition); // Therefore this is backward
         currentHorizontalIndex = index;
         horizontalPages[index].OnSelect();        
-        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration);
+        SmoothMoveTo(draggingHorizontalGameObject, expectDestinationHorizontalPosition, movingDuration, horizontalPages[index].onEnterCompleteEvent);
 
     }
 
@@ -118,7 +119,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                        verticalPages[currentVerticalIndex].rectTransform.anchoredPosition;
         currentVerticalIndex = index;
         verticalPages[index].OnSelect();
-        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration);
+        SmoothMoveTo(draggingVerticalGameObject, expectDestinationVerticalPosition, movingDuration, verticalPages[index].onEnterCompleteEvent);
         
     }
     
@@ -184,7 +185,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                 horizontalPages[currentHorizontalIndex].OnDeselect();
                 currentHorizontalIndex--;
                 horizontalPages[currentHorizontalIndex].OnSelect();
-                SmoothMoveTo(draggingHorizontalGameObject, newLocation, movingDuration);
+                SmoothMoveTo(draggingHorizontalGameObject, newLocation, movingDuration, horizontalPages[currentHorizontalIndex].onEnterCompleteEvent);
             }
             else if (percentage < 0 && currentHorizontalIndex < horizontalPages.Count - 1)
             {
@@ -194,7 +195,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                 horizontalPages[currentHorizontalIndex].OnDeselect();
                 currentHorizontalIndex++;
                 horizontalPages[currentHorizontalIndex].OnSelect();
-                SmoothMoveTo(draggingHorizontalGameObject, newLocation, movingDuration);
+                SmoothMoveTo(draggingHorizontalGameObject, newLocation, movingDuration, horizontalPages[currentHorizontalIndex].onEnterCompleteEvent);
             }
             else
             {
@@ -233,7 +234,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                 verticalPages[currentVerticalIndex].OnDeselect();
                 currentVerticalIndex++;
                 verticalPages[currentVerticalIndex].OnSelect();
-                SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration);
+                SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration, verticalPages[currentVerticalIndex].onEnterCompleteEvent);
             }
             else if (percentage < 0 && currentVerticalIndex >= 1)
             {
@@ -243,7 +244,7 @@ public class SwipeVerticalHorizontalMenu : MonoBehaviour, IPointerDownHandler, I
                 verticalPages[currentVerticalIndex].OnDeselect();
                 currentVerticalIndex--;
                 verticalPages[currentVerticalIndex].OnSelect();
-                SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration);
+                SmoothMoveTo(draggingVerticalGameObject, newLocation, movingDuration, verticalPages[currentVerticalIndex].onEnterCompleteEvent);
             }
             else
             {

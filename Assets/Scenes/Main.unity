@@ -15777,6 +15777,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Info Menu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4466763318783676358, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257341626792552, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4888035437437736776, guid: b8b1b4a20b7a5214880c647e7d04aa54, type: 2}
+    - target: {fileID: 5827257341737999463, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6aa1972c31a15343afa90eb48d04224, type: 3}
 --- !u!1001 &6104523559631886552

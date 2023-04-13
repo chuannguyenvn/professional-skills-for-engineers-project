@@ -125,7 +125,8 @@ namespace _Scripts.Map
 
         private bool EvaluateClick()
         {
-            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging;
+            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging && 
+                   (!EventSystem.current.IsPointerOverGameObject() || (Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId)));
         }
     }
 }

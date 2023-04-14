@@ -11,13 +11,17 @@ public class CameraMovement : Singleton<CameraMovement>
 
     private Camera _mainCamera;
 
-    Vector2 touchStart;
+    private Vector2 touchStart;
     private bool isTouchStartedOverUI;
+    private bool isZooming;
 
-    public float zoomOutMin = 1;
-    public float zoomOutMax = 8;
-    public float zoomSpeed = 1;
-
+    [Header("Zooming")]
+    [SerializeField] private float zoomOutMin = 1;
+    [SerializeField] private float zoomOutMax = 8;
+    [SerializeField] private float zoomSpeed = 1;
+    
+    
+    [Header("Camera Constraint")]
     [SerializeField] private Vector2 _cameraCenter;
     [SerializeField] private float _startFadeDistance;
     [SerializeField] private float _maxDistance;
@@ -52,14 +56,15 @@ public class CameraMovement : Singleton<CameraMovement>
             {
                 Touch touchZero = Input.GetTouch(0);
             
-                if (touchZero.phase == TouchPhase.Began)
+                if (touchZero.phase == TouchPhase.Began || isZooming)
                 {
-                    touchStart = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                    touchStart = _mainCamera.ScreenToWorldPoint(touchZero.position);
                     isTouchStartedOverUI = IsPointerOverUIObject();
+                    isZooming = false;
                 }
                 else if (!isTouchStartedOverUI)
                 {
-                    Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(touchZero.position);
                     Vector2 cameraPos = _mainCamera.transform.position;
                     Vector2 offset = touchStart - worldMousePos;
                     Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
@@ -87,12 +92,14 @@ public class CameraMovement : Singleton<CameraMovement>
 
                 float difference = currentMagnitude - prevMagnitude;
 
+                isZooming = true;
                 Zoom(difference * 0.01f);
                 break;
             }
             case 0:
                 IsDragging = false;
                 isTouchStartedOverUI = false;
+                isZooming = false;
                 break;
         }
     }

@@ -27,9 +27,7 @@ public class PlayerGPS : MonoBehaviour
             longitude = Input.location.lastData.longitude;
             latitude = Input.location.lastData.latitude;
 
-            //transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(longitude, latitude));
-            //debug.text = "Longitude: " + longitude.ToString("R") + "\nLatitude: " + latitude.ToString("R") + "\nTimer: "+Time.time;
-
+            transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(longitude, latitude));
         }
         else
         {

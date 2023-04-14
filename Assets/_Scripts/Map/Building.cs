@@ -125,8 +125,17 @@ namespace _Scripts.Map
 
         private bool EvaluateClick()
         {
+            
+            #if UNITY_EDITOR
+            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging && !EventSystem.current.IsPointerOverGameObject();
+            #endif
+            
+            #if UNITY_ANDROID
             return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging && 
-                   (!EventSystem.current.IsPointerOverGameObject() || (Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId)));
+                   (Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId));
+
+            #endif
+            
         }
     }
 }

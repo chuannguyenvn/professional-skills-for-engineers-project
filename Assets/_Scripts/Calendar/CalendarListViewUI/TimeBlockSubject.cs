@@ -17,7 +17,7 @@ public class TimeBlockSubject : TimeBlock
     [SerializeField] private Button navigationButton;
     [SerializeField] private TextMeshProUGUI dayOfWeek;
     [SerializeField] private TextMeshProUGUI date;
-    public void Init(DateTime dateTime, SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage, bool showDay = false)
+    public void Init(DateTime dateTime, SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage, bool showDay = true)
     {
         this.dateTime = dateTime;
         this.subjectInfo = subjectInfo;
@@ -37,10 +37,19 @@ public class TimeBlockSubject : TimeBlock
             secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" + subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
                                 subjectInfo.lessonEndHour.Hours + ":" + subjectInfo.lessonEndHour.Minutes.ToString("D2") +
                                 " tại nhà";
+            Destroy(navigationButton.gameObject);
         }
-        
-        dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0,3);
-        date.text = dateTime.Day.ToString();
+
+        if (showDay)
+        {
+            dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0,3);
+            date.text = dateTime.Day.ToString();   
+        }
+        else
+        {
+            Destroy(dayOfWeek.gameObject);
+            Destroy(date.gameObject);
+        }
         
         navigationButton.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[]{building} ));
     }

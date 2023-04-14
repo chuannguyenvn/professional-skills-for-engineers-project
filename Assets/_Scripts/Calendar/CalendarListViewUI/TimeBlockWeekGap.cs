@@ -14,7 +14,8 @@ public class TimeBlockWeekGap : TimeBlock
         dateTime = subjectInfo;
         _calendarListViewPage = calendarListViewPage;
 
-        header1.text = subjectInfo.ToString();
+        DateTime nextWeek = subjectInfo.AddDays(7);
+        header1.text = subjectInfo.ToString("MMM") + " " + subjectInfo.Day + " - " + nextWeek.ToString("MMM") + " " + nextWeek.Day ;
         background.sprite = VisualManager.Instance.GetRandomTimeBlockBackGround();
     }
 }

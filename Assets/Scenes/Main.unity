@@ -2414,20 +2414,18 @@ MonoBehaviour:
   facilityBuilding: {r: 0.32941177, g: 0.5686275, b: 0.9607844, a: 1}
   otherBuilding: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   timeblockBackground:
-  - {fileID: 21300000, guid: ebe5a692ed889e9438177ab54487b929, type: 3}
-  - {fileID: 21300000, guid: eda0d37b87b481141967a5b0274ad434, type: 3}
-  - {fileID: 21300000, guid: 68aa4884fa7dd7a4ba9f2914b15e5651, type: 3}
-  - {fileID: 21300000, guid: b7fdca857c091374195d517fd6351d0b, type: 3}
-  - {fileID: 21300000, guid: 4e0bfabf1a854fc4cb96dc48e2ee2a6b, type: 3}
-  - {fileID: 21300000, guid: a12f7b6d841dbb945933bc31034e64e8, type: 3}
-  - {fileID: 21300000, guid: 72b850afaed71964a972a57b33c91efa, type: 3}
-  - {fileID: 21300000, guid: 83f773ce2380da242ad63d840ee74267, type: 3}
-  - {fileID: 21300000, guid: 9e2b83231da1cca44992e1081aa9f30a, type: 3}
-  - {fileID: 21300000, guid: 73cacba625d324f4990843ef246358a2, type: 3}
-  - {fileID: 21300000, guid: aaa89dfc89ef16249b0f645ab32a9292, type: 3}
-  - {fileID: 21300000, guid: decd1eb357af3b5459f9d57b84512474, type: 3}
-  - {fileID: 21300000, guid: fac522f6557684c4ea8786217a38b9aa, type: 3}
-  - {fileID: 21300000, guid: 5d422b58c1295a849a4d6e95015cba5f, type: 3}
+  - {fileID: 21300000, guid: b895ad983c2969b4b91b10c6a9ab7287, type: 3}
+  - {fileID: 21300000, guid: 2d2f3980d0be4ca4e9df2efc02dfd9f7, type: 3}
+  - {fileID: 21300000, guid: 90cf9633d556ee74e9bbe6f40d514120, type: 3}
+  - {fileID: 21300000, guid: 47ff6bc56fec4d54a92035aa7abd4614, type: 3}
+  - {fileID: 21300000, guid: a6064ebd0c03f9e41b9849da49faf545, type: 3}
+  - {fileID: 21300000, guid: 1ff5515e6a06db1499e3e9161e7d5f6e, type: 3}
+  - {fileID: 21300000, guid: 34b9c465e9a84324ab1b2076699aeacf, type: 3}
+  - {fileID: 21300000, guid: 6dde5b71c4aef984e8c972e8871a9642, type: 3}
+  - {fileID: 21300000, guid: 83bec2ac5939a414a861279b7fc3b935, type: 3}
+  - {fileID: 21300000, guid: d52d8e59c877b224595ae07f8657b278, type: 3}
+  - {fileID: 21300000, guid: 45cefce72c953f441b7b0c40fbc249f5, type: 3}
+  - {fileID: 21300000, guid: 028d066d99309ca459ad234e0472bbce, type: 3}
 --- !u!1 &316606477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}

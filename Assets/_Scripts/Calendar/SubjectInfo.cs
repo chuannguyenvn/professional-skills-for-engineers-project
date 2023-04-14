@@ -91,8 +91,8 @@ public class SubjectInfo
         return dateTime;
     }
 
-
-    private DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
+    
+    public static DateTime FirstDateOfWeekIso8601(int year, int weekOfYear)
     {
         DateTime jan1 = new DateTime(year, 1, 1);
         int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;

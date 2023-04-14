@@ -127,11 +127,11 @@ namespace _Scripts.Map
         {
             
             #if UNITY_EDITOR
-            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging && !EventSystem.current.IsPointerOverGameObject();
+            return latestTouchedBuilding == this && CameraMovement.Instance.IsStaticTouch && !EventSystem.current.IsPointerOverGameObject();
             #endif
             
             #if UNITY_ANDROID
-            return latestTouchedBuilding == this && !CameraMovement.Instance.IsDragging && 
+            return latestTouchedBuilding == this && CameraMovement.Instance.IsStaticTouch && 
                    (Input.touchCount>0 && !EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId));
 
             #endif

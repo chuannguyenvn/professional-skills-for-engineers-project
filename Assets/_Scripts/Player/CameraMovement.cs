@@ -6,15 +6,18 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : Singleton<CameraMovement>
 {
-    private static readonly float TOUCH_FINGER_MOVEMENT_THRESHOLD = 2f;
-    public bool IsDragging { get; private set; }
+    public bool IsStaticTouch => ! (isZooming || isDragging);
 
+    [Header("Properties")]
     private Camera _mainCamera;
 
-    private Vector2 touchStart;
+    private Vector2 touchStartScreenPosition;
+    private Vector2 touchStartWorldPosition;
     private bool isTouchStartedOverUI;
     private bool isZooming;
+    private bool isDragging;
 
+    
     [Header("Zooming")]
     [SerializeField] private float zoomOutMin = 1;
     [SerializeField] private float zoomOutMax = 8;
@@ -26,6 +29,8 @@ public class CameraMovement : Singleton<CameraMovement>
     [SerializeField] private float _startFadeDistance;
     [SerializeField] private float _maxDistance;
     [SerializeField] private Color _maxDistanceBackgroundColor;
+    [SerializeField] private float _touchScreenMovementThreshold = 1f;
+
     private Color _initialBackgroundColor;
 
     private float _initialZ;
@@ -37,15 +42,24 @@ public class CameraMovement : Singleton<CameraMovement>
         _initialZ = transform.position.z;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(touchStartWorldPosition, _touchScreenMovementThreshold);
+    }
+
     void Update()
     {
+        
 #if UNITY_EDITOR
+        Debug.Log("Moving in Editor");
         MoveInEditor();
 #endif
+        
 #if UNITY_ANDROID
+        Debug.Log("Moving in Android");
         MoveInAndroid();
 #endif
-        
     }
 
     private void MoveInAndroid()
@@ -58,15 +72,20 @@ public class CameraMovement : Singleton<CameraMovement>
             
                 if (touchZero.phase == TouchPhase.Began || isZooming)
                 {
-                    touchStart = _mainCamera.ScreenToWorldPoint(touchZero.position);
-                    isTouchStartedOverUI = IsPointerOverUIObject();
-                    isZooming = false;
+                    touchStartScreenPosition = touchZero.position;
+                    touchStartWorldPosition = _mainCamera.ScreenToWorldPoint(touchZero.position);
+                    isTouchStartedOverUI = IsPointerOverUIObject(touchZero.position);
+                    if(isZooming)
+                    {
+                        isZooming = false;
+                        isDragging = true; // It actually have been dragged in Zoom
+                    }
                 }
                 else if (!isTouchStartedOverUI)
                 {
                     Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(touchZero.position);
                     Vector2 cameraPos = _mainCamera.transform.position;
-                    Vector2 offset = touchStart - worldMousePos;
+                    Vector2 offset = touchStartWorldPosition - worldMousePos;
                     Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
                     _mainCamera.transform.position = clampedPos.NewZ(_initialZ);
             
@@ -74,7 +93,7 @@ public class CameraMovement : Singleton<CameraMovement>
                     float lerpValue = (distanceFromCenter - _startFadeDistance) / (_maxDistance - _startFadeDistance);
                     _mainCamera.backgroundColor = Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
             
-                    if (Vector2.Distance(touchStart, worldMousePos) > TOUCH_FINGER_MOVEMENT_THRESHOLD) IsDragging = true;
+                    if (Vector2.Distance(touchStartScreenPosition, touchZero.position) > _touchScreenMovementThreshold) isDragging = true;
                 }
 
                 break;
@@ -97,7 +116,7 @@ public class CameraMovement : Singleton<CameraMovement>
                 break;
             }
             case 0:
-                IsDragging = false;
+                isDragging = false;
                 isTouchStartedOverUI = false;
                 isZooming = false;
                 break;
@@ -115,15 +134,16 @@ public class CameraMovement : Singleton<CameraMovement>
     {
         if (Input.GetMouseButtonDown(0))
         {
-            touchStart = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            isTouchStartedOverUI = IsPointerOverUIObject();
+            touchStartScreenPosition = Input.mousePosition;
+            touchStartWorldPosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            isTouchStartedOverUI = IsPointerOverUIObject(Input.mousePosition);
         }
         
         if (Input.GetMouseButton(0) && !isTouchStartedOverUI)
         {
             Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 cameraPos = _mainCamera.transform.position;
-            Vector2 offset = touchStart - worldMousePos;
+            Vector2 offset = touchStartWorldPosition - worldMousePos;
             Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
             _mainCamera.transform.position = clampedPos.NewZ(_initialZ);
             
@@ -131,22 +151,22 @@ public class CameraMovement : Singleton<CameraMovement>
             float lerpValue = (distanceFromCenter - _startFadeDistance) / (_maxDistance - _startFadeDistance);
             _mainCamera.backgroundColor = Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
             
-            if (Vector2.Distance(touchStart, worldMousePos) > TOUCH_FINGER_MOVEMENT_THRESHOLD) IsDragging = true;
+            if (Vector2.Distance(touchStartScreenPosition, Input.mousePosition) > _touchScreenMovementThreshold) isDragging = true;
         }
 
         if (!Input.GetMouseButton(0))
         {
-            IsDragging = false;
+            isDragging = false;
             isTouchStartedOverUI = false;
         }
 
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
     
-    public static bool IsPointerOverUIObject()
+    public static bool IsPointerOverUIObject(Vector2 position)
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        eventDataCurrentPosition.position = new Vector2(position.x, position.y);
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;

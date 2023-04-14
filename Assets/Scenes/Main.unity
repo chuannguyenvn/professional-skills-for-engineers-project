@@ -3488,11 +3488,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomOutMin: 40
   zoomOutMax: 300
-  zoomSpeed: 10
+  zoomSpeed: 20
   _cameraCenter: {x: -10, y: 100}
   _startFadeDistance: 400
   _maxDistance: 500
   _maxDistanceBackgroundColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  _touchScreenMovementThreshold: 10
 --- !u!1001 &524359189
 PrefabInstance:
   m_ObjectHideFlags: 0

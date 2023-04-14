@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : Singleton<CameraMovement>
 {
-    private static float TOUCH_FINGER_MOVEMENT_THRESHOLD = 2f;
+    private static readonly float TOUCH_FINGER_MOVEMENT_THRESHOLD = 2f;
     public bool IsDragging { get; private set; }
 
     private Camera _mainCamera;
@@ -35,28 +35,84 @@ public class CameraMovement : Singleton<CameraMovement>
 
     void Update()
     {
+#if UNITY_EDITOR
+        MoveInEditor();
+#endif
+#if UNITY_ANDROID
+        MoveInAndroid();
+#endif
+        
+    }
+
+    private void MoveInAndroid()
+    {
+        switch (Input.touchCount)
+        {
+            case 1:
+            {
+                Touch touchZero = Input.GetTouch(0);
+            
+                if (touchZero.phase == TouchPhase.Began)
+                {
+                    touchStart = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                    isTouchStartedOverUI = IsPointerOverUIObject();
+                }
+                else if (!isTouchStartedOverUI)
+                {
+                    Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 cameraPos = _mainCamera.transform.position;
+                    Vector2 offset = touchStart - worldMousePos;
+                    Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
+                    _mainCamera.transform.position = clampedPos.NewZ(_initialZ);
+            
+                    float distanceFromCenter = Vector2.Distance(cameraPos, _cameraCenter);
+                    float lerpValue = (distanceFromCenter - _startFadeDistance) / (_maxDistance - _startFadeDistance);
+                    _mainCamera.backgroundColor = Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
+            
+                    if (Vector2.Distance(touchStart, worldMousePos) > TOUCH_FINGER_MOVEMENT_THRESHOLD) IsDragging = true;
+                }
+
+                break;
+            }
+            case 2:
+            {
+                Touch touchZero = Input.GetTouch(0);
+                Touch touchOne = Input.GetTouch(1);
+
+                Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+                Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+                float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+                float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
+
+                float difference = currentMagnitude - prevMagnitude;
+
+                Zoom(difference * 0.01f);
+                break;
+            }
+            case 0:
+                IsDragging = false;
+                isTouchStartedOverUI = false;
+                break;
+        }
+    }
+    
+    void Zoom(float increment)
+    {
+        _mainCamera.orthographicSize =
+            Mathf.Clamp(_mainCamera.orthographicSize - increment * zoomSpeed, zoomOutMin, zoomOutMax);
+    }
+
+    
+    private void MoveInEditor()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             isTouchStartedOverUI = IsPointerOverUIObject();
         }
-
-        if (Input.touchCount == 2)
-        {
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
-
-            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
-
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
-
-            float difference = currentMagnitude - prevMagnitude;
-
-            Zoom(difference * 0.01f);
-        }
-        else if (Input.GetMouseButton(0) && !isTouchStartedOverUI)
+        
+        if (Input.GetMouseButton(0) && !isTouchStartedOverUI)
         {
             Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 cameraPos = _mainCamera.transform.position;
@@ -79,13 +135,7 @@ public class CameraMovement : Singleton<CameraMovement>
 
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
-
-    void Zoom(float increment)
-    {
-        _mainCamera.orthographicSize =
-            Mathf.Clamp(_mainCamera.orthographicSize - increment * zoomSpeed, zoomOutMin, zoomOutMax);
-    }
-
+    
     public static bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

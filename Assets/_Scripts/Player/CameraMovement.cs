@@ -52,12 +52,10 @@ public class CameraMovement : Singleton<CameraMovement>
     {
         
 #if UNITY_EDITOR
-        Debug.Log("Moving in Editor");
         MoveInEditor();
 #endif
         
 #if UNITY_ANDROID
-        Debug.Log("Moving in Android");
         MoveInAndroid();
 #endif
     }

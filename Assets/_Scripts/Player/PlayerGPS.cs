@@ -28,6 +28,7 @@ public class PlayerGPS : MonoBehaviour
             latitude = Input.location.lastData.latitude;
 
             transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(longitude, latitude));
+            Debug.Log("Player position "+ transform.position);
         }
         else
         {

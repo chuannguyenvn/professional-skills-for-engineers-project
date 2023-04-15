@@ -71,11 +71,10 @@ public class SubjectInfo
 
         foreach (var week in weeks)
         {
-            if (week != "--" && week.Length == 2)
-            {
-                DateTime dateTime = CreateClassDateTimes(int.Parse(week));
-                classDateTimes.Add(dateTime);
-            }
+            if (week == "--" || week.Length != 2) continue;
+            
+            DateTime dateTime = CreateClassDateTimes(int.Parse(week));
+            classDateTimes.Add(dateTime);
         }
     }
 

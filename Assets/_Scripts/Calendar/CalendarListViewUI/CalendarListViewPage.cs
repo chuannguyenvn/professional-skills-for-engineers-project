@@ -101,12 +101,14 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
         _firstClassDate = firstDateTime;
         _lastClassDate = lastDateTime;
+        
+        //Debug.Log("First "+ _firstClassDate.ToString() + " Last " + _lastClassDate.ToString());
     }
 
     private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1, int numberOfFollowingWeek = 1 )
     {
         // Calculate the start and end dates of the current week
-        DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek +1); //Start week is monday
+        DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek + 1); //Start week is monday
         DateTime endOfWeek = startOfWeek.AddDays(6);
 
         // Calculate the start and end dates of the previous week
@@ -148,7 +150,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             .OrderBy(kv => kv.Key)
             .ToList();
         // Calculate the start and end dates of the current week
-        DateTime startOfWeek = startTime.Date.AddDays(-(int)startTime.DayOfWeek +1); //Start week is monday
+        DateTime startOfWeek = startTime.Date.AddDays(-(int)startTime.DayOfWeek + 1); //Start week is monday
         
         if (showWeekGap)
         {

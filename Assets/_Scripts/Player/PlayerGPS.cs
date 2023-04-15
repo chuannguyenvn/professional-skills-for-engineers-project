@@ -8,33 +8,23 @@ public class PlayerGPS : MonoBehaviour
 {
     [SerializeField] private float longitude, latitude;
 
-    //[SerializeField] private TextMeshProUGUI debug;
-    
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       if(Input.location.isEnabledByUser)
+        if (Input.location.isEnabledByUser)
             Input.location.Start();
-       StartCoroutine(InitLocation());
-
+        
+        StartCoroutine(InitLocation());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.location.status == LocationServiceStatus.Running)
         {
             longitude = Input.location.lastData.longitude;
             latitude = Input.location.lastData.latitude;
 
-            transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(longitude, latitude));
-            Debug.Log("Player position "+ transform.position);
+            transform.position = Map.MapUtilities.GeoToWorldPosition(new Vector2(latitude, longitude));
         }
-        else
-        {
-            //debug.text = "Not Running";
-        }
-        
     }
 
     private IEnumerator InitLocation()
@@ -44,12 +34,13 @@ public class PlayerGPS : MonoBehaviour
             Permission.RequestUserPermission(Permission.FineLocation);
             Permission.RequestUserPermission(Permission.CoarseLocation);
         }
+
         // First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
             yield return new WaitForSeconds(10);
 
         // Start service before querying location
-        Input.location.Start(1f,1f);
+        Input.location.Start(1f, 1f);
 
         // Wait until service initializes
         int maxWait = 10;
@@ -78,11 +69,9 @@ public class PlayerGPS : MonoBehaviour
         {
             //debug.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude+100f + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
             // Access granted and location value could be retrieved
-            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " +
+                  Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " +
+                  Input.location.lastData.timestamp);
         }
-
-        
-        
     }
-    
 }

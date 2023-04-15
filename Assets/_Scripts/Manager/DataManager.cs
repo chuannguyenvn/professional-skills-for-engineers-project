@@ -45,6 +45,14 @@ namespace _Scripts.Calendar
 
         public void AddTimeTable(TimeTable addingTimeTable)
         {
+            int index = _timeTableCollection.IndexOf(addingTimeTable);
+            if( index >= 0)
+            {
+                _timeTableCollection[index] = _timeTableCollection[^1];
+                _timeTableCollection[^1] = addingTimeTable;
+                return;
+            }
+            
             _timeTableCollection.Add(addingTimeTable);
             
             PlayerPrefs.SetInt(TIME_TABLE_COUNT_KEY, _timeTableCollection.Count);
@@ -54,7 +62,12 @@ namespace _Scripts.Calendar
 
         public void ClearTimeTableCollection()
         {
-            
+            for (int i = 0; i < _timeTableCollection.Count; i++)
+            {
+                PlayerPrefs.DeleteKey(TIME_TABLE_LIST_0_KEY + i.ToString());
+            }
+            PlayerPrefs.SetInt(TIME_TABLE_COUNT_KEY, 0);
+            _timeTableCollection = new List<TimeTable>();
         }
 
         public TimeTable GetTimeTable(int index = 0)
@@ -65,7 +78,7 @@ namespace _Scripts.Calendar
 
         public TimeTable GetLastTimeTable()
         {
-            return _timeTableCollection[^1] ;
+            return _timeTableCollection.Count != 0 ? _timeTableCollection[^1] : null;
         }
 
         

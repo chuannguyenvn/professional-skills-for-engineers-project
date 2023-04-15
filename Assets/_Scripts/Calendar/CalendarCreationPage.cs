@@ -37,6 +37,7 @@ namespace _Scripts.Calendar
         public void OnClearAll()
         {
             inputField.text = String.Empty;
+            DataManager.Instance.ClearTimeTableCollection();
         }
 
         public void OnInputCheck(string input)

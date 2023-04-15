@@ -3493,7 +3493,7 @@ MonoBehaviour:
   _startFadeDistance: 400
   _maxDistance: 500
   _maxDistanceBackgroundColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  _touchScreenMovementThreshold: 10
+  _touchScreenMovementThreshold: 1
 --- !u!1001 &524359189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16054,6 +16054,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7502095600434979851, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f21ea9fee1fb1a4198ba54d3b556781, type: 3}
 --- !u!33 &7818130253652089284

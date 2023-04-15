@@ -10,6 +10,7 @@ namespace _Scripts.Manager
     {
         [Header("TimeBlock Prefabs")]
         public TimeBlockSubject timeBlockSubject;
+        public TimeBlockSubject timeBlockOldSubject;
         public TimeBlockWeekGap timeBlockWeekGap;
 
         [Header("Map")]

@@ -190,7 +190,9 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false, bool isTopNorBottom = false)
     {
-        var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
+        TimeBlockSubject instantiateTimeBlock;
+        if (dateTime >= DateTime.Today) instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
+        else instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockOldSubject, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this, showDay);
         //Debug.Log("create timeblock "+ subject.name +" At " +dateTime.ToString());
         if (isTopNorBottom)
@@ -209,6 +211,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         }
         
     }
+    
 
     private void CreateTimeBlockWeekGap(DateTime dateTime,bool isTopNorBottom = false)
     {

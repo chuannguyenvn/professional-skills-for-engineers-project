@@ -10,13 +10,15 @@ namespace _Scripts.Calendar
         private int _semester;
         private int _year;
         private string _info;
+        public string originalText;
         public List<SubjectInfo> subjectInfos = new();
 
-        public TimeTable(int semester, int year, string info)
+        public TimeTable(int semester, int year, string info, string originalText)
         {
             _semester = semester;
             _year = year;
             _info = info;
+            this.originalText = originalText;
             DecodeInfo();
         }
 
@@ -36,6 +38,7 @@ namespace _Scripts.Calendar
             }
             
         }
+        
         
     }
 }

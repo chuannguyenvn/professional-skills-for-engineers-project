@@ -24,37 +24,30 @@ namespace _Scripts.Calendar
 
         void Start()
         {
-            //Adds a listener to the main input field and invokes a method when the value changes.
-            //inputField.onValueChanged.AddListener(delegate
-            //{
-            //InputCheck();
-            //    Test();
-            //});
+            
         }
 
         public void OnFastPaste()
         {
             string clipBoard = GUIUtility.systemCopyBuffer;
             inputField.text = clipBoard;
-            OnInputCheck();
+            OnInputCheck(inputField.text);
         }
 
         public void OnClearAll()
         {
             inputField.text = String.Empty;
-            OnInputCheck();
+            OnInputCheck(inputField.text);
         }
 
-        public void OnInputCheck()
+        public void OnInputCheck(string input)
         {
-            string text = inputField.text;
-
             // Instantiate the regular expression object.
             Regex r = new Regex(
                 @"Học kỳ (?<semester>\d) Năm học (?<yearFrom>\d+) - (?<yearTo>\d+)(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)[^(\n|\r|\r|\n)]*(\n|\r|\r|\n)(?<entries>(?:[^\a](?!Tổng số tín chỉ đăng ký))*)");
 
             // Match the regular expression pattern against a text string.
-            _semesterMatchCollection = r.Matches(text);
+            _semesterMatchCollection = r.Matches(input);
 
             if (_semesterMatchCollection.Count > 0)
             {
@@ -71,7 +64,7 @@ namespace _Scripts.Calendar
             int selectedSemester = semesterDropdown.value;
             GroupCollection groups = _semesterMatchCollection[selectedSemester].Groups;
             TimeTable timeTable = new TimeTable(Int32.Parse(groups["semester"].Value),
-                Int32.Parse(groups["yearFrom"].Value), groups["entries"].Value);
+                Int32.Parse(groups["yearFrom"].Value), groups["entries"].Value, groups[0].Value);
             DataManager.Instance.AddTimeTable(timeTable);
         }
 
@@ -91,14 +84,6 @@ namespace _Scripts.Calendar
             }
         }
 
-        private void SetCommentWarning()
-        {
-            comment.gameObject.SetActive(true);
-        }
-
-        private void SetActiveCommentFalse()
-        {
-            comment.gameObject.SetActive(false);
-        }
+        
     }
 }

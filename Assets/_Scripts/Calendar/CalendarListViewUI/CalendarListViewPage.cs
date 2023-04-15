@@ -33,7 +33,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
     public void OnEnterPage()
     {
         ClearAllTimeBlock();
-        GetSubjectInfo(DataManager.Instance.GetTimeTable());
+        GetSubjectInfo(DataManager.Instance.GetLastTimeTable());
         
         if(_displayingTimeTable == null) DisplayManyMedianWeeks(DateTime.Now, 10, 10);
         else DisplaySubjectInRange(_firstClassDate, _lastClassDate, true);

@@ -15,8 +15,7 @@ namespace _Scripts.Calendar
         [SerializeField] private TMP_Dropdown semesterDropdown;
 
         private MatchCollection _semesterMatchCollection;
-        
-        
+
         private void OnEnable()
         {
             
@@ -24,7 +23,8 @@ namespace _Scripts.Calendar
 
         void Start()
         {
-            
+            inputField.onDeselect.AddListener((input) => OnInputCheck(input));
+            inputField.onEndEdit.AddListener((input) => OnInputCheck(input));
         }
 
         public void OnFastPaste()
@@ -37,7 +37,6 @@ namespace _Scripts.Calendar
         public void OnClearAll()
         {
             inputField.text = String.Empty;
-            OnInputCheck(inputField.text);
         }
 
         public void OnInputCheck(string input)
@@ -70,18 +69,19 @@ namespace _Scripts.Calendar
 
         private void SetDropdownInfo()
         {
-            List<TMP_Dropdown.OptionData> semesterDropdownOptions = new List<TMP_Dropdown.OptionData>();
+            List<TMP_Dropdown.OptionData> semesterDropdownOptions = new ();
             Debug.Log("Found "+ _semesterMatchCollection.Count+ " Semesters");
             foreach (Match match in _semesterMatchCollection)
             {
-                TMP_Dropdown.OptionData semesterData = new TMP_Dropdown.OptionData();
+                TMP_Dropdown.OptionData semesterData = new ();
                 string yearFrom = match.Groups["yearFrom"].Value.Substring(match.Groups["yearFrom"].Value.Length - 2);
                 string semester = match.Groups["semester"].Value;
                 semesterData.text = "Học Kỳ " + yearFrom + semester;
                 semesterDropdownOptions.Add(semesterData);
 
-                semesterDropdown.options = semesterDropdownOptions;
             }
+            
+            semesterDropdown.options = semesterDropdownOptions;
         }
 
         

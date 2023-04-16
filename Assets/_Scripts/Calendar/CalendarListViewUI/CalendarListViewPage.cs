@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using _Scripts.Calendar;
 using _Scripts.Manager;
 using Unity.VisualScripting;
@@ -15,31 +16,46 @@ using UnityEngine;
 public class CalendarListViewPage : HorizontalSwipePageBase
 {
     [SerializeField] private RectTransform content;
-    
-    [Header("TimeBlock List")] 
-    [SerializeField] private int numberOfRenderingTimeBlock = 30;
 
-    [SerializeField, Range(0,0.5f)] private float bottomLoadPercentage = 0.2f;
-    [SerializeField, Range(0.5f,1)] private float topLoadPercentage = 0.8f;
+    [Header("TimeBlock List")] [SerializeField]
+    private int numberOfRenderingTimeBlock = 30;
+
+    [SerializeField, Range(0, 0.5f)] private float bottomLoadPercentage = 0.2f;
+    [SerializeField, Range(0.5f, 1)] private float topLoadPercentage = 0.8f;
     private int currentTopIndex, currentBottomIndex;
     private TimeTable _displayingTimeTable;
-    
-    [Header("Time Table Properties")] 
-    [SerializeField] private List<TimeBlock> timeBlocks = new();
-    private DateTime _firstClassDate, _lastClassDate;
-    private Dictionary<DateTime,SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
 
-    
+    [Header("Time Table Properties")] [SerializeField]
+    private List<TimeBlock> timeBlocks = new();
+
+    private DateTime _firstClassDate, _lastClassDate;
+    private Dictionary<DateTime, SubjectInfo> _dateTimeAndSubjectInfosDictionary = new();
+
+    private RectTransform _firstTimeBlockRectTransform = null;
+    private float _contentInitialYPos = float.PositiveInfinity;
+
     public void OnEnterPage()
     {
         ClearAllTimeBlock();
         GetSubjectInfo(DataManager.Instance.GetLastTimeTable());
-        
-        if(_displayingTimeTable == null) DisplayWeekInRange(  new DateTime(DateTime.Today.Year, 1, 1), new DateTime(DateTime.Today.Year, 12, 31));
+
+        if (_displayingTimeTable == null)
+            DisplayWeekInRange(new DateTime(DateTime.Today.Year, 1, 1), new DateTime(DateTime.Today.Year, 12, 31));
         else DisplaySubjectInRange(_firstClassDate, _lastClassDate, true);
-        
+
         currentTopIndex = timeBlocks.Count;
         currentBottomIndex = 0;
+
+        StartCoroutine(SetScrollPosToFirstBlock_CO());
+    }
+
+    private IEnumerator SetScrollPosToFirstBlock_CO()
+    {
+        yield return null;
+        if (float.IsInfinity(_contentInitialYPos))
+            _contentInitialYPos = -_firstTimeBlockRectTransform.anchoredPosition.y - 50;
+        content.anchoredPosition = new Vector2(content.anchoredPosition.x, _contentInitialYPos);
+        scrollRect.StopMovement();
     }
 
     public void OnOutPage()
@@ -52,34 +68,36 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         int topItemIndex = Mathf.RoundToInt(amount.y * (timeBlocks.Count));
 
         return;
-        Debug.Log("Change " + amount + " index "+ topItemIndex);
+        Debug.Log("Change " + amount + " index " + topItemIndex);
 
-        if ( (float)(currentTopIndex - topItemIndex)/timeBlocks.Count <= topLoadPercentage )
+        if ((float)(currentTopIndex - topItemIndex) / timeBlocks.Count <= topLoadPercentage)
         {
-            Debug.Log("Load more at the top"+ currentTopIndex+ " " + topItemIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the top" + currentTopIndex + " " + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[0];
-            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), firstTimeBlock.dateTime, false, true);
-            CreateTimeBlockWeekGap(firstTimeBlock.dateTime + new TimeSpan(-7,0,0,0), true);
+            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(-7, 0, 0, 0),
+                firstTimeBlock.dateTime,
+                false,
+                true);
+            CreateTimeBlockWeekGap(firstTimeBlock.dateTime + new TimeSpan(-7, 0, 0, 0), true);
             //firstIndex = Mathf.RoundToInt(oldCount  * (timeBlocks.Count));
         }
 
-        if ( (float)(topItemIndex - currentBottomIndex)/timeBlocks.Count <= bottomLoadPercentage)
+        if ((float)(topItemIndex - currentBottomIndex) / timeBlocks.Count <= bottomLoadPercentage)
         {
-            Debug.Log("Load more at the bottom "+ currentBottomIndex+" " + topItemIndex + " " + timeBlocks.Count);
+            Debug.Log("Load more at the bottom " + currentBottomIndex + " " + topItemIndex + " " + timeBlocks.Count);
             var firstTimeBlock = timeBlocks[^1];
-            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0), firstTimeBlock.dateTime);
-            CreateTimeBlockWeekGap(firstTimeBlock.dateTime + new TimeSpan(7,0,0,0));
+            DisplaySubjectInRange(firstTimeBlock.dateTime + new TimeSpan(7, 0, 0, 0), firstTimeBlock.dateTime);
+            CreateTimeBlockWeekGap(firstTimeBlock.dateTime + new TimeSpan(7, 0, 0, 0));
         }
     }
 
-    
+
     private void GetSubjectInfo(TimeTable timeTable)
     {
-        
         _dateTimeAndSubjectInfosDictionary = new();
         _displayingTimeTable = timeTable;
         if (_displayingTimeTable == null) return;
-        
+
         DateTime firstDateTime = DateTime.MaxValue;
         DateTime lastDateTime = DateTime.MinValue;
 
@@ -87,8 +105,9 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         {
             foreach (var dateTime in subjectInfo.classDateTimes)
             {
-                if(!_dateTimeAndSubjectInfosDictionary.ContainsKey(dateTime)) _dateTimeAndSubjectInfosDictionary.Add(dateTime, subjectInfo);
-                
+                if (!_dateTimeAndSubjectInfosDictionary.ContainsKey(dateTime))
+                    _dateTimeAndSubjectInfosDictionary.Add(dateTime, subjectInfo);
+
                 if (dateTime < firstDateTime)
                 {
                     firstDateTime = dateTime;
@@ -103,7 +122,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
         _firstClassDate = firstDateTime;
         _lastClassDate = lastDateTime;
-        
+
         //Debug.Log("First "+ _firstClassDate.ToString() + " Last " + _lastClassDate.ToString());
     }
 
@@ -115,22 +134,24 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             CreateTimeBlockWeekGap(index);
         }
     }
-    private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1, int numberOfFollowingWeek = 1 )
+
+    private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1,
+        int numberOfFollowingWeek = 1)
     {
         // Calculate the start and end dates of the current week
         DateTime startOfWeek = baseDateTime.Date.AddDays(-(int)baseDateTime.DayOfWeek + 1); //Start week is monday
         DateTime endOfWeek = startOfWeek.AddDays(6);
 
         // Calculate the start and end dates of the previous week
-        DateTime startOfPreviousWeek = startOfWeek.AddDays(-7* numberOfPreviousWeeks);
+        DateTime startOfPreviousWeek = startOfWeek.AddDays(-7 * numberOfPreviousWeeks);
         DateTime endOfPreviousWeek = endOfWeek.AddDays(-7 * numberOfPreviousWeeks);
 
         // Calculate the start and end dates of the following week
         DateTime startOfFollowingWeek = startOfWeek.AddDays(7);
         DateTime endOfFollowingWeek = endOfWeek.AddDays(7);
-        
-        
-        for (int i = 0 ; i< numberOfPreviousWeeks; i++)
+
+
+        for (int i = 0; i < numberOfPreviousWeeks; i++)
         {
             //DisplaySubjectInRange(startOfPreviousWeek, endOfPreviousWeek);
             CreateTimeBlockWeekGap(endOfPreviousWeek);
@@ -138,11 +159,11 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             startOfPreviousWeek = startOfPreviousWeek.AddDays(+7);
             endOfPreviousWeek = endOfPreviousWeek.AddDays(+7);
         }
-        
+
         //DisplaySubjectInRange(startOfWeek, endOfWeek);
         CreateTimeBlockWeekGap(endOfWeek);
-        
-        for (int i = 0 ; i< numberOfFollowingWeek; i++)
+
+        for (int i = 0; i < numberOfFollowingWeek; i++)
         {
             //DisplaySubjectInRange(startOfFollowingWeek, endOfFollowingWeek);
             CreateTimeBlockWeekGap(endOfFollowingWeek);
@@ -150,13 +171,10 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             startOfFollowingWeek = startOfFollowingWeek.AddDays(7);
             endOfFollowingWeek = endOfFollowingWeek.AddDays(7);
         }
-
-        // Set pivot at middle
-        content.pivot = new Vector2(0.5f, 0.5f);
-
     }
 
-    private void DisplaySubjectInRange(DateTime startTime, DateTime endTime, bool showWeekGap = false, bool isTopNorBottom = false)
+    private void DisplaySubjectInRange(DateTime startTime, DateTime endTime, bool showWeekGap = false,
+        bool isTopNorBottom = false)
     {
         List<KeyValuePair<DateTime, SubjectInfo>> valuesInRange = _dateTimeAndSubjectInfosDictionary
             .Where(kv => kv.Key >= startTime && kv.Key <= endTime)
@@ -164,7 +182,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             .ToList();
         // Calculate the start and end dates of the current week
         DateTime startOfWeek = startTime.Date.AddDays(-(int)startTime.DayOfWeek + 1); //Start week is monday
-        
+
         if (showWeekGap)
         {
             int index = 0;
@@ -176,26 +194,28 @@ public class CalendarListViewPage : HorizontalSwipePageBase
                 {
                     if (index > 0)
                     {
-                        CreateTimeBlockSubject(valuesInRange[index].Key, valuesInRange[index].Value, ShowDay(valuesInRange[index].Key, valuesInRange[index-1].Key));
+                        CreateTimeBlockSubject(valuesInRange[index].Key,
+                            valuesInRange[index].Value,
+                            ShowDay(valuesInRange[index].Key, valuesInRange[index - 1].Key));
                     }
                     else CreateTimeBlockSubject(valuesInRange[index].Key, valuesInRange[index].Value, true);
-                    
+
                     index++;
                 }
+
                 startOfWeek = nextWeek;
             }
-
         }
         else
         {
             foreach (var keyValuePair in valuesInRange)
             {
                 CreateTimeBlockSubject(keyValuePair.Key, keyValuePair.Value, false, isTopNorBottom);
-            }    
-        } 
-        
+            }
+        }
+
         // TODO: Set pivot to today
-        
+
         /*var closestTodayPair = valuesInRange.Aggregate(
             (x, y) => Math.Abs((x.Key - DateTime.Today).Ticks) < Math.Abs((y.Key - DateTime.Today).Ticks) ? x : y);
         var closestTodayTimeBlock= timeBlocks.Find((timeBlocks) => closestTodayPair.Key == timeBlocks.dateTime);
@@ -203,7 +223,6 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         Debug.Log("Closest " + closestTodayTimeBlock.dateTime);
         Debug.Log(closestTodayTimeBlock.rectTransform.anchoredPosition + " "+ closestTodayTimeBlock.rectTransform.rect.size + " "+ content.sizeDelta + " " +content.rect.size + " " + content.rect.center + " "+ content.anchoredPosition);
         */
-        
     }
 
     private bool ShowDay(DateTime current, DateTime before)
@@ -213,11 +232,17 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     #region Creation
 
-    private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false, bool isTopNorBottom = false)
+    private void CreateTimeBlockSubject(DateTime dateTime, SubjectInfo subject, bool showDay = false,
+        bool isTopNorBottom = false)
     {
         TimeBlockSubject instantiateTimeBlock;
-        if (dateTime >= DateTime.Today) instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
+        if (dateTime >= DateTime.Today)
+        {
+            instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockSubject, content.transform);
+            if (_firstTimeBlockRectTransform == null) _firstTimeBlockRectTransform = instantiateTimeBlock.rectTransform;
+        }
         else instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockOldSubject, content.transform);
+
         instantiateTimeBlock.GetComponent<TimeBlockSubject>().Init(dateTime, subject, this, showDay);
         //Debug.Log("create timeblock "+ subject.name +" At " +dateTime.ToString());
         if (isTopNorBottom)
@@ -225,20 +250,19 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
             currentTopIndex++;
-            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
+            if (timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
             currentBottomIndex--;
-            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
+            if (timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
-        
     }
-    
 
-    private void CreateTimeBlockWeekGap(DateTime dateTime,bool isTopNorBottom = false)
+
+    private void CreateTimeBlockWeekGap(DateTime dateTime, bool isTopNorBottom = false)
     {
         var instantiateTimeBlock = Instantiate(ResourceManager.Instance.timeBlockWeekGap, content.transform);
         instantiateTimeBlock.GetComponent<TimeBlockWeekGap>().Init(dateTime, this);
@@ -247,17 +271,17 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             instantiateTimeBlock.transform.SetAsFirstSibling();
             timeBlocks.Insert(0, instantiateTimeBlock);
             currentTopIndex++;
-            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
+            if (timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(false);
         }
         else
         {
             instantiateTimeBlock.transform.SetAsLastSibling();
             timeBlocks.Add(instantiateTimeBlock);
             currentBottomIndex--;
-            if(timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
+            if (timeBlocks.Count > numberOfRenderingTimeBlock) DestroyTimeBlock(true);
         }
-        
     }
+
     #endregion
 
     private void DestroyTimeBlock(bool isTopNorBottom)
@@ -274,9 +298,8 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             Destroy(timeBlocks[last].gameObject);
             timeBlocks.RemoveAt(last);
         }
-        
     }
-    
+
     private void ClearAllTimeBlock()
     {
         foreach (var timeBlock in timeBlocks)

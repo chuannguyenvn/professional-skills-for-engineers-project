@@ -17,43 +17,46 @@ public class TimeBlockSubject : TimeBlock
     [SerializeField] private Button navigationButton;
     [SerializeField] private TextMeshProUGUI dayOfWeek;
     [SerializeField] private TextMeshProUGUI date;
-    public void Init(DateTime dateTime, SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage, bool showDay = true)
+
+    public void Init(DateTime dateTime, SubjectInfo subjectInfo, CalendarListViewPage calendarListViewPage,
+        bool showDay = true)
     {
         this.dateTime = dateTime;
         this.subjectInfo = subjectInfo;
         _calendarListViewPage = calendarListViewPage;
         building = subjectInfo.building;
 
-        
+
         firstHeader.text = subjectInfo.name;
         if (building != null)
         {
-            secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" + subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
-                                subjectInfo.lessonEndHour.Hours + ":" + subjectInfo.lessonEndHour.Minutes.ToString("D2") +
-                                " tại "+ subjectInfo.building.buildingSo.buildingName +"-"+ subjectInfo.room;
+            secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" +
+                                subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
+                                subjectInfo.lessonEndHour.Hours + ":" +
+                                subjectInfo.lessonEndHour.Minutes.ToString("D2") + " at " +
+                                subjectInfo.building.buildingSo.buildingName + "-" + subjectInfo.room;
         }
         else
         {
-            secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" + subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
-                                subjectInfo.lessonEndHour.Hours + ":" + subjectInfo.lessonEndHour.Minutes.ToString("D2") +
-                                " tại nhà";
+            secondHeader.text = subjectInfo.lessonStartHour.Hours + ":" +
+                                subjectInfo.lessonStartHour.Minutes.ToString("D2") + " - " +
+                                subjectInfo.lessonEndHour.Hours + ":" +
+                                subjectInfo.lessonEndHour.Minutes.ToString("D2") + " (no location)";
             Destroy(navigationButton.gameObject);
         }
 
         if (showDay)
         {
-            dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0,3);
-            date.text = dateTime.Day.ToString()+ "/" + dateTime.Month; 
+            dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0, 3);
+            date.text = dateTime.Day.ToString() + "/" + dateTime.Month;
         }
         else
         {
             Destroy(dayOfWeek.gameObject);
             Destroy(date.gameObject);
         }
-        
-        navigationButton.onClick.AddListener(() => ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[]{building} ));
-    }
 
-    
-    
+        navigationButton.onClick.AddListener(() =>
+            ApplicationManager.Instance.SetState(AppState.Navigate, null, new object[] {building}));
+    }
 }

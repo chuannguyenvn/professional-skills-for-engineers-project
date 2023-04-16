@@ -82,7 +82,7 @@ public class SubjectInfo
     private DateTime CreateClassDateTimes(int week)
     {
         DateTime dateTime = FirstDateOfWeekIso8601(startYear, week);
-        dateTime = dateTime.AddDays(dayOfWeek - DayOfWeek.Sunday);
+        dateTime = dateTime.AddDays(dayOfWeek - DayOfWeek.Monday);
         dateTime = dateTime.Add(lessonStartHour);
 
         //Debug.Log(name + " date " + dateTime.ToString() + " dayOfWeek " + dayOfWeek + " start at " +lessonStartHour.ToString() + " end at " + lessonEndHour.ToString());

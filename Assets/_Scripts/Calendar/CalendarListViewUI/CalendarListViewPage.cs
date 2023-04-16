@@ -35,7 +35,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         ClearAllTimeBlock();
         GetSubjectInfo(DataManager.Instance.GetLastTimeTable());
         
-        if(_displayingTimeTable == null) DisplayManyMedianWeeks(DateTime.Now, 15, 15);
+        if(_displayingTimeTable == null) DisplayWeekInRange(  new DateTime(DateTime.Today.Year, 1, 1), new DateTime(DateTime.Today.Year, 12, 31));
         else DisplaySubjectInRange(_firstClassDate, _lastClassDate, true);
         
         currentTopIndex = timeBlocks.Count;
@@ -72,6 +72,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         }
     }
 
+    
     private void GetSubjectInfo(TimeTable timeTable)
     {
         
@@ -106,6 +107,14 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         //Debug.Log("First "+ _firstClassDate.ToString() + " Last " + _lastClassDate.ToString());
     }
 
+
+    private void DisplayWeekInRange(DateTime startTime, DateTime endTime)
+    {
+        for (DateTime index = startTime; index < endTime; index = index.AddDays(7))
+        {
+            CreateTimeBlockWeekGap(index);
+        }
+    }
     private void DisplayManyMedianWeeks(DateTime baseDateTime, int numberOfPreviousWeeks = 1, int numberOfFollowingWeek = 1 )
     {
         // Calculate the start and end dates of the current week
@@ -185,14 +194,16 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             }    
         } 
         
-        // Set pivot to today
+        // TODO: Set pivot to today
         
-        var closestTodayPair = valuesInRange.Aggregate(
+        /*var closestTodayPair = valuesInRange.Aggregate(
             (x, y) => Math.Abs((x.Key - DateTime.Today).Ticks) < Math.Abs((y.Key - DateTime.Today).Ticks) ? x : y);
         var closestTodayTimeBlock= timeBlocks.Find((timeBlocks) => closestTodayPair.Key == timeBlocks.dateTime);
         content.pivot = new Vector2(0.5f, closestTodayTimeBlock.rectTransform.anchoredPosition.y / content.sizeDelta.y );
         Debug.Log("Closest " + closestTodayTimeBlock.dateTime);
         Debug.Log(closestTodayTimeBlock.rectTransform.anchoredPosition + " "+ closestTodayTimeBlock.rectTransform.rect.size + " "+ content.sizeDelta + " " +content.rect.size + " " + content.rect.center + " "+ content.anchoredPosition);
+        */
+        
     }
 
     private bool ShowDay(DateTime current, DateTime before)

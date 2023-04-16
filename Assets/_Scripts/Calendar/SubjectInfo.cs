@@ -117,4 +117,18 @@ public class SubjectInfo
         // Subtract 3 days from Thursday to get Monday, which is the first weekday in ISO8601
         return result.AddDays(-3);
     }
+    
+    public static int WeekOfYearIso8601(DateTime date)
+    {
+        var cal = CultureInfo.CurrentCulture.Calendar;
+        int weekOfYear = cal.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+
+        // Handle the special case where the date falls in the last week of the previous year
+        if (weekOfYear >= 52 && date.Month == 1)
+        {
+            weekOfYear = 0;
+        }
+
+        return weekOfYear;
+    }
 }

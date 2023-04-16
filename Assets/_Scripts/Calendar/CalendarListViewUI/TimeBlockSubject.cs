@@ -43,7 +43,7 @@ public class TimeBlockSubject : TimeBlock
         if (showDay)
         {
             dayOfWeek.text = dateTime.DayOfWeek.ToString().Substring(0,3);
-            date.text = dateTime.Day.ToString();   
+            date.text = dateTime.Day.ToString()+ "/" + dateTime.Month; 
         }
         else
         {

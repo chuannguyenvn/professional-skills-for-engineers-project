@@ -187,12 +187,12 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         
         // Set pivot to today
         
-        //var closestTodayPair = valuesInRange.Aggregate(
-        //    (x, y) => Math.Abs((x.Key - DateTime.Today).Ticks) < Math.Abs((y.Key - DateTime.Today).Ticks) ? x : y);
-        //var closestTodayTimeBlock= timeBlocks.Find((timeBlocks) => closestTodayPair.Key == timeBlocks.dateTime);
-        //content.pivot = new Vector2(0.5f, closestTodayTimeBlock.rectTransform.anchoredPosition.y / content.sizeDelta.y );
-        //Debug.Log("Closest " + closestTodayTimeBlock.dateTime);
-        //Debug.Log(closestTodayTimeBlock.rectTransform.anchoredPosition + " "+ closestTodayTimeBlock.rectTransform.rect.size + " "+ content.sizeDelta + " " +content.rect.size + " " + content.rect.center + " "+ content.anchoredPosition);
+        var closestTodayPair = valuesInRange.Aggregate(
+            (x, y) => Math.Abs((x.Key - DateTime.Today).Ticks) < Math.Abs((y.Key - DateTime.Today).Ticks) ? x : y);
+        var closestTodayTimeBlock= timeBlocks.Find((timeBlocks) => closestTodayPair.Key == timeBlocks.dateTime);
+        content.pivot = new Vector2(0.5f, closestTodayTimeBlock.rectTransform.anchoredPosition.y / content.sizeDelta.y );
+        Debug.Log("Closest " + closestTodayTimeBlock.dateTime);
+        Debug.Log(closestTodayTimeBlock.rectTransform.anchoredPosition + " "+ closestTodayTimeBlock.rectTransform.rect.size + " "+ content.sizeDelta + " " +content.rect.size + " " + content.rect.center + " "+ content.anchoredPosition);
     }
 
     private bool ShowDay(DateTime current, DateTime before)

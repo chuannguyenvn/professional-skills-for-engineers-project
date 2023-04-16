@@ -35,7 +35,7 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         ClearAllTimeBlock();
         GetSubjectInfo(DataManager.Instance.GetLastTimeTable());
         
-        if(_displayingTimeTable == null) DisplayManyMedianWeeks(DateTime.Now, 10, 10);
+        if(_displayingTimeTable == null) DisplayManyMedianWeeks(DateTime.Now, 15, 15);
         else DisplaySubjectInRange(_firstClassDate, _lastClassDate, true);
         
         currentTopIndex = timeBlocks.Count;
@@ -123,24 +123,27 @@ public class CalendarListViewPage : HorizontalSwipePageBase
         
         for (int i = 0 ; i< numberOfPreviousWeeks; i++)
         {
-            DisplaySubjectInRange(startOfPreviousWeek, endOfPreviousWeek);
+            //DisplaySubjectInRange(startOfPreviousWeek, endOfPreviousWeek);
             CreateTimeBlockWeekGap(endOfPreviousWeek);
 
             startOfPreviousWeek = startOfPreviousWeek.AddDays(+7);
             endOfPreviousWeek = endOfPreviousWeek.AddDays(+7);
         }
         
-        DisplaySubjectInRange(startOfWeek, endOfWeek);
-        CreateTimeBlockWeekGap(startOfWeek);
+        //DisplaySubjectInRange(startOfWeek, endOfWeek);
+        CreateTimeBlockWeekGap(endOfWeek);
         
         for (int i = 0 ; i< numberOfFollowingWeek; i++)
         {
-            DisplaySubjectInRange(startOfFollowingWeek, endOfFollowingWeek);
+            //DisplaySubjectInRange(startOfFollowingWeek, endOfFollowingWeek);
             CreateTimeBlockWeekGap(endOfFollowingWeek);
 
             startOfFollowingWeek = startOfFollowingWeek.AddDays(7);
             endOfFollowingWeek = endOfFollowingWeek.AddDays(7);
         }
+
+        // Set pivot at middle
+        content.pivot = new Vector2(0.5f, 0.5f);
 
     }
 
@@ -182,6 +185,14 @@ public class CalendarListViewPage : HorizontalSwipePageBase
             }    
         } 
         
+        // Set pivot to today
+        
+        //var closestTodayPair = valuesInRange.Aggregate(
+        //    (x, y) => Math.Abs((x.Key - DateTime.Today).Ticks) < Math.Abs((y.Key - DateTime.Today).Ticks) ? x : y);
+        //var closestTodayTimeBlock= timeBlocks.Find((timeBlocks) => closestTodayPair.Key == timeBlocks.dateTime);
+        //content.pivot = new Vector2(0.5f, closestTodayTimeBlock.rectTransform.anchoredPosition.y / content.sizeDelta.y );
+        //Debug.Log("Closest " + closestTodayTimeBlock.dateTime);
+        //Debug.Log(closestTodayTimeBlock.rectTransform.anchoredPosition + " "+ closestTodayTimeBlock.rectTransform.rect.size + " "+ content.sizeDelta + " " +content.rect.size + " " + content.rect.center + " "+ content.anchoredPosition);
     }
 
     private bool ShowDay(DateTime current, DateTime before)

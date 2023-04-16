@@ -74,15 +74,11 @@ public class CalendarListViewPage : HorizontalSwipePageBase
 
     private void GetSubjectInfo(TimeTable timeTable)
     {
-        if (timeTable == null)
-        {
-            _displayingTimeTable = null;
-            ClearAllTimeBlock();
-            return;
-        }
         
         _dateTimeAndSubjectInfosDictionary = new();
         _displayingTimeTable = timeTable;
+        if (_displayingTimeTable == null) return;
+        
         DateTime firstDateTime = DateTime.MaxValue;
         DateTime lastDateTime = DateTime.MinValue;
 

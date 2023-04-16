@@ -17,8 +17,9 @@ namespace _Scripts.Map
         private Dictionary<PathfindingAlgorithm.Vertex, RoadIntersectionNode> _verticesToRoad = new();
 
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             InitBuildings();
             InitPlayer();
             InitVertexForRoadNodes();

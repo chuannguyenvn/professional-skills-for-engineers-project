@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75365a949c0c4d0785488868e4133343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Is3D: 0
-  BuildingHeight: 10
   polygon: {fileID: 8310519576054170066}
   polygonCollider2D: {fileID: 3839787227775742928}
+  entrances: []
+  Is3D: 0
+  BuildingHeight: 10
   buildingSo: {fileID: 11400000, guid: 2d6802f5023818f4bb7839eefd62cc2c, type: 2}
 --- !u!60 &3839787227775742928
 PolygonCollider2D:
@@ -80,9 +81,6 @@ PolygonCollider2D:
       - {x: -35.80211, y: -20.458344}
       - {x: -56.260456, y: 12.573364}
       - {x: -18.753483, y: 32.498947}
-    - []
-    - []
-    - []
 --- !u!1 &8795455917721150254
 GameObject:
   m_ObjectHideFlags: 0

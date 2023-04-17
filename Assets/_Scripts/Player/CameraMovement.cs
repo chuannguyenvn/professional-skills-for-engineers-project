@@ -6,10 +6,9 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : Singleton<CameraMovement>
 {
-    public bool IsStaticTouch => ! (isZooming || isDragging);
+    public bool IsStaticTouch => !(isZooming || isDragging);
 
-    [Header("Properties")]
-    private Camera _mainCamera;
+    [Header("Properties")] private Camera _mainCamera;
 
     private Vector2 touchStartScreenPosition;
     private Vector2 touchStartWorldPosition;
@@ -17,15 +16,15 @@ public class CameraMovement : Singleton<CameraMovement>
     private bool isZooming;
     private bool isDragging;
 
-    
-    [Header("Zooming")]
-    [SerializeField] private float zoomOutMin = 1;
+
+    [Header("Zooming")] [SerializeField] private float zoomOutMin = 1;
     [SerializeField] private float zoomOutMax = 8;
     [SerializeField] private float zoomSpeed = 1;
-    
-    
-    [Header("Camera Constraint")]
-    [SerializeField] private Vector2 _cameraCenter;
+
+
+    [Header("Camera Constraint")] [SerializeField]
+    private Vector2 _cameraCenter;
+
     [SerializeField] private float _startFadeDistance;
     [SerializeField] private float _maxDistance;
     [SerializeField] private Color _maxDistanceBackgroundColor;
@@ -50,13 +49,10 @@ public class CameraMovement : Singleton<CameraMovement>
 
     void Update()
     {
-        
-#if UNITY_EDITOR
-        MoveInEditor();
-#endif
-        
 #if UNITY_ANDROID
         MoveInAndroid();
+#else
+        MoveInEditor();
 #endif
     }
 
@@ -67,13 +63,13 @@ public class CameraMovement : Singleton<CameraMovement>
             case 1:
             {
                 Touch touchZero = Input.GetTouch(0);
-            
+
                 if (touchZero.phase == TouchPhase.Began || isZooming)
                 {
                     touchStartScreenPosition = touchZero.position;
                     touchStartWorldPosition = _mainCamera.ScreenToWorldPoint(touchZero.position);
                     isTouchStartedOverUI = IsPointerOverUIObject(touchZero.position);
-                    if(isZooming)
+                    if (isZooming)
                     {
                         isZooming = false;
                         isDragging = true; // It actually have been dragged in Zoom
@@ -84,14 +80,17 @@ public class CameraMovement : Singleton<CameraMovement>
                     Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(touchZero.position);
                     Vector2 cameraPos = _mainCamera.transform.position;
                     Vector2 offset = touchStartWorldPosition - worldMousePos;
-                    Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
+                    Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) +
+                                         _cameraCenter;
                     _mainCamera.transform.position = clampedPos.NewZ(_initialZ);
-            
+
                     float distanceFromCenter = Vector2.Distance(cameraPos, _cameraCenter);
                     float lerpValue = (distanceFromCenter - _startFadeDistance) / (_maxDistance - _startFadeDistance);
-                    _mainCamera.backgroundColor = Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
-            
-                    if (Vector2.Distance(touchStartScreenPosition, touchZero.position) > _touchScreenMovementThreshold) isDragging = true;
+                    _mainCamera.backgroundColor =
+                        Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
+
+                    if (Vector2.Distance(touchStartScreenPosition, touchZero.position) > _touchScreenMovementThreshold)
+                        isDragging = true;
                 }
 
                 break;
@@ -120,14 +119,14 @@ public class CameraMovement : Singleton<CameraMovement>
                 break;
         }
     }
-    
+
     void Zoom(float increment)
     {
         _mainCamera.orthographicSize =
             Mathf.Clamp(_mainCamera.orthographicSize - increment * zoomSpeed, zoomOutMin, zoomOutMax);
     }
 
-    
+
     private void MoveInEditor()
     {
         if (Input.GetMouseButtonDown(0))
@@ -136,20 +135,22 @@ public class CameraMovement : Singleton<CameraMovement>
             touchStartWorldPosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             isTouchStartedOverUI = IsPointerOverUIObject(Input.mousePosition);
         }
-        
+
         if (Input.GetMouseButton(0) && !isTouchStartedOverUI)
         {
             Vector2 worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2 cameraPos = _mainCamera.transform.position;
             Vector2 offset = touchStartWorldPosition - worldMousePos;
-            Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) + _cameraCenter;
+            Vector3 clampedPos = Vector2.ClampMagnitude(cameraPos + offset - _cameraCenter, _maxDistance) +
+                                 _cameraCenter;
             _mainCamera.transform.position = clampedPos.NewZ(_initialZ);
-            
+
             float distanceFromCenter = Vector2.Distance(cameraPos, _cameraCenter);
             float lerpValue = (distanceFromCenter - _startFadeDistance) / (_maxDistance - _startFadeDistance);
             _mainCamera.backgroundColor = Color.Lerp(_initialBackgroundColor, _maxDistanceBackgroundColor, lerpValue);
-            
-            if (Vector2.Distance(touchStartScreenPosition, Input.mousePosition) > _touchScreenMovementThreshold) isDragging = true;
+
+            if (Vector2.Distance(touchStartScreenPosition, Input.mousePosition) > _touchScreenMovementThreshold)
+                isDragging = true;
         }
 
         if (!Input.GetMouseButton(0))
@@ -160,7 +161,7 @@ public class CameraMovement : Singleton<CameraMovement>
 
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
-    
+
     public static bool IsPointerOverUIObject(Vector2 position)
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

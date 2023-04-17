@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: b10
   m_EditorClassIdentifier: 
   buildingName: B10
-  description: 
+  description: "Khoa qu\u1EA3n l\xFD c\xF4ng nghi\u1EC7p"
   descriptiveSprites: []
   geoCoordinate:
   - {x: 10.774086, y: 106.66134}

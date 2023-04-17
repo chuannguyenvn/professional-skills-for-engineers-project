@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: c6
   m_EditorClassIdentifier: 
   buildingName: C6
-  description: 
-  descriptiveSprites: []
+  description: BK English
+  descriptiveSprites:
+  - {fileID: 21300000, guid: c88efa183ff6fcd45b00f3754e29d27e, type: 3}
   geoCoordinate:
   - {x: 10.77604, y: 106.66012}
   - {x: 10.776034, y: 106.660126}

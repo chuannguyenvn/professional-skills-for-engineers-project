@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
   m_Name: BK Food Court
   m_EditorClassIdentifier: 
-  name: BK Food Court
+  buildingName: BK Food Court
+  description: "C\u0103n tin 1"
+  descriptiveSprites: []
   geoCoordinate:
   - {x: 10.773676, y: 106.65873}
   - {x: 10.773526, y: 106.65882}

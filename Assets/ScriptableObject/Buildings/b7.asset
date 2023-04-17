@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: b7
   m_EditorClassIdentifier: 
   buildingName: B7
-  description: 
+  description: "Tr\u1EA1m Y t\u1EBF"
   descriptiveSprites: []
   geoCoordinate:
   - {x: 10.77444, y: 106.66126}

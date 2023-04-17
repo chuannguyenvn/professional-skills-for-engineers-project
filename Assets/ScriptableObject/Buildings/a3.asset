@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: a3
   m_EditorClassIdentifier: 
   buildingName: A3
-  description: 
-  descriptiveSprites: []
+  description: "Khoa khoa h\u1ECDc v\xE0 k\u1EF9 thu\u1EADt m\xE1y t\xEDnh"
+  descriptiveSprites:
+  - {fileID: 21300000, guid: 795b06d6185538148a97b9b53a331ab0, type: 3}
   geoCoordinate:
   - {x: 10.77328, y: 106.66067}
   - {x: 10.773375, y: 106.66062}

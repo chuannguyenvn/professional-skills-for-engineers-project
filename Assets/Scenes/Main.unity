@@ -247,6 +247,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 1291815417}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &31028300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5543040184104797989, guid: a8e54848448afe743a01e33423b5f257, type: 3}
+  m_PrefabInstance: {fileID: 1014865536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &33089709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
@@ -449,12 +460,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
       value: 
       objectReference: {fileID: 1479859729}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1327850091}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: roadIntersectionNodes.Array.size
       value: 1
@@ -907,6 +922,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 16528455}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &135034015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3448535776126367992, guid: a8e54848448afe743a01e33423b5f257, type: 3}
+  m_PrefabInstance: {fileID: 1014865536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &137032259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4964830202512565874, guid: d4522c65b7786b248a7487da210a1b36, type: 3}
@@ -1101,7 +1127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
@@ -1115,6 +1141,10 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 1059165347}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1327850091}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: roadIntersectionNodes.Array.size
       value: 3
@@ -2832,7 +2862,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
@@ -2846,6 +2876,14 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 734609775}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 135034015}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[4]
+      value: 
+      objectReference: {fileID: 31028300}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 58
@@ -3864,7 +3902,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
@@ -3882,6 +3920,14 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[3]
       value: 
       objectReference: {fileID: 191801354}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[4]
+      value: 
+      objectReference: {fileID: 31028300}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[5]
+      value: 
+      objectReference: {fileID: 135034015}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: roadIntersectionNodes.Array.size
       value: 3
@@ -5893,12 +5939,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
       value: 
       objectReference: {fileID: 1755544068}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1969345068}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 59
@@ -7737,12 +7787,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
       value: 
       objectReference: {fileID: 450045686}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 31028300}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 135034015}
     - target: {fileID: 6456726546221246106, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: m_Name
       value: Road Node 57
@@ -8844,6 +8902,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75365a949c0c4d0785488868e4133343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1327850091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7781796657465589253, guid: 9a088accbffa08746aa3f3bf24a99f5a, type: 3}
+  m_PrefabInstance: {fileID: 168737732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1328145505 stripped
@@ -12005,12 +12074,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3101697645913144305, guid: 1ce81e466d20a904cad45d12a2c2a5a4, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3101697645913144305, guid: 1ce81e466d20a904cad45d12a2c2a5a4, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[1]
       value: 
       objectReference: {fileID: 2066915186}
+    - target: {fileID: 3101697645913144305, guid: 1ce81e466d20a904cad45d12a2c2a5a4, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1969345068}
     - target: {fileID: 4398521836753844038, guid: 1ce81e466d20a904cad45d12a2c2a5a4, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
       value: 4
@@ -13727,7 +13800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: adjacentRoadNodes.Array.data[0]
@@ -13741,6 +13814,14 @@ PrefabInstance:
       propertyPath: adjacentRoadNodes.Array.data[2]
       value: 
       objectReference: {fileID: 450045686}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 135034015}
+    - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
+      propertyPath: adjacentRoadNodes.Array.data[4]
+      value: 
+      objectReference: {fileID: 31028300}
     - target: {fileID: 6456726546221246105, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
       propertyPath: roadIntersectionNodes.Array.size
       value: 3
@@ -14507,6 +14588,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6456726546221246109, guid: 99aaf965f563cb7419f9cbd381b9ea9b, type: 3}
   m_PrefabInstance: {fileID: 992663115}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1969345068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6099915312325215916, guid: d4522c65b7786b248a7487da210a1b36, type: 3}
+  m_PrefabInstance: {fileID: 1776130653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5965e8bf1680946bf5d6e8c64eb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1976827709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6211941629079902215, guid: dc20d75c7beb46e4483307cb9acf8874, type: 3}

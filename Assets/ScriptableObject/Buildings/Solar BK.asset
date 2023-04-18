@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e5d13439b57aa4db2f04696ff09afe, type: 3}
   m_Name: Solar BK
   m_EditorClassIdentifier: 
-  name: Solar BK
+  buildingName: Solar BK
+  description: "qu\xE1n n\u01B0\u1EDBc"
+  descriptiveSprites:
+  - {fileID: 21300000, guid: e11700d2f537d824283726fdb698bf6c, type: 3}
   geoCoordinate:
   - {x: 10.774869, y: 106.660126}
   - {x: 10.774783, y: 106.66017}

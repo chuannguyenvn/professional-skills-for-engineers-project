@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: B6
   description: "Khoa K\u1EF9 thu\u1EADt X\xE2y D\u1EF1ng"
-  descriptiveSprites: []
+  descriptiveSprites:
+  - {fileID: 21300000, guid: 5a96503b6e289244893ef887c0bb9d92, type: 3}
+  - {fileID: 21300000, guid: bbd482bbdb79eb0479c827ec15f650de, type: 3}
   geoCoordinate:
   - {x: 10.773905, y: 106.6595}
   - {x: 10.773579, y: 106.658844}

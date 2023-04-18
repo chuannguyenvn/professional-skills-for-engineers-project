@@ -19,12 +19,10 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] private LayerMask roadNodeLayer;
     private List<RoadIntersectionNode> _roadJourney;
     private Building _destinationBuilding;
+
+    [Header("Icon")] [SerializeField] private GameObject _destinationIcon;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -47,16 +45,16 @@ public class PlayerNavigation : MonoBehaviour
     {
         isNavigating = false;
         StopCoroutine(CheckNavigation());
-        _roadJourney = null;
-        SetLineTrack();
+        VisualizeTrack(false);
     }
 
 
-    private void SetLineTrack()
+    private void VisualizeTrack(bool isActive)
     {
-        if (_roadJourney == null)
+        if (!isActive)
         {
             lineRenderer.positionCount = 0;
+            _destinationIcon.SetActive(false);
             return;
         }
         
@@ -69,7 +67,10 @@ public class PlayerNavigation : MonoBehaviour
         }
         
         lineRenderer.SetPositions(roadPositions);
+        _destinationIcon.SetActive(true);
+        _destinationIcon.transform.position = lineRenderer.GetPosition(0);
     }
+    
 
     private void ReCheckingShortestPath()
     {
@@ -125,7 +126,7 @@ public class PlayerNavigation : MonoBehaviour
         FindNearByRoadNode();
         yield return null;
         ReCheckingShortestPath();
-        SetLineTrack();
+        VisualizeTrack(true);
         
         yield return new WaitForSeconds(navigationUpdateCycleTime);
         

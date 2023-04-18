@@ -128,9 +128,10 @@ public class CameraMovement : Singleton<CameraMovement>
     {
         _mainCamera.orthographicSize =
             Mathf.Clamp(_mainCamera.orthographicSize - increment * zoomSpeed, zoomOutMin, zoomOutMax);
-        
-        player.transform.localScale = Vector3.one * _mainCamera.orthographicSize / _initialZoomSize;
-        
+
+        Vector3 scaleIcon = Vector3.one * _mainCamera.orthographicSize / _initialZoomSize;
+        player.transform.localScale = scaleIcon;
+        destinationIcon.transform.localScale = scaleIcon;
     }
 
 

@@ -8,23 +8,26 @@ public class CameraMovement : Singleton<CameraMovement>
 {
     public bool IsStaticTouch => !(isZooming || isDragging);
 
-    [Header("Properties")] private Camera _mainCamera;
-
+    [Header("Properties")] 
+    private Camera _mainCamera;
     private Vector2 touchStartScreenPosition;
     private Vector2 touchStartWorldPosition;
+    private float _initialZoomSize;
     private bool isTouchStartedOverUI;
     private bool isZooming;
     private bool isDragging;
 
-
-    [Header("Zooming")] [SerializeField] private float zoomOutMin = 1;
+    [Header("Scale GameObject")] 
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject destinationIcon;
+    
+    [Header("Zooming")] 
+    [SerializeField] private float zoomOutMin = 1;
     [SerializeField] private float zoomOutMax = 8;
     [SerializeField] private float zoomSpeed = 1;
 
-
     [Header("Camera Constraint")] [SerializeField]
     private Vector2 _cameraCenter;
-
     [SerializeField] private float _startFadeDistance;
     [SerializeField] private float _maxDistance;
     [SerializeField] private Color _maxDistanceBackgroundColor;
@@ -39,6 +42,7 @@ public class CameraMovement : Singleton<CameraMovement>
         _mainCamera = Camera.main;
         _initialBackgroundColor = _mainCamera.backgroundColor;
         _initialZ = transform.position.z;
+        _initialZoomSize = Camera.main.orthographicSize;
     }
 
     private void OnDrawGizmos()
@@ -124,6 +128,9 @@ public class CameraMovement : Singleton<CameraMovement>
     {
         _mainCamera.orthographicSize =
             Mathf.Clamp(_mainCamera.orthographicSize - increment * zoomSpeed, zoomOutMin, zoomOutMax);
+        
+        player.transform.localScale = Vector3.one * _mainCamera.orthographicSize / _initialZoomSize;
+        
     }
 
 

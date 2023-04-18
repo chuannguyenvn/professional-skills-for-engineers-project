@@ -30,6 +30,5 @@ public class RoadIntersectionNode : MonoBehaviour
                 
             if(roadNode.adjacentRoadNodes.Find(node => node == this ) == null ) roadNode.adjacentRoadNodes.Add(this);
         }
-    }
-    */
+    }*/
 }
